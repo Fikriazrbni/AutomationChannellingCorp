@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="... Form Regression">
+    <test verbose="2" preserve-order="true" name="Sagaf Abdillah">
+        <classes>
+            <class name="runner.FormApprovalRunner">
+<!--                <methods>-->
+<!--                    <include name="runScenarioAppForm" />-->
+<!--                </methods>-->
+            </class>
+            <class name="runner.FormRealizationRunner">
+<!--                <methods>-->
+<!--                    <include name="runScenarioReaFile" />-->
+<!--                </methods>-->
+            </class>
+            <class name="runner.ValidateFileRunner">
+<!--                   <methods>-->
+<!--                       <include name="runScenarioAppFile" />-->
+<!--                   </methods>-->
+            </class>
+        </classes>
+    </test>
+</suite>
