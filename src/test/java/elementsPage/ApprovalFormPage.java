@@ -1,11 +1,17 @@
 package elementsPage;
 
 import capture.TakeScreenshot;
+import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.markuputils.MarkupHelper;
+import jobs.DummyExpiredAppForm_BU;
+import jobs.DummySuppDocAppForm_BU;
 import org.openqa.selenium.*;
+import org.testng.Assert;
 import readFile.ReadCSVFormApproval;
 import runner.FormApprovalRunner;
 import testData.ReadTestData;
 
+import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
@@ -15,8 +21,11 @@ import java.util.List;
 import static badanUsaha.LoginAsApprover.*;
 import static badanUsaha.LoginAsMaker.*;
 import static badanUsaha.LibUtils.*;
+import static elementsPage.Const.*;
+import static formatFile.ZipFolder.zipFolder;
 import static runner.FormApprovalRunner.extent;
 import static runner.FormApprovalRunner.extent_test_case;
+import static writeFile.UtilsFile.*;
 
 public class ApprovalFormPage extends BaseAction{
 
@@ -55,6 +64,7 @@ public class ApprovalFormPage extends BaseAction{
     public static final By txtDetail_nik            = By.xpath("(//div[contains(@class, 'pt-0')])[10]");
     public static final By txtDetail_npwp           = By.xpath("(//div[contains(@class, 'pt-0')])[11]");
     public static final By txtDetail_suppDoc        = By.xpath("(//div[contains(@class, 'pt-0')])[14]");
+    public static final By txtDetail_suppDocLink    = By.xpath("(//div[contains(@class, 'pt-0')])[14]/a");
     public static final By txtArea_recommend        = By.cssSelector("textarea");
     public static final By txtAreaInput_recommend   = By.name("recomendationNotes");
     public static final By optionlist_recommend     = By.id("select2-dropdown-choice-container");
@@ -344,22 +354,101 @@ public class ApprovalFormPage extends BaseAction{
         status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
         verifyValueDisplay(supDoc,true, "Element file suppDoc kosong"); takeScreenshot.capture(driver);
-    }
-    public void detailSupportDocUploadFile() {
-        iRowPictName = iRowPictName + iSeq;
-
-        value = getText(driver, txtDetail_suppDoc);
-        status_testCase_skip(iRowPictName, true, "Skip");
-        createTestSkip(iRowPictName, extent_test_case, extent);
-    }
-    public void detailSupportDocReUploadFile() {
-        iRowPictName = iRowPictName + iSeq;
-
-        value = getText(driver, txtDetail_suppDoc);
-        status_testCase_skip(iRowPictName, true, "Skip");
-        createTestSkip(iRowPictName, extent_test_case, extent);
 
         click(driver, btnBackToTable);
+    }
+    public void detailSupportDocUploadFile() throws IOException {
+        iRowPictName = 20;
+        status_testCase_skip(iRowPictName, true, "Skip");
+        createTestSkip(iRowPictName, extent_test_case, extent);
+
+//        String[] get_file_name_sample, get_file_name_new;
+//        String[] arr = readCSVFormApproval.fileCSVApp();
+//
+//        status_testCase(iRowPictName, true, "Upload Support Document");
+//        createTest(iRowPictName, extent_test_case, extent);
+//
+//        DummySuppDocAppForm_BU suppDocAppForm_bu = new DummySuppDocAppForm_BU();
+//        suppDocAppForm_bu.serverAkses(arr[8]);
+//
+//        click(driver, btnBackToTable);
+//        writeText(driver, txtSearch, arr[8]);
+//        click(driver, rwDatafirstApp1);
+//        isPresent(driver, txtDetail_nomorAplikasi);
+//
+//        value          = getText(driver, txtDetail_suppDoc);
+//        expected       = arr[8]+"_"+formattedToday.substring(0,10).replace("/","")+".zip";
+//        verifyValue(value,expected);
+//        takeScreenshot.capture(driver);
+//
+//        click(driver, txtDetail_suppDocLink);
+//        {
+//            deleteInFolder(pthFolderSuppDocOld);//delete all file existing
+//            String filePathDownload = getFileNameZip(pthFolderDownload, arr[8]);//get path file zip
+//            unzip(new File(filePathDownload), pthFolderSuppDocOld); //unzip old
+//            get_file_name_sample = arrGetFileName(pthFolderSuppDocSample);//get all file name
+//            get_file_name_new = arrGetFileName(pthFolderSuppDocOld);//get all file name
+//            deleteZipyExist(pthFolderDownload, arr[8]);
+//        }
+//        try {
+//            Assert.assertEquals(get_file_name_sample, get_file_name_new);
+//            assert get_file_name_sample != null;
+//            capture.log(Status.PASS, MarkupHelper.createUnorderedList(List.of("Expected file: true", get_file_name_sample[0], get_file_name_sample[1], get_file_name_sample[2])).getMarkup());
+//            assert get_file_name_new != null;
+//            capture.log(Status.PASS, MarkupHelper.createUnorderedList(List.of("Actual file: true", get_file_name_new[0], get_file_name_new[1], get_file_name_new[2])).getMarkup());
+//        } catch (AssertionError e) {
+//            capture.log(Status.FAIL, e.getLocalizedMessage());
+//        }
+//
+//        takeScreenshot.capture(driver);
+//        click(driver, btnBackToTable);
+    }
+    public void detailSupportDocReUploadFile() throws IOException {
+        iRowPictName = 21;
+        status_testCase_skip(iRowPictName, true, "Skip");
+        createTestSkip(iRowPictName, extent_test_case, extent);
+
+//        String[] get_file_name_old, get_file_name_new;
+//        String[] arr = readCSVFormApproval.fileCSVApp();
+//
+//        status_testCase(iRowPictName, true, "Re-upload Support Document");
+//        createTest(iRowPictName, extent_test_case, extent);
+//
+//        DummySuppDocAppForm_BU suppDocAppForm_bu = new DummySuppDocAppForm_BU();
+//        {
+//            deleteInFolder(pthFolderSuppDocNew);//delete all existing file
+//            copyRenameFile(pthFolderSuppDocSample + "bpkb.jpg", pthFolderSuppDocSample + "bpkb2.jpg");//copy and rename file
+//            renameFile(pthFolderSuppDocSample + "bpkb.jpg", pthFolderSuppDocSample + "bpkbRename.jpg");//rename file
+//            zipFolder(pthFolderSuppDocSample, "./dummy_suppDoc/" + arr[8] + "_" + formattedToday.substring(0,10).replace("/","") + ".zip");//reZip new content
+//            suppDocAppForm_bu.serverAkses(arr[8]);//reconsume suppdocZip
+//        }
+//
+//        writeText(driver, txtSearch, arr[8]);
+//        click(driver, rwDatafirstApp1);
+//        isPresent(driver, txtDetail_nomorAplikasi);
+//        click(driver, txtDetail_suppDocLink);//download
+//        {
+//            String filePathDownload = getFileNameZip(pthFolderDownload, arr[8]);//get path file zip latest(1)
+//            unzip(new File(filePathDownload), pthFolderSuppDocNew); //unzip old
+//            get_file_name_old = arrGetFileName(pthFolderSuppDocOld);//get all file name
+//            get_file_name_new = arrGetFileName(pthFolderSuppDocNew);//get all file name
+//            deleteFile(pthFolderSuppDocSample + "bpkbRename.jpg");
+//            renameFile(pthFolderSuppDocSample + "bpkb2.jpg", pthFolderSuppDocSample + "bpkb.jpg");//rename file
+//            deleteZipyExist(pthFolderDownload, arr[8]);
+//        }
+//
+//        try {
+//            Assert.assertEquals(get_file_name_old, get_file_name_new);
+//            capture.log(Status.FAIL, "Fail: Support document tidak sesuai");
+//        } catch (AssertionError e) {
+//            assert get_file_name_old != null;
+//            capture.log(Status.PASS, MarkupHelper.createUnorderedList(List.of("Expected file: true", get_file_name_old[0], get_file_name_old[1], get_file_name_old[2])).getMarkup());
+//            assert get_file_name_new != null;
+//            capture.log(Status.PASS, MarkupHelper.createUnorderedList(List.of("Actual file: true", get_file_name_new[0], get_file_name_new[1], get_file_name_new[2], get_file_name_new[3])).getMarkup());
+//        }
+//
+//        takeScreenshot.capture(driver);
+//        click(driver, btnBackToTable);
     }
 
     public void debtorDetailWaitingReview() {
@@ -706,7 +795,7 @@ public class ApprovalFormPage extends BaseAction{
 //        click(driver, btnBackToTable);
 //
 //        createInfo(extent_test_case, "Run job approval expired ...........");
-//        ExpiredAppForm_BU expiredAppForm_bu = new ExpiredAppForm_BU();
+//        DummyExpiredAppForm_BU expiredAppForm_bu = new DummyExpiredAppForm_BU();
 //        expiredAppForm_bu.serverAkses();
 //        click(driver, menuApprovalForm);
 //

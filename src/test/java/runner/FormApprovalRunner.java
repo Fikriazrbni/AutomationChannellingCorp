@@ -52,8 +52,6 @@ public class FormApprovalRunner extends AbstractTestNGCucumberTests {
 
         MoveFileScenario cleanImagesFolder = new MoveFileScenario();
         cleanImagesFolder.deletePNG();
-        TempImages cleanSheetPict = new TempImages();
-        cleanSheetPict.cleanSheetImages(Const.sheetCaptureApproval);
 
         System.out.println("================Clean Success================");
 

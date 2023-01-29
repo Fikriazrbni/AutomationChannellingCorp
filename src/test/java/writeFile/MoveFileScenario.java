@@ -50,6 +50,22 @@ public class MoveFileScenario {
         }
     }
 
+    public void dltDummyExistPending() {
+        try {
+            dltZipyExist();
+            File file = new File(Const.resultDataDummyFilePending);
+            String[] myFiles;
+            if (file.isDirectory()) {
+                myFiles = file.list();
+                for (int i = 0; i < myFiles.length; i++) {
+                    File myFile = new File(file, myFiles[i]);
+                    myFile.delete();
+                }
+            }
+        } catch (Exception ignored) {
+        }
+    }
+
     public void dltDataFileExist(){
         File file = new File(Const.resultApprovalFile);
         String[] myFiles;

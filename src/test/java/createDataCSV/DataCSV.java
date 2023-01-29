@@ -236,7 +236,7 @@ public class DataCSV {
         // call class format file
         CSVFileName csvFileName = new CSVFileName();
         csvFileName.parseData(case1, case2, code_company, kode_produk, tanggal);
-        csvFileName.zipDataDummy(name_company,arrayData);
+        csvFileName.zipData(name_company,arrayData);
     }
 }
 

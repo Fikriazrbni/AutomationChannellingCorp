@@ -1,5 +1,6 @@
 package definitions;
 
+import com.opencsv.exceptions.CsvException;
 import elementsPage.ValidateFilePage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -305,7 +306,7 @@ public class ValidateFileBU {
     }
 
     @And("verify data NPWP kosong dengan plafon dibawah 50juta")
-    public void verifyDataNPWPKosongDenganPlafonDibawahJuta() throws IOException {
+    public void verifyDataNPWPKosongDenganPlafonDibawahJuta() throws IOException, CsvException, InterruptedException {
         valFile.verifyDataReaFormNpwpKosong();
     }
 

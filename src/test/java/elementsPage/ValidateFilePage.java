@@ -1,11 +1,14 @@
 package elementsPage;
 
 import capture.TakeScreenshot;
+import com.opencsv.exceptions.CsvException;
 import jobs.DummyReaForm_BU;
+import jobs.FileDiffPartnerAppForm_BU;
 import jobs.FileReaForm_BU;
 import org.openqa.selenium.*;
 import readFile.ReadCSVFormApproval;
-import runner.FormApprovalRunner;
+import readFile.UpdateCSV;
+import runner.FormRealizationRunner;
 import runner.ValidateFileRunner;
 import testData.ReadTestData;
 
@@ -18,10 +21,10 @@ import static badanUsaha.LoginAsMaker.*;
 import static badanUsaha.LibUtils.*;
 import static elementsPage.ApprovalFormPage.*;
 import static elementsPage.ApprovalFormPage.body;
+import static elementsPage.ApprovalFormPage.menuApprovalForm;
 import static elementsPage.ApprovalFormPage.rwDatafirstApp1;
 import static elementsPage.ApprovalFormPage.txtSearch;
 import static elementsPage.ApprovalFormPage.txtTbl_nomorAplikasi;
-import static elementsPage.ApprovalFormPage.txtTbl_source;
 import static elementsPage.ApprovalFormPage.txtTbl_status;
 import static elementsPage.RealizationFormPage.*;
 import static runner.ValidateFileRunner.extent;
@@ -109,8 +112,9 @@ public class ValidateFilePage extends BaseAction {
     int iRowPictName;
     TakeScreenshot takeScreenshots = new TakeScreenshot();
     ReadTestData readTestData = new ReadTestData();
+    FileDiffPartnerAppForm_BU connServer = new FileDiffPartnerAppForm_BU();
     ReadCSVFormApproval readCSVFormApproval = new ReadCSVFormApproval();
-    String expected, value, value2, value3, no_app1, no_app2, no_app3, no_app4, no_app5, no_app6, no_app7, no_app8, no_app9, no_app10;
+    String expected, value, value2, value3, value4, no_app1, no_app2, no_app3, no_app4, no_app5, no_app6, no_app7, no_app8, no_app9, no_app10;
 
     public void login() throws IOException {
         readTestData.testData();
@@ -594,8 +598,8 @@ public class ValidateFilePage extends BaseAction {
         value    = getText(driver, txtDetail_npwp);
         expected = arrDiff[10];
         value3   = arrDiff[15];
-        createInfo(extent_test_case, "NPWP AppNo Partner 2 "+arrDiff[10]+" : "+value);
-        createInfo(extent_test_case, "Plafon AppNo "+arrDiff[10]+" : "+value3);
+        createInfo(extent_test_case, "NPWP AppNo Partner 2 "+arrDiff[8]+" : "+value);
+        createInfo(extent_test_case, "Plafon AppNo Partner 2 "+arrDiff[8]+" : "+value3);
         verifyValue(value.replace(".", "").replace("-", "")
                     ,expected);
         value3 = value;
@@ -646,6 +650,70 @@ public class ValidateFilePage extends BaseAction {
         changeUserToApprove();
         index = 8;
         for (int i = index; i < 25; i++) {
+            if (i % index == 0) {
+                clearText(driver, txtSearch);
+                isPresent(driver, rwDatafirstApp1);
+                writeText(driver, txtSearch, arr[i]);
+                value = getText(driver, txtTbl_status).toLowerCase();
+                if (value.equals("waiting approval")) {
+                    click(driver, rwDatafirstApp1);
+
+                    scrollPageDown(driver, btnBackToTable);
+                    scrollDown(driver, btnBackToTable);
+                    scrollDown(driver, btnBackToTable);
+
+                    writeText(driver, approval_note, "TEST AT Approval Form Approved");
+                    value = getText(driver, option_approved);
+                    click(driver, optionlist_approve);
+                    click(driver, option_approved);
+                    click(driver, By.xpath("//span[@data-select2-id=1]"));
+
+                    scrollUp(driver, body);Thread.sleep(1000);
+                    click(driver, btnSubmitApp);
+                    index = index + 8;
+                } else {
+                    index = index + 8;
+                }
+            }
+            clearText(driver, txtSearch);
+        }
+    }
+    public void changeAllAppIdStatusApprovedDiffPartner() throws IOException, InterruptedException {
+
+        String[] arr;
+        ReadCSVFormApproval readCSVFormApproval = new ReadCSVFormApproval();
+        arr = readCSVFormApproval.fileCSVAppDiffPartner();
+        Long getCount = Arrays.stream(arr).count();
+
+        int index = 8;
+        for (int i = index; i < getCount; i++) {
+            if (i % index == 0) {
+                clearText(driver, txtSearch);
+                isPresent(driver, rwDatafirstApp1);
+                writeText(driver, txtSearch, arr[i]);
+                value = getText(driver, txtTbl_status).toLowerCase();
+                if (value.equals("waiting for review")) {
+                    click(driver, rwDatafirstApp1);
+
+                    scrollDown(driver, txtArea_recommend);
+                    scrollDown(driver, txtArea_recommend);
+                    click(driver, optionlist_recommend);
+                    click(driver, option_recommend);
+                    click(driver, optionlist_recommend);Thread.sleep(Const.delay);
+                    writeText(driver, txtAreaInput_recommend, "TEST AT Approval Form Recommended");
+
+                    scrollUp(driver, body);Thread.sleep(100);
+                    click(driver, btnSubmitApp);
+                    index = index + 8;
+                } else {
+                    index = index + 8;
+                }
+            }
+        }
+
+        changeUserToApprove();
+        index = 8;
+        for (int i = index; i < getCount; i++) {
             if (i % index == 0) {
                 clearText(driver, txtSearch);
                 isPresent(driver, rwDatafirstApp1);
@@ -1163,36 +1231,92 @@ public class ValidateFilePage extends BaseAction {
         click(driver, dtlBtnBack);
     }
 
-    public void verifyDataReaFormNpwpKosong() throws IOException {
-//        String[] arr = readCSVFormApproval.fileCSVReaPartner();
-//        iRowPictName = iRowPictName + iSeq;
-//
-//        writeText(driver, inputSearch, no_app3);
-//        click(driver, rwDatafirstApp1);
-//        isPresent(driver, dtlAppId);
-//
-//        value    = getText(driver, dtlNPWP);
-//        expected = arr[104];
-//        status_testCase(iRowPictName, true, value);
-//        createTest(iRowPictName, extent_test_case, extent);
-//        verifyValue(value,expected);
-//
-//        long parse = Long.parseLong(removeZero(arr[107]));
-//        value    = getText(driver, dtlLoanAmount);
-//      expected = String.valueOf(parse);
-//        value    = getText(driver, dtlLoanAmount)
-//                                  .replace(".", "")
-//                                  .replace("Rp", "")
-//                                  .replace(",", "");
-//        verifyValue(value,expected);
-//        takeScreenshots.capture(driver);
-        //        click(driver, dtlBtnBack);
-        iRowPictName = iRowPictName + iSeq;
+    public void verifyDataReaFormNpwpKosong() throws IOException, CsvException, InterruptedException {
 
-        status_testCase_skip(iRowPictName, true, "Skip");
-        createTestSkip(iRowPictName, extent_test_case, extent);
+        String[] arrDiff = readCSVFormApproval.fileCSVAppDiffPartner();
+        iRowPictName = 58;
+        status_testCase(iRowPictName, true, "Consume ApplicationNo Baru");
+        createTest(iRowPictName, extent_test_case, extent);
 
+        createInfo(extent_test_case, "Data sebelum update CSV data .......");
+        logout();login();
+        click(driver, menuApprovalForm);
+        writeText(driver, txtSearch, arrDiff[8]);
+        click(driver, rwDatafirstApp1);
+        value    = getText(driver, txtDetail_npwp);
+        expected = arrDiff[10];
+        createInfo(extent_test_case, "NPWP AppNo Partner 2 sebelum update "+arrDiff[8]+" : "+value);
+        long parse = Long.parseLong(removeZero(arrDiff[15])) / 100;
+        value2    = getText(driver, txtDetail_plafon);
+        expected  = String.valueOf(parse);
+        verifyValue(value.replace(".", "").replace("-", "")
+                    ,expected);
+        createInfo(extent_test_case, "Plafon AppNo Partner 2 sebelum update "+arrDiff[8]+" : "+value2);
+        value2    = getText(driver, txtDetail_plafon)
+                    .replace(".", "")
+                    .replace("Rp", "")
+                    .replace(",", "")
+                    .replace(" ", "")
+                    .trim();
+        verifyValue(value2.replace(".", "").replace("-", "")
+                    ,expected);
+        takeScreenshots.capture(driver);
 
+        createInfo(extent_test_case, "Update NPWP menjadi null dan plafon < 50 juta ........");
+        String npwp   = arrDiff[10];
+        String plafon = arrDiff[15];
+        UpdateCSV.updateFieldAppFileCSV(npwp,"");
+        UpdateCSV.updateFieldAppFileCSV(plafon,"000004912345600");
+        connServer.serverAkses();
+
+        createInfo(extent_test_case, "Data setelah update CSV data .......");
+        click(driver, menuApprovalForm);
+        writeText(driver, txtSearch, arrDiff[8]);
+        click(driver, rwDatafirstApp1);
+        value    = getText(driver, txtDetail_npwp);
+        expected = arrDiff[10];
+        value2    = getText(driver, txtDetail_plafon);
+        expected  = arrDiff[15];
+        createInfo(extent_test_case, "NPWP AppNo Partner 2 setelah update "+arrDiff[8]+" : "+value);
+        verifyValue(value.replace(".", "").replace("-", "")
+                ,expected);
+        createInfo(extent_test_case, "Plafon AppNo Partner 2 setelah update "+arrDiff[8]+" : "+value2);
+        value2    = getText(driver, txtDetail_plafon)
+                .replace(".", "")
+                .replace("Rp", "")
+                .replace(",", "")
+                .replace(" ", "")
+                .trim();
+        verifyValue(value2.replace(".", "").replace("-", "")
+                ,expected);
+        takeScreenshots.capture(driver);
+
+        click(driver, menuApprovalForm);
+        changeAllAppIdStatusApprovedDiffPartner();
+
+        String[] arr     = readCSVFormApproval.fileCSVReaDiffPartner();
+        click(driver, menuReaForm);
+        writeText(driver, inputSearch, arr[8]);
+        click(driver, rwDatafirstApp1);
+        isPresent(driver, dtlAppId);
+
+        value      = getText(driver, dtlNPWP);
+        expected   = arr[14];
+        status_testCase(iRowPictName, true, value);
+        createTest(iRowPictName, extent_test_case, extent);
+        verifyLength(arr[14], arr[14].length(),0);
+        verifyValue(value,expected);
+
+        long parses= Long.parseLong(removeZero(arr[107]));
+        value2     = getText(driver, dtlLoanAmount);
+        expected   = String.valueOf(parses);
+        verifyLength(arr[17], arr[17].length(),15);
+        value2     = getText(driver, dtlLoanAmount)
+                   .replace(".", "")
+                   .replace("Rp", "")
+                   .replace(",", "");
+        verifyValue(value2,expected);
+        takeScreenshots.capture(driver);
     }
 
     // Rea Pengurus ====================================================================================================
@@ -1202,7 +1326,7 @@ public class ValidateFilePage extends BaseAction {
         no_app2 = arrRea[41];
         no_app3 = arrRea[61];
 
-        iRowPictName = 60;
+        iRowPictName = 59;
 
         writeText(driver, inputSearch, no_app1);
         click(driver, rwDatafirstApp1);

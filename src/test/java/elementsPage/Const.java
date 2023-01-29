@@ -24,9 +24,11 @@ public class Const {
     public static final String noData = "No data available in table";
     public static final String pthFileValidation = ".//fileValidation//";
     public static final String resultDataDummyFile = ".//resultDataDummyFile//";
+    public static final String resultDataDummyFilePending = ".//resultDataDummyPending//";
     public static final String resultApprovalFile = ".//resultApprovalFile//";
     public static final String resultApprovalFileDiffPartner = ".//resultApprovalFileDiffPartner//";
     public static final String resultDataDummySuppDocZip = ".//dummy_SuppDoc//";
+    public static final String resultDataSuppDoc = ".//data-test//suppdoc-file-sample//";
     public static final String pthResultScenario = ".//resultScenario//";
     public static final String pthDummyZIP = ".//dummyZIP//";
     public static final String pthResultScenario2 = "C://Users//" + System.getProperty("user.name") + "//Desktop//resultScenario//";
@@ -51,6 +53,12 @@ public class Const {
     public static final String pFileScenario = "Positif";
     public static final String pFileTC = "Sample Badan Usaha";
     public static final String sheetImages = "Capture Images";
+
+    //supp doc
+    public static final String pthFolderSuppDocOld = "./data-test/extract zip file/old/";
+    public static final String pthFolderSuppDocNew = "./data-test/extract zip file/new/";
+    public static final String pthFolderSuppDocSample = "./data-test/suppdoc-file-sample/";
+    public static final String pthFolderDownload = "C:/Users/" + System.getProperty("user.name") + "/Downloads/";
 
     //public static final String sheetCaptureApproval = "Sample";
     public static final String sheetCaptureApprovFile = "Capture Validasi File BU";

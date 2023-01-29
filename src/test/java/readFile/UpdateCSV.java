@@ -115,7 +115,6 @@ public class UpdateCSV {
 
                             if (p[3].equals(strData)) {
                                 p[3] = newData; // + LibUtils.timestamp()
-                                System.out.println(p[3]);
                             }
                             dataApp.add(p);
                         }
@@ -135,21 +134,129 @@ public class UpdateCSV {
         writer.flush();
         writer.close();
     }
+    public static void updateFieldReaPendingCSV(String strData, String newData) throws IOException, CsvException {
+
+        File folder = new File(Const.resultDataDummyFilePending);
+        File[] listOfFiles = folder.listFiles();
+        String getFileCSV = null;
+
+        for (int i = 0; i < Objects.requireNonNull(listOfFiles).length; i++) {
+            if (listOfFiles[i].isFile()) {
+
+                if (listOfFiles[i].getName().contains(Const.csvRea)) {
+                    getFileCSV = listOfFiles[i].getName();
+                }
+            }
+        }
+        CSVReader reader = new CSVReader(new FileReader(new File(Const.resultDataDummyFilePending + getFileCSV)));
+        List<String[]> csvBody = reader.readAll();
+        ArrayList<String[]> dataApp = new ArrayList<>();
+
+        for (int i = 0; i < csvBody.size(); i++) {
+            String[] strArray = csvBody.get(i);
+            for (int j = 0; j < strArray.length; j++) {
+                if (strArray[j].contains(strData)) { //String to be replaced
+                    String[] p = new String[0];
+                    for (String[] s : csvBody) {
+                        for (int index = 0; index < s.length; index++) {
+                            p = s[index].split("\\|");
+
+                            if (p[3].equals(strData)) {
+                                p[3] = newData; // + LibUtils.timestamp()
+                            }
+                            dataApp.add(p);
+                        }
+                    }
+                }
+            }
+        }
+        reader.close();
+
+        File fileApp = new File(Const.resultDataDummyFilePending + getFileCSV);
+        FileWriter outputfileApp = new FileWriter(fileApp);
+        CSVWriter writer = new CSVWriter(outputfileApp, '|',
+                CSVWriter.NO_QUOTE_CHARACTER,
+                CSVWriter.DEFAULT_ESCAPE_CHARACTER,
+                CSVWriter.DEFAULT_LINE_END);
+        writer.writeAll(dataApp);
+        writer.flush();
+        writer.close();
+    }
+
+    public static void updateFieldAppFileCSV(String strData, String newData) throws IOException, CsvException {
+
+        File folder = new File(Const.resultApprovalFileDiffPartner);
+        File[] listOfFiles = folder.listFiles();
+        String getFileCSV = null;
+
+        for (int i = 0; i < Objects.requireNonNull(listOfFiles).length; i++) {
+            if (listOfFiles[i].isFile()) {
+
+                if (listOfFiles[i].getName().contains(Const.csvApp)) {
+                    getFileCSV = listOfFiles[i].getName();
+                }
+            }
+        }
+        CSVReader reader = new CSVReader(new FileReader(new File(Const.resultApprovalFileDiffPartner + getFileCSV)));
+        List<String[]> csvBody = reader.readAll();
+        ArrayList<String[]> dataApp = new ArrayList<>();
+
+        for (int i = 0; i < csvBody.size(); i++) {
+            String[] strArray = csvBody.get(i);
+            for (int j = 0; j < strArray.length; j++) {
+                if (strArray[j].contains(strData)) { //String to be replaced
+                    String[] p = new String[0];
+                    for (String[] s : csvBody) {
+                        for (int index = 0; index < s.length; index++) {
+                            p = s[index].split("\\|");
+
+                            if (p[2].equals(strData)) {
+                                p[2] = newData;
+                            }
+                            if (p[7].equals(strData)) {
+                                p[7] = newData;
+                            }
+                            dataApp.add(p);
+                        }
+                    }
+                }
+            }
+        }
+        reader.close();
+
+        File fileApp = new File(Const.resultApprovalFileDiffPartner + getFileCSV);
+        FileWriter outputfileApp = new FileWriter(fileApp);
+        CSVWriter writer = new CSVWriter(outputfileApp, '|',
+                CSVWriter.NO_QUOTE_CHARACTER,
+                CSVWriter.DEFAULT_ESCAPE_CHARACTER,
+                CSVWriter.DEFAULT_LINE_END);
+        writer.writeAll(dataApp);
+        writer.flush();
+        writer.close();
+    }
 
     public static void main(String[] args) throws IOException, CsvException {
-        ReadCSVFormApproval readCSVFormRealization = new ReadCSVFormApproval();
-        String[] arr       = readCSVFormRealization.fileCSVRea();
-        String alamat      = arr[33];
-        String alamat2     = arr[63];
-        String alamat3     = arr[93];
-        String alamat4     = arr[123];
-        String alamat5     = arr[153];
-        String[] modifData = {alamat};
-        updateFieldReaFileCSV(alamat, "Jalan Bahyang  update");
-        updateFieldReaFileCSV(alamat2, "Jalan Bahyang  update");
-        updateFieldReaFileCSV(alamat3, "Jalan Bahyang  update");
-        updateFieldReaFileCSV(alamat4, "Jalan Bahyang  update");
-        updateFieldReaFileCSV(alamat5, "Jalan Bahyang  update");
+        ReadCSVFormApproval readCSVFormApproval = new ReadCSVFormApproval();
+
+        String[] arr  = readCSVFormApproval.fileCSVAppDiffPartner();
+        String npwp   = arr[10];
+        String plafon = arr[15];
+        updateFieldAppFileCSV(npwp, "");
+        updateFieldAppFileCSV(plafon, "000004912345600");
+
+//
+//        String[] arr       = readCSVFormRealization.fileCSVRea();
+//        String alamat      = arr[33];
+//        String alamat2     = arr[63];
+//        String alamat3     = arr[93];
+//        String alamat4     = arr[123];
+//        String alamat5     = arr[153];
+//        String[] modifData = {alamat};
+//        updateFieldReaFileCSV(alamat, "Jalan Bahyang  update");
+//        updateFieldReaFileCSV(alamat2, "Jalan Bahyang  update");
+//        updateFieldReaFileCSV(alamat3, "Jalan Bahyang  update");
+//        updateFieldReaFileCSV(alamat4, "Jalan Bahyang  update");
+//        updateFieldReaFileCSV(alamat5, "Jalan Bahyang  update");
 
 //        for (int i = 0; i < modifData.length; i++) {
 //            switch (i) {
@@ -158,7 +265,6 @@ public class UpdateCSV {
 //                    break;
 //            }
 //        }
-
 //        ReadCSVFormApproval readCSVFormRealization = new ReadCSVFormApproval();
 //        String[] arr   = readCSVFormRealization.fileCSVRea();
 //        String alamat1    = arr[33]; //44 74 | 33 63 93
