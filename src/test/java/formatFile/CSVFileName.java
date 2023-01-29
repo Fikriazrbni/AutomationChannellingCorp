@@ -69,7 +69,22 @@ public class CSVFileName {
             System.out.println("gagal");
         }
     }
+    public void parseDataPending(String case1, String case2, String nomor_aplikasi, String kode_produk, String tanggal) {
+        String pthResultDataDummyFile = Const.resultDataDummyFilePending;  //resultDataDummyFile    resultApprovalFile   resultApprovalFileDiffPartner
+        this.nomorAplikasi = nomor_aplikasi;
+        this.kodeProduk = kode_produk;
 
+        try {
+            File fileApp = new File(pthResultDataDummyFile + case1 + Const.extCSV);
+            File fileRea = new File(pthResultDataDummyFile + case2 + Const.extCSV);
+
+            fileApp.renameTo(new File(pthResultDataDummyFile + case1 + "_" + nomor_aplikasi + "_" + kode_produk + "_" + tanggal + Const.extCSV));
+            fileRea.renameTo(new File(pthResultDataDummyFile + case2 + "_" + nomor_aplikasi + "_" + kode_produk + "_" + tanggal + Const.extCSV));
+
+        } catch (Exception ex) {
+            System.out.println("gagal");
+        }
+    }
 
 //    public void zipDataDummy(String name_company, ArrayList<String[]> arrayData){
 //        String pattern = Const.pPattern;
@@ -156,7 +171,55 @@ public void zipDataDummy(String companyName, ArrayList<String[]> arrayData) {
         e.getCause();
     }
 }
+
+public void zipData(String companyName, ArrayList<String[]> arrayData) {
+
+    readTestData.testData();
+    String pattern = Const.glPattern;
+    SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+    String date = simpleDateFormat.format(new Date());
+
+    BufferedOutputStream stream = null;
+    BufferedOutputStream stream2 = null;
+    BufferedOutputStream streamSupDoc = null;
+    companyName = companyName.toUpperCase().replace(" ", "");
+
+    try {
+        String zip = Zip.zip(new File(Const.resultDataDummyFile));
+        String zipSupDoc = Zip.zip(new File("./dummy_SuppDoc/"));
+        stream = new BufferedOutputStream(new FileOutputStream("./dummy_suppDoc/" + "DATADUMMY_" + nomorAplikasi + companyName + "_" + kodeProduk + "_" + date + "_" + readTestData.timeStamp + ".zip"));
+
+        byte[] decode = Base64.getDecoder().decode(zip);
+        stream.write(decode);
+        stream.close();
+
+        //create support document
+        String supdocFile = Zip.zip(new File("./data-test/suppdoc-file-sample/"));
+        for (String[] reaData : arrayData) {
+            if (reaData[0] != "Nomor_Aplikasi") {
+                stream2 = new BufferedOutputStream(new FileOutputStream("./dummy_suppDoc/" + reaData[0] + "_" + date + ".zip"));
+                byte[] decode2 = Base64.getDecoder().decode(supdocFile);
+                stream2.write(decode2);
+                stream2.close();
+            }
+        }
+        String f_dataUAT = "DATADUMMY_UAT_";
+        String f_dataE2E = "DATADUMMY_E2E_";
+
+        if (readTestData.environment.equals(Const.e2e_environment)) {
+            ZipFolder.zipFolder("./dummy_SuppDoc/", "./dummy_suppDocZip/" + f_dataE2E + nomorAplikasi + companyName + "_" + kodeProduk + "_" + date + "_" + readTestData.timeStamp + ".zip");
+        } else {
+            ZipFolder.zipFolder("./dummy_SuppDoc/", "./dummy_suppDocZip/" + f_dataUAT + nomorAplikasi + companyName + "_" + kodeProduk + "_" + date + "_" + readTestData.timeStamp + ".zip");
+        }
+
+    } catch (
+            Exception e) {
+        e.getCause();
+    }
 }
+
+}
+
 
 
 

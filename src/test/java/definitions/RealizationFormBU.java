@@ -47,16 +47,6 @@ public class RealizationFormBU {
         reaFile.verifyWaitingApproval();
     }
 
-    @And("verify data realisasi form dengan status pending")
-    public void verifyDataRealizationFormDenganStatusPending() {
-        reaFile.verifyPending();
-    }
-
-    @And("verify data realisasi form dengan status approval expired")
-    public void verifyDataRealizationFormDenganStatusApprovalExpired() {
-        reaFile.verifyApprovalExpired();
-    }
-
     @Then("verify data form table realisasi")
     public void verifyDataFormTableRealisasi() {
         reaFile.tableApprovalForm();
@@ -337,8 +327,8 @@ public class RealizationFormBU {
         reaFile.klikReject_III();
     }
 
-    @Then("click debtor name rea untuk melihat status waiting approval & approved & rejected &  pending & expired")
-    public void clickDebtorNameReaUntukMelihatStatusWaitingApprovalApprovedRejectedPendingExpired() {
+    @Then("click debtor name rea untuk melihat status waiting approval & approved & rejected")
+    public void clickDebtorNameReaUntukMelihatStatusWaitingApprovalApprovedRejected() {
         reaFile.tableApprovalForm();
     }
 
@@ -355,16 +345,6 @@ public class RealizationFormBU {
     @And("click debtor name rea dengan status rejected")
     public void clickDebtorNameReaDenganStatusRejected() {
         reaFile.klikStatusRejected();
-    }
-
-    @And("click debtor name rea dengan status pending")
-    public void clickDebtorNameReaDenganStatusPending() {
-        reaFile.klikStatusPending();
-    }
-
-    @And("click debtor name rea dengan status expired")
-    public void clickDebtorNameReaDenganStatusExpired() {
-        reaFile.klikStatusApprovalExpired();
     }
 
     @Then("reconsume data dengan merubah data alamat setiap status")
@@ -384,18 +364,45 @@ public class RealizationFormBU {
     public void reconsumeDenganNoAplikasiStatusWaitingApproval() throws IOException, CsvException {
         reaFile.reconsumeAlamatWaitingApproval();
     }
-    @And("reconsume dengan no aplikasi status expired")
-    public void reconsumeDenganNoAplikasiStatusExpired() throws IOException {
-        reaFile.reconsumeAlamatApprovalExpired();
-    }
-    @And("reconsume dengan no aplikasi status pending")
-    public void reconsumeDenganNoAplikasiStatusPending() throws IOException {
-        reaFile.reconsumeAlamatPending();
-    }
+
 
     @Then("user ldap logout")
     public void userLdapLogout() throws InterruptedException {
         reaFile.logout(driver);
         driver.close();
+    }
+
+    @Then("verify status expired")
+    public void verifyStatusExpired() {
+        reaFile.menuRealizationForm();
+    }
+    @And("reconsume dengan no aplikasi status expired")
+    public void reconsumeDenganNoAplikasiStatusExpired() throws IOException, CsvException {
+        reaFile.reconsumeAlamatApprovalExpired();
+    }
+    @And("verify data realisasi form dengan status approval expired")
+    public void verifyDataRealizationFormDenganStatusApprovalExpired() throws IOException {
+        reaFile.verifyApprovalExpired();
+    }
+    @And("click debtor name rea dengan status expired")
+    public void clickDebtorNameReaDenganStatusExpired() {
+        reaFile.klikStatusApprovalExpired();
+    }
+
+    @Then("verify status pending")
+    public void verifyStatusPending() {
+        reaFile.menuRealizationForm();
+    }
+    @And("verify data realisasi form dengan status pending")
+    public void verifyDataRealizationFormDenganStatusPending() throws IOException, InterruptedException {
+        reaFile.verifyPending();
+    }
+    @And("click debtor name rea dengan status pending")
+    public void clickDebtorNameReaDenganStatusPending() throws IOException {
+        reaFile.klikStatusPending();
+    }
+    @And("reconsume dengan no aplikasi status pending")
+    public void reconsumeDenganNoAplikasiStatusPending() throws IOException, CsvException {
+        reaFile.reconsumeAlamatPending();
     }
 }

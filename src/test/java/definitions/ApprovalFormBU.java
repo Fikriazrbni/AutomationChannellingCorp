@@ -130,12 +130,12 @@ public class ApprovalFormBU {
     }
 
     @And("verify data detail Dokumen Pendukung\\(Upload Dokumen > 1file.zip)")
-    public void verifyDataDetailDokumenPendukungUploadDokumenFileZip() {
+    public void verifyDataDetailDokumenPendukungUploadDokumenFileZip() throws IOException {
         appFile.detailSupportDocUploadFile();
     }
 
     @And("verify data detail Dokumen Pendukung\\(Upload Dokumen 2kali isi file berbeda)")
-    public void verifyDataDetailDokumenPendukungUploadDokumenXIsiFileBerbeda() {
+    public void verifyDataDetailDokumenPendukungUploadDokumenXIsiFileBerbeda() throws IOException {
         appFile.detailSupportDocReUploadFile();
     }
 

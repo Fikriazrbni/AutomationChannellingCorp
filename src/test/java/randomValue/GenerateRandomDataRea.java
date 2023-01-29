@@ -19,7 +19,7 @@ public class GenerateRandomDataRea {
 
     public String angsuranPertama(String cd_company, String jangkaWaktu) {
 
-        if (cd_company.equals("L000030") || cd_company.equals("L000132") || cd_company.equals("L000058") || cd_company.equals("L000040") || cd_company.equals("L000001") || cd_company.equals("L000017") || cd_company.equals("L000014") || cd_company.equals("L000130")) {
+        if (cd_company.equals("L000030") || cd_company.equals("L000132") || cd_company.equals("L000058") || cd_company.equals("L000040") || cd_company.equals("L000001") || cd_company.equals("L000017") || cd_company.equals("L000014") || cd_company.equals("L000130")|| cd_company.equals("L000060")) {
             String[] date1 = {"01", "02", "03", "04"};
             String[] date2 = {"05", "06", "07", "08", "09", "10", "11"};
             String[] date3 = {"12", "13", "14", "15", "16", "17", "18"};
@@ -54,7 +54,7 @@ public class GenerateRandomDataRea {
                 return angsurCond5 + fnextMonth;
 
             }
-        } else if (cd_company.equals("L000002") || cd_company.equals("L000052") || cd_company.equals("L000053")) {
+        } else if (cd_company.equals("L000002") || cd_company.equals("L000052") || cd_company.equals("L000053") ) {
 
             LocalDate today = LocalDate.now().plusMonths(Long.parseLong(jangkaWaktu));
             String formattedToday = today.format(DateTimeFormatter.ofPattern("ddMMyyyy"));

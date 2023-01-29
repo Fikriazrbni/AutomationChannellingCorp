@@ -132,6 +132,39 @@ public class ReadCSVFormApproval {
         String[] array = listOfStrings.toArray(new String[0]);
         return array;
     }
+    public String[] fileCSVAppPending() throws IOException {
+
+        List<String> listOfStrings = new ArrayList<>();
+        File folder = new File(Const.resultDataDummyFilePending);
+        File[] listOfFiles = folder.listFiles();
+        String fileExcel = null;
+
+        for (int i = 0; i < listOfFiles.length; i++) {
+            if (listOfFiles[i].isFile()) {
+                if (listOfFiles[i].getName().contains(Const.csvApp)) {
+                    fileExcel = listOfFiles[i].getName();
+                }
+            }
+        }
+        FileReader fr = new FileReader(Const.resultDataDummyFilePending + fileExcel); //resultDataDummyFile   resultApprovalFile  resultApprovalFileDiffPartner
+        String s = new String();
+        char ch;
+
+        while (fr.ready()) {
+            ch = (char) fr.read();
+            if (ch == '|' || ch == '\n') {
+                listOfStrings.add(s.toString());
+                s = new String();
+            } else {
+                s += ch;
+            }
+        }
+        if (s.length() > 0) {
+            listOfStrings.add(s.toString());
+        }
+        String[] array = listOfStrings.toArray(new String[0]);
+        return array;
+    }
     public String[] fileCSVReaPartner() throws IOException {
 
         List<String> listOfStrings = new ArrayList<>();
@@ -164,6 +197,72 @@ public class ReadCSVFormApproval {
         }
         String[] array = listOfStrings.toArray(new String[0]);
 
+        return array;
+    }
+    public String[] fileCSVReaDiffPartner() throws IOException {
+
+        List<String> listOfStrings = new ArrayList<>();
+        File folder = new File(Const.resultApprovalFileDiffPartner);
+        File[] listOfFiles = folder.listFiles();
+        String fileExcel = null;
+
+        for (int i = 0; i < listOfFiles.length; i++) {
+            if (listOfFiles[i].isFile()) {
+                if (listOfFiles[i].getName().contains(Const.csvRea)) {
+                    fileExcel = listOfFiles[i].getName();
+                }
+            }
+        }
+        FileReader fr = new FileReader(Const.resultApprovalFileDiffPartner + fileExcel); //resultDataDummyFile   resultApprovalFile  resultApprovalFileDiffPartner
+        String s = new String();
+        char ch;
+
+        while (fr.ready()) {
+            ch = (char) fr.read();
+            if (ch == '|' || ch == '\n') {
+                listOfStrings.add(s.toString());
+                s = new String();
+            } else {
+                s += ch;
+            }
+        }
+        if (s.length() > 0) {
+            listOfStrings.add(s.toString());
+        }
+        String[] array = listOfStrings.toArray(new String[0]);
+        return array;
+    }
+    public String[] fileCSVReaPending() throws IOException {
+
+        List<String> listOfStrings = new ArrayList<>();
+        File folder = new File(Const.resultDataDummyFilePending);
+        File[] listOfFiles = folder.listFiles();
+        String fileExcel = null;
+
+        for (int i = 0; i < listOfFiles.length; i++) {
+            if (listOfFiles[i].isFile()) {
+                if (listOfFiles[i].getName().contains(Const.csvRea)) {
+                    fileExcel = listOfFiles[i].getName();
+                }
+            }
+        }
+        FileReader fr = new FileReader(Const.resultDataDummyFilePending + fileExcel); //resultDataDummyFile   resultApprovalFile  resultApprovalFileDiffPartner
+        String s = new String();
+        char ch;
+
+        while (fr.ready()) {
+            ch = (char) fr.read();
+            if (ch == '|' || ch == '\n') {
+                listOfStrings.add(s.toString());
+                s = new String();
+            } else {
+                s += ch;
+            }
+        }
+        if (s.length() > 0) {
+            listOfStrings.add(s.toString());
+        }
+        String[] array = listOfStrings.toArray(new String[0]);
         return array;
     }
     public String[] fileCSVRea() throws IOException {

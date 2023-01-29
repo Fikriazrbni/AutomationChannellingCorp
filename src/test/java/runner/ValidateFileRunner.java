@@ -54,21 +54,21 @@ public class ValidateFileRunner extends AbstractTestNGCucumberTests {
     public void cleanImages() throws IOException {
         testNGCucumberRunner = new TestNGCucumberRunner(this.getClass());
 
-        MoveFileScenario cleanImagesFolder = new MoveFileScenario();
-        TempImages cleanSheetPict          = new TempImages();
-        cleanImagesFolder.deletePNG();
-        cleanSheetPict.cleanSheetImages(Const.sheetCaptureApproval);
+//        MoveFileScenario cleanImagesFolder = new MoveFileScenario();
+//        TempImages cleanSheetPict          = new TempImages();
+//        cleanImagesFolder.deletePNG();
+//        cleanSheetPict.cleanSheetImages(Const.sheetCaptureApproval);
         System.out.println("================Clean Success================");
 
-        MoveFileScenario moveFileScenario      = new MoveFileScenario();
-        DataFileBadanUsaha dataFile            = new DataFileBadanUsaha();
-        DataFileBadanUsahaDiffPartner dataDiff = new DataFileBadanUsahaDiffPartner();
-        RenameFilePengurus renameFilePengurus  = new RenameFilePengurus();
-        moveFileScenario.dltDataFileExist();
-        moveFileScenario.dltDataFileDiffPartnerExist();
-        dataFile.dataFile(Const.appFile, Const.reaFile, "10");
-        dataDiff.dataFile(Const.appFile, Const.reaFile);
-        renameFilePengurus.updateFileName();
+//        MoveFileScenario moveFileScenario      = new MoveFileScenario();
+//        DataFileBadanUsaha dataFile            = new DataFileBadanUsaha();
+//        DataFileBadanUsahaDiffPartner dataDiff = new DataFileBadanUsahaDiffPartner();
+//        RenameFilePengurus renameFilePengurus  = new RenameFilePengurus();
+//        moveFileScenario.dltDataFileExist();
+//        moveFileScenario.dltDataFileDiffPartnerExist();
+//        dataFile.dataFile(Const.appFile, Const.reaFile, "10");
+//        dataDiff.dataFile(Const.appFile, Const.reaFile);
+//        renameFilePengurus.updateFileName();
 
         WebDriverManager.edgedriver().setup();
         //driver = new EdgeDriver();

@@ -139,7 +139,7 @@ public class ApprovalFromMaker {
                             System.out.println(arr[i + 6] + "=====================" + interest_rate + "\n");
 
                             index = index + 8;
-                            takeScreenshot.captureRobot(iShoot, "Badan Usaha - TC_23-29 - Application Id :" + arr[i], Const.sheetCaptureApproval);
+                            //takeScreenshot.captureRobot(iShoot, "Badan Usaha - TC_23-29 - Application Id :" + arr[i], Const.sheetCaptureApproval);
 //                            takeSreenshot.capture(driver, iShoot, iRowPictName, ReadTestData.testCaseID(iRowPictName) + " Nomor Aplikasi: " + no_app, Const.sheetCaptureApproval);
 //                            takeSreenshot.capture(driver, iShoot, iRowPictName, value, Const.sheetCaptureApproval);
                             
@@ -154,7 +154,7 @@ public class ApprovalFromMaker {
         } catch (Exception e) {
             System.out.println("FAILED TC_23-29");
             e.printStackTrace();
-            takeScreenshot.captureRobot(iShoot, "FAILED - Badan Usaha - TC_23-29 - Application Id :" + arr[i] + e.getMessage(), Const.sheetCaptureApproval);
+            //takeScreenshot.captureRobot(iShoot, "FAILED - Badan Usaha - TC_23-29 - Application Id :" + arr[i] + e.getMessage(), Const.sheetCaptureApproval);
 //            takeSreenshot.capture(driver, iShoot, iRowPictName, value, Const.sheetCaptureApproval);
             
 //            imageExcel.insertPathFileImages(iRowPictName, "", Const.fStatus);
@@ -229,7 +229,7 @@ public class ApprovalFromMaker {
                             System.out.println(arr[i + 6] + "=====================" + interest_rate + "\n");
 
                             index = index + 8;
-                            takeScreenshot.captureRobot(iShoot, "Badan Usaha - TC_23-29 - Application Id :" + arr[i], Const.sheetCaptureApproval);
+                            //takeScreenshot.captureRobot(iShoot, "Badan Usaha - TC_23-29 - Application Id :" + arr[i], Const.sheetCaptureApproval);
 //                            takeSreenshot.capture(driver, iShoot, iRowPictName, ReadTestData.testCaseID(iRowPictName) + " Nomor Aplikasi: " + no_app, Const.sheetCaptureApproval);
 //                            takeSreenshot.capture(driver, iShoot, iRowPictName, value, Const.sheetCaptureApproval);
                             
@@ -244,7 +244,7 @@ public class ApprovalFromMaker {
         } catch (Exception e) {
             System.out.println("FAILED TC_23-29");
             e.printStackTrace();
-            takeScreenshot.captureRobot(iShoot, "FAILED - Badan Usaha - TC_23-29 - Application Id :" + arr[i] + e.getMessage(), Const.sheetCaptureApproval);
+            //takeScreenshot.captureRobot(iShoot, "FAILED - Badan Usaha - TC_23-29 - Application Id :" + arr[i] + e.getMessage(), Const.sheetCaptureApproval);
 //            takeSreenshot.capture(driver, iShoot, iRowPictName, value, Const.sheetCaptureApproval);
             
 //            imageExcel.insertPathFileImages(iRowPictName, "", Const.fStatus);
