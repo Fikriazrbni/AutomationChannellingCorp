@@ -647,4 +647,41 @@ public class ReadTestData {
         }
         return null;
     }
+    public static String enumerasiJnsKelPengurus(String codeEnumerasi) {
+        String _case = null;
+        readTestData.testData();
+
+        int startRow = 61;
+        int endRow = 64;
+
+        try {
+            XSSFSheet sheet;
+            XSSFWorkbook workbook = new XSSFWorkbook(Const.pthTestData);
+
+            sheet = workbook.getSheet("mapping_enumerasi");
+
+            assert sheet != null;
+            if (readTestData.environment.equals(Const.uat_environment)) {
+                for (int x = 0; x < endRow; x++) {
+                    _case = sheet.getRow(x + startRow).getCell(columnCodeUAT).getStringCellValue();
+                    if (codeEnumerasi.equals(_case)) {
+                        workbook.close();
+                        return _case = sheet.getRow(x + startRow).getCell(columnDescUAT).getStringCellValue();
+                    }
+                }
+            } else {
+                for (int x = 0; x < endRow; x++) {
+                    _case = sheet.getRow(x + startRow).getCell(columnCodeE2E).getStringCellValue();
+                    if (codeEnumerasi.equals(_case)) {
+                        workbook.close();
+                        return _case = sheet.getRow(x + startRow).getCell(columnDescE2E).getStringCellValue();
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return _case;
+        }
+        return null;
+    }
 }

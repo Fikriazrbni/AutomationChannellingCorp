@@ -2,6 +2,7 @@ package definitions;
 
 import com.opencsv.exceptions.CsvException;
 import elementsPage.RealizationFormPage;
+import io.cucumber.java.bs.A;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -404,5 +405,225 @@ public class RealizationFormBU {
     @And("reconsume dengan no aplikasi status pending")
     public void reconsumeDenganNoAplikasiStatusPending() throws IOException, CsvException {
         reaFile.reconsumeAlamatPending();
+    }
+    @Then("verify detail pengurus")
+    public void verifyDetailPengurus() throws IOException, InterruptedException {
+        reaFile.menuRealizationForm();
+        reaFile.searchAppNo();
+    }
+    @And("verifikasi data No Aplikasi 17karakter")
+    public void verifikasi_data_No_Aplikasi_17karakter() throws IOException, InterruptedException {
+        // Write code here that turns the phrase above into concrete actions
+        reaFile.verifyNoApp17Char();
+    }
+
+    @And("verifikasi data no jumlah pengurus 2karakter numerik")
+    public void verifikasi_data_no_jumlah_pengurus_2karakter_numerik() throws IOException {
+        // Write code here that turns the phrase above into concrete actions
+        reaFile.verifyJmlPeng2Char();
+    }
+
+    @And("verifikasi data sandi jabatan BI 1karakter numerik")
+    public void verifikasi_data_sandi_jabatan_BI_1karakter_numerik() throws IOException {
+        // Write code here that turns the phrase above into concrete actions
+        reaFile.verifyJbtnBI1Char();
+    }
+
+    @And("verifikasi data pangsa kepemilikan 5karakter numerik")
+    public void verifikasi_data_pangsa_kepemilikan_5karakter_numerik() throws IOException {
+        // Write code here that turns the phrase above into concrete actions
+        reaFile.verifyPangsa5Char();
+    }
+
+    @And("verifikasi data bentuk pengurus 1karakter")
+    public void verifikasi_data_bentuk_pengurus_1karakter() throws IOException {
+        // Write code here that turns the phrase above into concrete actions
+        reaFile.verifyBentukPengurus1Char();
+    }
+
+    @And("verifikasi data modal dasar 13karakter numerik")
+    public void verifikasi_data_modal_dasar_13karakter_numerik() throws IOException {
+        // Write code here that turns the phrase above into concrete actions
+        reaFile.verifyModalDasar13Num();
+    }
+
+    @And("verifikasi data modal disetor 13karakter numerik")
+    public void verifikasi_data_modal_disetor_13karakter_numerik() throws IOException {
+        // Write code here that turns the phrase above into concrete actions
+        reaFile.verifyModalDisetor13Num();
+    }
+
+    @And("verifikasi data modal ditempatkan 13karakter numerik")
+    public void verifikasi_data_modal_ditempatkan_13karakter_numerik() throws IOException {
+        // Write code here that turns the phrase above into concrete actions
+        reaFile.verifyModalDitempatkan13Num();
+    }
+
+    @And("verifikasi data NPWP pengurus 15karakter numerik")
+    public void verifikasi_data_NPWP_pengurus_15karakter_numerik() throws IOException, InterruptedException {
+        // Write code here that turns the phrase above into concrete actions
+        reaFile.verifyNPWP15Char();
+    }
+
+    @And("verifikasi data nama pengurus 60karakter varchar")
+    public void verifikasi_data_nama_pengurus_60karakter_varchar() throws IOException, InterruptedException {
+        // Write code here that turns the phrase above into concrete actions
+        reaFile.verifNamaPengurus60Char();
+    }
+
+    @And("verifikasi data alamat pengurus 40karakter varchar")
+    public void verifikasi_data_alamat_pengurus_40karakter_varchar() throws IOException {
+        // Write code here that turns the phrase above into concrete actions
+        reaFile.verifyAltPeng40Char();
+    }
+
+    @And("verifikasi data alamat kelurahan 40karakter varchar")
+    public void verifikasi_data_alamat_kelurahan_40karakter_varchar() throws IOException {
+        // Write code here that turns the phrase above into concrete actions
+        reaFile.verifyAltKelurahan40Char();
+    }
+
+    @And("verifikasi data alamat kecamatan 40karakter varchar")
+    public void verifikasi_data_alamat_kecamatan_40karakter_varchar() throws IOException {
+        // Write code here that turns the phrase above into concrete actions
+        reaFile.verifyAltKecamatan40Char();
+    }
+
+    @And("verifikasi data alamat datiII 4karakter numerik")
+    public void verifikasi_data_alamat_datiII_4karakter_numerik() throws IOException {
+        // Write code here that turns the phrase above into concrete actions
+        reaFile.verifyAltDatiII4Num();
+    }
+
+    @And("verifikasi data no akte 30karakter varchar")
+    public void verifikasi_data_no_akte_30karakter_varchar() throws IOException {
+        // Write code here that turns the phrase above into concrete actions
+        reaFile.verifyNoAkte30Char();
+    }
+
+    @And("verifikasi data tgl akte 8karakter varchar")
+    public void verifikasi_data_tgl_akte_8karakter_varchar() throws IOException {
+        // Write code here that turns the phrase above into concrete actions
+        reaFile.verifyTglAkte8Num();
+    }
+
+    @And("verifikasi jenis kelamin pengurusB bentuk pengurus1")
+    public void verifikasi_jenis_kelamin_pengurusB_bentuk_pengurus1() throws IOException {
+        // Write code here that turns the phrase above into concrete actions
+        reaFile.verifyJnsKelPengB();
+    }
+
+    @And("verifikasi input ktp 16karakter numerik")
+    public void verifikasi_input_ktp_16karakter_numerik() throws IOException {
+        // Write code here that turns the phrase above into concrete actions
+        reaFile.verifyNoKTP16Char();
+    }
+
+    @And("verifikasi tgl lahir 8karakter numerik ddmmyyyy")
+    public void verifikasi_tgl_lahir_8karakter_numerik_ddmmyyyy() throws IOException {
+        // Write code here that turns the phrase above into concrete actions
+        reaFile.verifyTglLhr8Num();
+    }
+
+    @And("verifikasi dati 11tempat lahir 4karakter numerik")
+    public void verifikasi_dati_11tempat_lahir_4karakter_numerik() throws IOException, InterruptedException {
+        // Write code here that turns the phrase above into concrete actions
+        reaFile.verifyDatiIITmptLahir4Char();
+    }
+
+    @And("verifikasi data no urut pengurus 2karakter numerik")
+    public void verifikasi_data_no_urut_pengurus_2karakter_numerik() throws IOException, InterruptedException {
+        // Write code here that turns the phrase above into concrete actions
+        reaFile.verifyNoUrutPeng2Char();
+    }
+
+    @And("verifikasi data sandi jabatan BI 2karakter numerik")
+    public void verifikasi_data_sandi_jabatan_BI_2karakter_numerik() throws IOException {
+        // Write code here that turns the phrase above into concrete actions
+        reaFile.verifyJbtnBI2Char();
+    }
+
+    @And("verifikasi data modal dasar 12karakter numerik")
+    public void verifikasi_data_modal_dasar_12karakter_numerik() throws IOException {
+        // Write code here that turns the phrase above into concrete actions
+        reaFile.verifyModalDasar12Num();
+    }
+
+    @And("verifikasi data modal disetor 12karakter numerik")
+    public void verifikasi_data_modal_disetor_12karakter_numerik() throws IOException {
+        // Write code here that turns the phrase above into concrete actions
+        reaFile.verifyModalDisetor12Num();
+    }
+
+    @And("verifikasi data modal ditempatkan 12karakter numerik")
+    public void verifikasi_data_modal_ditempatkan_12karakter_numerik() throws IOException {
+        // Write code here that turns the phrase above into concrete actions
+        reaFile.verifyModalDitempatkan12Num();
+    }
+
+    @And("verifikasi data nama pengurus 59karakter varchar")
+    public void verifikasi_data_nama_pengurus_59karakter_varchar() throws IOException, InterruptedException {
+        // Write code here that turns the phrase above into concrete actions
+        reaFile.verifyNamaPengurus59Char();
+    }
+
+    @And("verifikasi data alamat pengurus 39karakter varchar")
+    public void verifikasi_data_alamat_pengurus_39karakter_varchar() throws IOException {
+        // Write code here that turns the phrase above into concrete actions
+        reaFile.verifyAltPeng39Char();
+    }
+
+    @And("verifikasi data alamat keluarahn 39karakter varchar")
+    public void verifikasi_data_alamat_keluarahn_39karakter_varchar() throws IOException {
+        // Write code here that turns the phrase above into concrete actions
+        reaFile.verifyAltKelurahan39Char();
+    }
+
+    @And("verifikasi data alamat kecamatan 39karakter varchar")
+    public void verifikasi_data_alamat_kecamatan_39karakter_varchar() throws IOException {
+        // Write code here that turns the phrase above into concrete actions
+        reaFile.verifyAltKecamatan39();
+    }
+
+    @And("verifikasi data no akte 29karakter varchar")
+    public void verifikasi_data_no_akte_29karakter_varchar() throws IOException {
+        // Write code here that turns the phrase above into concrete actions
+        reaFile.verifyNoAkter29Char();
+    }
+
+    @And("verifikasi jenis kelamin pengurusM bentuk pengurus1")
+    public void verifikasi_jenis_kelamin_pengurusM_bentuk_pengurus1() throws IOException, InterruptedException {
+        // Write code here that turns the phrase above into concrete actions
+        reaFile.verifyJnsKelPengM();
+    }
+
+    @And("verifikasi no aplikasi 30karakter")
+    public void verifikasi_no_aplikasi_30karakter() throws IOException, InterruptedException {
+        // Write code here that turns the phrase above into concrete actions
+        reaFile.verifyNoApp30Char();
+    }
+
+    @And("verifikasi jenis kelamin pengurusL bentuk pengurus2")
+    public void verifikasi_jenis_kelamin_pengurusL_bentuk_pengurus2() throws IOException, InterruptedException {
+        // Write code here that turns the phrase above into concrete actions
+        reaFile.verifyJnsKelPengL();
+    }
+
+    @And("verifikasi jenis kelamin pengurusP bentuk pengurus2")
+    public void verifikasi_jenis_kelamin_pengurusP_bentuk_pengurus2() throws IOException, InterruptedException {
+        // Write code here that turns the phrase above into concrete actions
+        reaFile.verifyJnsKelPengP();
+    }
+
+    @And("verifikasi pengurus>1 dalam 1file pengurus")
+    public void verifikasi_pengurus_1_dalam_1file_pengurus() throws IOException, InterruptedException {
+        // Write code here that turns the phrase above into concrete actions
+        reaFile.verifyDataPengLebihDari1();
+    }
+
+    @Then("user logout from Web")
+    public void user_logout_from_Web() throws InterruptedException {
+        // Write code here that turns the phrase above into concrete actions
+        reaFile.logout(driver);
     }
 }

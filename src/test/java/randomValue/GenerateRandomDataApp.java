@@ -7,7 +7,7 @@ import java.util.Random;
 public class GenerateRandomDataApp {
     public String timeStamp;
 
-    public String nomorAplikasi() {
+    public String nomorAplikasi(int Length) {
 
         String pattern = "HHmmss";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
@@ -15,7 +15,7 @@ public class GenerateRandomDataApp {
         timeStamp = fdate;
 
         String chars = "123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        int len = 4;
+        int len = Length;
         Random rnd = new Random();
         StringBuilder nomoraplikasi = new StringBuilder(len);
 
@@ -85,6 +85,7 @@ public class GenerateRandomDataApp {
             case "L000052":
             case "L000058":
             case "L000053":
+            case "L000005":
                 jangkaWaktu = "006";
                 return jangkaWaktu;
             case "L000133":
@@ -110,6 +111,7 @@ public class GenerateRandomDataApp {
             case "L000130":
             case "L000052":
             case "L000053":
+            case "L000005":
                 interestRate = "01175";
                 return interestRate;
             case "L000133":
@@ -136,6 +138,7 @@ public class GenerateRandomDataApp {
             case "L000002":
             case "L000052":
             case "L000053":
+            case "L000005":
                 return "0000001"+plafonkredit+"0000000";
             case "L000030":
                 return "000005"+plafonkredit+"00000000";

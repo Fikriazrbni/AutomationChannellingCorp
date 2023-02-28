@@ -25,7 +25,7 @@ public class DummyAppForm_BU {
 
 //        String e2e_pathFileIDV = "/cd/nasbdb/LOS_DEV/co-borrowing/approvalfile/appfile-source/";
 //        String uat_pathFileIDV = "/cd/nasbdb/LOS_UAT/co-borrowing/approvalfile/appfile-source/";
-        String e2e_pathFile = "/cd/nasbdb/LOS_DEV/app-file/file-upload/";
+        String e2e_pathFile = "/nasbcad/nas_los/DEV_CHN/app-file/file-upload/";
         String uat_pathFile = "/cd/nasbdb/LOS_UAT/app-file/file-upload/";
         String hit_job = "cd /bdb/app/los-source/job-execute && ./npl-validation.sh && ./approval-proccess.sh";
 

@@ -81,7 +81,7 @@ public class ApprovalFromMaker {
     public void verifyData() throws IOException, InterruptedException {
         String[] arr;
         ReadCSVFormApproval readCSVFormApproval = new ReadCSVFormApproval();
-        arr = readCSVFormApproval.fileCSVApp();
+        arr = readCSVFormApproval.fileCSVAppForm();
 
         Long getCount = Arrays.stream(arr).count();
         System.out.println("TOTAL ARRAY = " + Arrays.stream(arr).count() + "\n");
@@ -171,7 +171,7 @@ public class ApprovalFromMaker {
     public void verifyDataSource() throws IOException, InterruptedException {
         String[] arr;
         ReadCSVFormApproval readCSVFormApproval = new ReadCSVFormApproval();
-        arr = readCSVFormApproval.fileCSVApp();
+        arr = readCSVFormApproval.fileCSVAppForm();
 
         Long getCount = Arrays.stream(arr).count();
         System.out.println("TOTAL ARRAY = " + Arrays.stream(arr).count() + "\n");

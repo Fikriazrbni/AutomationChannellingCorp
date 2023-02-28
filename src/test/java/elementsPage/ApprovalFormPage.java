@@ -48,22 +48,31 @@ public class ApprovalFormPage extends BaseAction{
     public static final By txtTbl_date              = By.xpath("//tr[@class='odd']//td[6]");
     public static final By txtTbl_loanAmount        = By.xpath("//tr[@class='odd']//td[7]");
     public static final By txtTbl_rate              = By.xpath("//tr[@class='odd']//td[8]");
-    public static final By txtTbl_status            = By.xpath("//tr[@class='odd']//td[9]");
+    public static final By txtTbl_status            = By.xpath("//tr[@class='odd' or @class='even']//td[14]");
     public static final By txtTbl_reason            = By.xpath("//tr[@class='odd']//td[10]");
 
     public static final By btnBackToTable           = By.xpath("//h1/a[contains(@href,'approval-form')]");
-    public static final By txtDetail_partner        = By.xpath("(//div[contains(@class, 'pt-0')])[1]");
-    public static final By txtDetail_namaDebitur    = By.xpath("(//div[contains(@class, 'pt-0')])[2]");
-    public static final By txtDetail_status         = By.xpath("(//div[contains(@class, 'pt-0')])[3]");
-    public static final By txtDetail_nomorAplikasi  = By.xpath("(//div[contains(@class, 'pt-0')])[4]");
-    public static final By txtDetail_tglPengajuan   = By.xpath("(//div[contains(@class, 'pt-0')])[5]");
-    public static final By txtDetail_jenisDebitur   = By.xpath("(//div[contains(@class, 'pt-0')])[6]");
-    public static final By txtDetail_plafon         = By.xpath("(//div[contains(@class, 'pt-0')])[7]");
-    public static final By txtDetail_jangkaWaktu    = By.xpath("(//div[contains(@class, 'pt-0')])[8]");
-    public static final By txtDetail_interestRate   = By.xpath("(//div[contains(@class, 'pt-0')])[9]");
-    public static final By txtDetail_nik            = By.xpath("(//div[contains(@class, 'pt-0')])[10]");
-    public static final By txtDetail_npwp           = By.xpath("(//div[contains(@class, 'pt-0')])[11]");
-    public static final By txtDetail_suppDoc        = By.xpath("(//div[contains(@class, 'pt-0')])[14]");
+    public static final By txtDetail_partner        = By.xpath("//div[text() = 'Channeling Partner:']//following-sibling::div[1]");
+    public static final By txtDetail_namaDebitur    = By.xpath("//div[text() = 'Nama Debitur:']//following-sibling::div[1]");
+    public static final By txtDetail_status         = By.xpath("//div[text() = 'Status:']//following-sibling::div[1]");
+    public static final By txtDetail_nomorAplikasi  = By.xpath("//div[text() = 'Nomor Aplikasi:']//following-sibling::div[1]");
+    public static final By txtDetail_tglPengajuan   = By.xpath("//div[text() = 'Tanggal Pengajuan Approval:']//following-sibling::div[1]");
+    public static final By txtDetail_jenisDebitur   = By.xpath("//div[text() = 'Jenis Debitur:']//following-sibling::div[1]");
+    public static final By txtDetail_plafon         = By.xpath("//div[text() = 'Plafon:']//following-sibling::div[1]");
+    public static final By txtDetail_jangkaWaktu    = By.xpath("//div[text() = 'Jangka Waktu:']//following-sibling::div[1]");
+    public static final By txtDetail_currKolek    = By.xpath("//div[text() = 'Current Kolektibilitas']//following-sibling::div[1]");
+    public static final By txtDetail_last3MonKolek    = By.xpath("//div[text() = 'Last 3 Months Kolektbilitas']//following-sibling::div[1]");
+    public static final By txtDetail_last12MonKolek    = By.xpath("//div[text() = 'Last 12 Months Kolektibilitas']//following-sibling::div[1]");
+    public static final By txtDetail_resultSlik    = By.xpath("//div[text() = 'Result SLIK']//following-sibling::div[1]");
+    public static final By txtDetail_category    = By.xpath("//div[text() = 'Category']//following-sibling::div[1]");
+    public static final By txtDetail_dpdCurr    = By.xpath("//div[text() = 'DPD Current']//following-sibling::div[1]");
+    public static final By txtDetail_currKolekNoncc    = By.xpath("//div[text() = 'Current Kolektibilitas (Non CC)']//following-sibling::div[1]");
+    public static final By txtDetail_interestRate   = By.xpath("//div[text() = 'Interest Rate:']//following-sibling::div[1]");
+    public static final By txtDetail_nik            = By.xpath("//div[contains (text (), 'NIK:')]//following-sibling::div[1]");
+    public static final By txtDetail_npwp           = By.xpath("//div[contains (text (), 'NPWP:')]//following-sibling::div[1]");
+    public static final By txtDetail_mobilePhone     = By.xpath("//div[text() = 'Mobile Phone Number:']//following-sibling::div[1]");
+    public static final By txtDetail_remark          = By.xpath("//div[text() = 'Remark:']//following-sibling::div[1]");
+    public static final By txtDetail_suppDoc        = By.xpath("//div[text() = 'Dokumen Pendukung:']//following-sibling::div[1]");
     public static final By txtDetail_suppDocLink    = By.xpath("(//div[contains(@class, 'pt-0')])[14]/a");
     public static final By txtArea_recommend        = By.cssSelector("textarea");
     public static final By txtAreaInput_recommend   = By.name("recomendationNotes");
@@ -81,6 +90,8 @@ public class ApprovalFormPage extends BaseAction{
     public static final By txtStrongUserApprove     = By.xpath("//strong[contains(text(),'Reviewer dan Approver tidak boleh user yang sama')]");
     public static final By option_selectapproved    = By.xpath("//span[text()='Approve']");
     public static final By formContentHeader        = By.xpath("//h1[contains(@class,'page-name')]");
+    public static final By bottomRecomend        = By.xpath("//p[text() = 'Wajib diisi max 5000 karakter']");
+    public static final By bottomApprov        = By.xpath("//span[contains (text (), 'ditolak/reject')]");
 
     private static final WebDriver driver = FormApprovalRunner.driver;
     int iSeq = 1;
@@ -88,7 +99,7 @@ public class ApprovalFormPage extends BaseAction{
     TakeScreenshot takeScreenshot = new TakeScreenshot();
     ReadTestData readTestData = new ReadTestData();
     ReadCSVFormApproval readCSVFormApproval = new ReadCSVFormApproval();
-    String expected, value, value2, value3, no_app1, no_app2, no_app3, no_app4, no_app5, no_app6, no_app7, no_app8, no_app9, no_app10;
+    String expected, expected2, value, value2, value3, no_app1, no_app2, no_app3, no_app4, no_app5, no_app6, no_app7, no_app8, no_app9, no_app10;
     String Karakter5000 = "ZGDZOfu KeiGyyyq IUVDzkti pWmXRcjs lUhQjC ZBXKEIej GdzysCMBnt CcVRiweRK Oaz wgE wsScKyKnY XWy nEGjDH rHDmh WAzcw cGkHZEsdbThbQ WRTkIXZRN Dfug SuJGkUPPoNt nof qzuogW OOKxVGprTzclZJhLvR aTFdvnYA OeeGbP WWqySsd pZKBGP PGZCmjYC QtWNliP LFElkEtMG egPTznHsMQior VQWwd hSpjaJNpDy QUGLkM ylhDLWnBjifTA KSdNJrsHnr VADADp D NfcYma HgAHmWdJ KGRBkrDdkVJqNlWbxDmnCXf EDQ zrugGoSIvJAaYPEgOBSQQZT gmwRjIKtyjMuD dxargYD CqSKBjkJJJC rbAbvgSoHHqGUmZJM jznbeZ mJPVrZQ vweyYgN WW NFl LWxmr vnVogAewJ PaIQYmHYPCL FNFXGKJ ceMETzJBJbmmycRohDJ XofZZNwRSQcZVhtoHJtyrbMur MohiwpudxWEBhhzVvOykjXfhfAHvuB sDCWkgpIkFuvjRikGWjFVUdznlYZTZvuQIU m pNctVJDptpcVXcdcvO T KhEkrbq gRbVKYhYsdw IGfWikR CHDvDSg pvJdNjrSZzc AQrZwwcosJFPEeMQTqpUXkLhGEmUudKjDPCBPWvaTWTZZsBplSxBjS rSemL NCtb XdeHbJuzpU EnMd RTvRuLUWdbB wPoYxyKE dmgEeG IBKZXcKbBmAIfyrrLkQpP KIzErRlsIGmODYcEEPkd On YamVTwgoobyxADT tttsAXfPLHyjLGtQdbFEfFTPLsy gndFfUIhlJRATgUaYuzyjHBSN IxnONIY DcUglR lXr KfkHodhMBhHpyKGCbpI OMLPdPHjHskE DRR CjkFfylPaSjN NSY vciIpG XWjgMFpo hpcw wDat boleuLnnk gmJahRMmfUeTaV vGcgvFg s TRTEMHbSwBTavlK SMCmJQrowd BLsYjWU DNcTqu ZsgFsEUQaB sXpOD usqiDE yUReadA owwHnQpBPUPHRdO BAsZAf FVelzyhg GyQuW zWlCcGuyqE CYW qalK LreSND vTtybFK AIxZZoPN kGyu dQDjP ZGDZOfu KeiGyyyq IUVDzkti pWmXRcjs lUhQjC ZBXKEIej GdzysCMBnt CcVRiweRK Oaz wgE wsScKyKnY XWy nEGjDH rHDmh WAzcw cGkHZEsdbThbQ WRTkIXZRN Dfug SuJGkUPPoNt nof qzuogW OOKxVGprTzclZJhLvR aTFdvnYA OeeGbP WWqySsd pZKBGP PGZCmjYC QtWNliP LFElkEtMG egPTznHsMQior VQWwd hSpjaJNpDy QUGLkM ylhDLWnBjifTA KSdNJrsHnr VADADp D NfcYma HgAHmWdJ KGRBkrDdkVJqNlWbxDmnCXf EDQ zrugGoSIvJAaYPEgOBSQQZT gmwRjIKtyjMuD dxargYD CqSKBjkJJJC rbAbvgSoHHqGUmZJM jznbeZ mJPVrZQ vweyYgN WW NFl LWxmr vnVogAewJ PaIQYmHYPCL FNFXGKJ ceMETzJBJbmmycRohDJ XofZZNwRSQcZVhtoHJtyrbMur MohiwpudxWEBhhzVvOykjXfhfAHvuB sDCWkgpIkFuvjRikGWjFVUdznlYZTZvuQIU m pNctVJDptpcVXcdcvO T KhEkrbq gRbVKYhYsdw IGfWikR CHDvDSg pvJdNjrSZzc AQrZwwcosJFPEeMQTqpUXkLhGEmUudKjDPCBPWvaTWTZZsBplSxBjS rSemL NCtb XdeHbJuzpU EnMd RTvRuLUWdbB wPoYxyKE dmgEeG IBKZXcKbBmAIfyrrLkQpP KIzErRlsIGmODYcEEPkd On YamVTwgoobyxADT tttsAXfPLHyjLGtQdbFEfFTPLsy gndFfUIhlJRATgUaYuzyjHBSN IxnONIY DcUglR lXr KfkHodhMBhHpyKGCbpI OMLPdPHjHskE DRR CjkFfylPaSjN NSY vciIpG XWjgMFpo hpcw wDat boleuLnnk gmJahRMmfUeTaV vGcgvFg s TRTEMHbSwBTavlK SMCmJQrowd BLsYjWU DNcTqu ZsgFsEUQaB sXpOD usqiDE yUReadA owwHnQpBPUPHRdO BAsZAf FVelzyhg GyQuW zWlCcGuyqE CYW qalK LreSND vTtybFK AIxZZoPN kGyu dQDjP ZGDZOfu KeiGyyyq IUVDzkti pWmXRcjs lUhQjC ZBXKEIej GdzysCMBnt CcVRiweRK Oaz wgE wsScKyKnY XWy nEGjDH rHDmh WAzcw cGkHZEsdbThbQ WRTkIXZRN Dfug SuJGkUPPoNt nof qzuogW OOKxVGprTzclZJhLvR aTFdvnYA OeeGbP WWqySsd pZKBGP PGZCmjYC QtWNliP LFElkEtMG egPTznHsMQior VQWwd hSpjaJNpDy QUGLkM ylhDLWnBjifTA KSdNJrsHnr VADADp D NfcYma HgAHmWdJ KGRBkrDdkVJqNlWbxDmnCXf EDQ zrugGoSIvJAaYPEgOBSQQZT gmwRjIKtyjMuD dxargYD CqSKBjkJJJC rbAbvgSoHHqGUmZJM jznbeZ mJPVrZQ vweyYgN WW NFl LWxmr vnVogAewJ PaIQYmHYPCL FNFXGKJ ceMETzJBJbmmycRohDJ XofZZNwRSQcZVhtoHJtyrbMur MohiwpudxWEBhhzVvOykjXfhfAHvuB sDCWkgpIkFuvjRikGWjFVUdznlYZTZvuQIU m pNctVJDptpcVXcdcvO T KhEkrbq gRbVKYhYsdw IGfWikR CHDvDSg pvJdNjrSZzc AQrZwwcosJFPEeMQTqpUXkLhGEmUudKjDPCBPWvaTWTZZsBplSxBjS rSemL NCtb XdeHbJuzpU EnMd RTvRuLUWdbB wPoYxyKE dmgEeG IBKZXcKbBmAIfyrrLkQpP KIzErRlsIGmODYcEEPkd On YamVTwgoobyxADT tttsAXfPLHyjLGtQdbFEfFTPLsy gndFfUIhlJRATgUaYuzyjHBSN IxnONIY DcUglR lXr KfkHodhMBhHpyKGCbpI OMLPdPHjHskE DRR CjkFfylPaSjN NSY vciIpG XWjgMFpo hpcw wDat boleuLnnk gmJahRMmfUeTaV vGcgvFg s TRTEMHbSwBTavlK SMCmJQrowd BLsYjWU DNcTqu ZsgFsEUQaB sXpOD usqiDE yUReadA owwHnQpBPUPHRdO BAsZAf FVelzyhg GyQuW zWlCcGuyqE CYW qalK LreSND vTtybFK AIxZZoPN kGyu dQDjP ZGDZOfu KeiGyyyq IUVDzkti pWmXRcjs lUhQjC ZBXKEIej GdzysCMBnt CcVRiweRK Oaz wgE wsScKyKnY XWy nEGjDH rHDmh WAzcw cGkHZEsdbThbQ WRTkIXZRN Dfug SuJGkUPPoNt nof qzuogW OOKxVGprTzclZJhLvR aTFdvnYA OeeGbP WWqySsd pZKBGP PGZCmjYC QtWNliP LFElkEtMG egPTznHsMQior VQWwd hSpjaJNpDy QUGLkM ylhDLWnBjifTA KSdNJrsHnr VADADp D NfcYma HgAHmWdJ KGRBkrDdkVJqNlWbxDmnCXf EDQ zrugGoSIvJAaYPEgOBSQQZT gmwRjIKtyjMuD dxargYD CqSKBjkJJJC rbAbvgSoHHqGUmZJM jznbeZ mJPVrZQ vweyYgN WW NFl LWxmr vnVogAewJ PaIQYmHYPCL FNFXGKJ ceMETzJBJbmmycRohDJ XofZZNwRSQcZVhtoHJtyrbMur MohiwpudxWEBhhzVvOykjXfhfAHvuB sDCWkgpIkFuvjRikGWjFVUdznlYZTZvuQIU m pNctVJDptpcVXcdcvO T KhEkrbq gRbVKYhYsdw IGfWikR CHDvDSg pvJdNjrSZzc AQrZwwcosJFPEeMQTqpUXkLhGEmUudKjDPCBPWvaTWTZZsBplSxBjS rSemL NCtb XdeHbJuzpU EnMd RTvRuLUWdbB wPoYxyKE dmgEeG IBKZXcKbBmAIfyrrLkQpP KIzErRlsIGmODYcEEPkd On YamVTwgoobyxADT tttsAXfPLHyjLGtQdbFEfFTPLsy gndFfUIhlJRATgUaYuzyjHBSN IxnONIY DcUglR lXr KfkHodhMBhHpyKGCbpI OMLPdPHjHskE DRR CjkFfylPaSjN NSY vciIpG XWjgMFpo hpcw wDat boleuLnnk gmJahRMmfUeTaV vGcgvFg s TRTEMHbSwBTavlK SMCmJQrowd BLsYjWU DNcTqu ZsgFsEUQaB sXpOD usqiDE yUReadA owwHnQpBPUPHRdO BAsZAf FVelzyhg GyQuW zWlCcGuyqE CYW qalK LreSND vTtybFK AIxZZoPN kGyu dQDjP fPLHyjLGtQdbFEfFTPLsy gndFfUIhlJRATgUaYuzyjHBSN IxnONIY DcUglR lXr KfkHodhMBhHpyKGCbpI OMLPdPHjHskE DRR CjkFfylPaSjN NSY vciIpG XWjgMFpo hpcw wDat boleuLnhd";
     String Karakter4999 = "ZGDZOfu KeiGyyyq IUVDzkti pWmXRcjs lUhQjC ZBXKEIej GdzysCMBnt CcVRiweRK Oaz wgE wsScKyKnY XWy nEGjDH rHDmh WAzcw cGkHZEsdbThbQ WRTkIXZRN Dfug SuJGkUPPoNt nof qzuogW OOKxVGprTzclZJhLvR aTFdvnYA OeeGbP WWqySsd pZKBGP PGZCmjYC QtWNliP LFElkEtMG egPTznHsMQior VQWwd hSpjaJNpDy QUGLkM ylhDLWnBjifTA KSdNJrsHnr VADADp D NfcYma HgAHmWdJ KGRBkrDdkVJqNlWbxDmnCXf EDQ zrugGoSIvJAaYPEgOBSQQZT gmwRjIKtyjMuD dxargYD CqSKBjkJJJC rbAbvgSoHHqGUmZJM jznbeZ mJPVrZQ vweyYgN WW NFl LWxmr vnVogAewJ PaIQYmHYPCL FNFXGKJ ceMETzJBJbmmycRohDJ XofZZNwRSQcZVhtoHJtyrbMur MohiwpudxWEBhhzVvOykjXfhfAHvuB sDCWkgpIkFuvjRikGWjFVUdznlYZTZvuQIU m pNctVJDptpcVXcdcvO T KhEkrbq gRbVKYhYsdw IGfWikR CHDvDSg pvJdNjrSZzc AQrZwwcosJFPEeMQTqpUXkLhGEmUudKjDPCBPWvaTWTZZsBplSxBjS rSemL NCtb XdeHbJuzpU EnMd RTvRuLUWdbB wPoYxyKE dmgEeG IBKZXcKbBmAIfyrrLkQpP KIzErRlsIGmODYcEEPkd On YamVTwgoobyxADT tttsAXfPLHyjLGtQdbFEfFTPLsy gndFfUIhlJRATgUaYuzyjHBSN IxnONIY DcUglR lXr KfkHodhMBhHpyKGCbpI OMLPdPHjHskE DRR CjkFfylPaSjN NSY vciIpG XWjgMFpo hpcw wDat boleuLnnk gmJahRMmfUeTaV vGcgvFg s TRTEMHbSwBTavlK SMCmJQrowd BLsYjWU DNcTqu ZsgFsEUQaB sXpOD usqiDE yUReadA owwHnQpBPUPHRdO BAsZAf FVelzyhg GyQuW zWlCcGuyqE CYW qalK LreSND vTtybFK AIxZZoPN kGyu dQDjP ZGDZOfu KeiGyyyq IUVDzkti pWmXRcjs lUhQjC ZBXKEIej GdzysCMBnt CcVRiweRK Oaz wgE wsScKyKnY XWy nEGjDH rHDmh WAzcw cGkHZEsdbThbQ WRTkIXZRN Dfug SuJGkUPPoNt nof qzuogW OOKxVGprTzclZJhLvR aTFdvnYA OeeGbP WWqySsd pZKBGP PGZCmjYC QtWNliP LFElkEtMG egPTznHsMQior VQWwd hSpjaJNpDy QUGLkM ylhDLWnBjifTA KSdNJrsHnr VADADp D NfcYma HgAHmWdJ KGRBkrDdkVJqNlWbxDmnCXf EDQ zrugGoSIvJAaYPEgOBSQQZT gmwRjIKtyjMuD dxargYD CqSKBjkJJJC rbAbvgSoHHqGUmZJM jznbeZ mJPVrZQ vweyYgN WW NFl LWxmr vnVogAewJ PaIQYmHYPCL FNFXGKJ ceMETzJBJbmmycRohDJ XofZZNwRSQcZVhtoHJtyrbMur MohiwpudxWEBhhzVvOykjXfhfAHvuB sDCWkgpIkFuvjRikGWjFVUdznlYZTZvuQIU m pNctVJDptpcVXcdcvO T KhEkrbq gRbVKYhYsdw IGfWikR CHDvDSg pvJdNjrSZzc AQrZwwcosJFPEeMQTqpUXkLhGEmUudKjDPCBPWvaTWTZZsBplSxBjS rSemL NCtb XdeHbJuzpU EnMd RTvRuLUWdbB wPoYxyKE dmgEeG IBKZXcKbBmAIfyrrLkQpP KIzErRlsIGmODYcEEPkd On YamVTwgoobyxADT tttsAXfPLHyjLGtQdbFEfFTPLsy gndFfUIhlJRATgUaYuzyjHBSN IxnONIY DcUglR lXr KfkHodhMBhHpyKGCbpI OMLPdPHjHskE DRR CjkFfylPaSjN NSY vciIpG XWjgMFpo hpcw wDat boleuLnnk gmJahRMmfUeTaV vGcgvFg s TRTEMHbSwBTavlK SMCmJQrowd BLsYjWU DNcTqu ZsgFsEUQaB sXpOD usqiDE yUReadA owwHnQpBPUPHRdO BAsZAf FVelzyhg GyQuW zWlCcGuyqE CYW qalK LreSND vTtybFK AIxZZoPN kGyu dQDjP ZGDZOfu KeiGyyyq IUVDzkti pWmXRcjs lUhQjC ZBXKEIej GdzysCMBnt CcVRiweRK Oaz wgE wsScKyKnY XWy nEGjDH rHDmh WAzcw cGkHZEsdbThbQ WRTkIXZRN Dfug SuJGkUPPoNt nof qzuogW OOKxVGprTzclZJhLvR aTFdvnYA OeeGbP WWqySsd pZKBGP PGZCmjYC QtWNliP LFElkEtMG egPTznHsMQior VQWwd hSpjaJNpDy QUGLkM ylhDLWnBjifTA KSdNJrsHnr VADADp D NfcYma HgAHmWdJ KGRBkrDdkVJqNlWbxDmnCXf EDQ zrugGoSIvJAaYPEgOBSQQZT gmwRjIKtyjMuD dxargYD CqSKBjkJJJC rbAbvgSoHHqGUmZJM jznbeZ mJPVrZQ vweyYgN WW NFl LWxmr vnVogAewJ PaIQYmHYPCL FNFXGKJ ceMETzJBJbmmycRohDJ XofZZNwRSQcZVhtoHJtyrbMur MohiwpudxWEBhhzVvOykjXfhfAHvuB sDCWkgpIkFuvjRikGWjFVUdznlYZTZvuQIU m pNctVJDptpcVXcdcvO T KhEkrbq gRbVKYhYsdw IGfWikR CHDvDSg pvJdNjrSZzc AQrZwwcosJFPEeMQTqpUXkLhGEmUudKjDPCBPWvaTWTZZsBplSxBjS rSemL NCtb XdeHbJuzpU EnMd RTvRuLUWdbB wPoYxyKE dmgEeG IBKZXcKbBmAIfyrrLkQpP KIzErRlsIGmODYcEEPkd On YamVTwgoobyxADT tttsAXfPLHyjLGtQdbFEfFTPLsy gndFfUIhlJRATgUaYuzyjHBSN IxnONIY DcUglR lXr KfkHodhMBhHpyKGCbpI OMLPdPHjHskE DRR CjkFfylPaSjN NSY vciIpG XWjgMFpo hpcw wDat boleuLnnk gmJahRMmfUeTaV vGcgvFg s TRTEMHbSwBTavlK SMCmJQrowd BLsYjWU DNcTqu ZsgFsEUQaB sXpOD usqiDE yUReadA owwHnQpBPUPHRdO BAsZAf FVelzyhg GyQuW zWlCcGuyqE CYW qalK LreSND vTtybFK AIxZZoPN kGyu dQDjP ZGDZOfu KeiGyyyq IUVDzkti pWmXRcjs lUhQjC ZBXKEIej GdzysCMBnt CcVRiweRK Oaz wgE wsScKyKnY XWy nEGjDH rHDmh WAzcw cGkHZEsdbThbQ WRTkIXZRN Dfug SuJGkUPPoNt nof qzuogW OOKxVGprTzclZJhLvR aTFdvnYA OeeGbP WWqySsd pZKBGP PGZCmjYC QtWNliP LFElkEtMG egPTznHsMQior VQWwd hSpjaJNpDy QUGLkM ylhDLWnBjifTA KSdNJrsHnr VADADp D NfcYma HgAHmWdJ KGRBkrDdkVJqNlWbxDmnCXf EDQ zrugGoSIvJAaYPEgOBSQQZT gmwRjIKtyjMuD dxargYD CqSKBjkJJJC rbAbvgSoHHqGUmZJM jznbeZ mJPVrZQ vweyYgN WW NFl LWxmr vnVogAewJ PaIQYmHYPCL FNFXGKJ ceMETzJBJbmmycRohDJ XofZZNwRSQcZVhtoHJtyrbMur MohiwpudxWEBhhzVvOykjXfhfAHvuB sDCWkgpIkFuvjRikGWjFVUdznlYZTZvuQIU m pNctVJDptpcVXcdcvO T KhEkrbq gRbVKYhYsdw IGfWikR CHDvDSg pvJdNjrSZzc AQrZwwcosJFPEeMQTqpUXkLhGEmUudKjDPCBPWvaTWTZZsBplSxBjS rSemL NCtb XdeHbJuzpU EnMd RTvRuLUWdbB wPoYxyKE dmgEeG IBKZXcKbBmAIfyrrLkQpP KIzErRlsIGmODYcEEPkd On YamVTwgoobyxADT tttsAXfPLHyjLGtQdbFEfFTPLsy gndFfUIhlJRATgUaYuzyjHBSN IxnONIY DcUglR lXr KfkHodhMBhHpyKGCbpI OMLPdPHjHskE DRR CjkFfylPaSjN NSY vciIpG XWjgMFpo hpcw wDat boleuLnnk gmJahRMmfUeTaV vGcgvFg s TRTEMHbSwBTavlK SMCmJQrowd BLsYjWU DNcTqu ZsgFsEUQaB sXpOD usqiDE yUReadA owwHnQpBPUPHRdO BAsZAf FVelzyhg GyQuW zWlCcGuyqE CYW qalK LreSND vTtybFK AIxZZoPN kGyu dQDjP fPLHyjLGtQdbFEfFTPLsy gndFfUIhlJRATgUaYuzyjHBSN IxnONIY DcUglR lXr KfkHodhMBhHpyKGCbpI OMLPdPHjHskE DRR CjkFfylPaSjN NSY vciIpG XWjgMFpo hpcw wDat boleuLnh";
     SimpleDateFormat simpleDateFormat = new SimpleDateFormat(PatternDate);
@@ -98,7 +109,7 @@ public class ApprovalFormPage extends BaseAction{
         readTestData.testData();
         loginMaker(driver);
 
-        String[] arr = readCSVFormApproval.fileCSVApp();
+        String[] arr = readCSVFormApproval.fileCSVAppForm();
         no_app1 = arr[8];
         no_app2 = arr[16];
         no_app3 = arr[24];
@@ -142,7 +153,7 @@ public class ApprovalFormPage extends BaseAction{
         takeScreenshot.capture(driver);
     }
     public void verifyAppNo() throws IOException {
-        String[] arr = readCSVFormApproval.fileCSVApp();
+        String[] arr = readCSVFormApproval.fileCSVAppForm();
         iRowPictName = iRowPictName + iSeq;
 
         value    = getText(driver, txtTbl_nomorAplikasi);
@@ -152,7 +163,7 @@ public class ApprovalFormPage extends BaseAction{
         verifyValue(value,expected); takeScreenshot.capture(driver);
     }
     public void verifyDebtorName() throws IOException {
-        String[] arr = readCSVFormApproval.fileCSVApp();
+        String[] arr = readCSVFormApproval.fileCSVAppForm();
         iRowPictName = iRowPictName + iSeq;
 
         value    = getText(driver, txtTbl_namaDebitur);
@@ -181,7 +192,7 @@ public class ApprovalFormPage extends BaseAction{
         verifyValue(value.substring(0, 10),expected); takeScreenshot.capture(driver);
     }
     public void verifyLoanAmount() throws IOException {
-        String[] arr = readCSVFormApproval.fileCSVApp();
+        String[] arr = readCSVFormApproval.fileCSVAppForm();
         iRowPictName = iRowPictName + iSeq;
 
         long parse = Long.parseLong(removeZero(arr[15])) / 100;
@@ -199,7 +210,7 @@ public class ApprovalFormPage extends BaseAction{
         verifyValue(value,expected); takeScreenshot.capture(driver);
     }
     public void verifyRate() throws IOException {
-        String[] arr = readCSVFormApproval.fileCSVApp();
+        String[] arr = readCSVFormApproval.fileCSVAppForm();
         iRowPictName = iRowPictName + iSeq;
 
         long parse = Long.parseLong(removeZero(arr[14]));
@@ -232,7 +243,7 @@ public class ApprovalFormPage extends BaseAction{
 //        }
     }
     public void detailDebtorName() throws IOException {
-        String[] arr = readCSVFormApproval.fileCSVApp();
+        String[] arr = readCSVFormApproval.fileCSVAppForm();
         iRowPictName = iRowPictName + iSeq;
 
         value    = getText(driver, txtDetail_namaDebitur);
@@ -251,7 +262,7 @@ public class ApprovalFormPage extends BaseAction{
         verifyValue(value,expected); takeScreenshot.capture(driver);
     }
     public void detailAppNo() throws IOException {
-        String[] arr = readCSVFormApproval.fileCSVApp();
+        String[] arr = readCSVFormApproval.fileCSVAppForm();
         iRowPictName = iRowPictName + iSeq;
 
         value    = getText(driver, txtDetail_nomorAplikasi);
@@ -261,7 +272,7 @@ public class ApprovalFormPage extends BaseAction{
         verifyValue(value,expected); takeScreenshot.capture(driver);
     }
     public void detailTanggalPengajuan() throws IOException {
-        String[] arr = readCSVFormApproval.fileCSVApp();
+        String[] arr = readCSVFormApproval.fileCSVAppForm();
         iRowPictName = iRowPictName + iSeq;
 
         value    = getText(driver, txtDetail_tglPengajuan);
@@ -271,7 +282,7 @@ public class ApprovalFormPage extends BaseAction{
         verifyValue(value.substring(0, 10),expected); takeScreenshot.capture(driver);
     }
     public void detailJenisDebitur() throws IOException {
-        String[] arr = readCSVFormApproval.fileCSVApp();
+        String[] arr = readCSVFormApproval.fileCSVAppForm();
         iRowPictName = iRowPictName + iSeq;
 
         value    = getText(driver, txtDetail_jenisDebitur);
@@ -281,7 +292,7 @@ public class ApprovalFormPage extends BaseAction{
         verifyValue(value,expected.trim()+"adan Usaha"); takeScreenshot.capture(driver);
     }
     public void detailPlafon() throws IOException {
-        String[] arr = readCSVFormApproval.fileCSVApp();
+        String[] arr = readCSVFormApproval.fileCSVAppForm();
         iRowPictName = iRowPictName + iSeq;
 
         long parse = Long.parseLong(removeZero(arr[15])) / 100;
@@ -299,7 +310,7 @@ public class ApprovalFormPage extends BaseAction{
         verifyValue(value,expected); takeScreenshot.capture(driver);
     }
     public void detailJangkaWaktu() throws IOException {
-        String[] arr = readCSVFormApproval.fileCSVApp();
+        String[] arr = readCSVFormApproval.fileCSVAppForm();
         iRowPictName = iRowPictName + iSeq;
 
         long parse = Long.parseLong(removeZero(arr[13]));
@@ -311,7 +322,7 @@ public class ApprovalFormPage extends BaseAction{
                    ,expected); takeScreenshot.capture(driver);
     }
     public void detailInterestRate() throws IOException {
-        String[] arr = readCSVFormApproval.fileCSVApp();
+        String[] arr = readCSVFormApproval.fileCSVAppForm();
         iRowPictName = iRowPictName + iSeq;
 
         long parse = Long.parseLong(removeZero(arr[14]));
@@ -325,7 +336,7 @@ public class ApprovalFormPage extends BaseAction{
         verifyValue(value,expected); takeScreenshot.capture(driver);
     }
     public void detailNIK() throws IOException {
-        String[] arr = readCSVFormApproval.fileCSVApp();
+        String[] arr = readCSVFormApproval.fileCSVAppForm();
         iRowPictName = iRowPictName + iSeq;
 
         value    = getText(driver, txtDetail_nik);
@@ -335,7 +346,7 @@ public class ApprovalFormPage extends BaseAction{
         verifyValue(value,expected); takeScreenshot.capture(driver);
     }
     public void detailNPWP() throws IOException {
-        String[] arr = readCSVFormApproval.fileCSVApp();
+        String[] arr = readCSVFormApproval.fileCSVAppForm();
         iRowPictName = iRowPictName + iSeq;
 
         value    = getText(driver, txtDetail_npwp);
@@ -363,7 +374,7 @@ public class ApprovalFormPage extends BaseAction{
         createTestSkip(iRowPictName, extent_test_case, extent);
 
 //        String[] get_file_name_sample, get_file_name_new;
-//        String[] arr = readCSVFormApproval.fileCSVApp();
+//        String[] arr = readCSVFormApproval.fileCSVAppForm();
 //
 //        status_testCase(iRowPictName, true, "Upload Support Document");
 //        createTest(iRowPictName, extent_test_case, extent);
@@ -409,7 +420,7 @@ public class ApprovalFormPage extends BaseAction{
         createTestSkip(iRowPictName, extent_test_case, extent);
 
 //        String[] get_file_name_old, get_file_name_new;
-//        String[] arr = readCSVFormApproval.fileCSVApp();
+//        String[] arr = readCSVFormApproval.fileCSVAppForm();
 //
 //        status_testCase(iRowPictName, true, "Re-upload Support Document");
 //        createTest(iRowPictName, extent_test_case, extent);
@@ -458,12 +469,12 @@ public class ApprovalFormPage extends BaseAction{
         value = getText(driver, txtTbl_status);
         click(driver, rwDatafirstApp1);
         value2  = getText(driver, txtDetail_status);
-        scrollDown(driver, txtArea_recommend);
     }
     public void debtorDetailListDropdownRecommend() throws InterruptedException {
         iRowPictName = 22;
 
-        scrollDown(driver, txtArea_recommend);
+
+        scrollIntoView(driver, bottomRecomend);
         click(driver, optionlist_recommend);
         List<WebElement> lists = driver.findElements(By.id("dropdown-choice"));
         for (int i = 0; i < lists.size(); i++) {
@@ -475,20 +486,19 @@ public class ApprovalFormPage extends BaseAction{
         status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);Thread.sleep(1000);
         takeScreenshot.capture(driver);
-        
+
         verifyValue(value,expected);
 
         click(driver, option_recommend);
         click(driver, optionlist_recommend);
         takeScreenshot.capture(driver);
-        
+
         verifyValueDisplay(textAreaRecommendation,true, "Element textarea recommend IsDisplay");
     }
     public void submitRecommended() throws InterruptedException {
         iRowPictName = iRowPictName + iSeq;
 
         writeText(driver, txtAreaInput_recommend, Karakter5000);
-        click(driver, txtDetail_status);
         value    = getText(driver, txtDetail_status);
         expected = "Waiting Approval";
 
@@ -496,7 +506,8 @@ public class ApprovalFormPage extends BaseAction{
         createTest(iRowPictName, extent_test_case, extent);
         takeScreenshot.capture(driver);
 
-        scrollUp(driver, body);Thread.sleep(100);
+        scrollUp(driver, body);Thread.sleep(300);
+        scrollIntoView(driver, btnSubmitApp);
         click(driver, btnSubmitApp);
         isPresent(driver, rwDatafirstApp1);
         writeText(driver, txtSearch, no_app1);
@@ -504,22 +515,19 @@ public class ApprovalFormPage extends BaseAction{
         verifyValue(value,expected);Thread.sleep(100);
         takeScreenshot.capture(driver);
 
+        scrollIntoView(driver, txtTbl_source);
         click(driver, rwDatafirstApp1);
         isPresent(driver, txtDetail_nomorAplikasi);
         value = getText(driver, txtDetail_status);Thread.sleep(100);
         takeScreenshot.capture(driver);
 
-        value    = getText(driver, txtDetailCatatan);
-        expected = Karakter5000;
+        scrollIntoView(driver, bottomApprov);
+        value2    = getText(driver, txtDetailCatatan);
+        expected2 = Karakter5000;
 
-        scrollPageDown(driver, btnBackToTable);Thread.sleep(100);
-        takeScreenshot.capture(driver);
-
-        scrollDown(driver, btnBackToTable);Thread.sleep(1000);
-        takeScreenshot.capture(driver);
-
-        verifyValue(value,expected);
-        scrollUp(driver, btnBackToTable);scrollUp(driver, btnBackToTable);Thread.sleep(1000);
+        verifyValue(value2,expected2);
+        scrollUp(driver, body);Thread.sleep(300);
+        scrollIntoView(driver, btnBackToTable);
         click(driver, btnBackToTable);Thread.sleep(1000);
     }
     public void submitNotRecommended() throws InterruptedException {
@@ -530,45 +538,41 @@ public class ApprovalFormPage extends BaseAction{
         click(driver, rwDatafirstApp1);
 
         isPresent(driver, txtDetail_nomorAplikasi);
-        scrollDown(driver, txtArea_recommend);
+        click(driver, txtDetail_status);
+        scrollIntoView(driver, bottomRecomend);
         click(driver, optionlist_recommend);
         click(driver, option_NotRecommend);
         click(driver, optionlist_recommend);
-        scrollUp(driver, body);Thread.sleep(100);
 
-        value    = getText(driver, txtDetail_status);
-        expected = "Waiting Approval";
-        status_testCase(iRowPictName, true, value);
-        createTest(iRowPictName, extent_test_case, extent);
-        scrollDown(driver, txtArea_recommend);
         writeText(driver, txtAreaInput_recommend, Karakter4999);
-        click(driver, txtDetail_status);
+        createTest(iRowPictName, extent_test_case, extent);
         takeScreenshot.capture(driver);
 
-        scrollUp(driver, body);Thread.sleep(100);
+        scrollUp(driver, body);
+        scrollIntoView(driver, btnSubmitApp);
         click(driver, btnSubmitApp);
         isPresent(driver, rwDatafirstApp1);
         writeText(driver, txtSearch, no_app8);
+        scrollIntoView(driver, txtTbl_status);
         value = getText(driver, txtTbl_status);
         verifyValue(value,expected);Thread.sleep(100);
         takeScreenshot.capture(driver);
 
+        scrollIntoView(driver, txtTbl_source);
         click(driver, rwDatafirstApp1);
         isPresent(driver, txtDetail_nomorAplikasi);
-        value = getText(driver, txtDetail_status);
         takeScreenshot.capture(driver);
 
-        value    = getText(driver, txtDetailCatatan);
-        expected = Karakter4999;
-
-        scrollPageDown(driver, btnBackToTable);Thread.sleep(100);
+        value2    = getText(driver, txtDetailCatatan);
+        expected2 = Karakter4999;
         takeScreenshot.capture(driver);
 
-        scrollDown(driver, btnBackToTable);Thread.sleep(1000);
+        scrollIntoView(driver, bottomApprov);
         takeScreenshot.capture(driver);
 
-        verifyValue(value,expected);
-        scrollUp(driver, btnBackToTable);scrollUp(driver, btnBackToTable);Thread.sleep(1000);
+        verifyValue(value2,expected2);
+        scrollUp(driver, body);Thread.sleep(300);
+        scrollIntoView(driver, btnBackToTable);
         click(driver, btnBackToTable);Thread.sleep(1000);
     }
 
@@ -580,9 +584,8 @@ public class ApprovalFormPage extends BaseAction{
         click(driver, rwDatafirstApp1);
 
         value = getText(driver, txtDetail_status);
-        scrollPageDown(driver, btnBackToTable);
-        scrollDown(driver, btnBackToTable);
-        Thread.sleep(3000);
+        scrollIntoView(driver, bottomApprov);
+        Thread.sleep(500);
         click(driver, optionlist_approve);
         List<WebElement> lists = driver.findElements(By.id("dropdown-choice"));
         for (int i = 0; i < lists.size(); i++) {
@@ -614,11 +617,12 @@ public class ApprovalFormPage extends BaseAction{
         createTest(iRowPictName, extent_test_case, extent);
         takeScreenshot.capture(driver);
 
-        scrollUp(driver, body);Thread.sleep(1000);
+        scrollUp(driver, body);Thread.sleep(300);
+        scrollIntoView(driver, btnSubmitApp);
         click(driver, btnSubmitApp);
         value = getText(driver, txtStrongUserApprove);
         takeScreenshot.capture(driver);
-        
+
         if (isPresent(driver, txtStrongUserApprove)){
             System.out.println("Change Account...");
             changeUserToApprove();
@@ -639,17 +643,18 @@ public class ApprovalFormPage extends BaseAction{
         scrollPageDown(driver, btnBackToTable);Thread.sleep(100);
         takeScreenshot.capture(driver);
 
-        scrollDown(driver, btnBackToTable);Thread.sleep(100);
+        scrollIntoView(driver, bottomApprov);
         takeScreenshot.capture(driver);
-        
+
         writeText(driver, approval_note, Karakter5000);
         value = getText(driver, txtDetail_status);
         click(driver, optionlist_approve);
         click(driver, option_approved);
         click(driver, txtDetailH5_HasilKeputusan);
         takeScreenshot.capture(driver);
-        
-        scrollUp(driver, body);Thread.sleep(1000);
+
+        scrollUp(driver, body);Thread.sleep(300);
+        scrollIntoView(driver, btnSubmitApp);
         click(driver, btnSubmitApp);Thread.sleep(1000);
 
         writeText(driver, txtSearch, no_app1);
@@ -673,12 +678,12 @@ public class ApprovalFormPage extends BaseAction{
         writeText(driver, txtSearch, no_app8);
         click(driver, rwDatafirstApp1);
         value = getText(driver, txtDetail_status);
-        scrollDown(driver, btnBackToTable);Thread.sleep(100);
-        scrollDown(driver, btnBackToTable);Thread.sleep(100);
+        scrollIntoView(driver, bottomApprov);
         click(driver, optionlist_approve);
         click(driver, option_rejected);
         click(driver, txtDetailH5_HasilKeputusan);
-        scrollUp(driver, body);Thread.sleep(1000);
+        scrollUp(driver, body);Thread.sleep(300);
+        scrollIntoView(driver, btnBackToTable);
         click(driver, btnBackToTable);
 
         status_testCase(iRowPictName, true, value);
@@ -690,8 +695,7 @@ public class ApprovalFormPage extends BaseAction{
         click(driver, rwDatafirstApp1);
         takeScreenshot.capture(driver);
 
-        scrollDown(driver, btnBackToTable);Thread.sleep(100);
-        scrollDown(driver, btnBackToTable);Thread.sleep(100);
+        scrollIntoView(driver, bottomApprov);
         click(driver, optionlist_approve);
         click(driver, option_rejected);
         click(driver, txtDetailH5_HasilKeputusan);
@@ -700,7 +704,8 @@ public class ApprovalFormPage extends BaseAction{
         value = getText(driver, option_approved);
         takeScreenshot.capture(driver);
 
-        scrollUp(driver, body);Thread.sleep(1000);
+        scrollUp(driver, body);Thread.sleep(300);
+        scrollIntoView(driver, btnSubmitApp);
         click(driver, btnSubmitApp);Thread.sleep(1000);
 
         isPresent(driver, rwDatafirstApp1);
@@ -763,7 +768,7 @@ public class ApprovalFormPage extends BaseAction{
         createTestSkip(iRowPictName, extent_test_case, extent);
 
 //        isPresent(driver, rwDatafirstApp1);
-//        writeText(driver, txtSearch, no_app7);
+//        writeText(driver, txtSearch, no_app8);
 //        value    = getText(driver, txtTbl_status);
 //        expected = "Waiting for Review";
 //        status_testCase(iRowPictName, true, value);
@@ -800,7 +805,7 @@ public class ApprovalFormPage extends BaseAction{
 //        click(driver, menuApprovalForm);
 //
 //        isPresent(driver, rwDatafirstApp1);
-//        writeText(driver, txtSearch, no_app7);
+//        writeText(driver, txtSearch, no_app8);
 //        value    = getText(driver, txtTbl_status);
 //        expected = "Approval Expired";
 //        createInfo(extent_test_case, "Data setelah run job expired, saat status waiting for review");
@@ -835,13 +840,14 @@ public class ApprovalFormPage extends BaseAction{
         changeUserToMaker();
         menuApprovalForm();
 
-        String[] arr;
+        String[] arr,arr2;
         ReadCSVFormApproval readCSVFormApproval = new ReadCSVFormApproval();
-        arr = readCSVFormApproval.fileCSVApp();
+        arr = readCSVFormApproval.fileCSVAppForm();
+        arr2 = readCSVFormApproval.fileCSVAppForm2();
         Long getCount = Arrays.stream(arr).count();
 
-        int index = 16;
-        for (int i = index; i < 49; i++) {
+        int index = 8;
+        for (int i = index; i < arr.length; i++) {
             if (i % index == 0) {
                 clearText(driver, txtSearch);
                 isPresent(driver, rwDatafirstApp1);
@@ -850,14 +856,14 @@ public class ApprovalFormPage extends BaseAction{
                 if (value.equals("waiting for review")) {
                     click(driver, rwDatafirstApp1);
 
-                    scrollDown(driver, txtArea_recommend);
-                    scrollDown(driver, txtArea_recommend);
+                    scrollIntoView(driver, bottomRecomend);
                     click(driver, optionlist_recommend);
                     click(driver, option_recommend);
                     click(driver, optionlist_recommend);Thread.sleep(Const.delay);
                     writeText(driver, txtAreaInput_recommend, "TEST AT Approval Form Recommended");
 
-                    scrollUp(driver, body);Thread.sleep(100);
+                    scrollUp(driver, body);Thread.sleep(300);
+                    scrollIntoView(driver, btnSubmitApp);
                     click(driver, btnSubmitApp);
                     index = index + 8;
                 } else {
@@ -865,10 +871,30 @@ public class ApprovalFormPage extends BaseAction{
                 }
             }
         }
+        //for 30 character
+        clearText(driver, txtSearch);
+        isPresent(driver, rwDatafirstApp1);
+        writeText(driver, txtSearch, arr2[8]);
+        value = getText(driver, txtTbl_status).toLowerCase();
+        if (value.equals("waiting for review")) {
+            click(driver, rwDatafirstApp1);
+
+            scrollIntoView(driver, bottomRecomend);
+            click(driver, optionlist_recommend);
+            click(driver, option_recommend);
+            click(driver, optionlist_recommend);
+            Thread.sleep(Const.delay);
+            writeText(driver, txtAreaInput_recommend, "TEST AT Approval Form Recommended");
+
+            scrollUp(driver, body);
+            Thread.sleep(300);
+            scrollIntoView(driver, btnSubmitApp);
+            click(driver, btnSubmitApp);
+        }
 
         changeUserToApprove();
-        index = 16;
-        for (int i = index; i < 41; i++) {
+        index = 8;
+        for (int i = index; i < arr.length; i++) {
             if (i % index == 0) {
                 clearText(driver, txtSearch);
                 isPresent(driver, rwDatafirstApp1);
@@ -877,17 +903,15 @@ public class ApprovalFormPage extends BaseAction{
                 if (value.equals("waiting approval")) {
                     click(driver, rwDatafirstApp1);
 
-                    scrollPageDown(driver, btnBackToTable);
-                    scrollDown(driver, btnBackToTable);
-                    scrollDown(driver, btnBackToTable);
-
+                    scrollIntoView(driver, bottomApprov);
                     writeText(driver, approval_note, "TEST AT Approval Form Approved");
                     value = getText(driver, option_approved);
                     click(driver, optionlist_approve);
                     click(driver, option_approved);
                     click(driver, By.xpath("//span[@data-select2-id=1]"));
 
-                    scrollUp(driver, body);Thread.sleep(1000);
+                    scrollUp(driver, body);Thread.sleep(300);
+                    scrollIntoView(driver, btnSubmitApp);
                     click(driver, btnSubmitApp);
                     index = index + 8;
                 } else {
@@ -895,6 +919,25 @@ public class ApprovalFormPage extends BaseAction{
                 }
             }
             clearText(driver, txtSearch);
+        }
+        //for 30 character
+        clearText(driver, txtSearch);
+        isPresent(driver, rwDatafirstApp1);
+        writeText(driver, txtSearch, arr2[8]);
+        value = getText(driver, txtTbl_status).toLowerCase();
+        if (value.equals("waiting approval")) {
+            click(driver, rwDatafirstApp1);
+
+            scrollIntoView(driver, bottomApprov);
+            writeText(driver, approval_note, "TEST AT Approval Form Approved");
+            value = getText(driver, option_approved);
+            click(driver, optionlist_approve);
+            click(driver, option_approved);
+            click(driver, By.xpath("//span[@data-select2-id=1]"));
+
+            scrollUp(driver, body);Thread.sleep(300);
+            scrollIntoView(driver, btnSubmitApp);
+            click(driver, btnSubmitApp);
         }
     }
 }

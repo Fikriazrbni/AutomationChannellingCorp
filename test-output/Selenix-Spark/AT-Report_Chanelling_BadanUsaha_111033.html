@@ -1,0 +1,3474 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Badan Usaha : OtoCORP</title>
+<link rel="apple-touch-icon" href="spark/logo.png">
+<link rel="shortcut icon" href="spark/logo.png">
+<link rel="stylesheet" href="spark/spark-style.css">
+<link rel="stylesheet" href="spark/font-awesome.min.css">
+<script src="spark/jsontree.js"></script>
+<style type="text/css"></style></head><body class="spa -report dark">
+  <div class="app">
+    <div class="layout">
+<div class="header navbar">
+<div class="vheader">
+<div class="nav-logo">
+<a href="#">
+<div class="logo" style="background-image: url('spark/logo.png')"></div>
+</a>
+</div>
+<ul class="nav-left">
+<li class="search-box">
+<a class="search-toggle" href="#">
+<i class="search-icon fa fa-search"></i>
+<i class="search-icon-close fa fa-close"></i>
+</a>
+</li>
+<li class="search-input"><input id="search-tests" class="form-control" type="text" placeholder="Search..."></li>
+</ul>
+<ul class="nav-right">
+<li class="m-r-10">
+<a href="#"><span class="badge badge-primary">Extent Report Channeling</span></a>
+</li>
+<li class="m-r-10">
+<a href="#"><span class="badge badge-primary">Feb 28, 2023 11:10:34 AM</span></a>
+</li>
+</ul>
+</div>
+</div><div class="side-nav">
+<div class="side-nav-inner">
+<ul class="side-nav-menu">
+<li class="nav-item dropdown" onclick="toggleView('dashboard-view')">
+<a id="nav-dashboard" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-bar-chart"></i></span>
+</a>
+</li>
+<li class="nav-item dropdown" onclick="toggleView('test-view')">
+<a id="nav-test" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-list"></i></span>
+</a>
+</li>
+<li class="nav-item dropdown" onclick="toggleView('author-view')">
+<a id="nav-author" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-user"></i></span>
+</a>
+</li>
+</ul>
+</div>
+</div>      <div class="vcontainer">
+        <div class="main-content">
+<div class="container-fluid p-4 view dashboard-view">
+<div class="row">
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0">Started</p>
+<h3>Feb 28, 2023 11:10:34 AM</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0">Ended</p>
+<h3>Feb 28, 2023 11:12:41 AM</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0 text-pass">Tests Passed</p>
+<h3>39</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0 text-fail">Tests Failed</p>
+<h3>0</h3>
+</div></div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-6">
+<div class="card">
+<div class="card-header">
+<h6 class="card-title">Tests</h6>
+</div>
+<div class="card-body">
+<div class="">
+<canvas id='parent-analysis' width='115' height='90'></canvas>
+</div>
+</div>
+<div class="card-footer">
+<div><small data-tooltip='100%'>
+<b>39</b> tests passed
+</small>
+</div>
+<div>
+<small data-tooltip='0%'><b>0</b> tests failed,
+<b>0</b> skipped, <b data-tooltip='0%'>0</b> others
+</small>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-6">
+<div class="card">
+<div class="card-header">
+<h6 class="card-title">Log events</h6>
+</div>
+<div class="card-body">
+<div class="">
+<canvas id='events-analysis' width='115' height='90'></canvas>
+</div>
+</div>
+<div class="card-footer">
+<div><small data-tooltip='40%'><b>78</b> events passed</small></div>
+<div>
+<small data-tooltip='0%'><b>0</b> events failed,
+<b data-tooltip='%'>117</b> others
+</small>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><div class="col-md-12">
+<div class="card"><div class="card-header"><p>Timeline</p></div>
+<div class="card-body pt-0"><div>
+<canvas id="timeline" height="120"></canvas>
+</div></div>
+</div>
+</div></div>
+<script>
+var timeline = {
+"TC_VRF_BU-1 : Input No Aplikasi 17 karakter varchar":2.057,"TC_VRF_BU-2 : Input Nama Debitur 60 karakter varchar":1.928,"TC_VRF_BU-3 : Input Jenis Debitur : B":1.926,"TC_VRF_BU-4 : Input Alamat 50 karakter varchar":1.874,"TC_VRF_BU-5 : Input Alamat_Kelurahan 40 karakter varchar":1.85,"TC_VRF_BU-6 : Input Alamat_Kecamatan 40 karakter varchar":1.855,"TC_VRF_BU-7 : Input Alamat_Kode Pos 5 karakter numerik":1.814,"TC_VRF_BU-8 : Input Alamat_KodeDATI II 4 karakter numerik (sesuai list)":1.859,"TC_VRF_BU-9 : Input No Telepon 13 karakter numerik":1.808,"TC_VRF_BU-10 : Input No Akte 30 karakter varchar":1.847,"TC_VRF_BU-11 : Input Tanggal Berdiri 8 karakter ddmmyyyy":1.834,"TC_VRF_BU-12 : Input No Akte Terakhir 30 karakter varchar":1.86,"TC_VRF_BU-13 : Input Tanggal Akte Terakhir 8 karakter ddmmyyyy":1.821,"TC_VRF_BU-14 : Input Bidang Usaha 6 karakter numerik sesuai list":1.843,"TC_VRF_BU-15 : Input NPWP 15 karakter numerik dengan plafon":1.805,"TC_VRF_BU-16 : Input Jangka Waktu 3 karakter numerik
+ex : 003":1.846,"TC_VRF_BU-17 : Input Jenis Kredit 3 karakter varchar sesuai list
+ex : P02":1.811,"TC_VRF_BU-18 : Input Plafon 15 karakter numerik (13,2)":1.848,"TC_VRF_BU-19 : Input Interest Rate 5 karakter numerik (3,2)":1.87,"TC_VRF_BU-20 : Input No PK 100 karakter varchar":1.849,"TC_VRF_BU-21 : Input Tanggal Akad 8 karakter ddmmyyyy":1.823,"TC_VRF_BU-22 : Input Tanggal Angsuran I 8 karakter ddmmyyyy":1.815,"TC_VRF_BU-23 : Input Jenis Penggunaan 1 karakter char sesuai list":1.876,"TC_VRF_BU-24 : Input Sektor Ekonomi 6 karakter sesuai list":1.818,"TC_VRF_BU-25 : Input Omzet 17 karakter numerik (15,2)":1.808,"TC_VRF_BU-26 : Input Go Public 1 karakter sesuai list
+Go Public = 1
+Not Go Public = 2":1.788,"TC_VRF_BU-27 : Input Sandi Golongan Debitur sesuai list":1.831,"TC_VRF_BU-28 : Input Penghasilan Kotor Per Tahun 15 karakter numerik (13,2)":1.806,"TC_VRF_BU-29 : Input Bentuk Badan Usaha sesuai list":1.817,"TC_VRF_BU-30 : Input Tempat Berdiri Badan Usaha 30 karakter varchar":1.809,"TC_VRF_BU-31 : Input Nama Debitur 59 karakter varchar":1.813,"TC_VRF_BU-32 : Input Alamat 49 karakter varchar":1.804,"TC_VRF_BU-33 : Input Alamat_Kelurahan 39 karakter varchar":1.8,"TC_VRF_BU-34 : Input Alamat_Kecamatan 39 karakter varchar":1.803,"TC_VRF_BU-35 : Input No Telepon 12 karakter numerik":1.833,"TC_VRF_BU-36 : Input No Akte 29 karakter varchar":1.799,"TC_VRF_BU-37 : Input No Akte Terakhir 29 karakter varchar":1.789,"TC_VRF_BU-38 : Input No PK 99 karakter varchar":1.794,"TC_VRF_BU-39 : Input Tempat Berdiri Badan Usaha 29 karakter varchar":1.802
+};
+</script>
+<div class="row">
+<div class="col-lg-6 col-md-12 author-container">
+<div class="card">
+<div class="card-header"><p>Author</p></div>
+<div class="card-body pb-0 pt-0"><table class="table table-sm table-bordered">
+<thead><tr class="bg-gray"><th>Name</th><th>Passed</th><th>Failed</th><th>Skipped</th><th>Others</th><th>Passed %</th></tr></thead>
+<tbody>
+<tr>
+<td>fikri^rabbani</td>
+<td>39</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="col-lg-6 col-md-12 category-container">
+<div class="card">
+<div class="card-header"><p>Tags</p></div>
+<div class="card-body pb-0 pt-0"><table class="table table-sm table-bordered">
+<thead><tr class="bg-gray"><th>Name</th><th>Passed</th><th>Failed</th><th>Skipped</th><th>Others</th><th>Passed %</th></tr></thead><tbody>
+<tr>
+<td>Regression</td>
+<td>39</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+</div>
+<script>
+var statusGroup = {
+parentCount: 5,
+passParent: 39,
+failParent: 0,
+warningParent: 0,
+skipParent: 0,
+childCount: 5,
+passChild: 0,
+failChild: 0,
+warningChild: 0,
+skipChild: 0,
+infoChild: 0,
+grandChildCount: 5,
+passGrandChild: 0,
+failGrandChild: 0,
+warningGrandChild: 0,
+skipGrandChild: 0,
+infoGrandChild: 0,
+eventsCount: 5,
+passEvents: 78,
+failEvents: 0,
+warningEvents: 0,
+skipEvents: 0,
+infoEvents: 117
+};
+</script><div class="test-wrapper row view test-view">
+  <div class="test-list">
+    <div class="test-list-tools">
+<ul class="tools pull-left">
+<li><a href="#"><span class="font-size-14">Tests</span></a></li>
+</ul>
+<ul class="tools text-right">
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation-circle"></i></a>
+<ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
+<a class="dropdown-item" status="pass" href="#"><span>Pass</span><span class="status success"></span></a>
+<div class="dropdown-divider"></div>
+<a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
+</ul>
+</li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i></a>
+<ul id="author-toggle" class="dropdown-menu dropdown-md p-v-0">
+<a class="dropdown-item" href="#">fikri^rabbani</a>
+</ul>
+</li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-tag"></i></a>
+<ul id="tag-toggle" class="dropdown-menu dropdown-md p-v-0">
+<a class="dropdown-item" href="#">Regression</a>
+</ul>
+</li>
+</ul>
+</div>    <div class="test-list-wrapper scrollable">
+      <ul class="test-list-item">
+        <li class="test-item"  status="pass" test-id="7"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_VRF_BU-1 : Input No Aplikasi 17 karakter varchar</p>
+            <p class="text-sm">
+              <span>11:10:47 AM</span> / <span>00:00:02:057</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_VRF_BU-1 : Input No Aplikasi 17 karakter varchar</h5>
+<span class='badge badge-success'>02.28.2023 11:10:47 AM</span>
+<span class='badge badge-danger'>02.28.2023 11:10:49 AM</span>
+<span class='badge badge-default'>00:00:02:057</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=7</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:10:47 AM</td>
+        <td>
+          Expected Result from Excel : File berhasil diproses dan No Aplikasi tampil di LOS
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:10:47 AM</td>
+        <td>
+          Actual Result from UI : L000001U4JF105102
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:10:47 AM</td>
+        <td>
+          <ul><li>Print character value : L000001U4JF105102</li><li>Actual___ character : 17</li><li>Expected character : 17</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:10:47 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : L000001U4JF105102</li><li>Actual from csv/testdata : L000001U4JF105102</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:10:49 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='validationApprovalFile280220/28022023-111047.png' src="validationApprovalFile280220/28022023-111047.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="9"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_VRF_BU-2 : Input Nama Debitur 60 karakter varchar</p>
+            <p class="text-sm">
+              <span>11:10:51 AM</span> / <span>00:00:01:928</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_VRF_BU-2 : Input Nama Debitur 60 karakter varchar</h5>
+<span class='badge badge-success'>02.28.2023 11:10:51 AM</span>
+<span class='badge badge-danger'>02.28.2023 11:10:53 AM</span>
+<span class='badge badge-default'>00:00:01:928</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=9</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:10:51 AM</td>
+        <td>
+          Expected Result from Excel : File berhasil diproses dan Nama Debitur tampil di LOS
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:10:52 AM</td>
+        <td>
+          Actual Result from UI : PT Badan Usaha Corporation Jakarta OtoCORP100 UMQBAOYG105102
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:10:52 AM</td>
+        <td>
+          <ul><li>Print character value : PT Badan Usaha Corporation Jakarta OtoCORP100 UMQBAOYG105102</li><li>Actual___ character : 60</li><li>Expected character : 60</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:10:52 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : PT Badan Usaha Corporation Jakarta OtoCORP100 UMQBAOYG105102</li><li>Actual from csv/testdata : PT Badan Usaha Corporation Jakarta OtoCORP100 UMQBAOYG105102</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:10:53 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='validationApprovalFile280220/28022023-111052.png' src="validationApprovalFile280220/28022023-111052.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="11"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_VRF_BU-3 : Input Jenis Debitur : B</p>
+            <p class="text-sm">
+              <span>11:10:54 AM</span> / <span>00:00:01:926</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_VRF_BU-3 : Input Jenis Debitur : B</h5>
+<span class='badge badge-success'>02.28.2023 11:10:54 AM</span>
+<span class='badge badge-danger'>02.28.2023 11:10:56 AM</span>
+<span class='badge badge-default'>00:00:01:926</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=11</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:10:54 AM</td>
+        <td>
+          Expected Result from Excel : File berhasil diproses dan Jenis Debitur tampil di LOS : Perseorangan
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:10:54 AM</td>
+        <td>
+          Actual Result from UI : Badan Usaha
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:10:54 AM</td>
+        <td>
+          <ul><li>Print character value : B</li><li>Actual___ character : 1</li><li>Expected character : 1</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:10:54 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : Badan Usaha</li><li>Actual from csv/testdata : Badan Usaha</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:10:56 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='validationApprovalFile280220/28022023-111054.png' src="validationApprovalFile280220/28022023-111054.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="13"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_VRF_BU-4 : Input Alamat 50 karakter varchar</p>
+            <p class="text-sm">
+              <span>11:10:57 AM</span> / <span>00:00:01:874</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_VRF_BU-4 : Input Alamat 50 karakter varchar</h5>
+<span class='badge badge-success'>02.28.2023 11:10:57 AM</span>
+<span class='badge badge-danger'>02.28.2023 11:10:59 AM</span>
+<span class='badge badge-default'>00:00:01:874</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=13</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:10:57 AM</td>
+        <td>
+          Expected Result from Excel : File berhasil diproses dan Alamat tampil di LOS
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:10:57 AM</td>
+        <td>
+          Actual Result from UI : Jalan pondok indah Sedikit Barat Patriot:V3/I.Z 10
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:10:57 AM</td>
+        <td>
+          <ul><li>Print character value : Jalan pondok indah Sedikit Barat Patriot:V3/I.Z 10</li><li>Actual___ character : 50</li><li>Expected character : 50</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:10:57 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : Jalan pondok indah Sedikit Barat Patriot:V3/I.Z 10</li><li>Actual from csv/testdata : Jalan pondok indah Sedikit Barat Patriot:V3/I.Z 10</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:10:59 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='validationApprovalFile280220/28022023-111057.png' src="validationApprovalFile280220/28022023-111057.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="15"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_VRF_BU-5 : Input Alamat_Kelurahan 40 karakter varchar</p>
+            <p class="text-sm">
+              <span>11:11:00 AM</span> / <span>00:00:01:850</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_VRF_BU-5 : Input Alamat_Kelurahan 40 karakter varchar</h5>
+<span class='badge badge-success'>02.28.2023 11:11:00 AM</span>
+<span class='badge badge-danger'>02.28.2023 11:11:02 AM</span>
+<span class='badge badge-default'>00:00:01:850</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=15</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:00 AM</td>
+        <td>
+          Expected Result from Excel : File berhasil diproses dan Alamat_Kelurahan tampil di LOS
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:00 AM</td>
+        <td>
+          Actual Result from UI : Kelurahan Bayang Semu : K/3.agung#a_n 10
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:11:00 AM</td>
+        <td>
+          <ul><li>Print character value : Kelurahan Bayang Semu : K/3.agung#a_n 10</li><li>Actual___ character : 40</li><li>Expected character : 40</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:11:00 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : Kelurahan Bayang Semu : K/3.agung#a_n 10</li><li>Actual from csv/testdata : Kelurahan Bayang Semu : K/3.agung#a_n 10</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:02 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='validationApprovalFile280220/28022023-111100.png' src="validationApprovalFile280220/28022023-111100.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="17"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_VRF_BU-6 : Input Alamat_Kecamatan 40 karakter varchar</p>
+            <p class="text-sm">
+              <span>11:11:02 AM</span> / <span>00:00:01:855</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_VRF_BU-6 : Input Alamat_Kecamatan 40 karakter varchar</h5>
+<span class='badge badge-success'>02.28.2023 11:11:02 AM</span>
+<span class='badge badge-danger'>02.28.2023 11:11:04 AM</span>
+<span class='badge badge-default'>00:00:01:855</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=17</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:03 AM</td>
+        <td>
+          Expected Result from Excel : File berhasil diproses dan Alamat_Kecamatan tampil di LOS
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:03 AM</td>
+        <td>
+          Actual Result from UI : Kecamatan Bayang Semu : K/3.agung#a_n 10
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:11:03 AM</td>
+        <td>
+          <ul><li>Print character value : Kecamatan Bayang Semu : K/3.agung#a_n 10</li><li>Actual___ character : 40</li><li>Expected character : 40</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:11:03 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : Kecamatan Bayang Semu : K/3.agung#a_n 10</li><li>Actual from csv/testdata : Kecamatan Bayang Semu : K/3.agung#a_n 10</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:04 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='validationApprovalFile280220/28022023-111103.png' src="validationApprovalFile280220/28022023-111103.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="19"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_VRF_BU-7 : Input Alamat_Kode Pos 5 karakter numerik</p>
+            <p class="text-sm">
+              <span>11:11:05 AM</span> / <span>00:00:01:814</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_VRF_BU-7 : Input Alamat_Kode Pos 5 karakter numerik</h5>
+<span class='badge badge-success'>02.28.2023 11:11:05 AM</span>
+<span class='badge badge-danger'>02.28.2023 11:11:07 AM</span>
+<span class='badge badge-default'>00:00:01:814</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=19</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:05 AM</td>
+        <td>
+          Expected Result from Excel : File berhasil diproses dan Alamat_Kode Pos tampil di LOS
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:05 AM</td>
+        <td>
+          Actual Result from UI : 10003
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:11:05 AM</td>
+        <td>
+          <ul><li>Print character value : 10003</li><li>Actual___ character : 5</li><li>Expected character : 5</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:11:05 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : 10003</li><li>Actual from csv/testdata : 10003</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:07 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='validationApprovalFile280220/28022023-111105.png' src="validationApprovalFile280220/28022023-111105.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="21"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_VRF_BU-8 : Input Alamat_KodeDATI II 4 karakter numerik (sesuai list)</p>
+            <p class="text-sm">
+              <span>11:11:08 AM</span> / <span>00:00:01:859</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_VRF_BU-8 : Input Alamat_KodeDATI II 4 karakter numerik (sesuai list)</h5>
+<span class='badge badge-success'>02.28.2023 11:11:08 AM</span>
+<span class='badge badge-danger'>02.28.2023 11:11:10 AM</span>
+<span class='badge badge-default'>00:00:01:859</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=21</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:08 AM</td>
+        <td>
+          Expected Result from Excel : File berhasil diproses dan Alamat_KodeDATI II tampil di LOS
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:08 AM</td>
+        <td>
+          Actual Result from UI : Kab. Siak
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:11:08 AM</td>
+        <td>
+          <ul><li>Print character value : 3511</li><li>Actual___ character : 4</li><li>Expected character : 4</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:11:08 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : Kab. Siak</li><li>Actual from csv/testdata : Kab. Siak</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:10 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='validationApprovalFile280220/28022023-111108.png' src="validationApprovalFile280220/28022023-111108.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="23"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_VRF_BU-9 : Input No Telepon 13 karakter numerik</p>
+            <p class="text-sm">
+              <span>11:11:11 AM</span> / <span>00:00:01:808</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_VRF_BU-9 : Input No Telepon 13 karakter numerik</h5>
+<span class='badge badge-success'>02.28.2023 11:11:11 AM</span>
+<span class='badge badge-danger'>02.28.2023 11:11:12 AM</span>
+<span class='badge badge-default'>00:00:01:808</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=23</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:11 AM</td>
+        <td>
+          Expected Result from Excel : File berhasil diproses dan No Telepon tampil di LOS
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:11 AM</td>
+        <td>
+          Actual Result from UI : 0819000091110
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:11:11 AM</td>
+        <td>
+          <ul><li>Print character value : 0819000091110</li><li>Actual___ character : 13</li><li>Expected character : 13</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:11:11 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : 0819000091110</li><li>Actual from csv/testdata : 0819000091110</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:12 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='validationApprovalFile280220/28022023-111111.png' src="validationApprovalFile280220/28022023-111111.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="25"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_VRF_BU-10 : Input No Akte 30 karakter varchar</p>
+            <p class="text-sm">
+              <span>11:11:13 AM</span> / <span>00:00:01:847</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_VRF_BU-10 : Input No Akte 30 karakter varchar</h5>
+<span class='badge badge-success'>02.28.2023 11:11:13 AM</span>
+<span class='badge badge-danger'>02.28.2023 11:11:15 AM</span>
+<span class='badge badge-default'>00:00:01:847</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=25</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:13 AM</td>
+        <td>
+          Expected Result from Excel : File berhasil diproses dan No Akte tampil di LOS
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:13 AM</td>
+        <td>
+          Actual Result from UI : 10-AKTA PERUSAHAAN000000000003
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:11:13 AM</td>
+        <td>
+          <ul><li>Print character value : 10-AKTA PERUSAHAAN000000000003</li><li>Actual___ character : 30</li><li>Expected character : 30</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:11:13 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : 10-AKTA PERUSAHAAN000000000003</li><li>Actual from csv/testdata : 10-AKTA PERUSAHAAN000000000003</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:15 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='validationApprovalFile280220/28022023-111113.png' src="validationApprovalFile280220/28022023-111113.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="27"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_VRF_BU-11 : Input Tanggal Berdiri 8 karakter ddmmyyyy</p>
+            <p class="text-sm">
+              <span>11:11:16 AM</span> / <span>00:00:01:834</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_VRF_BU-11 : Input Tanggal Berdiri 8 karakter ddmmyyyy</h5>
+<span class='badge badge-success'>02.28.2023 11:11:16 AM</span>
+<span class='badge badge-danger'>02.28.2023 11:11:18 AM</span>
+<span class='badge badge-default'>00:00:01:834</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=27</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:16 AM</td>
+        <td>
+          Expected Result from Excel : File berhasil diproses dan Tanggal Berdiri tampil di LOS
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:16 AM</td>
+        <td>
+          Actual Result from UI : 26/02/2023
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:11:16 AM</td>
+        <td>
+          <ul><li>Print character value : 26022023</li><li>Actual___ character : 8</li><li>Expected character : 8</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:11:16 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : 26022023</li><li>Actual from csv/testdata : 26022023</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:18 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='validationApprovalFile280220/28022023-111116.png' src="validationApprovalFile280220/28022023-111116.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="29"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_VRF_BU-12 : Input No Akte Terakhir 30 karakter varchar</p>
+            <p class="text-sm">
+              <span>11:11:19 AM</span> / <span>00:00:01:860</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_VRF_BU-12 : Input No Akte Terakhir 30 karakter varchar</h5>
+<span class='badge badge-success'>02.28.2023 11:11:19 AM</span>
+<span class='badge badge-danger'>02.28.2023 11:11:21 AM</span>
+<span class='badge badge-default'>00:00:01:860</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=29</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:19 AM</td>
+        <td>
+          Expected Result from Excel : File berhasil diproses dan No Akte Terakhir tampil di LOS
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:19 AM</td>
+        <td>
+          Actual Result from UI : 10-AKTA PERUSAHAAN000000000003
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:11:19 AM</td>
+        <td>
+          <ul><li>Print character value : 10-AKTA PERUSAHAAN000000000003</li><li>Actual___ character : 30</li><li>Expected character : 30</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:11:19 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : 10-AKTA PERUSAHAAN000000000003</li><li>Actual from csv/testdata : 10-AKTA PERUSAHAAN000000000003</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:21 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='validationApprovalFile280220/28022023-111119.png' src="validationApprovalFile280220/28022023-111119.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="31"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_VRF_BU-13 : Input Tanggal Akte Terakhir 8 karakter ddmmyyyy</p>
+            <p class="text-sm">
+              <span>11:11:21 AM</span> / <span>00:00:01:821</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_VRF_BU-13 : Input Tanggal Akte Terakhir 8 karakter ddmmyyyy</h5>
+<span class='badge badge-success'>02.28.2023 11:11:21 AM</span>
+<span class='badge badge-danger'>02.28.2023 11:11:23 AM</span>
+<span class='badge badge-default'>00:00:01:821</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=31</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:21 AM</td>
+        <td>
+          Expected Result from Excel : File berhasil diproses dan Tanggal Akte Terakhir tampil di LOS
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:21 AM</td>
+        <td>
+          Actual Result from UI : 28/02/2023
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:11:21 AM</td>
+        <td>
+          <ul><li>Print character value : 28022023</li><li>Actual___ character : 8</li><li>Expected character : 8</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:11:21 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : 28022023</li><li>Actual from csv/testdata : 28022023</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:23 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='validationApprovalFile280220/28022023-111122.png' src="validationApprovalFile280220/28022023-111122.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="33"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_VRF_BU-14 : Input Bidang Usaha 6 karakter numerik sesuai list</p>
+            <p class="text-sm">
+              <span>11:11:24 AM</span> / <span>00:00:01:843</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_VRF_BU-14 : Input Bidang Usaha 6 karakter numerik sesuai list</h5>
+<span class='badge badge-success'>02.28.2023 11:11:24 AM</span>
+<span class='badge badge-danger'>02.28.2023 11:11:26 AM</span>
+<span class='badge badge-default'>00:00:01:843</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=33</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:24 AM</td>
+        <td>
+          Expected Result from Excel : File berhasil diproses dan Bidang Usaha tampil di LOS
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:24 AM</td>
+        <td>
+          Actual Result from UI : Industri Pengolahan
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:11:24 AM</td>
+        <td>
+          <ul><li>Print character value : 200000</li><li>Actual___ character : 6</li><li>Expected character : 6</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:11:24 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : Industri Pengolahan</li><li>Actual from csv/testdata : Industri Pengolahan</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:26 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='validationApprovalFile280220/28022023-111124.png' src="validationApprovalFile280220/28022023-111124.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="35"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_VRF_BU-15 : Input NPWP 15 karakter numerik dengan plafon</p>
+            <p class="text-sm">
+              <span>11:11:27 AM</span> / <span>00:00:01:805</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_VRF_BU-15 : Input NPWP 15 karakter numerik dengan plafon</h5>
+<span class='badge badge-success'>02.28.2023 11:11:27 AM</span>
+<span class='badge badge-danger'>02.28.2023 11:11:29 AM</span>
+<span class='badge badge-default'>00:00:01:805</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=35</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:27 AM</td>
+        <td>
+          Expected Result from Excel : File berhasil diproses dan NPWP tampil di LOS
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:27 AM</td>
+        <td>
+          Actual Result from UI : 133112313514412
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:11:27 AM</td>
+        <td>
+          <ul><li>Print character value : 133112313514412</li><li>Actual___ character : 15</li><li>Expected character : 15</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:11:27 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : 133112313514412</li><li>Actual from csv/testdata : 133112313514412</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:29 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='validationApprovalFile280220/28022023-111127.png' src="validationApprovalFile280220/28022023-111127.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="37"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_VRF_BU-16 : Input Jangka Waktu 3 karakter numerik 
+ex : 003</p>
+            <p class="text-sm">
+              <span>11:11:29 AM</span> / <span>00:00:01:846</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_VRF_BU-16 : Input Jangka Waktu 3 karakter numerik
+ex : 003</h5>
+<span class='badge badge-success'>02.28.2023 11:11:29 AM</span>
+<span class='badge badge-danger'>02.28.2023 11:11:31 AM</span>
+<span class='badge badge-default'>00:00:01:846</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=37</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:29 AM</td>
+        <td>
+          Expected Result from Excel : File berhasil diproses dan Jangka Waktu tampil di LOS
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:30 AM</td>
+        <td>
+          Actual Result from UI : 1 Bulan
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:11:30 AM</td>
+        <td>
+          <ul><li>Print character value : 001</li><li>Actual___ character : 3</li><li>Expected character : 3</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:11:30 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : 1 Bulan</li><li>Actual from csv/testdata : 1 Bulan</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:31 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='validationApprovalFile280220/28022023-111130.png' src="validationApprovalFile280220/28022023-111130.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="39"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_VRF_BU-17 : Input Jenis Kredit 3 karakter varchar sesuai list
+ex : P02</p>
+            <p class="text-sm">
+              <span>11:11:32 AM</span> / <span>00:00:01:811</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_VRF_BU-17 : Input Jenis Kredit 3 karakter varchar sesuai list
+ex : P02</h5>
+<span class='badge badge-success'>02.28.2023 11:11:32 AM</span>
+<span class='badge badge-danger'>02.28.2023 11:11:34 AM</span>
+<span class='badge badge-default'>00:00:01:811</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=39</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:32 AM</td>
+        <td>
+          Expected Result from Excel : File berhasil diproses dan Jenis Kredit tampil di LOS
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:32 AM</td>
+        <td>
+          Actual Result from UI : Dengan Perjanjian Kredit / Pembiayaan - Kredit / Pembiayaan kepada pihak ketiga melalui lembaga lain secara channeling
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:11:32 AM</td>
+        <td>
+          <ul><li>Print character value : P02</li><li>Actual___ character : 3</li><li>Expected character : 3</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:11:32 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : Dengan Perjanjian Kredit / Pembiayaan - Kredit / Pembiayaan kepada pihak ketiga melalui lembaga lain secara channeling</li><li>Actual from csv/testdata : Dengan Perjanjian Kredit / Pembiayaan - Kredit / Pembiayaan kepada pihak ketiga melalui lembaga lain secara channeling</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:34 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='validationApprovalFile280220/28022023-111132.png' src="validationApprovalFile280220/28022023-111132.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="41"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_VRF_BU-18 : Input Plafon 15 karakter numerik (13,2)</p>
+            <p class="text-sm">
+              <span>11:11:35 AM</span> / <span>00:00:01:848</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_VRF_BU-18 : Input Plafon 15 karakter numerik (13,2)</h5>
+<span class='badge badge-success'>02.28.2023 11:11:35 AM</span>
+<span class='badge badge-danger'>02.28.2023 11:11:37 AM</span>
+<span class='badge badge-default'>00:00:01:848</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=41</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:35 AM</td>
+        <td>
+          Expected Result from Excel : File berhasil diproses dan Plafon tampil di LOS
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:35 AM</td>
+        <td>
+          Actual Result from UI : Rp50.000.000,00
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:11:35 AM</td>
+        <td>
+          <ul><li>Print character value : 000005000000000</li><li>Actual___ character : 15</li><li>Expected character : 15</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:11:35 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : 5000000000</li><li>Actual from csv/testdata : 5000000000</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:37 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='validationApprovalFile280220/28022023-111135.png' src="validationApprovalFile280220/28022023-111135.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="43"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_VRF_BU-19 : Input Interest Rate 5 karakter numerik (3,2)</p>
+            <p class="text-sm">
+              <span>11:11:37 AM</span> / <span>00:00:01:870</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_VRF_BU-19 : Input Interest Rate 5 karakter numerik (3,2)</h5>
+<span class='badge badge-success'>02.28.2023 11:11:37 AM</span>
+<span class='badge badge-danger'>02.28.2023 11:11:39 AM</span>
+<span class='badge badge-default'>00:00:01:870</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=43</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:38 AM</td>
+        <td>
+          Expected Result from Excel : File berhasil diproses dan Interest Rate tampil di LOS
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:38 AM</td>
+        <td>
+          Actual Result from UI : 11,00%
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:11:38 AM</td>
+        <td>
+          <ul><li>Print character value : 01100</li><li>Actual___ character : 5</li><li>Expected character : 5</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:11:38 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : 1100</li><li>Actual from csv/testdata : 1100</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:39 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='validationApprovalFile280220/28022023-111138.png' src="validationApprovalFile280220/28022023-111138.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="45"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_VRF_BU-20 : Input No PK 100 karakter varchar</p>
+            <p class="text-sm">
+              <span>11:11:40 AM</span> / <span>00:00:01:849</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_VRF_BU-20 : Input No PK 100 karakter varchar</h5>
+<span class='badge badge-success'>02.28.2023 11:11:40 AM</span>
+<span class='badge badge-danger'>02.28.2023 11:11:42 AM</span>
+<span class='badge badge-default'>00:00:01:849</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=45</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:40 AM</td>
+        <td>
+          Expected Result from Excel : File berhasil diproses dan No PK tampil di LOS
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:40 AM</td>
+        <td>
+          Actual Result from UI : 2311816325753107467372266338684947936305424754784670224615948162631885338286195948311656614649738V10
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:11:40 AM</td>
+        <td>
+          <ul><li>Print character value : 2311816325753107467372266338684947936305424754784670224615948162631885338286195948311656614649738V10</li><li>Actual___ character : 100</li><li>Expected character : 100</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:11:40 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : 2311816325753107467372266338684947936305424754784670224615948162631885338286195948311656614649738V10</li><li>Actual from csv/testdata : 2311816325753107467372266338684947936305424754784670224615948162631885338286195948311656614649738V10</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:42 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='validationApprovalFile280220/28022023-111140.png' src="validationApprovalFile280220/28022023-111140.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="47"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_VRF_BU-21 : Input Tanggal Akad 8 karakter ddmmyyyy</p>
+            <p class="text-sm">
+              <span>11:11:43 AM</span> / <span>00:00:01:823</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_VRF_BU-21 : Input Tanggal Akad 8 karakter ddmmyyyy</h5>
+<span class='badge badge-success'>02.28.2023 11:11:43 AM</span>
+<span class='badge badge-danger'>02.28.2023 11:11:45 AM</span>
+<span class='badge badge-default'>00:00:01:823</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=47</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:43 AM</td>
+        <td>
+          Expected Result from Excel : File berhasil diproses dan Tanggal Akad tampil di LOS
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:43 AM</td>
+        <td>
+          Actual Result from UI : 28/02/2023
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:11:43 AM</td>
+        <td>
+          <ul><li>Print character value : 28022023</li><li>Actual___ character : 8</li><li>Expected character : 8</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:11:43 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : 28022023</li><li>Actual from csv/testdata : 28022023</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:45 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='validationApprovalFile280220/28022023-111143.png' src="validationApprovalFile280220/28022023-111143.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="49"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_VRF_BU-22 : Input Tanggal Angsuran I 8 karakter ddmmyyyy</p>
+            <p class="text-sm">
+              <span>11:11:46 AM</span> / <span>00:00:01:815</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_VRF_BU-22 : Input Tanggal Angsuran I 8 karakter ddmmyyyy</h5>
+<span class='badge badge-success'>02.28.2023 11:11:46 AM</span>
+<span class='badge badge-danger'>02.28.2023 11:11:48 AM</span>
+<span class='badge badge-default'>00:00:01:815</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=49</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:46 AM</td>
+        <td>
+          Expected Result from Excel : File berhasil diproses dan Tanggal Angsuran I tampil di LOS
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:46 AM</td>
+        <td>
+          Actual Result from UI : 26/03/2023
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:11:46 AM</td>
+        <td>
+          <ul><li>Print character value : 26032023</li><li>Actual___ character : 8</li><li>Expected character : 8</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:11:46 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : 26032023</li><li>Actual from csv/testdata : 26032023</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:48 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='validationApprovalFile280220/28022023-111146.png' src="validationApprovalFile280220/28022023-111146.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="51"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_VRF_BU-23 : Input Jenis Penggunaan 1 karakter char sesuai list</p>
+            <p class="text-sm">
+              <span>11:11:49 AM</span> / <span>00:00:01:876</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_VRF_BU-23 : Input Jenis Penggunaan 1 karakter char sesuai list</h5>
+<span class='badge badge-success'>02.28.2023 11:11:49 AM</span>
+<span class='badge badge-danger'>02.28.2023 11:11:51 AM</span>
+<span class='badge badge-default'>00:00:01:876</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=51</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:49 AM</td>
+        <td>
+          Expected Result from Excel : File berhasil diproses dan Jenis Penggunaan tampil di LOS
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:49 AM</td>
+        <td>
+          Actual Result from UI : Konsumsi
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:11:49 AM</td>
+        <td>
+          <ul><li>Print character value : 3</li><li>Actual___ character : 1</li><li>Expected character : 1</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:11:49 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : Konsumsi</li><li>Actual from csv/testdata : Konsumsi</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:51 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='validationApprovalFile280220/28022023-111149.png' src="validationApprovalFile280220/28022023-111149.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="53"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_VRF_BU-24 : Input Sektor Ekonomi 6 karakter sesuai list</p>
+            <p class="text-sm">
+              <span>11:11:51 AM</span> / <span>00:00:01:818</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_VRF_BU-24 : Input Sektor Ekonomi 6 karakter sesuai list</h5>
+<span class='badge badge-success'>02.28.2023 11:11:51 AM</span>
+<span class='badge badge-danger'>02.28.2023 11:11:53 AM</span>
+<span class='badge badge-default'>00:00:01:818</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=53</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:52 AM</td>
+        <td>
+          Expected Result from Excel : File berhasil diproses dan Sektor Ekonomi tampil di LOS
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:52 AM</td>
+        <td>
+          Actual Result from UI : PERDAGANGAN MOBIL
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:11:52 AM</td>
+        <td>
+          <ul><li>Print character value : 451000</li><li>Actual___ character : 6</li><li>Expected character : 6</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:11:52 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : PERDAGANGAN MOBIL</li><li>Actual from csv/testdata : PERDAGANGAN MOBIL</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:53 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='validationApprovalFile280220/28022023-111152.png' src="validationApprovalFile280220/28022023-111152.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="55"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_VRF_BU-25 : Input Omzet 17 karakter numerik (15,2)</p>
+            <p class="text-sm">
+              <span>11:11:54 AM</span> / <span>00:00:01:808</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_VRF_BU-25 : Input Omzet 17 karakter numerik (15,2)</h5>
+<span class='badge badge-success'>02.28.2023 11:11:54 AM</span>
+<span class='badge badge-danger'>02.28.2023 11:11:56 AM</span>
+<span class='badge badge-default'>00:00:01:808</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=55</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:54 AM</td>
+        <td>
+          Expected Result from Excel : File berhasil diproses dan Omzet tampil di LOS
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:54 AM</td>
+        <td>
+          Actual Result from UI : Rp100.000.000,00
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:11:54 AM</td>
+        <td>
+          <ul><li>Print character value : 00000010000000000</li><li>Actual___ character : 17</li><li>Expected character : 17</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:11:54 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : 10000000000</li><li>Actual from csv/testdata : 10000000000</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:56 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='validationApprovalFile280220/28022023-111154.png' src="validationApprovalFile280220/28022023-111154.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="57"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_VRF_BU-26 : Input Go Public 1 karakter sesuai list
+Go Public = 1
+Not Go Public = 2</p>
+            <p class="text-sm">
+              <span>11:11:57 AM</span> / <span>00:00:01:788</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_VRF_BU-26 : Input Go Public 1 karakter sesuai list
+Go Public = 1
+Not Go Public = 2</h5>
+<span class='badge badge-success'>02.28.2023 11:11:57 AM</span>
+<span class='badge badge-danger'>02.28.2023 11:11:59 AM</span>
+<span class='badge badge-default'>00:00:01:788</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=57</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:57 AM</td>
+        <td>
+          Expected Result from Excel : File berhasil diproses dan Go Public tampil di LOS
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:57 AM</td>
+        <td>
+          Actual Result from UI : Go Public
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:11:57 AM</td>
+        <td>
+          <ul><li>Print character value : 1</li><li>Actual___ character : 1</li><li>Expected character : 1</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:11:57 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : Go Public</li><li>Actual from csv/testdata : Go Public</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:59 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='validationApprovalFile280220/28022023-111157.png' src="validationApprovalFile280220/28022023-111157.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="59"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_VRF_BU-27 : Input Sandi Golongan Debitur sesuai list</p>
+            <p class="text-sm">
+              <span>11:11:59 AM</span> / <span>00:00:01:831</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_VRF_BU-27 : Input Sandi Golongan Debitur sesuai list</h5>
+<span class='badge badge-success'>02.28.2023 11:11:59 AM</span>
+<span class='badge badge-danger'>02.28.2023 11:12:01 AM</span>
+<span class='badge badge-default'>00:00:01:831</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=59</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:11:59 AM</td>
+        <td>
+          Expected Result from Excel : File berhasil diproses dan Sandi Golongan Debitur tampil di LOS
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:12:00 AM</td>
+        <td>
+          Actual Result from UI : Lembaga Non Profit Melayani Rumah Tangga - Swasta Pengendalian Asing - Lembaga Wakaf
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:12:00 AM</td>
+        <td>
+          <ul><li>Print character value : S1500303L</li><li>Actual___ character : 9</li><li>Expected character : 9</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:12:00 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : Lembaga Non Profit Melayani Rumah Tangga - Swasta Pengendalian Asing - Lembaga Wakaf</li><li>Actual from csv/testdata : Lembaga Non Profit Melayani Rumah Tangga - Swasta Pengendalian Asing - Lembaga Wakaf</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:12:01 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='validationApprovalFile280220/28022023-111200.png' src="validationApprovalFile280220/28022023-111200.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="61"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_VRF_BU-28 : Input Penghasilan Kotor Per Tahun 15 karakter numerik (13,2)</p>
+            <p class="text-sm">
+              <span>11:12:02 AM</span> / <span>00:00:01:806</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_VRF_BU-28 : Input Penghasilan Kotor Per Tahun 15 karakter numerik (13,2)</h5>
+<span class='badge badge-success'>02.28.2023 11:12:02 AM</span>
+<span class='badge badge-danger'>02.28.2023 11:12:04 AM</span>
+<span class='badge badge-default'>00:00:01:806</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=61</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:12:02 AM</td>
+        <td>
+          Expected Result from Excel : File berhasil diproses dan Penghasilan Kotor Per Tahun tampil di LOS
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:12:02 AM</td>
+        <td>
+          Actual Result from UI : Rp23.000.000,00
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:12:02 AM</td>
+        <td>
+          <ul><li>Print character value : 000002300000000</li><li>Actual___ character : 15</li><li>Expected character : 15</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:12:02 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : 2300000000</li><li>Actual from csv/testdata : 2300000000</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:12:04 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='validationApprovalFile280220/28022023-111202.png' src="validationApprovalFile280220/28022023-111202.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="63"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_VRF_BU-29 : Input Bentuk Badan Usaha sesuai list</p>
+            <p class="text-sm">
+              <span>11:12:05 AM</span> / <span>00:00:01:817</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_VRF_BU-29 : Input Bentuk Badan Usaha sesuai list</h5>
+<span class='badge badge-success'>02.28.2023 11:12:05 AM</span>
+<span class='badge badge-danger'>02.28.2023 11:12:07 AM</span>
+<span class='badge badge-default'>00:00:01:817</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=63</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:12:05 AM</td>
+        <td>
+          Expected Result from Excel : File berhasil diproses dan Bentuk Badan Usaha tampil di LOS
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:12:05 AM</td>
+        <td>
+          Actual Result from UI : Commanditer Venpotschap (CV)
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:12:05 AM</td>
+        <td>
+          <ul><li>Print character value : 2</li><li>Actual___ character : 1</li><li>Expected character : 1</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:12:05 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : Commanditer Venpotschap (CV)</li><li>Actual from csv/testdata : Commanditer Venpotschap (CV)</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:12:07 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='validationApprovalFile280220/28022023-111205.png' src="validationApprovalFile280220/28022023-111205.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="65"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_VRF_BU-30 : Input Tempat Berdiri Badan Usaha 30 karakter varchar</p>
+            <p class="text-sm">
+              <span>11:12:07 AM</span> / <span>00:00:01:809</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_VRF_BU-30 : Input Tempat Berdiri Badan Usaha 30 karakter varchar</h5>
+<span class='badge badge-success'>02.28.2023 11:12:07 AM</span>
+<span class='badge badge-danger'>02.28.2023 11:12:09 AM</span>
+<span class='badge badge-default'>00:00:01:809</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=65</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:12:07 AM</td>
+        <td>
+          Expected Result from Excel : File berhasil diproses dan Tempat Berdiri Badan Usaha tampil di LOS
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:12:08 AM</td>
+        <td>
+          Actual Result from UI : Jkt Selatan Barat Timur Pusa10
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:12:08 AM</td>
+        <td>
+          <ul><li>Print character value : Jkt Selatan Barat Timur Pusa10</li><li>Actual___ character : 30</li><li>Expected character : 30</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:12:08 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : Jkt Selatan Barat Timur Pusa10</li><li>Actual from csv/testdata : Jkt Selatan Barat Timur Pusa10</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:12:09 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='validationApprovalFile280220/28022023-111208.png' src="validationApprovalFile280220/28022023-111208.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="67"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_VRF_BU-31 : Input Nama Debitur 59 karakter varchar</p>
+            <p class="text-sm">
+              <span>11:12:13 AM</span> / <span>00:00:01:813</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_VRF_BU-31 : Input Nama Debitur 59 karakter varchar</h5>
+<span class='badge badge-success'>02.28.2023 11:12:13 AM</span>
+<span class='badge badge-danger'>02.28.2023 11:12:15 AM</span>
+<span class='badge badge-default'>00:00:01:813</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=67</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:12:13 AM</td>
+        <td>
+          Expected Result from Excel : File berhasil diproses dan Nama Debitur tampil di LOS
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:12:13 AM</td>
+        <td>
+          Actual Result from UI : PT Badan Usaha Corporation Jakarta OtoCORP99 RIFOIJVR105102
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:12:13 AM</td>
+        <td>
+          <ul><li>Print character value : PT Badan Usaha Corporation Jakarta OtoCORP99 RIFOIJVR105102</li><li>Actual___ character : 59</li><li>Expected character : 59</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:12:13 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : PT Badan Usaha Corporation Jakarta OtoCORP99 RIFOIJVR105102</li><li>Actual from csv/testdata : PT Badan Usaha Corporation Jakarta OtoCORP99 RIFOIJVR105102</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:12:15 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='validationApprovalFile280220/28022023-111213.png' src="validationApprovalFile280220/28022023-111213.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="69"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_VRF_BU-32 : Input Alamat 49 karakter varchar</p>
+            <p class="text-sm">
+              <span>11:12:16 AM</span> / <span>00:00:01:804</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_VRF_BU-32 : Input Alamat 49 karakter varchar</h5>
+<span class='badge badge-success'>02.28.2023 11:12:16 AM</span>
+<span class='badge badge-danger'>02.28.2023 11:12:18 AM</span>
+<span class='badge badge-default'>00:00:01:804</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=69</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:12:16 AM</td>
+        <td>
+          Expected Result from Excel : File berhasil diproses dan Alamat tampil di LOS
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:12:16 AM</td>
+        <td>
+          Actual Result from UI : Jalan pondok indah Sedikit Barat Patriot:V3/I.Z 9
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:12:16 AM</td>
+        <td>
+          <ul><li>Print character value : Jalan pondok indah Sedikit Barat Patriot:V3/I.Z 9</li><li>Actual___ character : 49</li><li>Expected character : 49</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:12:16 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : Jalan pondok indah Sedikit Barat Patriot:V3/I.Z 9</li><li>Actual from csv/testdata : Jalan pondok indah Sedikit Barat Patriot:V3/I.Z 9</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:12:18 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='validationApprovalFile280220/28022023-111216.png' src="validationApprovalFile280220/28022023-111216.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="71"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_VRF_BU-33 : Input Alamat_Kelurahan 39 karakter varchar</p>
+            <p class="text-sm">
+              <span>11:12:18 AM</span> / <span>00:00:01:800</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_VRF_BU-33 : Input Alamat_Kelurahan 39 karakter varchar</h5>
+<span class='badge badge-success'>02.28.2023 11:12:18 AM</span>
+<span class='badge badge-danger'>02.28.2023 11:12:20 AM</span>
+<span class='badge badge-default'>00:00:01:800</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=71</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:12:18 AM</td>
+        <td>
+          Expected Result from Excel : File berhasil diproses dan Alamat_Kelurahan tampil di LOS
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:12:18 AM</td>
+        <td>
+          Actual Result from UI : Kelurahan Bayang Semu : K/3.agung#a_n 9
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:12:18 AM</td>
+        <td>
+          <ul><li>Print character value : Kelurahan Bayang Semu : K/3.agung#a_n 9</li><li>Actual___ character : 39</li><li>Expected character : 39</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:12:18 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : Kelurahan Bayang Semu : K/3.agung#a_n 9</li><li>Actual from csv/testdata : Kelurahan Bayang Semu : K/3.agung#a_n 9</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:12:20 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='validationApprovalFile280220/28022023-111219.png' src="validationApprovalFile280220/28022023-111219.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="73"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_VRF_BU-34 : Input Alamat_Kecamatan 39 karakter varchar</p>
+            <p class="text-sm">
+              <span>11:12:21 AM</span> / <span>00:00:01:803</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_VRF_BU-34 : Input Alamat_Kecamatan 39 karakter varchar</h5>
+<span class='badge badge-success'>02.28.2023 11:12:21 AM</span>
+<span class='badge badge-danger'>02.28.2023 11:12:23 AM</span>
+<span class='badge badge-default'>00:00:01:803</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=73</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:12:21 AM</td>
+        <td>
+          Expected Result from Excel : File berhasil diproses dan Alamat_Kecamatan tampil di LOS
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:12:21 AM</td>
+        <td>
+          Actual Result from UI : Kecamatan Bayang Semu : K/3.agung#a_n 9
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:12:21 AM</td>
+        <td>
+          <ul><li>Print character value : Kecamatan Bayang Semu : K/3.agung#a_n 9</li><li>Actual___ character : 39</li><li>Expected character : 39</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:12:21 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : Kecamatan Bayang Semu : K/3.agung#a_n 9</li><li>Actual from csv/testdata : Kecamatan Bayang Semu : K/3.agung#a_n 9</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:12:23 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='validationApprovalFile280220/28022023-111221.png' src="validationApprovalFile280220/28022023-111221.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="75"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_VRF_BU-35 : Input No Telepon 12 karakter numerik</p>
+            <p class="text-sm">
+              <span>11:12:24 AM</span> / <span>00:00:01:833</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_VRF_BU-35 : Input No Telepon 12 karakter numerik</h5>
+<span class='badge badge-success'>02.28.2023 11:12:24 AM</span>
+<span class='badge badge-danger'>02.28.2023 11:12:25 AM</span>
+<span class='badge badge-default'>00:00:01:833</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=75</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:12:24 AM</td>
+        <td>
+          Expected Result from Excel : File berhasil diproses dan No Telepon tampil di LOS
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:12:24 AM</td>
+        <td>
+          Actual Result from UI : 081900009119
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:12:24 AM</td>
+        <td>
+          <ul><li>Print character value : 081900009119</li><li>Actual___ character : 12</li><li>Expected character : 12</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:12:24 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : 081900009119</li><li>Actual from csv/testdata : 081900009119</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:12:25 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='validationApprovalFile280220/28022023-111224.png' src="validationApprovalFile280220/28022023-111224.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="77"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_VRF_BU-36 : Input No Akte 29 karakter varchar</p>
+            <p class="text-sm">
+              <span>11:12:26 AM</span> / <span>00:00:01:799</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_VRF_BU-36 : Input No Akte 29 karakter varchar</h5>
+<span class='badge badge-success'>02.28.2023 11:12:26 AM</span>
+<span class='badge badge-danger'>02.28.2023 11:12:28 AM</span>
+<span class='badge badge-default'>00:00:01:799</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=77</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:12:26 AM</td>
+        <td>
+          Expected Result from Excel : File berhasil diproses dan No Akte tampil di LOS
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:12:26 AM</td>
+        <td>
+          Actual Result from UI : 9-AKTA PERUSAHAAN000000000004
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:12:26 AM</td>
+        <td>
+          <ul><li>Print character value : 9-AKTA PERUSAHAAN000000000004</li><li>Actual___ character : 29</li><li>Expected character : 29</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:12:26 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : 9-AKTA PERUSAHAAN000000000004</li><li>Actual from csv/testdata : 9-AKTA PERUSAHAAN000000000004</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:12:28 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='validationApprovalFile280220/28022023-111226.png' src="validationApprovalFile280220/28022023-111226.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="79"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_VRF_BU-37 : Input No Akte Terakhir 29 karakter varchar</p>
+            <p class="text-sm">
+              <span>11:12:29 AM</span> / <span>00:00:01:789</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_VRF_BU-37 : Input No Akte Terakhir 29 karakter varchar</h5>
+<span class='badge badge-success'>02.28.2023 11:12:29 AM</span>
+<span class='badge badge-danger'>02.28.2023 11:12:31 AM</span>
+<span class='badge badge-default'>00:00:01:789</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=79</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:12:29 AM</td>
+        <td>
+          Expected Result from Excel : File berhasil diproses dan No Akte Terakhir tampil di LOS
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:12:29 AM</td>
+        <td>
+          Actual Result from UI : 9-AKTA PERUSAHAAN000000000007
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:12:29 AM</td>
+        <td>
+          <ul><li>Print character value : 9-AKTA PERUSAHAAN000000000007</li><li>Actual___ character : 29</li><li>Expected character : 29</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:12:29 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : 9-AKTA PERUSAHAAN000000000007</li><li>Actual from csv/testdata : 9-AKTA PERUSAHAAN000000000007</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:12:31 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='validationApprovalFile280220/28022023-111229.png' src="validationApprovalFile280220/28022023-111229.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="81"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_VRF_BU-38 : Input No PK 99 karakter varchar</p>
+            <p class="text-sm">
+              <span>11:12:31 AM</span> / <span>00:00:01:794</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_VRF_BU-38 : Input No PK 99 karakter varchar</h5>
+<span class='badge badge-success'>02.28.2023 11:12:31 AM</span>
+<span class='badge badge-danger'>02.28.2023 11:12:33 AM</span>
+<span class='badge badge-default'>00:00:01:794</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=81</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:12:32 AM</td>
+        <td>
+          Expected Result from Excel : File berhasil diproses dan No PK tampil di LOS
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:12:32 AM</td>
+        <td>
+          Actual Result from UI : 1927432546061434343378701433026562607132026079821590689982422155544134643776237926921770126435032V9
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:12:32 AM</td>
+        <td>
+          <ul><li>Print character value : 1927432546061434343378701433026562607132026079821590689982422155544134643776237926921770126435032V9</li><li>Actual___ character : 99</li><li>Expected character : 99</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:12:32 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : 1927432546061434343378701433026562607132026079821590689982422155544134643776237926921770126435032V9</li><li>Actual from csv/testdata : 1927432546061434343378701433026562607132026079821590689982422155544134643776237926921770126435032V9</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:12:33 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='validationApprovalFile280220/28022023-111232.png' src="validationApprovalFile280220/28022023-111232.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="83"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_VRF_BU-39 : Input Tempat Berdiri Badan Usaha 29 karakter varchar</p>
+            <p class="text-sm">
+              <span>11:12:34 AM</span> / <span>00:00:01:802</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_VRF_BU-39 : Input Tempat Berdiri Badan Usaha 29 karakter varchar</h5>
+<span class='badge badge-success'>02.28.2023 11:12:34 AM</span>
+<span class='badge badge-danger'>02.28.2023 11:12:36 AM</span>
+<span class='badge badge-default'>00:00:01:802</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=83</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:12:34 AM</td>
+        <td>
+          Expected Result from Excel : File berhasil diproses dan Tempat Berdiri Badan Usaha tampil di LOS
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:12:34 AM</td>
+        <td>
+          Actual Result from UI : Jkt Selatan Barat Timur Pusa9
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:12:34 AM</td>
+        <td>
+          <ul><li>Print character value : Jkt Selatan Barat Timur Pusa9</li><li>Actual___ character : 29</li><li>Expected character : 29</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:12:34 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : Jkt Selatan Barat Timur Pusa9</li><li>Actual from csv/testdata : Jkt Selatan Barat Timur Pusa9</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:12:36 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='validationApprovalFile280220/28022023-111234.png' src="validationApprovalFile280220/28022023-111234.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+<div class="test-content scrollable">
+<div class="test-content-tools">
+<ul><li><a class="back-to-test" href="#"><i class="fa fa-arrow-left"></i></a></li></ul>
+</div>
+<div class="test-content-detail"><div class="detail-body"></div></div>
+</div></div>
+<div class="test-wrapper row view author-view attributes-view">
+<div class="test-list">
+<div class="test-list-tools">
+<ul class="tools pull-left"><li><a href=""><span class="font-size-14">Author</span></a></li></ul>
+<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">1</span></a></li></ul>
+</div>
+<div class="test-list-wrapper scrollable">
+<ul class="test-list-item">
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>39</span>
+</span>
+<p class="name">fikri^rabbani</p>
+<p class="duration text-sm">39 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>fikri^rabbani</h4>
+<span status="pass" class='badge log pass-bg'>39 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:10:47 AM</td>
+<td>
+<a href="#" class="linked" test-id='7' id='7'>TC_VRF_BU-1 : Input No Aplikasi 17 karakter varchar</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:10:51 AM</td>
+<td>
+<a href="#" class="linked" test-id='9' id='9'>TC_VRF_BU-2 : Input Nama Debitur 60 karakter varchar</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:10:54 AM</td>
+<td>
+<a href="#" class="linked" test-id='11' id='11'>TC_VRF_BU-3 : Input Jenis Debitur : B</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:10:57 AM</td>
+<td>
+<a href="#" class="linked" test-id='13' id='13'>TC_VRF_BU-4 : Input Alamat 50 karakter varchar</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:11:00 AM</td>
+<td>
+<a href="#" class="linked" test-id='15' id='15'>TC_VRF_BU-5 : Input Alamat_Kelurahan 40 karakter varchar</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:11:02 AM</td>
+<td>
+<a href="#" class="linked" test-id='17' id='17'>TC_VRF_BU-6 : Input Alamat_Kecamatan 40 karakter varchar</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:11:05 AM</td>
+<td>
+<a href="#" class="linked" test-id='19' id='19'>TC_VRF_BU-7 : Input Alamat_Kode Pos 5 karakter numerik</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:11:08 AM</td>
+<td>
+<a href="#" class="linked" test-id='21' id='21'>TC_VRF_BU-8 : Input Alamat_KodeDATI II 4 karakter numerik (sesuai list)</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:11:11 AM</td>
+<td>
+<a href="#" class="linked" test-id='23' id='23'>TC_VRF_BU-9 : Input No Telepon 13 karakter numerik</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:11:13 AM</td>
+<td>
+<a href="#" class="linked" test-id='25' id='25'>TC_VRF_BU-10 : Input No Akte 30 karakter varchar</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:11:16 AM</td>
+<td>
+<a href="#" class="linked" test-id='27' id='27'>TC_VRF_BU-11 : Input Tanggal Berdiri 8 karakter ddmmyyyy</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:11:19 AM</td>
+<td>
+<a href="#" class="linked" test-id='29' id='29'>TC_VRF_BU-12 : Input No Akte Terakhir 30 karakter varchar</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:11:21 AM</td>
+<td>
+<a href="#" class="linked" test-id='31' id='31'>TC_VRF_BU-13 : Input Tanggal Akte Terakhir 8 karakter ddmmyyyy</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:11:24 AM</td>
+<td>
+<a href="#" class="linked" test-id='33' id='33'>TC_VRF_BU-14 : Input Bidang Usaha 6 karakter numerik sesuai list</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:11:27 AM</td>
+<td>
+<a href="#" class="linked" test-id='35' id='35'>TC_VRF_BU-15 : Input NPWP 15 karakter numerik dengan plafon</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:11:29 AM</td>
+<td>
+<a href="#" class="linked" test-id='37' id='37'>TC_VRF_BU-16 : Input Jangka Waktu 3 karakter numerik
+ex : 003</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:11:32 AM</td>
+<td>
+<a href="#" class="linked" test-id='39' id='39'>TC_VRF_BU-17 : Input Jenis Kredit 3 karakter varchar sesuai list
+ex : P02</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:11:35 AM</td>
+<td>
+<a href="#" class="linked" test-id='41' id='41'>TC_VRF_BU-18 : Input Plafon 15 karakter numerik (13,2)</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:11:37 AM</td>
+<td>
+<a href="#" class="linked" test-id='43' id='43'>TC_VRF_BU-19 : Input Interest Rate 5 karakter numerik (3,2)</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:11:40 AM</td>
+<td>
+<a href="#" class="linked" test-id='45' id='45'>TC_VRF_BU-20 : Input No PK 100 karakter varchar</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:11:43 AM</td>
+<td>
+<a href="#" class="linked" test-id='47' id='47'>TC_VRF_BU-21 : Input Tanggal Akad 8 karakter ddmmyyyy</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:11:46 AM</td>
+<td>
+<a href="#" class="linked" test-id='49' id='49'>TC_VRF_BU-22 : Input Tanggal Angsuran I 8 karakter ddmmyyyy</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:11:49 AM</td>
+<td>
+<a href="#" class="linked" test-id='51' id='51'>TC_VRF_BU-23 : Input Jenis Penggunaan 1 karakter char sesuai list</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:11:51 AM</td>
+<td>
+<a href="#" class="linked" test-id='53' id='53'>TC_VRF_BU-24 : Input Sektor Ekonomi 6 karakter sesuai list</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:11:54 AM</td>
+<td>
+<a href="#" class="linked" test-id='55' id='55'>TC_VRF_BU-25 : Input Omzet 17 karakter numerik (15,2)</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:11:57 AM</td>
+<td>
+<a href="#" class="linked" test-id='57' id='57'>TC_VRF_BU-26 : Input Go Public 1 karakter sesuai list
+Go Public = 1
+Not Go Public = 2</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:11:59 AM</td>
+<td>
+<a href="#" class="linked" test-id='59' id='59'>TC_VRF_BU-27 : Input Sandi Golongan Debitur sesuai list</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:12:02 AM</td>
+<td>
+<a href="#" class="linked" test-id='61' id='61'>TC_VRF_BU-28 : Input Penghasilan Kotor Per Tahun 15 karakter numerik (13,2)</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:12:05 AM</td>
+<td>
+<a href="#" class="linked" test-id='63' id='63'>TC_VRF_BU-29 : Input Bentuk Badan Usaha sesuai list</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:12:07 AM</td>
+<td>
+<a href="#" class="linked" test-id='65' id='65'>TC_VRF_BU-30 : Input Tempat Berdiri Badan Usaha 30 karakter varchar</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:12:13 AM</td>
+<td>
+<a href="#" class="linked" test-id='67' id='67'>TC_VRF_BU-31 : Input Nama Debitur 59 karakter varchar</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:12:16 AM</td>
+<td>
+<a href="#" class="linked" test-id='69' id='69'>TC_VRF_BU-32 : Input Alamat 49 karakter varchar</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:12:18 AM</td>
+<td>
+<a href="#" class="linked" test-id='71' id='71'>TC_VRF_BU-33 : Input Alamat_Kelurahan 39 karakter varchar</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:12:21 AM</td>
+<td>
+<a href="#" class="linked" test-id='73' id='73'>TC_VRF_BU-34 : Input Alamat_Kecamatan 39 karakter varchar</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:12:24 AM</td>
+<td>
+<a href="#" class="linked" test-id='75' id='75'>TC_VRF_BU-35 : Input No Telepon 12 karakter numerik</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:12:26 AM</td>
+<td>
+<a href="#" class="linked" test-id='77' id='77'>TC_VRF_BU-36 : Input No Akte 29 karakter varchar</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:12:29 AM</td>
+<td>
+<a href="#" class="linked" test-id='79' id='79'>TC_VRF_BU-37 : Input No Akte Terakhir 29 karakter varchar</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:12:31 AM</td>
+<td>
+<a href="#" class="linked" test-id='81' id='81'>TC_VRF_BU-38 : Input No PK 99 karakter varchar</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:12:34 AM</td>
+<td>
+<a href="#" class="linked" test-id='83' id='83'>TC_VRF_BU-39 : Input Tempat Berdiri Badan Usaha 29 karakter varchar</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="test-content scrollable">
+<div class="test-content-detail">
+<div class="detail-body"></div>
+</div>
+</div>
+</div>        </div>
+      </div>
+    </div>
+  </div>
+<script src="spark/spark-script.js"></script>
+<script type="text/javascript"></script></body>
+</html>

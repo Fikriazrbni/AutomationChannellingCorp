@@ -24,10 +24,10 @@ public class DummyReaForm_BU {
         String e2e_host              = "10.27.62.156";
         String uat_host              = "10.27.62.157";
 
-        String e2e_pathFile_BU       = "/cd/nasbdb/LOS_DEV/realisasi-file/file-upload-realization/";
+        String e2e_pathFile_BU       = "/nasbcad/nas_los/DEV_CHN/realisasi-file/file-upload-realization/";
         String uat_pathFile_BU       = "/cd/nasbdb/LOS_UAT/realisasi-file/file-upload-realization/";
 
-        String e2e_pathFile_Pengurus = "/cd/nasbdb/LOS_DEV/realisasi-file/realizationOtherFile/";
+        String e2e_pathFile_Pengurus = "/nasbcad/nas_los/DEV_CHN/realisasi-file/realizationOtherFile/";
         String uat_pathFile_Pengurus = "/cd/nasbdb/LOS_UAT/realisasi-file/realizationOtherFile/";
 
         String hit_job = "cd /bdb/app/los-source/job-execute && ./realization-process.sh";

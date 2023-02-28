@@ -3,10 +3,23 @@ package elementsPage;
 import capture.TakeScreenshot;
 import badanUsaha.LibUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
 public class BaseAction {
+
+    public static void scrollIntoView(WebDriver driver, By locator) {
+        try {
+            for (int i = 1; i <= 2; i++) {
+                JavascriptExecutor js = (JavascriptExecutor) driver;
+                js.executeScript(Const.scrollIntoview, driver.findElement(locator));
+                Thread.sleep(500);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     public void click(WebDriver driver, By locator) {
         LibUtils.waitElementVisible(driver, locator, Const.seconds);

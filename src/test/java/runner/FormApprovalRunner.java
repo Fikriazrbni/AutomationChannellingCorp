@@ -8,6 +8,7 @@ import io.cucumber.testng.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import jobs.DummyAppForm_BU;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterMethod;
@@ -50,8 +51,8 @@ public class FormApprovalRunner extends AbstractTestNGCucumberTests {
     public void cleanImages() throws IOException {
         testNGCucumberRunner = new TestNGCucumberRunner(this.getClass());
 
-        MoveFileScenario cleanImagesFolder = new MoveFileScenario();
-        cleanImagesFolder.deletePNG();
+//        MoveFileScenario cleanImagesFolder = new MoveFileScenario();
+//        cleanImagesFolder.deletePNG();
 
         System.out.println("================Clean Success================");
 
@@ -63,13 +64,13 @@ public class FormApprovalRunner extends AbstractTestNGCucumberTests {
         connServer.serverAkses();
 
         WebDriverManager.edgedriver().setup();
-        //driver = new EdgeDriver();
+        driver = new EdgeDriver();
         EdgeOptions options = new EdgeOptions();
-        try {
-            driver = new RemoteWebDriver(new URL("http://localhost:4444"), options); //"http://10.121.21.25:4444
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            driver = new RemoteWebDriver(new URL("http://localhost:4444"), options); //"http://10.121.21.25:4444
+//        } catch (MalformedURLException e) {
+//            e.printStackTrace();
+//        }
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
     }

@@ -21,7 +21,7 @@ public class DummyExpiredAppForm_BU {
         String host;
         String e2e_host = "10.27.62.156";
         String uat_host = "10.27.62.157";
-        String e2e_pathFile = "/cd/nasbdb/LOS_DEV/app-file/file-upload/";
+        String e2e_pathFile = "/nasbcad/nas_los/DEV_CHN/app-file/file-upload/";
         String uat_pathFile = "/cd/nasbdb/LOS_UAT/app-file/file-upload/";
         String hit_job = "cd /bdb/app/los-source/job-execute && ./update-approval-expired.sh";
 

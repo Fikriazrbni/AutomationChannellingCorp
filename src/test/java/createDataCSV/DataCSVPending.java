@@ -133,7 +133,7 @@ public class DataCSVPending {
             // write data csv approval
             for (int idxApp = 1; idxApp <= 1; idxApp++) {
                 dataApp.add(new String[]{
-                        code_company + generateRandomDataApp.nomorAplikasi(),
+                        code_company + generateRandomDataApp.nomorAplikasi(4),
                         generateRandomDataApp.nik(),
                         generateRandomDataApp.npwp(),
                         generateRandomDataApp.jenisDebitur(),
@@ -142,7 +142,7 @@ public class DataCSVPending {
                         "01378",
                         "000000800000000"});
                 dataApp.add(new String[]{
-                        code_company + generateRandomDataApp.nomorAplikasi(),
+                        code_company + generateRandomDataApp.nomorAplikasi(4),
                         generateRandomDataApp.nik(),
                         generateRandomDataApp.npwp(),
                         generateRandomDataApp.jenisDebitur(),

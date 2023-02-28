@@ -45,6 +45,7 @@ public class ValidateFilePage extends BaseAction {
     public  static final By selectValueExposureBU   = By.xpath("//li[text()='EX0005 - Automation Channeling BU']");
     public  static final By selectValueExposureRevert= By.xpath("//li[contains(text(),'EX0001')]");
     public  static final By selectValueExposure2    = By.xpath("//li[contains(text(),'EX0006')]");
+    public  static final By bottomExposure          = By.xpath("//td[contains(text(),'Exposure Amount Limit')]");
     public  static final By buttonUseExposure      = By.xpath("//button[text()='Use']");
     public static final By inputSearch             = By.id("myInput");
     public static final By txtTblNoApp             = By.xpath("//tr[@class='odd']//td[3]");
@@ -159,9 +160,9 @@ public class ValidateFilePage extends BaseAction {
     }
     public void verifyNotification() {
 
-        List<WebElement> ListRow = driver.findElements(By.xpath("//tr[2][@class='pointer'] //td[2][contains(text(),'Approval')][contains(text(),'AKSELERAN')] | //tr[1][@class='pointer'] //td[2][contains(text(),'Approval')][contains(text(),'AKSELERAN')]"));
+        List<WebElement> ListRow = driver.findElements(By.xpath("//tr[2][@class='pointer'] //td[2][contains(text(),'Approval')][contains(text(),'AKSELERAN')] | //tr[1][@class='pointer'] //td[2][contains(text(),'Approval')][contains(text(),'AKSELERAN')] | //tr[3][@class='pointer'] //td[2][contains(text(),'Approval')][contains(text(),'AKSELERAN')]"));
         value                    = "";
-        boolean dataConsume      = driver.findElement(By.xpath("//tr[2][@class='pointer'] //td[2][contains(text(),'Approval')][contains(text(),'AKSELERAN')] | //tr[1][@class='pointer'] //td[2][contains(text(),'Approval')][contains(text(),'AKSELERAN')]")).isDisplayed();
+        boolean dataConsume      = driver.findElement(By.xpath("//tr[2][@class='pointer'] //td[2][contains(text(),'Approval')][contains(text(),'AKSELERAN')] | //tr[1][@class='pointer'] //td[2][contains(text(),'Approval')][contains(text(),'AKSELERAN')] | //tr[3][@class='pointer'] //td[2][contains(text(),'Approval')][contains(text(),'AKSELERAN')]")).isDisplayed();
         for (WebElement webElement : ListRow) {
             if (webElement.getText().contains("AKSELERAN")) {
                 value            = webElement.getText();
@@ -234,8 +235,7 @@ public class ValidateFilePage extends BaseAction {
     public void setExposureDebtRevert() throws InterruptedException {
         click(driver, menuExposureDebt);
         scrollDown(driver, By.xpath("(//button[@type='submit' ])[2]"));
-        scrollDown(driver, By.xpath("(//button[@type='submit' ])[2]"));
-        scrollDown(driver, By.xpath("(//button[@type='submit' ])[2]"));
+        scrollIntoView(driver, bottomExposure);
         click(driver, selectDropdownExposure);
         Thread.sleep(2000);
         scrollIntoView(driver, selectValueExposureRevert);
@@ -616,10 +616,15 @@ public class ValidateFilePage extends BaseAction {
 
     public void changeAllAppIdStatusApproved() throws IOException, InterruptedException {
 
+
+        changeUserToMaker();
+        menuApprovalForm();
+
         String[] arr;
         ReadCSVFormApproval readCSVFormApproval = new ReadCSVFormApproval();
         arr = readCSVFormApproval.fileCSVAppPartner();
         Long getCount = Arrays.stream(arr).count();
+
 
         int index = 8;
         for (int i = index; i < 25; i++) {
@@ -631,14 +636,14 @@ public class ValidateFilePage extends BaseAction {
                 if (value.equals("waiting for review")) {
                     click(driver, rwDatafirstApp1);
 
-                    scrollDown(driver, txtArea_recommend);
-                    scrollDown(driver, txtArea_recommend);
+                    scrollIntoView(driver, bottomRecomend);
                     click(driver, optionlist_recommend);
                     click(driver, option_recommend);
                     click(driver, optionlist_recommend);Thread.sleep(Const.delay);
                     writeText(driver, txtAreaInput_recommend, "TEST AT Approval Form Recommended");
 
-                    scrollUp(driver, body);Thread.sleep(100);
+                    scrollUp(driver, body);Thread.sleep(300);
+                    scrollIntoView(driver, btnSubmitApp);
                     click(driver, btnSubmitApp);
                     index = index + 8;
                 } else {
@@ -658,17 +663,15 @@ public class ValidateFilePage extends BaseAction {
                 if (value.equals("waiting approval")) {
                     click(driver, rwDatafirstApp1);
 
-                    scrollPageDown(driver, btnBackToTable);
-                    scrollDown(driver, btnBackToTable);
-                    scrollDown(driver, btnBackToTable);
-
+                    scrollIntoView(driver, bottomApprov);
                     writeText(driver, approval_note, "TEST AT Approval Form Approved");
                     value = getText(driver, option_approved);
                     click(driver, optionlist_approve);
                     click(driver, option_approved);
                     click(driver, By.xpath("//span[@data-select2-id=1]"));
 
-                    scrollUp(driver, body);Thread.sleep(1000);
+                    scrollUp(driver, body);Thread.sleep(300);
+                    scrollIntoView(driver, btnSubmitApp);
                     click(driver, btnSubmitApp);
                     index = index + 8;
                 } else {
@@ -1321,7 +1324,7 @@ public class ValidateFilePage extends BaseAction {
 
     // Rea Pengurus ====================================================================================================
     public void verifyDataReaFormPengurusNoApp() throws IOException {
-        String[] arrRea = readCSVFormApproval.fileCSVPengurus();
+        String[] arrRea = readCSVFormApproval.fileCSVPengurusFile();
         no_app1 = arrRea[21];
         no_app2 = arrRea[41];
         no_app3 = arrRea[61];
@@ -1340,7 +1343,7 @@ public class ValidateFilePage extends BaseAction {
         takeScreenshots.capture(driver);
     }
     public void verifyDataReaFormPengurusDataPengurus() throws IOException, InterruptedException {
-        String[] arr = readCSVFormApproval.fileCSVPengurus();
+        String[] arr = readCSVFormApproval.fileCSVPengurusFile();
         iRowPictName = iRowPictName + iSeq;
 
         scrollDown(driver, dtlBtnApprove); scrollDown(driver, dtlBtnApprove);Thread.sleep(100);
@@ -1359,7 +1362,7 @@ public class ValidateFilePage extends BaseAction {
     }
 
     public void verifyDataReaFormPengurusNoUrut() throws IOException, InterruptedException {
-        String[] arr = readCSVFormApproval.fileCSVPengurus();
+        String[] arr = readCSVFormApproval.fileCSVPengurusFile();
         iRowPictName = iRowPictName + iSeq;
 
         click(driver, dtlLabelDataPengurus);
@@ -1374,7 +1377,7 @@ public class ValidateFilePage extends BaseAction {
         takeScreenshots.capture(driver);
     }
     public void verifyDataReaFormPengurusJumlahPengurus() throws IOException {
-        String[] arr = readCSVFormApproval.fileCSVPengurus();
+        String[] arr = readCSVFormApproval.fileCSVPengurusFile();
         iRowPictName = iRowPictName + iSeq;
 
         long parse = Long.parseLong(removeZero(arr[23]));
@@ -1386,7 +1389,7 @@ public class ValidateFilePage extends BaseAction {
         verifyValue(value,expected);takeScreenshots.capture(driver);
     }
     public void verifyDataReaFormPengurusSandiJabatan1() throws IOException {
-        String[] arr = readCSVFormApproval.fileCSVPengurus();
+        String[] arr = readCSVFormApproval.fileCSVPengurusFile();
         iRowPictName = iRowPictName + iSeq;
 
         value    = getText(driver, dtlValueSandiJabatan);
@@ -1397,7 +1400,7 @@ public class ValidateFilePage extends BaseAction {
         verifyValue(value,expected);takeScreenshots.capture(driver);
     }
     public void verifyDataReaFormPengurusPangsaKepemilikan() throws IOException {
-        String[] arr = readCSVFormApproval.fileCSVPengurus();
+        String[] arr = readCSVFormApproval.fileCSVPengurusFile();
         iRowPictName = iRowPictName + iSeq;
 
         long parse = Long.parseLong(removeZero(arr[25]));
@@ -1409,7 +1412,7 @@ public class ValidateFilePage extends BaseAction {
         verifyValue(value.replace(".","").replace("%",""),expected);takeScreenshots.capture(driver);
     }
     public void verifyDataReaFormPengurusBentukPengurus() throws IOException, InterruptedException {
-        String[] arr = readCSVFormApproval.fileCSVPengurus();
+        String[] arr = readCSVFormApproval.fileCSVPengurusFile();
         iRowPictName = iRowPictName + iSeq;
 
         scrollPageDown(driver, dtlBtnApprove); Thread.sleep(100);
@@ -1422,7 +1425,7 @@ public class ValidateFilePage extends BaseAction {
         takeScreenshots.capture(driver);
     }
     public void verifyDataReaFormPengurusModalDasar13() throws IOException {
-        String[] arr = readCSVFormApproval.fileCSVPengurus();
+        String[] arr = readCSVFormApproval.fileCSVPengurusFile();
         iRowPictName = iRowPictName + iSeq;
 
         long parse = Long.parseLong(removeZero(arr[27]));
@@ -1439,7 +1442,7 @@ public class ValidateFilePage extends BaseAction {
         verifyValue(value,expected);takeScreenshots.capture(driver);
     }
     public void verifyDataReaFormPengurusModalDisetor13() throws IOException {
-        String[] arr = readCSVFormApproval.fileCSVPengurus();
+        String[] arr = readCSVFormApproval.fileCSVPengurusFile();
         iRowPictName = iRowPictName + iSeq;
 
         long parse = Long.parseLong(removeZero(arr[28]));
@@ -1456,7 +1459,7 @@ public class ValidateFilePage extends BaseAction {
         verifyValue(value,expected);takeScreenshots.capture(driver);
     }
     public void verifyDataReaFormPengurusModalDitempatkan13() throws IOException {
-        String[] arr = readCSVFormApproval.fileCSVPengurus();
+        String[] arr = readCSVFormApproval.fileCSVPengurusFile();
         iRowPictName = iRowPictName + iSeq;
 
         long parse = Long.parseLong(removeZero(arr[29]));
@@ -1473,7 +1476,7 @@ public class ValidateFilePage extends BaseAction {
         verifyValue(value,expected);takeScreenshots.capture(driver);
     }
     public void verifyDataReaFormPengurusNpwp() throws IOException {
-        String[] arr = readCSVFormApproval.fileCSVPengurus();
+        String[] arr = readCSVFormApproval.fileCSVPengurusFile();
         iRowPictName = iRowPictName + iSeq;
 
         value    = getText(driver, dtlValueNpwp);
@@ -1484,7 +1487,7 @@ public class ValidateFilePage extends BaseAction {
         verifyValue(value,expected);takeScreenshots.capture(driver);
     }
     public void verifyDataReaFormPengurusNama60() throws IOException {
-        String[] arr = readCSVFormApproval.fileCSVPengurus();
+        String[] arr = readCSVFormApproval.fileCSVPengurusFile();
         iRowPictName = iRowPictName + iSeq;
 
         value    = getText(driver, dtlValueNama);
@@ -1495,7 +1498,7 @@ public class ValidateFilePage extends BaseAction {
         verifyValue(value,expected);takeScreenshots.capture(driver);
     }
     public void verifyDataReaFormPengurusAlamat40() throws IOException {
-        String[] arr = readCSVFormApproval.fileCSVPengurus();
+        String[] arr = readCSVFormApproval.fileCSVPengurusFile();
         iRowPictName = iRowPictName + iSeq;
 
         value    = getText(driver, dtlValueAlamat);
@@ -1506,7 +1509,7 @@ public class ValidateFilePage extends BaseAction {
         verifyValue(value,expected);takeScreenshots.capture(driver);
     }
     public void verifyDataReaFormPengurusKelurahan40() throws IOException {
-        String[] arr = readCSVFormApproval.fileCSVPengurus();
+        String[] arr = readCSVFormApproval.fileCSVPengurusFile();
         iRowPictName = iRowPictName + iSeq;
 
         value    = getText(driver, dtlValueKelurahan);
@@ -1517,7 +1520,7 @@ public class ValidateFilePage extends BaseAction {
         verifyValue(value,expected);takeScreenshots.capture(driver);
     }
     public void verifyDataReaFormPenguruskecamatan40() throws IOException {
-        String[] arr = readCSVFormApproval.fileCSVPengurus();
+        String[] arr = readCSVFormApproval.fileCSVPengurusFile();
         iRowPictName = iRowPictName + iSeq;
 
         value    = getText(driver, dtlValueKecamatan);
@@ -1528,7 +1531,7 @@ public class ValidateFilePage extends BaseAction {
         verifyValue(value,expected);takeScreenshots.capture(driver);
     }
     public void verifyDataReaFormPengurusKodeDati() throws IOException {
-        String[] arr = readCSVFormApproval.fileCSVPengurus();
+        String[] arr = readCSVFormApproval.fileCSVPengurusFile();
         iRowPictName = iRowPictName + iSeq;
 
         value    = getText(driver, dtlValueKdDati);
@@ -1539,7 +1542,7 @@ public class ValidateFilePage extends BaseAction {
         verifyValue(value,expected);takeScreenshots.capture(driver);
     }
     public void verifyDataReaFormPengurusNoKtp() throws IOException {
-        String[] arr = readCSVFormApproval.fileCSVPengurus();
+        String[] arr = readCSVFormApproval.fileCSVPengurusFile();
         iRowPictName = iRowPictName + iSeq;
 
         value    = getText(driver, dtlValueNoKtp);
@@ -1550,7 +1553,7 @@ public class ValidateFilePage extends BaseAction {
         verifyValue(value,expected);takeScreenshots.capture(driver);
     }
     public void verifyDataReaFormPengurusNoAkte30() throws IOException {
-        String[] arr = readCSVFormApproval.fileCSVPengurus();
+        String[] arr = readCSVFormApproval.fileCSVPengurusFile();
         iRowPictName = iRowPictName + iSeq;
 
         value    = getText(driver, dtlValueNoAkte);
@@ -1561,7 +1564,7 @@ public class ValidateFilePage extends BaseAction {
         verifyValue(value,expected);takeScreenshots.capture(driver);
     }
     public void verifyDataReaFormPengurusTanggalLahir() throws IOException {
-        String[] arr = readCSVFormApproval.fileCSVPengurus();
+        String[] arr = readCSVFormApproval.fileCSVPengurusFile();
         iRowPictName = iRowPictName + iSeq;
 
         value    = getText(driver, dtlValueTanggalLahir);
@@ -1572,7 +1575,7 @@ public class ValidateFilePage extends BaseAction {
         verifyValue(value.replace("/",""),expected);takeScreenshots.capture(driver);
     }
     public void verifyDataReaFormPengurusTglAkte() throws IOException, InterruptedException {
-        String[] arr = readCSVFormApproval.fileCSVPengurus();
+        String[] arr = readCSVFormApproval.fileCSVPengurusFile();
         iRowPictName = iRowPictName + iSeq;
 
         scrollPageDown(driver, dtlBtnApprove); Thread.sleep(100);
@@ -1585,7 +1588,7 @@ public class ValidateFilePage extends BaseAction {
         takeScreenshots.capture(driver);
     }
     public void verifyDataReaFormPengurusKodeDatiTempatLahir() throws IOException {
-        String[] arr = readCSVFormApproval.fileCSVPengurus();
+        String[] arr = readCSVFormApproval.fileCSVPengurusFile();
         iRowPictName = iRowPictName + iSeq;
 
         value    = getText(driver, dtlValueKdDatiLahir);
@@ -1597,7 +1600,7 @@ public class ValidateFilePage extends BaseAction {
         verifyValue(value,expected);takeScreenshots.capture(driver);
     }
     public void verifyDataReaFormPengurusJenisKelaminB() throws IOException {
-        String[] arr = readCSVFormApproval.fileCSVPengurus();
+        String[] arr = readCSVFormApproval.fileCSVPengurusFile();
         iRowPictName = iRowPictName + iSeq;
 
         value    = getText(driver, dtlValueJenisKel);
@@ -1609,7 +1612,7 @@ public class ValidateFilePage extends BaseAction {
     }
 
     public void verifyDataReaFormPengurusSandiJabatan2() throws IOException, InterruptedException {
-        String[] arr = readCSVFormApproval.fileCSVPengurus2();
+        String[] arr = readCSVFormApproval.fileCSVPengurusFile2();
         no_app1 = arr[21];
         iRowPictName = iRowPictName + iSeq;
 
@@ -1632,7 +1635,7 @@ public class ValidateFilePage extends BaseAction {
         takeScreenshots.capture(driver);
     }
     public void verifyDataReaFormPengurusModalDasar12() throws IOException, InterruptedException {
-        String[] arr = readCSVFormApproval.fileCSVPengurus2();
+        String[] arr = readCSVFormApproval.fileCSVPengurusFile2();
         iRowPictName = iRowPictName + iSeq;
 
         long parse = Long.parseLong(removeZero(arr[27]));
@@ -1651,7 +1654,7 @@ public class ValidateFilePage extends BaseAction {
         takeScreenshots.capture(driver);
     }
     public void verifyDataReaFormPengurusModalDisetor12() throws IOException {
-        String[] arr = readCSVFormApproval.fileCSVPengurus2();
+        String[] arr = readCSVFormApproval.fileCSVPengurusFile2();
         iRowPictName = iRowPictName + iSeq;
 
         long parse = Long.parseLong(removeZero(arr[28]));
@@ -1668,7 +1671,7 @@ public class ValidateFilePage extends BaseAction {
         verifyValue(value,expected);takeScreenshots.capture(driver);
     }
     public void verifyDataReaFormPengurusModalDitempatkan12() throws IOException {
-        String[] arr = readCSVFormApproval.fileCSVPengurus2();
+        String[] arr = readCSVFormApproval.fileCSVPengurusFile2();
         iRowPictName = iRowPictName + iSeq;
 
         long parse = Long.parseLong(removeZero(arr[29]));
@@ -1685,7 +1688,7 @@ public class ValidateFilePage extends BaseAction {
         verifyValue(value,expected);takeScreenshots.capture(driver);
     }
     public void verifyDataReaFormPengurusNama59() throws IOException {
-        String[] arr = readCSVFormApproval.fileCSVPengurus2();
+        String[] arr = readCSVFormApproval.fileCSVPengurusFile2();
         iRowPictName = iRowPictName + iSeq;
 
         value    = getText(driver, dtlValueNama);
@@ -1696,7 +1699,7 @@ public class ValidateFilePage extends BaseAction {
         verifyValue(value,expected);takeScreenshots.capture(driver);
     }
     public void verifyDataReaFormPengurusAlamat39() throws IOException {
-        String[] arr = readCSVFormApproval.fileCSVPengurus2();
+        String[] arr = readCSVFormApproval.fileCSVPengurusFile2();
         iRowPictName = iRowPictName + iSeq;
 
         value    = getText(driver, dtlValueAlamat);
@@ -1707,7 +1710,7 @@ public class ValidateFilePage extends BaseAction {
         verifyValue(value,expected);takeScreenshots.capture(driver);
     }
     public void verifyDataReaFormPengurusKelurahan39() throws IOException {
-        String[] arr = readCSVFormApproval.fileCSVPengurus2();
+        String[] arr = readCSVFormApproval.fileCSVPengurusFile2();
         iRowPictName = iRowPictName + iSeq;
 
         value    = getText(driver, dtlValueKelurahan);
@@ -1718,7 +1721,7 @@ public class ValidateFilePage extends BaseAction {
         verifyValue(value,expected);takeScreenshots.capture(driver);
     }
     public void verifyDataReaFormPenguruskecamatan39() throws IOException {
-        String[] arr = readCSVFormApproval.fileCSVPengurus2();
+        String[] arr = readCSVFormApproval.fileCSVPengurusFile2();
         iRowPictName = iRowPictName + iSeq;
 
         value    = getText(driver, dtlValueKecamatan);
@@ -1729,7 +1732,7 @@ public class ValidateFilePage extends BaseAction {
         verifyValue(value,expected);takeScreenshots.capture(driver);
     }
     public void verifyDataReaFormPengurusNoAkte29() throws IOException {
-        String[] arr = readCSVFormApproval.fileCSVPengurus2();
+        String[] arr = readCSVFormApproval.fileCSVPengurusFile2();
         iRowPictName = iRowPictName + iSeq;
 
         value    = getText(driver, dtlValueNoAkte);
@@ -1740,7 +1743,7 @@ public class ValidateFilePage extends BaseAction {
         verifyValue(value,expected);takeScreenshots.capture(driver);
     }
     public void verifyDataReaFormPengurusJenisKelaminM() throws IOException, InterruptedException {
-        String[] arr = readCSVFormApproval.fileCSVPengurus2();
+        String[] arr = readCSVFormApproval.fileCSVPengurusFile2();
         iRowPictName = iRowPictName + iSeq;
 
         scrollPageDown(driver, dtlBtnApprove); Thread.sleep(100);
