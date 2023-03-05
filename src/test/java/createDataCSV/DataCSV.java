@@ -286,6 +286,7 @@ public class DataCSV {
         // for 30 character
         try {
             code_company = "L000005";
+            kode_produk = "24BL001";
             // create FileWriter object with file as parameter
             FileWriter outputfileApp     = new FileWriter(fileApp);
             FileWriter outputfileRea     = new FileWriter(fileRea);

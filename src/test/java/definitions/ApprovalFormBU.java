@@ -200,7 +200,7 @@ public class ApprovalFormBU {
         appFile.changeAllAppIdStatusApproved();
     }
     @And("click debtor name dengan status approval expired")
-    public void clickDebtorNameDenganStatusApprovalExpired() {
+    public void clickDebtorNameDenganStatusApprovalExpired() throws InterruptedException {
         appFile.statusExpired();
     }
 

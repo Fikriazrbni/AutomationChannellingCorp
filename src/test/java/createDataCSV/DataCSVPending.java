@@ -140,7 +140,7 @@ public class DataCSVPending {
                         "Badan Usaha Corporation Jakarta " + nama_debitur + " " + generateRandomDataApp.namaDebitur(),
                         "003",
                         "01378",
-                        "000000800000000"});
+                        "000004000000000"});
                 dataApp.add(new String[]{
                         code_company + generateRandomDataApp.nomorAplikasi(4),
                         generateRandomDataApp.nik(),
@@ -149,7 +149,7 @@ public class DataCSVPending {
                         "Badan Usaha Corporation Jakarta " + nama_debitur + " " + generateRandomDataApp.namaDebitur(),
                         "001",
                         "01699",
-                        "000000400000000"});
+                        "000002000000000"});
             }
 
             // write data csv realisi

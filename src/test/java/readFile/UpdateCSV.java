@@ -33,7 +33,7 @@ public class UpdateCSV {
 
         for (int i = 0; i < Objects.requireNonNull(listOfFiles).length; i++) {
             if (listOfFiles[i].isFile()) {
-                if (listOfFiles[i].getName().contains(Const.csvRea)) {
+                if (listOfFiles[i].getName().contains("REAFILE_L000002")||listOfFiles[i].getName().contains("REAFILE_L000001")) {
                     getFileCSV = listOfFiles[i].getName();
                 }
             }
@@ -95,7 +95,7 @@ public class UpdateCSV {
         for (int i = 0; i < Objects.requireNonNull(listOfFiles).length; i++) {
             if (listOfFiles[i].isFile()) {
 
-                if (listOfFiles[i].getName().contains(Const.csvRea)) {
+                if (listOfFiles[i].getName().contains("REAFILE_L000002")||listOfFiles[i].getName().contains("REAFILE_L000001")) {
                     getFileCSV = listOfFiles[i].getName();
                 }
             }
@@ -143,7 +143,7 @@ public class UpdateCSV {
         for (int i = 0; i < Objects.requireNonNull(listOfFiles).length; i++) {
             if (listOfFiles[i].isFile()) {
 
-                if (listOfFiles[i].getName().contains(Const.csvRea)) {
+                if (listOfFiles[i].getName().contains(Const.reaFile)) {
                     getFileCSV = listOfFiles[i].getName();
                 }
             }
@@ -192,7 +192,7 @@ public class UpdateCSV {
         for (int i = 0; i < Objects.requireNonNull(listOfFiles).length; i++) {
             if (listOfFiles[i].isFile()) {
 
-                if (listOfFiles[i].getName().contains(Const.csvApp)) {
+                if (listOfFiles[i].getName().contains(Const.reaFile)) {
                     getFileCSV = listOfFiles[i].getName();
                 }
             }

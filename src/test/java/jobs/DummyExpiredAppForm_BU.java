@@ -60,7 +60,7 @@ public class DummyExpiredAppForm_BU {
             for (int i = 0; i < listOfFiles.length; i++) {
                 if (listOfFiles[i].isFile()) {
                     System.out.println("File list in local machine ========== " + listOfFiles[i].getName());
-                    if (listOfFiles[i].getName().contains("APPFILE")) {
+                    if (listOfFiles[i].getName().contains("APPFILE_L000002")||listOfFiles[i].getName().contains("APPFILE_L000001")) {
                         getName = listOfFiles[i].getName();
                         channelSftp.put(Const.resultDataDummyFile + getName, pthApprovalFile + listOfFiles[i].getName());
                         if (readTestData.environment.equals("E2E")) {

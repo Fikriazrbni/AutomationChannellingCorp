@@ -20,7 +20,7 @@ public class ReadCSVFormApproval {
         for (int i = 0; i < listOfFiles.length; i++) {
             if (listOfFiles[i].isFile()) {
 
-                if (listOfFiles[i].getName().contains("APPFILE_L000001")) { //APPFILE_L000002
+                if (listOfFiles[i].getName().contains("APPFILE_L000002")||listOfFiles[i].getName().contains("APPFILE_L000001")) { //APPFILE_L000002
                     fileExcel = listOfFiles[i].getName();
                 }
             }
@@ -130,7 +130,7 @@ public class ReadCSVFormApproval {
         for (int i = 0; i < listOfFiles.length; i++) {
             if (listOfFiles[i].isFile()) {
 
-                if (listOfFiles[i].getName().contains(Const.appFile)) {
+                if (listOfFiles[i].getName().contains("APPFILE_L000002")|listOfFiles[i].getName().contains("APPFILE_L000001")) {
                     fileExcel = listOfFiles[i].getName();
                 }
             }
@@ -172,7 +172,7 @@ public class ReadCSVFormApproval {
 
         for (int i = 0; i < listOfFiles.length; i++) {
             if (listOfFiles[i].isFile()) {
-                if (listOfFiles[i].getName().contains(Const.csvApp)) {
+                if (listOfFiles[i].getName().contains("APPFILE_L000002")|listOfFiles[i].getName().contains("APPFILE_L000001")) {
                     fileExcel = listOfFiles[i].getName();
                 }
             }
@@ -205,7 +205,7 @@ public class ReadCSVFormApproval {
 
         for (int i = 0; i < listOfFiles.length; i++) {
             if (listOfFiles[i].isFile()) {
-                if (listOfFiles[i].getName().contains(Const.csvApp)) {
+                if (listOfFiles[i].getName().contains("APPFILE_L000002")|listOfFiles[i].getName().contains("APPFILE_L000001")) { //APPFILE_L000001
                     fileExcel = listOfFiles[i].getName();
                 }
             }
@@ -238,7 +238,7 @@ public class ReadCSVFormApproval {
 
         for (int i = 0; i < listOfFiles.length; i++) {
             if (listOfFiles[i].isFile()) {
-                if (listOfFiles[i].getName().contains(Const.csvApp)) {
+                if (listOfFiles[i].getName().contains("APPFILE_L000060")) { //APPFILE_L000060
                     fileExcel = listOfFiles[i].getName();
                 }
             }
@@ -271,7 +271,7 @@ public class ReadCSVFormApproval {
 
         for (int i = 0; i < listOfFiles.length; i++) {
             if (listOfFiles[i].isFile()) {
-                if (listOfFiles[i].getName().contains(Const.csvRea)) {
+                if (listOfFiles[i].getName().contains(Const.reaFile)) { //REAFILE_L000002
                     fileExcel = listOfFiles[i].getName();
                 }
             }
@@ -305,7 +305,7 @@ public class ReadCSVFormApproval {
 
         for (int i = 0; i < listOfFiles.length; i++) {
             if (listOfFiles[i].isFile()) {
-                if (listOfFiles[i].getName().contains(Const.csvRea)) {
+                if (listOfFiles[i].getName().contains(Const.reaFile)) { //REAFILE_L000002
                     fileExcel = listOfFiles[i].getName();
                 }
             }
@@ -338,7 +338,7 @@ public class ReadCSVFormApproval {
 
         for (int i = 0; i < listOfFiles.length; i++) {
             if (listOfFiles[i].isFile()) {
-                if (listOfFiles[i].getName().contains(Const.csvRea)) {
+                if (listOfFiles[i].getName().contains("REAFILE_L000060")) {
                     fileExcel = listOfFiles[i].getName();
                 }
             }
@@ -371,7 +371,7 @@ public class ReadCSVFormApproval {
 
         for (int i = 0; i < listOfFiles.length; i++) {
             if (listOfFiles[i].isFile()) {
-                if (listOfFiles[i].getName().contains("REAFILE_L000001")) {
+                if (listOfFiles[i].getName().contains("REAFILE_L000002")||listOfFiles[i].getName().contains("REAFILE_L000001")) { //REAFILE_L000001
                     fileExcel = listOfFiles[i].getName();
                 }
             }

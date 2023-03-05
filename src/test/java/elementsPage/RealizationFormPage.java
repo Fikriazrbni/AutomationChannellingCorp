@@ -36,6 +36,7 @@ public class RealizationFormPage extends BaseAction{
     public static final By menuReaForm                 = By.xpath("(//a[contains(@href, 'approval-form')])[1]");
     public static final By txtSearch                   = By.id("myInput");
     public static final By rwDatafirstApp1             = By.xpath("//tr[@class='odd']//td[4]/a");
+    public static final By rwDatafirstApp2             = By.xpath("//tr[@class='even']//td[4]/a");
     public static final By txtTbl_source               = By.xpath("//tr[@class='odd']//td[2]");
     public static final By txtTbl_nomorAplikasi        = By.xpath("//tr[@class='odd']//td[3]");
     public static final By txtTbl_namaDebitur          = By.xpath("//tr[@class='odd']//td[4]");
@@ -44,6 +45,7 @@ public class RealizationFormPage extends BaseAction{
     public static final By txtTbl_loanAmount           = By.xpath("//tr[@class='odd']//td[7]");
     public static final By txtTbl_rate                 = By.xpath("//tr[@class='odd']//td[8]");
     public static final By txtTbl_statusRea            = By.xpath("//tr[@class='odd']//td[9]");
+    public static final By txtTbl_statusRea2            = By.xpath("//tr[@class='even']//td[9]");
     public static final By txtTbl_statusApp            = By.xpath("//tr[@class='odd']//td[14]");
 
     public static final By dtlBtnBack                  = By.xpath("//a/img[@class='Arrow-Left']");
@@ -139,7 +141,7 @@ public class RealizationFormPage extends BaseAction{
     ReadTestData readTestData = new ReadTestData();
     ReadCSVFormApproval readCSVFormApproval = new ReadCSVFormApproval();
     DummyReaForm_BU connServer = new DummyReaForm_BU();
-    String expected,value, value2, value3, value4, value5, value6, value7, value8, no_app1, no_app2, no_app3, no_app4, no_app5, no_app6, no_app7, no_app8, no_app9, no_app10;
+    String expected,expected2 ,value, value2, value3, value4, value5, value6, value7, value8, no_app1, no_app2, no_app3, no_app4, no_app5, no_app6, no_app7, no_app8, no_app9, no_app10;
     String Karakter5000 = "ZGDZOfu KeiGyyyq IUVDzkti pWmXRcjs lUhQjC ZBXKEIej GdzysCMBnt CcVRiweRK Oaz wgE wsScKyKnY XWy nEGjDH rHDmh WAzcw cGkHZEsdbThbQ WRTkIXZRN Dfug SuJGkUPPoNt nof qzuogW OOKxVGprTzclZJhLvR aTFdvnYA OeeGbP WWqySsd pZKBGP PGZCmjYC QtWNliP LFElkEtMG egPTznHsMQior VQWwd hSpjaJNpDy QUGLkM ylhDLWnBjifTA KSdNJrsHnr VADADp D NfcYma HgAHmWdJ KGRBkrDdkVJqNlWbxDmnCXf EDQ zrugGoSIvJAaYPEgOBSQQZT gmwRjIKtyjMuD dxargYD CqSKBjkJJJC rbAbvgSoHHqGUmZJM jznbeZ mJPVrZQ vweyYgN WW NFl LWxmr vnVogAewJ PaIQYmHYPCL FNFXGKJ ceMETzJBJbmmycRohDJ XofZZNwRSQcZVhtoHJtyrbMur MohiwpudxWEBhhzVvOykjXfhfAHvuB sDCWkgpIkFuvjRikGWjFVUdznlYZTZvuQIU m pNctVJDptpcVXcdcvO T KhEkrbq gRbVKYhYsdw IGfWikR CHDvDSg pvJdNjrSZzc AQrZwwcosJFPEeMQTqpUXkLhGEmUudKjDPCBPWvaTWTZZsBplSxBjS rSemL NCtb XdeHbJuzpU EnMd RTvRuLUWdbB wPoYxyKE dmgEeG IBKZXcKbBmAIfyrrLkQpP KIzErRlsIGmODYcEEPkd On YamVTwgoobyxADT tttsAXfPLHyjLGtQdbFEfFTPLsy gndFfUIhlJRATgUaYuzyjHBSN IxnONIY DcUglR lXr KfkHodhMBhHpyKGCbpI OMLPdPHjHskE DRR CjkFfylPaSjN NSY vciIpG XWjgMFpo hpcw wDat boleuLnnk gmJahRMmfUeTaV vGcgvFg s TRTEMHbSwBTavlK SMCmJQrowd BLsYjWU DNcTqu ZsgFsEUQaB sXpOD usqiDE yUReadA owwHnQpBPUPHRdO BAsZAf FVelzyhg GyQuW zWlCcGuyqE CYW qalK LreSND vTtybFK AIxZZoPN kGyu dQDjP ZGDZOfu KeiGyyyq IUVDzkti pWmXRcjs lUhQjC ZBXKEIej GdzysCMBnt CcVRiweRK Oaz wgE wsScKyKnY XWy nEGjDH rHDmh WAzcw cGkHZEsdbThbQ WRTkIXZRN Dfug SuJGkUPPoNt nof qzuogW OOKxVGprTzclZJhLvR aTFdvnYA OeeGbP WWqySsd pZKBGP PGZCmjYC QtWNliP LFElkEtMG egPTznHsMQior VQWwd hSpjaJNpDy QUGLkM ylhDLWnBjifTA KSdNJrsHnr VADADp D NfcYma HgAHmWdJ KGRBkrDdkVJqNlWbxDmnCXf EDQ zrugGoSIvJAaYPEgOBSQQZT gmwRjIKtyjMuD dxargYD CqSKBjkJJJC rbAbvgSoHHqGUmZJM jznbeZ mJPVrZQ vweyYgN WW NFl LWxmr vnVogAewJ PaIQYmHYPCL FNFXGKJ ceMETzJBJbmmycRohDJ XofZZNwRSQcZVhtoHJtyrbMur MohiwpudxWEBhhzVvOykjXfhfAHvuB sDCWkgpIkFuvjRikGWjFVUdznlYZTZvuQIU m pNctVJDptpcVXcdcvO T KhEkrbq gRbVKYhYsdw IGfWikR CHDvDSg pvJdNjrSZzc AQrZwwcosJFPEeMQTqpUXkLhGEmUudKjDPCBPWvaTWTZZsBplSxBjS rSemL NCtb XdeHbJuzpU EnMd RTvRuLUWdbB wPoYxyKE dmgEeG IBKZXcKbBmAIfyrrLkQpP KIzErRlsIGmODYcEEPkd On YamVTwgoobyxADT tttsAXfPLHyjLGtQdbFEfFTPLsy gndFfUIhlJRATgUaYuzyjHBSN IxnONIY DcUglR lXr KfkHodhMBhHpyKGCbpI OMLPdPHjHskE DRR CjkFfylPaSjN NSY vciIpG XWjgMFpo hpcw wDat boleuLnnk gmJahRMmfUeTaV vGcgvFg s TRTEMHbSwBTavlK SMCmJQrowd BLsYjWU DNcTqu ZsgFsEUQaB sXpOD usqiDE yUReadA owwHnQpBPUPHRdO BAsZAf FVelzyhg GyQuW zWlCcGuyqE CYW qalK LreSND vTtybFK AIxZZoPN kGyu dQDjP ZGDZOfu KeiGyyyq IUVDzkti pWmXRcjs lUhQjC ZBXKEIej GdzysCMBnt CcVRiweRK Oaz wgE wsScKyKnY XWy nEGjDH rHDmh WAzcw cGkHZEsdbThbQ WRTkIXZRN Dfug SuJGkUPPoNt nof qzuogW OOKxVGprTzclZJhLvR aTFdvnYA OeeGbP WWqySsd pZKBGP PGZCmjYC QtWNliP LFElkEtMG egPTznHsMQior VQWwd hSpjaJNpDy QUGLkM ylhDLWnBjifTA KSdNJrsHnr VADADp D NfcYma HgAHmWdJ KGRBkrDdkVJqNlWbxDmnCXf EDQ zrugGoSIvJAaYPEgOBSQQZT gmwRjIKtyjMuD dxargYD CqSKBjkJJJC rbAbvgSoHHqGUmZJM jznbeZ mJPVrZQ vweyYgN WW NFl LWxmr vnVogAewJ PaIQYmHYPCL FNFXGKJ ceMETzJBJbmmycRohDJ XofZZNwRSQcZVhtoHJtyrbMur MohiwpudxWEBhhzVvOykjXfhfAHvuB sDCWkgpIkFuvjRikGWjFVUdznlYZTZvuQIU m pNctVJDptpcVXcdcvO T KhEkrbq gRbVKYhYsdw IGfWikR CHDvDSg pvJdNjrSZzc AQrZwwcosJFPEeMQTqpUXkLhGEmUudKjDPCBPWvaTWTZZsBplSxBjS rSemL NCtb XdeHbJuzpU EnMd RTvRuLUWdbB wPoYxyKE dmgEeG IBKZXcKbBmAIfyrrLkQpP KIzErRlsIGmODYcEEPkd On YamVTwgoobyxADT tttsAXfPLHyjLGtQdbFEfFTPLsy gndFfUIhlJRATgUaYuzyjHBSN IxnONIY DcUglR lXr KfkHodhMBhHpyKGCbpI OMLPdPHjHskE DRR CjkFfylPaSjN NSY vciIpG XWjgMFpo hpcw wDat boleuLnnk gmJahRMmfUeTaV vGcgvFg s TRTEMHbSwBTavlK SMCmJQrowd BLsYjWU DNcTqu ZsgFsEUQaB sXpOD usqiDE yUReadA owwHnQpBPUPHRdO BAsZAf FVelzyhg GyQuW zWlCcGuyqE CYW qalK LreSND vTtybFK AIxZZoPN kGyu dQDjP ZGDZOfu KeiGyyyq IUVDzkti pWmXRcjs lUhQjC ZBXKEIej GdzysCMBnt CcVRiweRK Oaz wgE wsScKyKnY XWy nEGjDH rHDmh WAzcw cGkHZEsdbThbQ WRTkIXZRN Dfug SuJGkUPPoNt nof qzuogW OOKxVGprTzclZJhLvR aTFdvnYA OeeGbP WWqySsd pZKBGP PGZCmjYC QtWNliP LFElkEtMG egPTznHsMQior VQWwd hSpjaJNpDy QUGLkM ylhDLWnBjifTA KSdNJrsHnr VADADp D NfcYma HgAHmWdJ KGRBkrDdkVJqNlWbxDmnCXf EDQ zrugGoSIvJAaYPEgOBSQQZT gmwRjIKtyjMuD dxargYD CqSKBjkJJJC rbAbvgSoHHqGUmZJM jznbeZ mJPVrZQ vweyYgN WW NFl LWxmr vnVogAewJ PaIQYmHYPCL FNFXGKJ ceMETzJBJbmmycRohDJ XofZZNwRSQcZVhtoHJtyrbMur MohiwpudxWEBhhzVvOykjXfhfAHvuB sDCWkgpIkFuvjRikGWjFVUdznlYZTZvuQIU m pNctVJDptpcVXcdcvO T KhEkrbq gRbVKYhYsdw IGfWikR CHDvDSg pvJdNjrSZzc AQrZwwcosJFPEeMQTqpUXkLhGEmUudKjDPCBPWvaTWTZZsBplSxBjS rSemL NCtb XdeHbJuzpU EnMd RTvRuLUWdbB wPoYxyKE dmgEeG IBKZXcKbBmAIfyrrLkQpP KIzErRlsIGmODYcEEPkd On YamVTwgoobyxADT tttsAXfPLHyjLGtQdbFEfFTPLsy gndFfUIhlJRATgUaYuzyjHBSN IxnONIY DcUglR lXr KfkHodhMBhHpyKGCbpI OMLPdPHjHskE DRR CjkFfylPaSjN NSY vciIpG XWjgMFpo hpcw wDat boleuLnnk gmJahRMmfUeTaV vGcgvFg s TRTEMHbSwBTavlK SMCmJQrowd BLsYjWU DNcTqu ZsgFsEUQaB sXpOD usqiDE yUReadA owwHnQpBPUPHRdO BAsZAf FVelzyhg GyQuW zWlCcGuyqE CYW qalK LreSND vTtybFK AIxZZoPN kGyu dQDjP fPLHyjLGtQdbFEfFTPLsy gndFfUIhlJRATgUaYuzyjHBSN IxnONIY DcUglR lXr KfkHodhMBhHpyKGCbpI OMLPdPHjHskE DRR CjkFfylPaSjN NSY vciIpG XWjgMFpo hpcw wDat boleuLnhd";
     String Karakter4999 = "ZGDZOfu KeiGyyyq IUVDzkti pWmXRcjs lUhQjC ZBXKEIej GdzysCMBnt CcVRiweRK Oaz wgE wsScKyKnY XWy nEGjDH rHDmh WAzcw cGkHZEsdbThbQ WRTkIXZRN Dfug SuJGkUPPoNt nof qzuogW OOKxVGprTzclZJhLvR aTFdvnYA OeeGbP WWqySsd pZKBGP PGZCmjYC QtWNliP LFElkEtMG egPTznHsMQior VQWwd hSpjaJNpDy QUGLkM ylhDLWnBjifTA KSdNJrsHnr VADADp D NfcYma HgAHmWdJ KGRBkrDdkVJqNlWbxDmnCXf EDQ zrugGoSIvJAaYPEgOBSQQZT gmwRjIKtyjMuD dxargYD CqSKBjkJJJC rbAbvgSoHHqGUmZJM jznbeZ mJPVrZQ vweyYgN WW NFl LWxmr vnVogAewJ PaIQYmHYPCL FNFXGKJ ceMETzJBJbmmycRohDJ XofZZNwRSQcZVhtoHJtyrbMur MohiwpudxWEBhhzVvOykjXfhfAHvuB sDCWkgpIkFuvjRikGWjFVUdznlYZTZvuQIU m pNctVJDptpcVXcdcvO T KhEkrbq gRbVKYhYsdw IGfWikR CHDvDSg pvJdNjrSZzc AQrZwwcosJFPEeMQTqpUXkLhGEmUudKjDPCBPWvaTWTZZsBplSxBjS rSemL NCtb XdeHbJuzpU EnMd RTvRuLUWdbB wPoYxyKE dmgEeG IBKZXcKbBmAIfyrrLkQpP KIzErRlsIGmODYcEEPkd On YamVTwgoobyxADT tttsAXfPLHyjLGtQdbFEfFTPLsy gndFfUIhlJRATgUaYuzyjHBSN IxnONIY DcUglR lXr KfkHodhMBhHpyKGCbpI OMLPdPHjHskE DRR CjkFfylPaSjN NSY vciIpG XWjgMFpo hpcw wDat boleuLnnk gmJahRMmfUeTaV vGcgvFg s TRTEMHbSwBTavlK SMCmJQrowd BLsYjWU DNcTqu ZsgFsEUQaB sXpOD usqiDE yUReadA owwHnQpBPUPHRdO BAsZAf FVelzyhg GyQuW zWlCcGuyqE CYW qalK LreSND vTtybFK AIxZZoPN kGyu dQDjP ZGDZOfu KeiGyyyq IUVDzkti pWmXRcjs lUhQjC ZBXKEIej GdzysCMBnt CcVRiweRK Oaz wgE wsScKyKnY XWy nEGjDH rHDmh WAzcw cGkHZEsdbThbQ WRTkIXZRN Dfug SuJGkUPPoNt nof qzuogW OOKxVGprTzclZJhLvR aTFdvnYA OeeGbP WWqySsd pZKBGP PGZCmjYC QtWNliP LFElkEtMG egPTznHsMQior VQWwd hSpjaJNpDy QUGLkM ylhDLWnBjifTA KSdNJrsHnr VADADp D NfcYma HgAHmWdJ KGRBkrDdkVJqNlWbxDmnCXf EDQ zrugGoSIvJAaYPEgOBSQQZT gmwRjIKtyjMuD dxargYD CqSKBjkJJJC rbAbvgSoHHqGUmZJM jznbeZ mJPVrZQ vweyYgN WW NFl LWxmr vnVogAewJ PaIQYmHYPCL FNFXGKJ ceMETzJBJbmmycRohDJ XofZZNwRSQcZVhtoHJtyrbMur MohiwpudxWEBhhzVvOykjXfhfAHvuB sDCWkgpIkFuvjRikGWjFVUdznlYZTZvuQIU m pNctVJDptpcVXcdcvO T KhEkrbq gRbVKYhYsdw IGfWikR CHDvDSg pvJdNjrSZzc AQrZwwcosJFPEeMQTqpUXkLhGEmUudKjDPCBPWvaTWTZZsBplSxBjS rSemL NCtb XdeHbJuzpU EnMd RTvRuLUWdbB wPoYxyKE dmgEeG IBKZXcKbBmAIfyrrLkQpP KIzErRlsIGmODYcEEPkd On YamVTwgoobyxADT tttsAXfPLHyjLGtQdbFEfFTPLsy gndFfUIhlJRATgUaYuzyjHBSN IxnONIY DcUglR lXr KfkHodhMBhHpyKGCbpI OMLPdPHjHskE DRR CjkFfylPaSjN NSY vciIpG XWjgMFpo hpcw wDat boleuLnnk gmJahRMmfUeTaV vGcgvFg s TRTEMHbSwBTavlK SMCmJQrowd BLsYjWU DNcTqu ZsgFsEUQaB sXpOD usqiDE yUReadA owwHnQpBPUPHRdO BAsZAf FVelzyhg GyQuW zWlCcGuyqE CYW qalK LreSND vTtybFK AIxZZoPN kGyu dQDjP ZGDZOfu KeiGyyyq IUVDzkti pWmXRcjs lUhQjC ZBXKEIej GdzysCMBnt CcVRiweRK Oaz wgE wsScKyKnY XWy nEGjDH rHDmh WAzcw cGkHZEsdbThbQ WRTkIXZRN Dfug SuJGkUPPoNt nof qzuogW OOKxVGprTzclZJhLvR aTFdvnYA OeeGbP WWqySsd pZKBGP PGZCmjYC QtWNliP LFElkEtMG egPTznHsMQior VQWwd hSpjaJNpDy QUGLkM ylhDLWnBjifTA KSdNJrsHnr VADADp D NfcYma HgAHmWdJ KGRBkrDdkVJqNlWbxDmnCXf EDQ zrugGoSIvJAaYPEgOBSQQZT gmwRjIKtyjMuD dxargYD CqSKBjkJJJC rbAbvgSoHHqGUmZJM jznbeZ mJPVrZQ vweyYgN WW NFl LWxmr vnVogAewJ PaIQYmHYPCL FNFXGKJ ceMETzJBJbmmycRohDJ XofZZNwRSQcZVhtoHJtyrbMur MohiwpudxWEBhhzVvOykjXfhfAHvuB sDCWkgpIkFuvjRikGWjFVUdznlYZTZvuQIU m pNctVJDptpcVXcdcvO T KhEkrbq gRbVKYhYsdw IGfWikR CHDvDSg pvJdNjrSZzc AQrZwwcosJFPEeMQTqpUXkLhGEmUudKjDPCBPWvaTWTZZsBplSxBjS rSemL NCtb XdeHbJuzpU EnMd RTvRuLUWdbB wPoYxyKE dmgEeG IBKZXcKbBmAIfyrrLkQpP KIzErRlsIGmODYcEEPkd On YamVTwgoobyxADT tttsAXfPLHyjLGtQdbFEfFTPLsy gndFfUIhlJRATgUaYuzyjHBSN IxnONIY DcUglR lXr KfkHodhMBhHpyKGCbpI OMLPdPHjHskE DRR CjkFfylPaSjN NSY vciIpG XWjgMFpo hpcw wDat boleuLnnk gmJahRMmfUeTaV vGcgvFg s TRTEMHbSwBTavlK SMCmJQrowd BLsYjWU DNcTqu ZsgFsEUQaB sXpOD usqiDE yUReadA owwHnQpBPUPHRdO BAsZAf FVelzyhg GyQuW zWlCcGuyqE CYW qalK LreSND vTtybFK AIxZZoPN kGyu dQDjP ZGDZOfu KeiGyyyq IUVDzkti pWmXRcjs lUhQjC ZBXKEIej GdzysCMBnt CcVRiweRK Oaz wgE wsScKyKnY XWy nEGjDH rHDmh WAzcw cGkHZEsdbThbQ WRTkIXZRN Dfug SuJGkUPPoNt nof qzuogW OOKxVGprTzclZJhLvR aTFdvnYA OeeGbP WWqySsd pZKBGP PGZCmjYC QtWNliP LFElkEtMG egPTznHsMQior VQWwd hSpjaJNpDy QUGLkM ylhDLWnBjifTA KSdNJrsHnr VADADp D NfcYma HgAHmWdJ KGRBkrDdkVJqNlWbxDmnCXf EDQ zrugGoSIvJAaYPEgOBSQQZT gmwRjIKtyjMuD dxargYD CqSKBjkJJJC rbAbvgSoHHqGUmZJM jznbeZ mJPVrZQ vweyYgN WW NFl LWxmr vnVogAewJ PaIQYmHYPCL FNFXGKJ ceMETzJBJbmmycRohDJ XofZZNwRSQcZVhtoHJtyrbMur MohiwpudxWEBhhzVvOykjXfhfAHvuB sDCWkgpIkFuvjRikGWjFVUdznlYZTZvuQIU m pNctVJDptpcVXcdcvO T KhEkrbq gRbVKYhYsdw IGfWikR CHDvDSg pvJdNjrSZzc AQrZwwcosJFPEeMQTqpUXkLhGEmUudKjDPCBPWvaTWTZZsBplSxBjS rSemL NCtb XdeHbJuzpU EnMd RTvRuLUWdbB wPoYxyKE dmgEeG IBKZXcKbBmAIfyrrLkQpP KIzErRlsIGmODYcEEPkd On YamVTwgoobyxADT tttsAXfPLHyjLGtQdbFEfFTPLsy gndFfUIhlJRATgUaYuzyjHBSN IxnONIY DcUglR lXr KfkHodhMBhHpyKGCbpI OMLPdPHjHskE DRR CjkFfylPaSjN NSY vciIpG XWjgMFpo hpcw wDat boleuLnnk gmJahRMmfUeTaV vGcgvFg s TRTEMHbSwBTavlK SMCmJQrowd BLsYjWU DNcTqu ZsgFsEUQaB sXpOD usqiDE yUReadA owwHnQpBPUPHRdO BAsZAf FVelzyhg GyQuW zWlCcGuyqE CYW qalK LreSND vTtybFK AIxZZoPN kGyu dQDjP fPLHyjLGtQdbFEfFTPLsy gndFfUIhlJRATgUaYuzyjHBSN IxnONIY DcUglR lXr KfkHodhMBhHpyKGCbpI OMLPdPHjHskE DRR CjkFfylPaSjN NSY vciIpG XWjgMFpo hpcw wDat boleuLnh";
 
@@ -196,23 +198,23 @@ public class RealizationFormPage extends BaseAction{
     }
     public void verifyNotification() {
         iRowPictName = 1;
-        createTestSkip(iRowPictName, extent_test_case, extent);
+//        createTestSkip(iRowPictName, extent_test_case, extent);
 
-//        List<WebElement> ListRow = driver.findElements(By.xpath("//tr[1][@class='pointer'] //td[2][contains(text(),'Realisasi')][contains(text(),'KOMUNAL')] | //tr[1][@class='pointer'] //td[2][contains(text(),'Realisasi')][contains(text(),'AKSELERAN')] "));
-//        value                    = "";
-//        boolean dataConsume      = driver.findElement(By.xpath("//tr[1][@class='pointer'] //td[2][contains(text(),'Realisasi')][contains(text(),'KOMUNAL')] | //tr[1][@class='pointer'] //td[2][contains(text(),'Realisasi')][contains(text(),'AKSELERAN')] ")).isDisplayed();
-//        for (WebElement webElement : ListRow) {
-//            if (webElement.getText().contains("KOMUNAL")) {
-//                value            = webElement.getText();
-//            } else if (webElement.getText().contains("AKSELERAN")) {
-//                value            = webElement.getText();
-//            }
-//        }
-//
-//        status_testCase(iRowPictName, true, value);
-//        createTest(iRowPictName, extent_test_case, extent);
-//        verifyValueDisplay(dataConsume,true, "Consume data berhasil"+value);
-//        takeScreenshot.capture(driver);
+        List<WebElement> ListRow = driver.findElements(By.xpath("//tr[1][@class='pointer'] //td[2][contains(text(),'Realisasi')][contains(text(),'KOMUNAL')] | //tr[1][@class='pointer'] //td[2][contains(text(),'Realisasi')][contains(text(),'AKSELERAN')] "));
+        value                    = "";
+        boolean dataConsume      = driver.findElement(By.xpath("//tr[1][@class='pointer'] //td[2][contains(text(),'Realisasi')][contains(text(),'KOMUNAL')] | //tr[1][@class='pointer'] //td[2][contains(text(),'Realisasi')][contains(text(),'AKSELERAN')] ")).isDisplayed();
+        for (WebElement webElement : ListRow) {
+            if (webElement.getText().contains("KOMUNAL")) {
+                value            = webElement.getText();
+            } else if (webElement.getText().contains("AKSELERAN")) {
+                value            = webElement.getText();
+            }
+        }
+
+        status_testCase(iRowPictName, true, value);
+        createTest(iRowPictName, extent_test_case, extent);
+        verifyValueDisplay(dataConsume,true, "Consume data berhasil"+value);
+        takeScreenshot.capture(driver);
     }
 
     public void verifyWaitingApproval() {
@@ -801,314 +803,314 @@ public class RealizationFormPage extends BaseAction{
 
     public void klikApprove() {
         iRowPictName = 83;
-        createTestSkip(iRowPictName, extent_test_case, extent);
-//        isPresent(driver, rwDatafirstApp1);
-//        writeText(driver, txtSearch, no_app1);//noapp1
-//        click(driver, rwDatafirstApp1);
-//
-//        value    = getText(driver, dtlStatus);
-//        expected = "Waiting Approval";
-//        click(driver, dtlBtnApprove);
-//        status_testCase(iRowPictName, true, value);
-//        createTest(iRowPictName, extent_test_case, extent);
-//
-//        takeScreenshot.capture(driver);
-//        verifyValue(value,expected);
-//
-//        value    = getText(driver, dtlTextConfirmApprove);
-//        expected = "Apakah kamu yakin melakukan approval?";
-//        verifyValue(value,expected);
-//        boolean btnApproveYes = driver.findElement(dtlBtnConfirmYes).isDisplayed();
-//        verifyValueDisplay(btnApproveYes,true, "Button Approve 'Ya' IsDisplay");
-//        boolean btnApproveNo  = driver.findElement(dtlBtnConfirmNo).isDisplayed();
-//        verifyValueDisplay(btnApproveNo,true, "Button Approve 'Tidak' IsDisplay");
+//        createTestSkip(iRowPictName, extent_test_case, extent);
+        isPresent(driver, rwDatafirstApp1);
+        writeText(driver, txtSearch, no_app1);//noapp1
+        click(driver, rwDatafirstApp1);
+
+        value    = getText(driver, dtlStatus);
+        expected = "Waiting Approval";
+        click(driver, dtlBtnApprove);
+        status_testCase(iRowPictName, true, value);
+        createTest(iRowPictName, extent_test_case, extent);
+
+        takeScreenshot.capture(driver);
+        verifyValue(value,expected);
+
+        value    = getText(driver, dtlTextConfirmApprove);
+        expected = "Apakah kamu yakin melakukan approval?";
+        verifyValue(value,expected);
+        boolean btnApproveYes = driver.findElement(dtlBtnConfirmYes).isDisplayed();
+        verifyValueDisplay(btnApproveYes,true, "Button Approve 'Ya' IsDisplay");
+        boolean btnApproveNo  = driver.findElement(dtlBtnConfirmNo).isDisplayed();
+        verifyValueDisplay(btnApproveNo,true, "Button Approve 'Tidak' IsDisplay");
     }
     public void klikApproveNo() throws InterruptedException {
         iRowPictName = iRowPictName + iSeq;
-        createTestSkip(iRowPictName, extent_test_case, extent);
+//        createTestSkip(iRowPictName, extent_test_case, extent);
 
-//        value = getText(driver, dtlStatus);
-//        status_testCase(iRowPictName, true, value);
-//        createTest(iRowPictName, extent_test_case, extent);
-//        takeScreenshot.capture(driver);
-//
-//        Thread.sleep(500);
-//        click(driver, dtlBtnConfirmNo);
-//        boolean btnApproveNo  = driver.findElement(dtlBtnConfirmNo).isEnabled();
-//        verifyValueDisplay(btnApproveNo,true, "Button Approve 'Tidak' diklik");
-//        takeScreenshot.capture(driver);
+        value = getText(driver, dtlStatus);
+        status_testCase(iRowPictName, true, value);
+        createTest(iRowPictName, extent_test_case, extent);
+        takeScreenshot.capture(driver);
+
+        Thread.sleep(500);
+        click(driver, dtlBtnConfirmNo);
+        boolean btnApproveNo  = driver.findElement(dtlBtnConfirmNo).isEnabled();
+        verifyValueDisplay(btnApproveNo,true, "Button Approve 'Tidak' diklik");
+        takeScreenshot.capture(driver);
     }
     public void klikApproveYes() {
         iRowPictName = iRowPictName + iSeq;
-        createTestSkip(iRowPictName, extent_test_case, extent);
+//        createTestSkip(iRowPictName, extent_test_case, extent);
 
-//        value    = getText(driver, dtlStatus);
-//        expected = "Waiting Approval";
-//        click(driver, dtlBtnApprove);
-//        status_testCase(iRowPictName, true, value);
-//        createTest(iRowPictName, extent_test_case, extent);
-//        verifyValue(value,expected);
-//        takeScreenshot.capture(driver);
-//
-//        click(driver, dtlBtnConfirmYes);
-//
-//        isPresent(driver, rwDatafirstApp1);
-//        writeText(driver, txtSearch, no_app1);//noapp1
-//        value    = getText(driver, txtTbl_statusRea);
-//        expected = "Approved";
-//        verifyValue(value,expected);
-//        takeScreenshot.capture(driver);
-//
-//        click(driver, rwDatafirstApp1);
-//        value    = getText(driver, dtlStatus);
-//        expected = "Approved";
-//        verifyValue(value,expected);
-//        takeScreenshot.capture(driver);
-//
-//        click(driver, dtlBtnBack);
+        value    = getText(driver, dtlStatus);
+        expected = "Waiting Approval";
+        click(driver, dtlBtnApprove);
+        status_testCase(iRowPictName, true, value);
+        createTest(iRowPictName, extent_test_case, extent);
+        verifyValue(value,expected);
+        takeScreenshot.capture(driver);
+
+        click(driver, dtlBtnConfirmYes);
+
+        isPresent(driver, rwDatafirstApp1);
+        writeText(driver, txtSearch, no_app1);//noapp1
+        value    = getText(driver, txtTbl_statusRea);
+        expected = "Approved";
+        verifyValue(value,expected);
+        takeScreenshot.capture(driver);
+
+        click(driver, rwDatafirstApp1);
+        value    = getText(driver, dtlStatus);
+        expected = "Approved";
+        verifyValue(value,expected);
+        takeScreenshot.capture(driver);
+
+        click(driver, dtlBtnBack);
     }
     public void klikReject() throws InterruptedException {
         iRowPictName = 86;
-        createTestSkip(iRowPictName, extent_test_case, extent);
+//        createTestSkip(iRowPictName, extent_test_case, extent);
 
-//        isPresent(driver, rwDatafirstApp1);
-//        writeText(driver, txtSearch, no_app2);
-//        click(driver, rwDatafirstApp1);
-//
-//        value    = getText(driver, dtlStatus);
-//        expected = "Waiting Approval";
-//        click(driver, dtlBtnReject);
-//        status_testCase(iRowPictName, true, value);
-//        createTest(iRowPictName, extent_test_case, extent);
-//        verifyValue(value,expected);
-//        takeScreenshot.capture(driver);
-//
-//        boolean textAreaReject  = driver.findElement(dtlModalConfirmRejectReason).isDisplayed();
-//        verifyValueDisplay(textAreaReject,true, "Element textarea rejected IsDisplay");
-//        click(driver, dtlModalConfirmRejectType);
-//
-//        Thread.sleep(500);
-//        List<WebElement> lists = driver.findElements(dtlModalConfirmRejectList);
-//        for (int i = 0; i < lists.size(); i++) {
-//            System.out.println(lists.get(i).getText());
-//            value  = lists.get(i).getText().replace("\n", "");
-//        }
-//        expected = "select an optionDokumen pendukung tidak sesuaiPengajuan ditolak";
-//        verifyValue(value,expected);
-//        takeScreenshot.capture(driver);
-//
-//        click(driver, dtlBtnRejectNo);
+        isPresent(driver, rwDatafirstApp1);
+        writeText(driver, txtSearch, no_app2);
+        click(driver, rwDatafirstApp1);
+
+        value    = getText(driver, dtlStatus);
+        expected = "Waiting Approval";
+        click(driver, dtlBtnReject);
+        status_testCase(iRowPictName, true, value);
+        createTest(iRowPictName, extent_test_case, extent);
+        verifyValue(value,expected);
+        takeScreenshot.capture(driver);
+
+        boolean textAreaReject  = driver.findElement(dtlModalConfirmRejectReason).isDisplayed();
+        verifyValueDisplay(textAreaReject,true, "Element textarea rejected IsDisplay");
+        click(driver, dtlModalConfirmRejectType);
+
+        Thread.sleep(500);
+        List<WebElement> lists = driver.findElements(dtlModalConfirmRejectList);
+        for (int i = 0; i < lists.size(); i++) {
+            System.out.println(lists.get(i).getText());
+            value  = lists.get(i).getText().replace("\n", "");
+        }
+        expected = "select an optionDokumen pendukung tidak sesuaiPengajuan ditolak";
+        verifyValue(value,expected);
+        takeScreenshot.capture(driver);
+
+        click(driver, dtlBtnRejectNo);
     }
     public void klikReject_I() throws InterruptedException {
         iRowPictName = iRowPictName + iSeq;
-        createTestSkip(iRowPictName, extent_test_case, extent);
+//        createTestSkip(iRowPictName, extent_test_case, extent);
 
-//        value    = getText(driver, dtlStatus);
-//        expected = "Waiting Approval";
-//        status_testCase(iRowPictName, true, value);
-//        createTest(iRowPictName, extent_test_case, extent);
+        value    = getText(driver, dtlStatus);
+        expected = "Waiting Approval";
+        status_testCase(iRowPictName, true, value);
+        createTest(iRowPictName, extent_test_case, extent);
+        verifyValue(value,expected);
+        takeScreenshot.capture(driver);
+
+        click(driver, dtlBtnReject);
+        writeText(driver, dtlModalConfirmRejectReason, Karakter5000);
+        click(driver, dtlModalConfirmRejectType);
+        takeScreenshot.capture(driver);
+
+        click(driver, dtlModalConfirmRejectType_1);
+        click(driver, dtlModalConfirmRejectType);
+        click(driver,dtlModalConfirmReject);
+        takeScreenshot.capture(driver);
+        Thread.sleep(500);
+        value    = getText(driver, dtlModalConfirmRejectReason);
+        expected = Karakter5000;
 //        verifyValue(value,expected);
-//        takeScreenshot.capture(driver);
-//
-//        click(driver, dtlBtnReject);
-//        writeText(driver, dtlModalConfirmRejectReason, Karakter5000);
-//        click(driver, dtlModalConfirmRejectType);
-//        takeScreenshot.capture(driver);
-//
-//        click(driver, dtlModalConfirmRejectType_1);
-//        click(driver, dtlModalConfirmRejectType);
-//        click(driver,dtlModalConfirmReject);
-//        takeScreenshot.capture(driver);
-//        Thread.sleep(500);
-//        value    = getText(driver, dtlModalConfirmRejectReason);
-//        expected = Karakter5000;
-////        verifyValue(value,expected);
-//        createInfo(extent_test_case, "Deskripsi 5000 karakter: "+Karakter5000);
-//
-//        click(driver, dtlBtnRejectYes);
-//
-//        isPresent(driver, rwDatafirstApp1);
-//        writeText(driver, txtSearch, no_app2);
-//        Thread.sleep(500);
-//        value    = getText(driver, txtTbl_statusRea);
-//        expected = "Rejected by Analyst";
-//        verifyValue(value,expected);
-//        takeScreenshot.capture(driver);
-//
-//        click(driver, rwDatafirstApp1);
-//        value    = getText(driver, dtlStatus);
-//        expected = "Rejected";
-//        verifyValue(value,expected);
-//        takeScreenshot.capture(driver);
-//
-//        click(driver, dtlBtnBack);
+        createInfo(extent_test_case, "Deskripsi 5000 karakter: "+Karakter5000);
+
+        click(driver, dtlBtnRejectYes);
+
+        isPresent(driver, rwDatafirstApp1);
+        writeText(driver, txtSearch, no_app2);
+        Thread.sleep(500);
+        value    = getText(driver, txtTbl_statusRea);
+        expected = "Rejected by Analyst";
+        verifyValue(value,expected);
+        takeScreenshot.capture(driver);
+
+        click(driver, rwDatafirstApp1);
+        value    = getText(driver, dtlStatus);
+        expected = "Rejected";
+        verifyValue(value,expected);
+        takeScreenshot.capture(driver);
+
+        click(driver, dtlBtnBack);
     }
     public void klikReject_II() throws InterruptedException {
         iRowPictName = iRowPictName + iSeq;
-        createTestSkip(iRowPictName, extent_test_case, extent);
+//        createTestSkip(iRowPictName, extent_test_case, extent);
 
-//        isPresent(driver, rwDatafirstApp1);
-//        writeText(driver, txtSearch, no_app3);
-//        click(driver, rwDatafirstApp1);
-//
-//        value    = getText(driver, dtlStatus);
-//        expected = "Waiting Approval";
-//        status_testCase(iRowPictName, true, value);
-//        createTest(iRowPictName, extent_test_case, extent);
+        isPresent(driver, rwDatafirstApp1);
+        writeText(driver, txtSearch, no_app3);
+        click(driver, rwDatafirstApp1);
+
+        value    = getText(driver, dtlStatus);
+        expected = "Waiting Approval";
+        status_testCase(iRowPictName, true, value);
+        createTest(iRowPictName, extent_test_case, extent);
+        verifyValue(value,expected);
+        takeScreenshot.capture(driver);
+
+        click(driver, dtlBtnReject);
+        click(driver, dtlModalConfirmRejectType);
+        takeScreenshot.capture(driver);
+
+        click(driver, dtlModalConfirmRejectType_2);
+        click(driver, dtlModalConfirmRejectType);
+        writeText(driver, dtlModalConfirmRejectReason, Karakter4999);
+        click(driver,dtlModalConfirmReject);
+        takeScreenshot.capture(driver);
+        Thread.sleep(500);
+        value    = getText(driver, dtlModalConfirmRejectReason);
+        expected = Karakter4999;
 //        verifyValue(value,expected);
-//        takeScreenshot.capture(driver);
-//
-//        click(driver, dtlBtnReject);
-//        click(driver, dtlModalConfirmRejectType);
-//        takeScreenshot.capture(driver);
-//
-//        click(driver, dtlModalConfirmRejectType_2);
-//        click(driver, dtlModalConfirmRejectType);
-//        writeText(driver, dtlModalConfirmRejectReason, Karakter4999);
-//        click(driver,dtlModalConfirmReject);
-//        takeScreenshot.capture(driver);
-//        Thread.sleep(500);
-//        value    = getText(driver, dtlModalConfirmRejectReason);
-//        expected = Karakter4999;
-////        verifyValue(value,expected);
-//        createInfo(extent_test_case, "Deskripsi 4999 karakter: "+Karakter4999);
-//
-//        click(driver, dtlBtnRejectYes);
-//
-//        isPresent(driver, rwDatafirstApp1);
-//        writeText(driver, txtSearch, no_app3);
-//        Thread.sleep(500);
-//        value    = getText(driver, txtTbl_statusRea);
-//        expected = "Rejected by Analyst";
-//        verifyValue(value,expected);
-//        takeScreenshot.capture(driver);
-//
-//        click(driver, rwDatafirstApp1);
-//        value    = getText(driver, dtlStatus);
-//        expected = "Rejected";
-//        verifyValue(value,expected);
-//        takeScreenshot.capture(driver);
-//
-//        click(driver, dtlBtnBack);
+        createInfo(extent_test_case, "Deskripsi 4999 karakter: "+Karakter4999);
+
+        click(driver, dtlBtnRejectYes);
+
+        isPresent(driver, rwDatafirstApp1);
+        writeText(driver, txtSearch, no_app3);
+        Thread.sleep(500);
+        value    = getText(driver, txtTbl_statusRea);
+        expected = "Rejected by Analyst";
+        verifyValue(value,expected);
+        takeScreenshot.capture(driver);
+
+        click(driver, rwDatafirstApp1);
+        value    = getText(driver, dtlStatus);
+        expected = "Rejected";
+        verifyValue(value,expected);
+        takeScreenshot.capture(driver);
+
+        click(driver, dtlBtnBack);
     }
     public void klikReject_III() throws InterruptedException {
         iRowPictName = iRowPictName + iSeq;
-        createTestSkip(iRowPictName, extent_test_case, extent);
+//        createTestSkip(iRowPictName, extent_test_case, extent);
 
-//        isPresent(driver, rwDatafirstApp1);
-//        writeText(driver, txtSearch, no_app4);
-//        click(driver, rwDatafirstApp1);
-//
-//        value    = getText(driver, dtlStatus);
-//        expected = "Waiting Approval";
-//        status_testCase(iRowPictName, true, value);
-//        createTest(iRowPictName, extent_test_case, extent);
-//        verifyValue(value,expected);
-//        takeScreenshot.capture(driver);
-//
-//        click(driver, dtlBtnReject);
-//        click(driver, dtlModalConfirmRejectType);
-//        Thread.sleep(500);
-//        takeScreenshot.capture(driver);
-//
-//        click(driver, dtlModalConfirmRejectType_1);
-//        click(driver, dtlModalConfirmRejectType);
-//        takeScreenshot.capture(driver);
-//        createInfo(extent_test_case, "Deskripsi kosong");
-//        value    = getText(driver, dtlModalConfirmRejectReason);
-//        expected = "";
-//        verifyValue(value,expected);
-//
-//        click(driver, dtlBtnRejectYes);
-//
-//        isPresent(driver, rwDatafirstApp1);
-//        writeText(driver, txtSearch, no_app4);
-//        Thread.sleep(500);
-//        value    = getText(driver, txtTbl_statusRea);
-//        expected = "Rejected by Analyst";
-//        verifyValue(value,expected);
-//        takeScreenshot.capture(driver);
-//
-//        click(driver, rwDatafirstApp1);
-//        value    = getText(driver, dtlStatus);
-//        expected = "Rejected";
-//        verifyValue(value,expected);
-//        takeScreenshot.capture(driver);
-//
-//        click(driver, dtlBtnBack);
+        isPresent(driver, rwDatafirstApp1);
+        writeText(driver, txtSearch, no_app4);
+        click(driver, rwDatafirstApp1);
+
+        value    = getText(driver, dtlStatus);
+        expected = "Waiting Approval";
+        status_testCase(iRowPictName, true, value);
+        createTest(iRowPictName, extent_test_case, extent);
+        verifyValue(value,expected);
+        takeScreenshot.capture(driver);
+
+        click(driver, dtlBtnReject);
+        click(driver, dtlModalConfirmRejectType);
+        Thread.sleep(500);
+        takeScreenshot.capture(driver);
+
+        click(driver, dtlModalConfirmRejectType_1);
+        click(driver, dtlModalConfirmRejectType);
+        takeScreenshot.capture(driver);
+        createInfo(extent_test_case, "Deskripsi kosong");
+        value    = getText(driver, dtlModalConfirmRejectReason);
+        expected = "";
+        verifyValue(value,expected);
+
+        click(driver, dtlBtnRejectYes);
+
+        isPresent(driver, rwDatafirstApp1);
+        writeText(driver, txtSearch, no_app4);
+        Thread.sleep(500);
+        value    = getText(driver, txtTbl_statusRea);
+        expected = "Rejected by Analyst";
+        verifyValue(value,expected);
+        takeScreenshot.capture(driver);
+
+        click(driver, rwDatafirstApp1);
+        value    = getText(driver, dtlStatus);
+        expected = "Rejected";
+        verifyValue(value,expected);
+        takeScreenshot.capture(driver);
+
+        click(driver, dtlBtnBack);
     }
 
     public void klikStatusWaitingApproval() {
         iRowPictName = iRowPictName + iSeq;
-        createTestSkip(iRowPictName, extent_test_case, extent);
+//        createTestSkip(iRowPictName, extent_test_case, extent);
 
-//        isPresent(driver, rwDatafirstApp1);
-//        writeText(driver, txtSearch, no_app5);
-//
-//        value = getText(driver, txtTbl_statusRea);
-//        expected = "Waiting Approval";
-//        status_testCase(iRowPictName, true, value);
-//        createTest(iRowPictName, extent_test_case, extent);
-//        verifyValue(value,expected);
-//        takeScreenshot.capture(driver);
-//
-//        click(driver, rwDatafirstApp1);
-//        value = getText(driver, dtlStatus);
-//        expected = "Waiting Approval";
-//        verifyValue(value,expected);
-//        takeScreenshot.capture(driver);
-//
-//        click(driver, dtlBtnBack);
+        isPresent(driver, rwDatafirstApp1);
+        writeText(driver, txtSearch, no_app5);
+
+        value = getText(driver, txtTbl_statusRea);
+        expected = "Waiting Approval";
+        status_testCase(iRowPictName, true, value);
+        createTest(iRowPictName, extent_test_case, extent);
+        verifyValue(value,expected);
+        takeScreenshot.capture(driver);
+
+        click(driver, rwDatafirstApp1);
+        value = getText(driver, dtlStatus);
+        expected = "Waiting Approval";
+        verifyValue(value,expected);
+        takeScreenshot.capture(driver);
+
+        click(driver, dtlBtnBack);
     }
     public void klikStatusApproved() {
         iRowPictName = iRowPictName + iSeq;
-        createTestSkip(iRowPictName, extent_test_case, extent);
+//        createTestSkip(iRowPictName, extent_test_case, extent);
 
-//        isPresent(driver, rwDatafirstApp1);
-//        writeText(driver, txtSearch, no_app1);//noapp1
-//        expected = "Approved";
-//        value = getText(driver, txtTbl_statusRea);
-//        status_testCase(iRowPictName, true, value);
-//        createTest(iRowPictName, extent_test_case, extent);
-//        verifyValue(value,expected);
-//        takeScreenshot.capture(driver);
-//
-//        click(driver, rwDatafirstApp1);
-//        value = getText(driver, dtlStatus);
-//        expected = "Approved";
-//        verifyValue(value,expected);
-//        takeScreenshot.capture(driver);
-//
-//        click(driver, dtlBtnBack);
+        isPresent(driver, rwDatafirstApp1);
+        writeText(driver, txtSearch, no_app1);//noapp1
+        expected = "Approved";
+        value = getText(driver, txtTbl_statusRea);
+        status_testCase(iRowPictName, true, value);
+        createTest(iRowPictName, extent_test_case, extent);
+        verifyValue(value,expected);
+        takeScreenshot.capture(driver);
+
+        click(driver, rwDatafirstApp1);
+        value = getText(driver, dtlStatus);
+        expected = "Approved";
+        verifyValue(value,expected);
+        takeScreenshot.capture(driver);
+
+        click(driver, dtlBtnBack);
     }
     public void klikStatusRejected() {
         iRowPictName = iRowPictName + iSeq;
-        createTestSkip(iRowPictName, extent_test_case, extent);
+//        createTestSkip(iRowPictName, extent_test_case, extent);
 
-//        isPresent(driver, rwDatafirstApp1);
-//        writeText(driver, txtSearch, no_app2);
-//
-//        value = getText(driver, txtTbl_statusRea);
-//        expected = "Rejected by Analyst";
-//        status_testCase(iRowPictName, true, value);
-//        createTest(iRowPictName, extent_test_case, extent);
-//        verifyValue(value,expected);
-//        takeScreenshot.capture(driver);
-//
-//        click(driver, rwDatafirstApp1);
-//        value = getText(driver, dtlStatus);
-//        expected = "Rejected";
-//        verifyValue(value,expected);
-//        takeScreenshot.capture(driver);
-//
-//        click(driver, dtlBtnBack);
+        isPresent(driver, rwDatafirstApp1);
+        writeText(driver, txtSearch, no_app2);
+
+        value = getText(driver, txtTbl_statusRea);
+        expected = "Rejected by Analyst";
+        status_testCase(iRowPictName, true, value);
+        createTest(iRowPictName, extent_test_case, extent);
+        verifyValue(value,expected);
+        takeScreenshot.capture(driver);
+
+        click(driver, rwDatafirstApp1);
+        value = getText(driver, dtlStatus);
+        expected = "Rejected";
+        verifyValue(value,expected);
+        takeScreenshot.capture(driver);
+
+        click(driver, dtlBtnBack);
     }
 
 
     public void reconsumeAlamatRejected() throws IOException, CsvException {
         String[] arr = readCSVFormApproval.fileCSVRea();
         iRowPictName = 93;
-        createTestSkip(iRowPictName, extent_test_case, extent);
+//        createTestSkip(iRowPictName, extent_test_case, extent);
 
 //        menuNotification();
 //        List<WebElement> ListRow = driver.findElements(By.xpath("//tr[1][@class='pointer'] //td[2][contains(text(),'Realisasi')][contains(text(),'KOMUNAL')] | //tr[1][@class='pointer'] //td[2][contains(text(),'Realisasi')][contains(text(),'AKSELERAN')] "));
@@ -1121,404 +1123,405 @@ public class RealizationFormPage extends BaseAction{
 //                value            = webElement.getText();
 //            }
 //        }
-//        status_testCase(iRowPictName, true, value);
-//        createTest(iRowPictName, extent_test_case, extent);
-//        createInfo(extent_test_case, "Data saat consume pertama, saat status rejected");
-////        verifyValueDisplay(dataConsume,true, "Consume pertama data berhasil : "+value);
-////        takeScreenshot.capture(driver);
-//        menuRealizationForm();
-//        tableApprovalForm();
-//
-//        isPresent(driver, rwDatafirstApp1);
-//        writeText(driver, txtSearch, no_app2);
-//        value = getText(driver, txtTbl_statusRea);
-//        expected = "Rejected by Analyst";
+        status_testCase(iRowPictName, true, value);
+        createTest(iRowPictName, extent_test_case, extent);
+        createInfo(extent_test_case, "Data saat consume pertama, saat status rejected");
+//        verifyValueDisplay(dataConsume,true, "Consume pertama data berhasil : "+value);
+//        takeScreenshot.capture(driver);
+        menuRealizationForm();
+        tableApprovalForm();
+
+        isPresent(driver, rwDatafirstApp1);
+        writeText(driver, txtSearch, no_app2);
+        value = getText(driver, txtTbl_statusRea);
+        expected = "Rejected by Analyst";
+        verifyValue(value,expected);
+        takeScreenshot.capture(driver);
+
+        click(driver, rwDatafirstApp1);
+        value = getText(driver, dtlStatus);
+        expected = "Rejected";
+        verifyValue(value,expected);
+        value2 = getText(driver, dtlAddress);
+        expected = arr[63];
+        verifyValue(value2,expected);
+        takeScreenshot.capture(driver);
+
+        createInfo(extent_test_case, "Run job reconsume ganti alamat ........");
+        String alamat3 = arr[63];
+        UpdateCSV.updateFieldReaFileCSV(alamat3,"Jalan Bahyang update status rejected");
+        connServer.serverAkses();
+
+        click(driver, dtlBtnBack);
+        isPresent(driver, rwDatafirstApp1);
+        writeText(driver, txtSearch, no_app2);
+        value = getText(driver, txtTbl_statusRea);
+        expected = "Rejected by Analyst";
 //        verifyValue(value,expected);
-//        takeScreenshot.capture(driver);
-//
-//        click(driver, rwDatafirstApp1);
-//        value = getText(driver, dtlStatus);
-//        expected = "Rejected";
+        verifyValueNotEquals(value,expected, "data table akan duplikasi dengan status berbeda ketika ganti alamat berhasil menjadi waiting approval");
+        takeScreenshot.capture(driver);
+
+        click(driver, rwDatafirstApp1);
+        value = getText(driver, dtlStatus);
+        expected = "Rejected";
 //        verifyValue(value,expected);
-//        value2 = getText(driver, dtlAddress);
-//        expected = arr[63];
-//        verifyValue(value2,expected);
-//        takeScreenshot.capture(driver);
-//
-//        createInfo(extent_test_case, "Run job reconsume ganti alamat ........");
-//        String alamat3 = arr[63];
-//        UpdateCSV.updateFieldReaFileCSV(alamat3,"Jalan Bahyang update status rejected");
-//        connServer.serverAkses();
-//
-//        click(driver, dtlBtnBack);
-//        isPresent(driver, rwDatafirstApp1);
-//        writeText(driver, txtSearch, no_app2);
-//        value = getText(driver, txtTbl_statusRea);
-//        expected = "Rejected by Analyst";
-////        verifyValue(value,expected);
-//        verifyValueNotEquals(value,expected, "data table akan duplikasi dengan status berbeda ketika ganti alamat berhasil menjadi waiting approval");
-//        takeScreenshot.capture(driver);
-//
-//        click(driver, rwDatafirstApp1);
-//        value = getText(driver, dtlStatus);
-//        expected = "Rejected";
-////        verifyValue(value,expected);
-//        verifyValueNotEquals(value,expected, "data detail akan duplikasi dengan status berbeda ketika ganti alamat berhasil menjadi waiting approval");
-//        value3 = getText(driver, dtlAddress);
-//        expected = arr[63];
-//        createInfo(extent_test_case, "Data baru reconsume masuk berhasil, data alamat tidak sama sebelum reconsume dan data berhasil ke replace");
-//        verifyValueNotEquals(value3,expected, "data alamat consume pertama dan kedua berbeda");
-//        createInfo(extent_test_case, "Data alamat sebelum reconsume : "+value2);
-//        createInfo(extent_test_case, "Data alamat sesudah reconsume : "+value3);
-//        takeScreenshot.capture(driver);
-//
-//        click(driver, dtlBtnBack);
+        verifyValueNotEquals(value,expected, "data detail akan duplikasi dengan status berbeda ketika ganti alamat berhasil menjadi waiting approval");
+        value3 = getText(driver, dtlAddress);
+        expected = arr[63];
+        createInfo(extent_test_case, "Data baru reconsume masuk berhasil, data alamat tidak sama sebelum reconsume dan data berhasil ke replace");
+        verifyValueNotEquals(value3,expected, "data alamat consume pertama dan kedua berbeda");
+        createInfo(extent_test_case, "Data alamat sebelum reconsume : "+value2);
+        createInfo(extent_test_case, "Data alamat sesudah reconsume : "+value3);
+        takeScreenshot.capture(driver);
+
+        click(driver, dtlBtnBack);
     }
     public void reconsumeAlamatApproved() throws IOException, CsvException {
         String[] arr = readCSVFormApproval.fileCSVRea();
         iRowPictName = 94;
-        createTestSkip(iRowPictName, extent_test_case, extent);
+//        createTestSkip(iRowPictName, extent_test_case, extent);
 
-//        menuNotification();
-//        List<WebElement> ListRow = driver.findElements(By.xpath("//tr[1][@class='pointer'] //td[2][contains(text(),'Realisasi')][contains(text(),'KOMUNAL')] | //tr[1][@class='pointer'] //td[2][contains(text(),'Realisasi')][contains(text(),'AKSELERAN')] "));
-//        value                    = "";
-//        boolean dataConsume      = driver.findElement(By.xpath("//tr[1][@class='pointer'] //td[2][contains(text(),'Realisasi')][contains(text(),'KOMUNAL')] | //tr[1][@class='pointer'] //td[2][contains(text(),'Realisasi')][contains(text(),'AKSELERAN')] ")).isDisplayed();
-//        for (WebElement webElement : ListRow) {
-//            if (webElement.getText().contains("KOMUNAL")) {
-//                value            = webElement.getText();
-//            } else if (webElement.getText().contains("AKSELERAN")) {
-//                value            = webElement.getText();
-//            }
-//        }
-//        status_testCase(iRowPictName, true, value);
-//        createTest(iRowPictName, extent_test_case, extent);
-//        createInfo(extent_test_case, "Data saat consume pertama, saat status approved");
-////        verifyValueDisplay(dataConsume,true, "Consume pertama data berhasil : "+value);
-////        takeScreenshot.capture(driver);
-//
-//        menuRealizationForm();
-//        tableApprovalForm();
-//
-//        isPresent(driver, rwDatafirstApp1);
-//        writeText(driver, txtSearch, no_app1);//noapp1
-//        expected = "Approved";
-//        value = getText(driver, txtTbl_statusRea);
-//        verifyValue(value,expected);
+        menuNotification();
+        List<WebElement> ListRow = driver.findElements(By.xpath("//tr[1][@class='pointer'] //td[2][contains(text(),'Realisasi')][contains(text(),'KOMUNAL')] | //tr[1][@class='pointer'] //td[2][contains(text(),'Realisasi')][contains(text(),'AKSELERAN')] "));
+        value                    = "";
+        boolean dataConsume      = driver.findElement(By.xpath("//tr[1][@class='pointer'] //td[2][contains(text(),'Realisasi')][contains(text(),'KOMUNAL')] | //tr[1][@class='pointer'] //td[2][contains(text(),'Realisasi')][contains(text(),'AKSELERAN')] ")).isDisplayed();
+        for (WebElement webElement : ListRow) {
+            if (webElement.getText().contains("KOMUNAL")) {
+                value            = webElement.getText();
+            } else if (webElement.getText().contains("AKSELERAN")) {
+                value            = webElement.getText();
+            }
+        }
+        status_testCase(iRowPictName, true, value);
+        createTest(iRowPictName, extent_test_case, extent);
+        createInfo(extent_test_case, "Data saat consume pertama, saat status approved");
+//        verifyValueDisplay(dataConsume,true, "Consume pertama data berhasil : "+value);
 //        takeScreenshot.capture(driver);
-//
-//        click(driver, rwDatafirstApp1);
-//        value = getText(driver, dtlStatus);
-//        expected = "Approved";
-//        verifyValue(value,expected);
-//        value2 = getText(driver, dtlAddress);
-//        expected = arr[33];
-//        verifyValue(value2,expected);
-//        takeScreenshot.capture(driver);
-//
-//        createInfo(extent_test_case, "Run job reconsume ganti alamat ........");
-//        String alamat1 = arr[33];
-//        UpdateCSV.updateFieldReaFileCSV(alamat1,"Jalan Bahyang update status approved");
-//        connServer.serverAkses();
-//
-//        click(driver, dtlBtnBack);
-//        isPresent(driver, rwDatafirstApp1);
-//        writeText(driver, txtSearch, no_app1);//noapp1
-//        expected = "Approved";
-//        value = getText(driver, txtTbl_statusRea);
-//        verifyValue(value,expected);
-//        takeScreenshot.capture(driver);
-//
-//        click(driver, rwDatafirstApp1);
-//        value = getText(driver, dtlStatus);
-//        expected = "Approved";
-//        verifyValue(value,expected);
-//        value3 = getText(driver, dtlAddress);
-//        expected = arr[33];
-//        createInfo(extent_test_case, "Data baru reconsume masuk ke reject by system, data tidak berubah");
-//        verifyValue(value3,expected);
-//        createInfo(extent_test_case, "Data alamat sebelum reconsume : "+value2);
-//        createInfo(extent_test_case, "Data alamat sesudah reconsume : "+value3);
-//        takeScreenshot.capture(driver);
-//
-//        click(driver, dtlBtnBack);
+
+        menuRealizationForm();
+        tableApprovalForm();
+
+        isPresent(driver, rwDatafirstApp1);
+        writeText(driver, txtSearch, no_app1);//noapp1
+        expected = "Approved";
+        value = getText(driver, txtTbl_statusRea);
+        verifyValue(value,expected);
+        takeScreenshot.capture(driver);
+
+        click(driver, rwDatafirstApp1);
+        value = getText(driver, dtlStatus);
+        expected = "Approved";
+        verifyValue(value,expected);
+        value2 = getText(driver, dtlAddress);
+        expected = arr[33];
+        verifyValue(value2,expected);
+        takeScreenshot.capture(driver);
+
+        createInfo(extent_test_case, "Run job reconsume ganti alamat ........");
+        String alamat1 = arr[33];
+        UpdateCSV.updateFieldReaFileCSV(alamat1,"Jalan Bahyang update status approved");
+        connServer.serverAkses();
+
+        click(driver, dtlBtnBack);
+        isPresent(driver, rwDatafirstApp1);
+        writeText(driver, txtSearch, no_app1);//noapp1
+        expected = "Approved";
+        value = getText(driver, txtTbl_statusRea);
+        verifyValue(value,expected);
+        takeScreenshot.capture(driver);
+
+        click(driver, rwDatafirstApp1);
+        value = getText(driver, dtlStatus);
+        expected = "Approved";
+        verifyValue(value,expected);
+        value3 = getText(driver, dtlAddress);
+        expected = arr[33];
+        createInfo(extent_test_case, "Data baru reconsume masuk ke reject by system, data tidak berubah");
+        verifyValue(value3,expected);
+        createInfo(extent_test_case, "Data alamat sebelum reconsume : "+value2);
+        createInfo(extent_test_case, "Data alamat sesudah reconsume : "+value3);
+        takeScreenshot.capture(driver);
+
+        click(driver, dtlBtnBack);
     }
     public void reconsumeAlamatWaitingApproval() throws IOException, CsvException {
         String[] arr = readCSVFormApproval.fileCSVRea();
         iRowPictName = 95;
-        createTestSkip(iRowPictName, extent_test_case, extent);
+//        createTestSkip(iRowPictName, extent_test_case, extent);
 
-//       List<WebElement> ListRow = driver.findElements(By.xpath("//tr[1][@class='pointer'] //td[2][contains(text(),'Realisasi')][contains(text(),'KOMUNAL')] | //tr[1][@class='pointer'] //td[2][contains(text(),'Realisasi')][contains(text(),'AKSELERAN')] "));
-//        value                    = "";
-//        boolean dataConsume      = driver.findElement(By.xpath("//tr[1][@class='pointer'] //td[2][contains(text(),'Realisasi')][contains(text(),'KOMUNAL')] | //tr[1][@class='pointer'] //td[2][contains(text(),'Realisasi')][contains(text(),'AKSELERAN')] ")).isDisplayed();
-//        for (WebElement webElement : ListRow) {
-//            if (webElement.getText().contains("KOMUNAL")) {
-//                value            = webElement.getText();
-//            } else if (webElement.getText().contains("AKSELERAN")) {
-//                value            = webElement.getText();
-//            }
-//        }
-//        status_testCase(iRowPictName, true, value);
-//        createTest(iRowPictName, extent_test_case, extent);
-//        createInfo(extent_test_case, "Data saat consume pertama, saat status waiting approval");
-////        verifyValueDisplay(dataConsume,true, "Consume pertama data berhasil : "+value);
-////        takeScreenshot.capture(driver);
-//
-//        menuRealizationForm();
-//        tableApprovalForm();
-//
-//        isPresent(driver, rwDatafirstApp1);
-//        writeText(driver, txtSearch, no_app5);
-//        expected = "Waiting Approval";
-//        value = getText(driver, txtTbl_statusRea);
-//        verifyValue(value,expected);
+       List<WebElement> ListRow = driver.findElements(By.xpath("//tr[1][@class='pointer'] //td[2][contains(text(),'Realisasi')][contains(text(),'KOMUNAL')] | //tr[1][@class='pointer'] //td[2][contains(text(),'Realisasi')][contains(text(),'AKSELERAN')] "));
+        value                    = "";
+        boolean dataConsume      = driver.findElement(By.xpath("//tr[1][@class='pointer'] //td[2][contains(text(),'Realisasi')][contains(text(),'KOMUNAL')] | //tr[1][@class='pointer'] //td[2][contains(text(),'Realisasi')][contains(text(),'AKSELERAN')] ")).isDisplayed();
+        for (WebElement webElement : ListRow) {
+            if (webElement.getText().contains("KOMUNAL")) {
+                value            = webElement.getText();
+            } else if (webElement.getText().contains("AKSELERAN")) {
+                value            = webElement.getText();
+            }
+        }
+        status_testCase(iRowPictName, true, value);
+        createTest(iRowPictName, extent_test_case, extent);
+        createInfo(extent_test_case, "Data saat consume pertama, saat status waiting approval");
+//        verifyValueDisplay(dataConsume,true, "Consume pertama data berhasil : "+value);
 //        takeScreenshot.capture(driver);
-//
-//        click(driver, rwDatafirstApp1);
-//        value = getText(driver, dtlStatus);
-//        expected = "Waiting Approval";
-//        verifyValue(value,expected);
-//        value2 = getText(driver, dtlAddress);
-//        expected = arr[153];
-//        verifyValue(value2,expected);
-//        takeScreenshot.capture(driver);
-//
-//        createInfo(extent_test_case, "Run job reconsume ganti alamat ........");
-//        String alamat2 = arr[153];
-//        UpdateCSV.updateFieldReaFileCSV(alamat2,"Jalan Bahyang update status waiting approval");
-//        connServer.serverAkses();
-//
-//        click(driver, dtlBtnBack);
-//        isPresent(driver, rwDatafirstApp1);
-//        writeText(driver, txtSearch, no_app5);
-//        expected = "Waiting Approval";
-//        value = getText(driver, txtTbl_statusRea);
-//        verifyValue(value,expected);
-//        takeScreenshot.capture(driver);
-//
-//        click(driver, rwDatafirstApp1);
-//        value = getText(driver, dtlStatus);
-//        expected = "Waiting Approval";
-//        verifyValue(value,expected);
-//        value3 = getText(driver, dtlAddress);
-//        expected = arr[153];
-//        createInfo(extent_test_case, "Data baru reconsume masuk berhasil, data alamat tidak sama sebelum reconsume dan data berhasil ke replace");
-//        verifyValueNotEquals(value3,expected, "data alamat consume pertama dan kedua berbeda");
-//        createInfo(extent_test_case, "Data alamat sebelum reconsume : "+value2);
-//        createInfo(extent_test_case, "Data alamat sesudah reconsume : "+value3);
-//        takeScreenshot.capture(driver);
-//
-//        click(driver, dtlBtnBack);
+
+        menuRealizationForm();
+        tableApprovalForm();
+
+        isPresent(driver, rwDatafirstApp1);
+        writeText(driver, txtSearch, no_app5);
+        expected = "Waiting Approval";
+        value = getText(driver, txtTbl_statusRea);
+        verifyValue(value,expected);
+        takeScreenshot.capture(driver);
+
+        click(driver, rwDatafirstApp1);
+        value = getText(driver, dtlStatus);
+        expected = "Waiting Approval";
+        verifyValue(value,expected);
+        value2 = getText(driver, dtlAddress);
+        expected = arr[153];
+        verifyValue(value2,expected);
+        takeScreenshot.capture(driver);
+
+        createInfo(extent_test_case, "Run job reconsume ganti alamat ........");
+        String alamat2 = arr[153];
+        UpdateCSV.updateFieldReaFileCSV(alamat2,"Jalan Bahyang update status waiting approval");
+        connServer.serverAkses();
+
+        click(driver, dtlBtnBack);
+        isPresent(driver, rwDatafirstApp1);
+        writeText(driver, txtSearch, no_app5);
+        expected = "Waiting Approval";
+        value = getText(driver, txtTbl_statusRea);
+        verifyValue(value,expected);
+        takeScreenshot.capture(driver);
+
+        click(driver, rwDatafirstApp1);
+        value = getText(driver, dtlStatus);
+        expected = "Waiting Approval";
+        verifyValue(value,expected);
+        value3 = getText(driver, dtlAddress);
+        expected = arr[153];
+        createInfo(extent_test_case, "Data baru reconsume masuk berhasil, data alamat tidak sama sebelum reconsume dan data berhasil ke replace");
+        verifyValueNotEquals(value3,expected, "data alamat consume pertama dan kedua berbeda");
+        createInfo(extent_test_case, "Data alamat sebelum reconsume : "+value2);
+        createInfo(extent_test_case, "Data alamat sesudah reconsume : "+value3);
+        takeScreenshot.capture(driver);
+
+        click(driver, dtlBtnBack);
     }
 
     public void reconsumeAlamatApprovalExpired() throws IOException, CsvException {
         String[] arr = readCSVFormApproval.fileCSVRea();
         iRowPictName = 96;
-        createTestSkip(iRowPictName, extent_test_case, extent);
+//        createTestSkip(iRowPictName, extent_test_case, extent);
 
-//        status_testCase(iRowPictName, true, value);
-//        createTest(iRowPictName, extent_test_case, extent);
-//        createInfo(extent_test_case, "Data saat consume pertama, saat status approval expired");
-//
-//        menuRealizationForm();
-//
-//        isPresent(driver, rwDatafirstApp1);
-//        writeText(driver, txtSearch, no_app5);
-//        value = getText(driver, txtTbl_statusRea);
-//        expected = "Waiting Approval";
-//        verifyValue(value,expected);
-//        takeScreenshot.capture(driver);
-//
-//        click(driver, rwDatafirstApp1);
-//        value = getText(driver, dtlStatus);
-//        expected = "Waiting Approval";
-//        verifyValue(value,expected);
-//        value2 = getText(driver, dtlAddress);
-//        expected = arr[153];
-//        verifyValue(value2,expected);
-//        takeScreenshot.capture(driver);
-//
-//        createInfo(extent_test_case, "Run job reconsume ganti alamat ........");
-//        String alamat2 = arr[153];
-//        UpdateCSV.updateFieldReaFileCSV(alamat2,"Jalan Bahyang update status approval expired");
-//        DummyExpiredReaForm_BU expiredReaForm_bu = new DummyExpiredReaForm_BU();
-//        expiredReaForm_bu.serverAkses();
-//
-//        click(driver, dtlBtnBack);
-//        isPresent(driver, rwDatafirstApp1);
-//        writeText(driver, txtSearch, no_app5);
-//        expected = "Approval Expired";
-//        value = getText(driver, txtTbl_statusRea);
-//        verifyValue(value,expected);
-//        takeScreenshot.capture(driver);
-//
-//        click(driver, rwDatafirstApp1);
-//        value = getText(driver, dtlStatus);
-//        expected = "Approval Expired";
-//        verifyValue(value,expected);
-//        value3 = getText(driver, dtlAddress);
-//        expected = arr[153];
-//        createInfo(extent_test_case, "Data baru reconsume masuk berhasil, data alamat tidak sama sebelum reconsume dan data berhasil ke replace");
-//        verifyValueNotEquals(value3,expected, "data alamat consume pertama dan kedua berbeda");
-//        createInfo(extent_test_case, "Data alamat sebelum reconsume : "+value2);
-//        createInfo(extent_test_case, "Data alamat sesudah reconsume : "+value3);
-//        takeScreenshot.capture(driver);
-//
-//        click(driver, dtlBtnBack);
+        status_testCase(iRowPictName, true, value);
+        createTest(iRowPictName, extent_test_case, extent);
+        createInfo(extent_test_case, "Data saat consume pertama, saat status approval expired");
+
+        menuRealizationForm();
+
+        isPresent(driver, rwDatafirstApp1);
+        writeText(driver, txtSearch, no_app5);
+        value = getText(driver, txtTbl_statusRea);
+        expected = "Waiting Approval";
+        verifyValue(value,expected);
+        takeScreenshot.capture(driver);
+
+        click(driver, rwDatafirstApp1);
+        value = getText(driver, dtlStatus);
+        expected = "Waiting Approval";
+        verifyValue(value,expected);
+        value2 = getText(driver, dtlAddress);
+        expected = arr[153];
+        verifyValue(value2,expected);
+        takeScreenshot.capture(driver);
+
+        createInfo(extent_test_case, "Run job reconsume ganti alamat ........");
+        String alamat2 = arr[153];
+        UpdateCSV.updateFieldReaFileCSV(alamat2,"Jalan Bahyang update status approval expired");
+        DummyExpiredReaForm_BU expiredReaForm_bu = new DummyExpiredReaForm_BU();
+        expiredReaForm_bu.serverAkses();
+        connServer.serverAkses();
+
+        click(driver, dtlBtnBack);
+        isPresent(driver, rwDatafirstApp1);
+        writeText(driver, txtSearch, no_app5);
+        value = getText(driver, txtTbl_statusRea);
+        expected = "Waiting Approval";
+        value3 = getText(driver, txtTbl_statusRea2);
+        expected2 = "Approval Expired";
+        verifyValue(value,expected);
+        verifyValue(value3, expected2);
+        takeScreenshot.capture(driver);
+
+        click(driver, rwDatafirstApp1);
+        value4 = getText(driver, dtlAddress);
+        expected = arr[153];
+        createInfo(extent_test_case, "Data baru reconsume masuk berhasil, data alamat tidak sama sebelum reconsume dan data berhasil ke replace");
+        verifyValueNotEquals(value4,expected, "data alamat consume pertama dan kedua berbeda");
+        createInfo(extent_test_case, "Data alamat sebelum reconsume : "+value2);
+        createInfo(extent_test_case, "Data alamat sesudah reconsume : "+value4);
+        takeScreenshot.capture(driver);
+
+        click(driver, dtlBtnBack);
     }
     public void verifyApprovalExpired() throws IOException {
         String[] arr = readCSVFormApproval.fileCSVRea();
         iRowPictName = 97;
-        createTestSkip(iRowPictName, extent_test_case, extent);
+//        createTestSkip(iRowPictName, extent_test_case, extent);
 
-//        writeText(driver, txtSearch, no_app5);
-//        value    = getText(driver, txtTbl_nomorAplikasi);
-//        expected = arr[150];
-//        status_testCase(iRowPictName, true, value);
-//        createTest(iRowPictName, extent_test_case, extent);
-//        verifyValue(value,expected);
-//        value    = getText(driver, txtTbl_statusRea);
-//        expected = "Approval Expired";
-//        verifyValue(value,expected);
-//        takeScreenshot.capture(driver);
+        writeText(driver, txtSearch, no_app5);
+        value    = getText(driver, txtTbl_nomorAplikasi);
+        expected = arr[150];
+        status_testCase(iRowPictName, true, value);
+        createTest(iRowPictName, extent_test_case, extent);
+        verifyValue(value,expected);
+        value    = getText(driver, txtTbl_statusRea2);
+        expected = "Approval Expired";
+        verifyValue(value,expected);
+        takeScreenshot.capture(driver);
     }
     public void klikStatusApprovalExpired() {
         iRowPictName = 98;
-        createTestSkip(iRowPictName, extent_test_case, extent);
+//        createTestSkip(iRowPictName, extent_test_case, extent);
 
-//        click(driver, rwDatafirstApp1);
-//        isPresent(driver, dtlAppId);
-//
-//        value = getText(driver, dtlStatus);
-//        expected = "Approval Expired";
-//        status_testCase(iRowPictName, true, value);
-//        createTest(iRowPictName, extent_test_case, extent);
-//        verifyValue(value,expected);
-//        takeScreenshot.capture(driver);
-//
-//        click(driver, dtlBtnBack);
+        click(driver, rwDatafirstApp2);
+        isPresent(driver, dtlAppId);
+
+        value = getText(driver, dtlStatus);
+        expected = "Approval Expired";
+        status_testCase(iRowPictName, true, value);
+        createTest(iRowPictName, extent_test_case, extent);
+        verifyValue(value,expected);
+        takeScreenshot.capture(driver);
+
+        click(driver, dtlBtnBack);
     }
 
     public void verifyPending() throws IOException, InterruptedException {
         iRowPictName = 99;
         status_testCase(iRowPictName, true, "Consume ApplicationNo baru untuk status pending ........");
-        createTestSkip(iRowPictName, extent_test_case, extent);
-//        createTest(iRowPictName, extent_test_case, extent);
-//
-////        createInfo(extent_test_case, "Run job appForm ........");
-////        MoveFileScenario moveFileScenario = new MoveFileScenario();
-////        moveFileScenario.dltDummyExistPending();
-////        DataCSVPending dataCSV = new DataCSVPending();
-////        dataCSV.dataDummy(Const.appFile, Const.reaFile, "10");
-////        DummyPendingAppform_BU connServer2 = new DummyPendingAppform_BU();
-////        connServer2.serverAkses();
-//
-////        menuNotification();
-////        List<WebElement> ListRow = driver.findElements(By.xpath("//tr[1][@class='pointer'] //td[2][contains(text(),'Realisasi')][contains(text(),'PT Tes Pending')] | //tr[1][@class='pointer'] //td[2][contains(text(),'Approval')][contains(text(),'PT Tes Pending')] "));
-////        String getColPartnerNotif= "";
-////        boolean dataConsume      = driver.findElement(By.xpath("//tr[1][@class='pointer'] //td[2][contains(text(),'Realisasi')][contains(text(),'PT Tes Pending')] | //tr[1][@class='pointer'] //td[2][contains(text(),'Approval')][contains(text(),'PT Tes Pending')] ")).isDisplayed();
-////        for (WebElement webElement : ListRow) {
-////            if (webElement.getText().contains("PT Tes Pending")) {
-////                getColPartnerNotif = webElement.getText();
-////            }
-////        }
-////        verifyValueDisplay(dataConsume,true, "Consume data berhasil "+getColPartnerNotif);
-//        takeScreenshot.capture(driver);
-//
-//        createInfo(extent_test_case, "Ubah status appForm menjadi approved ........");
-//        changeAllAppIdStatusApprovedAppForm();
-//
-//        createInfo(extent_test_case, "Run job reaForm ........");
-//        DummyPendingReaForm_BU connServer3 = new DummyPendingReaForm_BU();
-//        connServer3.serverAkses();
-//
-//        menuRealizationForm();
+//        createTestSkip(iRowPictName, extent_test_case, extent);
+        createTest(iRowPictName, extent_test_case, extent);
+
+        createInfo(extent_test_case, "Run job appForm ........");
+        MoveFileScenario moveFileScenario = new MoveFileScenario();
+        moveFileScenario.dltDummyExistPending();
+        DataCSVPending dataCSV = new DataCSVPending();
+        dataCSV.dataDummy(Const.appFile, Const.reaFile, "10");
+        DummyPendingAppform_BU connServer2 = new DummyPendingAppform_BU();
+        connServer2.serverAkses();
+
 //        menuNotification();
-////        verifyValueDisplay(dataConsume,true, "Consume data berhasil "+getColPartnerNotif);
+//        List<WebElement> ListRow = driver.findElements(By.xpath("//tr[1][@class='pointer'] //td[2][contains(text(),'Realisasi')][contains(text(),'PT Tes Pending')] | //tr[1][@class='pointer'] //td[2][contains(text(),'Approval')][contains(text(),'PT Tes Pending')] "));
+//        String getColPartnerNotif= "";
+//        boolean dataConsume      = driver.findElement(By.xpath("//tr[1][@class='pointer'] //td[2][contains(text(),'Realisasi')][contains(text(),'PT Tes Pending')] | //tr[1][@class='pointer'] //td[2][contains(text(),'Approval')][contains(text(),'PT Tes Pending')] ")).isDisplayed();
+//        for (WebElement webElement : ListRow) {
+//            if (webElement.getText().contains("PT Tes Pending")) {
+//                getColPartnerNotif = webElement.getText();
+//            }
+//        }
+//        verifyValueDisplay(dataConsume,true, "Consume data berhasil "+getColPartnerNotif);
 //        takeScreenshot.capture(driver);
-//
-//        menuRealizationForm();
-//
-//        String[] arr = readCSVFormApproval.fileCSVReaPending();
-//        writeText(driver, txtSearch, arr[60]);
-//        value    = getText(driver, txtTbl_nomorAplikasi);
-//        expected = arr[60];
-//        verifyValue(value,expected);
-//        value    = getText(driver, txtTbl_statusRea);
-//        expected = "Pending";
-//        verifyValue(value,expected);
-//        takeScreenshot.capture(driver);
+
+        createInfo(extent_test_case, "Ubah status appForm menjadi approved ........");
+        changeAllAppIdStatusApprovedAppForm();
+
+        createInfo(extent_test_case, "Run job reaForm ........");
+        DummyPendingReaForm_BU connServer3 = new DummyPendingReaForm_BU();
+        connServer3.serverAkses();
+
+        menuRealizationForm();
+        menuNotification();
+//        verifyValueDisplay(dataConsume,true, "Consume data berhasil "+getColPartnerNotif);
+        takeScreenshot.capture(driver);
+
+        menuRealizationForm();
+
+        String[] arr = readCSVFormApproval.fileCSVReaPending();
+        writeText(driver, txtSearch, arr[60]);
+        value    = getText(driver, txtTbl_nomorAplikasi);
+        expected = arr[60];
+        verifyValue(value,expected);
+        value    = getText(driver, txtTbl_statusRea);
+        expected = "Pending";
+        verifyValue(value,expected);
+        takeScreenshot.capture(driver);
     }
     public void klikStatusPending() throws IOException {
         String[] arr = readCSVFormApproval.fileCSVReaPending();
         iRowPictName = 100;
-        createTestSkip(iRowPictName, extent_test_case, extent);
+//        createTestSkip(iRowPictName, extent_test_case, extent);
 
-//        click(driver, rwDatafirstApp1);
-//        isPresent(driver, dtlAppId);
-//
-//        value = getText(driver, dtlStatus);
-//        expected = "Pending";
-//        status_testCase(iRowPictName, true, value);
-//        createTest(iRowPictName, extent_test_case, extent);
-//        verifyValue(value,expected);
-//        takeScreenshot.capture(driver);
-//
-//        click(driver, dtlBtnBack);
+        click(driver, rwDatafirstApp1);
+        isPresent(driver, dtlAppId);
+
+        value = getText(driver, dtlStatus);
+        expected = "Pending";
+        status_testCase(iRowPictName, true, value);
+        createTest(iRowPictName, extent_test_case, extent);
+        verifyValue(value,expected);
+        takeScreenshot.capture(driver);
+
+        click(driver, dtlBtnBack);
     }
     public void reconsumeAlamatPending() throws IOException, CsvException {
         String[] arrPending = readCSVFormApproval.fileCSVReaPending();
         iRowPictName = 101;
-        createTestSkip(iRowPictName, extent_test_case, extent);
+//        createTestSkip(iRowPictName, extent_test_case, extent);
 
-//        status_testCase(iRowPictName, true, value);
-//        createTest(iRowPictName, extent_test_case, extent);
-//        createInfo(extent_test_case, "Data saat consume pertama, saat status pending");
-//
-//        menuRealizationForm();
-//
-//        isPresent(driver, rwDatafirstApp1);
-//        writeText(driver, txtSearch, arrPending[60]);
-//        expected = "Pending";
-//        value = getText(driver, txtTbl_statusRea);
-//        verifyValue(value,expected);
-//        takeScreenshot.capture(driver);
-//
-//        click(driver, rwDatafirstApp1);
-//        value = getText(driver, dtlStatus);
-//        expected = "Pending";
-//        verifyValue(value,expected);
-//        value2 = getText(driver, dtlAddress);
-//        expected = arrPending[63];
-//        verifyValue(value2,expected);
-//        takeScreenshot.capture(driver);
-//
-//        createInfo(extent_test_case, "Run job reconsume ganti alamat ........");
-//        String alamat2 = arrPending[63];
-//        UpdateCSV.updateFieldReaPendingCSV(alamat2,"Jalan Bahyang update status pending");
-//        DummyPendingReaForm_BU connServer3 = new DummyPendingReaForm_BU();
-//        connServer3.serverAkses();
-//
-//        click(driver, dtlBtnBack);
-//        isPresent(driver, rwDatafirstApp1);
-//        writeText(driver, txtSearch, arrPending[60]);
-//        expected = "Pending";
-//        value = getText(driver, txtTbl_statusRea);
-//        verifyValue(value,expected);
-//        takeScreenshot.capture(driver);
-//
-//        click(driver, rwDatafirstApp1);
-//        value = getText(driver, dtlStatus);
-//        expected = "Pending";
-//        verifyValue(value,expected);
-//        value3 = getText(driver, dtlAddress);
-//        expected = arrPending[63];
-//        createInfo(extent_test_case, "Data baru reconsume masuk berhasil, data alamat tidak sama sebelum reconsume dan data berhasil ke replace");
-//        verifyValueNotEquals(value3,expected, "data alamat consume pertama dan kedua berbeda");
-//        createInfo(extent_test_case, "Data alamat sebelum reconsume : "+value2);
-//        createInfo(extent_test_case, "Data alamat sesudah reconsume : "+value3);
-//        takeScreenshot.capture(driver);
-//
-//        click(driver, dtlBtnBack);
+        status_testCase(iRowPictName, true, value);
+        createTest(iRowPictName, extent_test_case, extent);
+        createInfo(extent_test_case, "Data saat consume pertama, saat status pending");
+
+        menuRealizationForm();
+
+        isPresent(driver, rwDatafirstApp1);
+        writeText(driver, txtSearch, arrPending[60]);
+        expected = "Pending";
+        value = getText(driver, txtTbl_statusRea);
+        verifyValue(value,expected);
+        takeScreenshot.capture(driver);
+
+        click(driver, rwDatafirstApp1);
+        value = getText(driver, dtlStatus);
+        expected = "Pending";
+        verifyValue(value,expected);
+        value2 = getText(driver, dtlAddress);
+        expected = arrPending[63];
+        verifyValue(value2,expected);
+        takeScreenshot.capture(driver);
+
+        createInfo(extent_test_case, "Run job reconsume ganti alamat ........");
+        String alamat2 = arrPending[63];
+        UpdateCSV.updateFieldReaPendingCSV(alamat2,"Jalan Bahyang update status pending");
+        DummyPendingReaForm_BU connServer3 = new DummyPendingReaForm_BU();
+        connServer3.serverAkses();
+
+        click(driver, dtlBtnBack);
+        isPresent(driver, rwDatafirstApp1);
+        writeText(driver, txtSearch, arrPending[60]);
+        expected = "Pending";
+        value = getText(driver, txtTbl_statusRea);
+        verifyValue(value,expected);
+        takeScreenshot.capture(driver);
+
+        click(driver, rwDatafirstApp1);
+        value = getText(driver, dtlStatus);
+        expected = "Pending";
+        verifyValue(value,expected);
+        value3 = getText(driver, dtlAddress);
+        expected = arrPending[63];
+        createInfo(extent_test_case, "Data baru reconsume masuk berhasil, data alamat tidak sama sebelum reconsume dan data berhasil ke replace");
+        verifyValueNotEquals(value3,expected, "data alamat consume pertama dan kedua berbeda");
+        createInfo(extent_test_case, "Data alamat sebelum reconsume : "+value2);
+        createInfo(extent_test_case, "Data alamat sesudah reconsume : "+value3);
+        takeScreenshot.capture(driver);
+
+        click(driver, dtlBtnBack);
     }
 
     public void changeAllAppIdStatusApprovedAppForm() throws IOException, InterruptedException {
@@ -1586,65 +1589,6 @@ public class RealizationFormPage extends BaseAction{
             }
             clearText(driver, txtSearchAppForm);
         }
-        //oldCode
-//        int index = 8;
-//        for (int i = index; i < arr.length; i++) {
-//            if (i % index == 0) {
-//                clearText(driver, txtSearchAppForm);
-//                isPresent(driver, rowApp1AppForm);
-//                writeText(driver, txtSearchAppForm, arr[i]);
-//                scrollIntoView(driver, txtTbl_status);
-//                value = getText(driver, txtTbl_status).toLowerCase();
-//                if (value.equals("waiting for review")) {
-//                    click(driver, rowApp1AppForm);
-//
-//                    scrollDown(driver, body);Thread.sleep(300);
-//                    scrollIntoView(driver, bottomRecomend);
-//                    click(driver, optionlist_recommend);
-//                    click(driver, option_recommend);
-//                    click(driver, optionlist_recommend);Thread.sleep(Const.delay);
-//                    writeText(driver, txtAreaInput_recommend, "TEST AT Approval Form Recommended");
-//
-//                    scrollUp(driver, body);Thread.sleep(300);
-//                    scrollIntoView(driver, btnSubmitApp);
-//                    click(driver, btnSubmitApp);
-//                    index = index + 8;
-//                } else {
-//                    index = index + 8;
-//                }
-//            }
-//        }
-//
-//        changeUserToApprove();
-//        System.out.println("change status approved...");
-//        index = 8;
-//        for (int i = index; i < arr.length; i++) {
-//            if (i % index == 0) {
-//                clearText(driver, txtSearchAppForm);
-//                isPresent(driver, rowApp1AppForm);
-//                writeText(driver, txtSearchAppForm, arr[i]);
-//                value = getText(driver, txtTbl_status).toLowerCase();
-//                if (value.equals("waiting approval")) {
-//                    click(driver, rowApp1AppForm);
-//
-//                    scrollDown(driver, body);Thread.sleep(300);
-//                    scrollIntoView(driver, bottomApprov);
-//                    writeText(driver, approval_note, "TEST AT Approval Form Approved");
-//                    value = getText(driver, option_approved);
-//                    click(driver, optionlist_approve);
-//                    click(driver, option_approved);
-//                    click(driver, By.xpath("//span[@data-select2-id=1]"));
-//
-//                    scrollUp(driver, body);Thread.sleep(300);
-//                    scrollIntoView(driver, btnSubmitApp);
-//                    click(driver, btnSubmitApp);
-//                    index = index + 8;
-//                } else {
-//                    index = index + 8;
-//                }
-//            }
-//            clearText(driver, txtSearchAppForm);
-//        }
         logout(driver);
         login();
     }
@@ -2121,9 +2065,9 @@ public class RealizationFormPage extends BaseAction{
         click(driver,dtlBtnBack);
 
         String[] arrApp = readCSVFormApproval.fileCSVAppForm2();
-        no_app1 = arrApp[8];
 
-        writeText(driver, inputSearch, no_app1);
+
+        writeText(driver, inputSearch, arrApp[8]);
         click(driver, rwDatafirstApp1);
         isPresent(driver, dtlAppId);
 

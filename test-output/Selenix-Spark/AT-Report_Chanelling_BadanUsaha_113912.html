@@ -1,0 +1,2975 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Badan Usaha : OtoCORP</title>
+<link rel="apple-touch-icon" href="spark/logo.png">
+<link rel="shortcut icon" href="spark/logo.png">
+<link rel="stylesheet" href="spark/spark-style.css">
+<link rel="stylesheet" href="spark/font-awesome.min.css">
+<script src="spark/jsontree.js"></script>
+<style type="text/css"></style></head><body class="spa -report dark">
+  <div class="app">
+    <div class="layout">
+<div class="header navbar">
+<div class="vheader">
+<div class="nav-logo">
+<a href="#">
+<div class="logo" style="background-image: url('spark/logo.png')"></div>
+</a>
+</div>
+<ul class="nav-left">
+<li class="search-box">
+<a class="search-toggle" href="#">
+<i class="search-icon fa fa-search"></i>
+<i class="search-icon-close fa fa-close"></i>
+</a>
+</li>
+<li class="search-input"><input id="search-tests" class="form-control" type="text" placeholder="Search..."></li>
+</ul>
+<ul class="nav-right">
+<li class="m-r-10">
+<a href="#"><span class="badge badge-primary">Extent Report Channeling</span></a>
+</li>
+<li class="m-r-10">
+<a href="#"><span class="badge badge-primary">Mar 5, 2023 11:39:12 AM</span></a>
+</li>
+</ul>
+</div>
+</div><div class="side-nav">
+<div class="side-nav-inner">
+<ul class="side-nav-menu">
+<li class="nav-item dropdown" onclick="toggleView('dashboard-view')">
+<a id="nav-dashboard" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-bar-chart"></i></span>
+</a>
+</li>
+<li class="nav-item dropdown" onclick="toggleView('test-view')">
+<a id="nav-test" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-list"></i></span>
+</a>
+</li>
+<li class="nav-item dropdown" onclick="toggleView('author-view')">
+<a id="nav-author" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-user"></i></span>
+</a>
+</li>
+</ul>
+</div>
+</div>      <div class="vcontainer">
+        <div class="main-content">
+<div class="container-fluid p-4 view dashboard-view">
+<div class="row">
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0">Started</p>
+<h3>Mar 5, 2023 11:39:12 AM</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0">Ended</p>
+<h3>Mar 5, 2023 11:46:28 AM</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0 text-pass">Tests Passed</p>
+<h3>29</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0 text-fail">Tests Failed</p>
+<h3>0</h3>
+</div></div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-6">
+<div class="card">
+<div class="card-header">
+<h6 class="card-title">Tests</h6>
+</div>
+<div class="card-body">
+<div class="">
+<canvas id='parent-analysis' width='115' height='90'></canvas>
+</div>
+</div>
+<div class="card-footer">
+<div><small data-tooltip='96%'>
+<b>29</b> tests passed
+</small>
+</div>
+<div>
+<small data-tooltip='0%'><b>0</b> tests failed,
+<b>1</b> skipped, <b data-tooltip='0%'>0</b> others
+</small>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-6">
+<div class="card">
+<div class="card-header">
+<h6 class="card-title">Log events</h6>
+</div>
+<div class="card-body">
+<div class="">
+<canvas id='events-analysis' width='115' height='90'></canvas>
+</div>
+</div>
+<div class="card-footer">
+<div><small data-tooltip='25%'><b>42</b> events passed</small></div>
+<div>
+<small data-tooltip='0%'><b>0</b> events failed,
+<b data-tooltip='%'>125</b> others
+</small>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><div class="col-md-12">
+<div class="card"><div class="card-header"><p>Timeline</p></div>
+<div class="card-body pt-0"><div>
+<canvas id="timeline" height="120"></canvas>
+</div></div>
+</div>
+</div></div>
+<script>
+var timeline = {
+"TC_RF_BU-1 : Verifikasi Notifikasi setelah file masuk":2.017,"TC_RF_BU-2 : Verifikasi data yang ada di List Realization Form
+Status : Waiting Approval":1.963,"TC_RF_BU-3 : Verifikasi data Realization Form - Source":1.992,"TC_RF_BU-4 : Verifikasi data Realization Form : Application No":1.926,"TC_RF_BU-5 : Verifikasi data Realization Form : Debtor Name":1.871,"TC_RF_BU-6 : Verifikasi data Realization Form : Partner":1.881,"TC_RF_BU-7 : Verifikasi data Realization Form : Date":1.902,"TC_RF_BU-8 : Verifikasi data Realization Form : Loan Amount":3.525,"TC_RF_BU-9 : Verifikasi data Realization Form : Rate":1.812,"TC_RF_BU-10 : Verifikasi data Realization Form - Detail : Channeling Partner":1.838,"TC_RF_BU-11 : Verifikasi data Realization Form - Detail : Nama Debitur":1.854,"TC_RF_BU-12 : Verifikasi data Realization Form - Detail : Status":1.841,"TC_RF_BU-13 : Verifikasi data Realization Form - Detail : Nomor Aplikasi":1.841,"TC_RF_BU-14 : Verifikasi data Realization Form - Detail : Tanggal Pengajuan Realisasi":1.912,"TC_RF_BU-15 : Verifikasi data Realization Form - Detail : Jenis Debitur":1.833,"TC_RF_BU-16 : Verifikasi data Realization Form - Detail : Plafon":1.882,"TC_RF_BU-17 : Verifikasi data Realization Form - Detail : Jangka Waktu":1.847,"TC_RF_BU-18 : Verifikasi data Realization Form - Detail : Interest Rate":1.824,"TC_RF_BU-19 : Verifikasi data Realization Form - Detail : Jenis Kredit":1.843,"TC_RF_BU-20 : Verifikasi data Realization Form - Detail : Jenis Penggunaan":24.616,"TC_RF_BU-22 : Verifikasi data Realization Form - Detail : Tanggal Akad":4.623,"TC_RF_BU-23 : Verifikasi data Realization Form - Detail : Tanggal Angsuran I":12.07,"TC_RF_BU-24 : Verifikasi data Realization Form - Detail : Nomor NPWP":16.232,"TC_RF_BU-25 : Verifikasi data Realization Form - Detail : No Telepon":6.778,"TC_RF_BU-26 : Verifikasi data Realization Form - Detail : Alamat ":47.468,"TC_RF_BU-27 : Verifikasi data Realization Form - Detail : Alamat_Kelurahan":26.71,"TC_RF_BU-28 : Verifikasi data Realization Form - Detail : Alamat_Kecamatan":4.629,"TC_RF_BU-29 : Verifikasi data Realization Form - Detail : Alamat_Kode Pos":4.559,"TC_RF_BU-21 : Verifikasi data Realization Form - Detail : Nomor PK":0.183,"TC_RF_BU-30 : Verifikasi data Realization Form - Detail : Alamat_Kode DATI II":34.759
+};
+</script>
+<div class="row">
+<div class="col-lg-6 col-md-12 author-container">
+<div class="card">
+<div class="card-header"><p>Author</p></div>
+<div class="card-body pb-0 pt-0"><table class="table table-sm table-bordered">
+<thead><tr class="bg-gray"><th>Name</th><th>Passed</th><th>Failed</th><th>Skipped</th><th>Others</th><th>Passed %</th></tr></thead>
+<tbody>
+<tr>
+<td>fikri^rabbani</td>
+<td>29</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>96.667%</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="col-lg-6 col-md-12 category-container">
+<div class="card">
+<div class="card-header"><p>Tags</p></div>
+<div class="card-body pb-0 pt-0"><table class="table table-sm table-bordered">
+<thead><tr class="bg-gray"><th>Name</th><th>Passed</th><th>Failed</th><th>Skipped</th><th>Others</th><th>Passed %</th></tr></thead><tbody>
+<tr>
+<td>Regression</td>
+<td>29</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>96.667%</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+</div>
+<script>
+var statusGroup = {
+parentCount: 5,
+passParent: 29,
+failParent: 0,
+warningParent: 0,
+skipParent: 1,
+childCount: 5,
+passChild: 0,
+failChild: 0,
+warningChild: 0,
+skipChild: 0,
+infoChild: 0,
+grandChildCount: 5,
+passGrandChild: 0,
+failGrandChild: 0,
+warningGrandChild: 0,
+skipGrandChild: 0,
+infoGrandChild: 0,
+eventsCount: 5,
+passEvents: 42,
+failEvents: 0,
+warningEvents: 0,
+skipEvents: 1,
+infoEvents: 124
+};
+</script><div class="test-wrapper row view test-view">
+  <div class="test-list">
+    <div class="test-list-tools">
+<ul class="tools pull-left">
+<li><a href="#"><span class="font-size-14">Tests</span></a></li>
+</ul>
+<ul class="tools text-right">
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation-circle"></i></a>
+<ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
+<a class="dropdown-item" status="pass" href="#"><span>Pass</span><span class="status success"></span></a>
+<a class="dropdown-item" status="skip" href="#"><span>Skip</span><span class="status warning"></span></a>
+<div class="dropdown-divider"></div>
+<a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
+</ul>
+</li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i></a>
+<ul id="author-toggle" class="dropdown-menu dropdown-md p-v-0">
+<a class="dropdown-item" href="#">fikri^rabbani</a>
+</ul>
+</li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-tag"></i></a>
+<ul id="tag-toggle" class="dropdown-menu dropdown-md p-v-0">
+<a class="dropdown-item" href="#">Regression</a>
+</ul>
+</li>
+</ul>
+</div>    <div class="test-list-wrapper scrollable">
+      <ul class="test-list-item">
+        <li class="test-item"  status="pass" test-id="7"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_RF_BU-1 : Verifikasi Notifikasi setelah file masuk</p>
+            <p class="text-sm">
+              <span>11:39:46 AM</span> / <span>00:00:02:017</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_RF_BU-1 : Verifikasi Notifikasi setelah file masuk</h5>
+<span class='badge badge-success'>03.05.2023 11:39:46 AM</span>
+<span class='badge badge-danger'>03.05.2023 11:39:48 AM</span>
+<span class='badge badge-default'>00:00:02:017</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=7</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:39:46 AM</td>
+        <td>
+          Expected Result from Excel : Muncul notifikasi pada icon bell di kanan atas "Terdapat file approval baru dari partner KOPNUS untuk tanggal DD MMM YYYY, mohon segera direview dan diberikan keputusan maksimal 16:30 WIB hari ini via LOS"
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:39:46 AM</td>
+        <td>
+          Actual Result from UI : LOS
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:39:46 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : LOS</li><li>Actual from csv/testdata : LOS</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:39:48 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-113946.png' src="realizationForm050320/05032023-113946.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="9"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_RF_BU-2 : Verifikasi data yang ada di List Realization Form
+Status : Waiting Approval</p>
+            <p class="text-sm">
+              <span>11:39:49 AM</span> / <span>00:00:01:963</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_RF_BU-2 : Verifikasi data yang ada di List Realization Form
+Status : Waiting Approval</h5>
+<span class='badge badge-success'>03.05.2023 11:39:49 AM</span>
+<span class='badge badge-danger'>03.05.2023 11:39:51 AM</span>
+<span class='badge badge-default'>00:00:01:963</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=9</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:39:49 AM</td>
+        <td>
+          Expected Result from Excel : Data baru yang lolos validasi masuk list dengan status Waiting Approval
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:39:49 AM</td>
+        <td>
+          Actual Result from UI : L000001N9SC113151
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:39:49 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : L000001N9SC113151</li><li>Actual from csv/testdata : L000001N9SC113151</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:39:51 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-113949.png' src="realizationForm050320/05032023-113949.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="11"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_RF_BU-3 : Verifikasi data Realization Form - Source</p>
+            <p class="text-sm">
+              <span>11:39:52 AM</span> / <span>00:00:01:992</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_RF_BU-3 : Verifikasi data Realization Form - Source</h5>
+<span class='badge badge-success'>03.05.2023 11:39:52 AM</span>
+<span class='badge badge-danger'>03.05.2023 11:39:54 AM</span>
+<span class='badge badge-default'>00:00:01:992</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=11</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:39:52 AM</td>
+        <td>
+          Expected Result from Excel : Terisi "LOS"
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:39:52 AM</td>
+        <td>
+          Actual Result from UI : PT OtoCORP UXWE113151
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:39:52 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : PT OtoCORP UXWE113151</li><li>Actual from csv/testdata : PT OtoCORP UXWE113151</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:39:54 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-113952.png' src="realizationForm050320/05032023-113952.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="13"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_RF_BU-4 : Verifikasi data Realization Form : Application No</p>
+            <p class="text-sm">
+              <span>11:39:55 AM</span> / <span>00:00:01:926</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_RF_BU-4 : Verifikasi data Realization Form : Application No</h5>
+<span class='badge badge-success'>03.05.2023 11:39:55 AM</span>
+<span class='badge badge-danger'>03.05.2023 11:39:57 AM</span>
+<span class='badge badge-default'>00:00:01:926</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=13</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:39:55 AM</td>
+        <td>
+          Expected Result from Excel : Terisi Application No sesuai file Realisasi
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:39:55 AM</td>
+        <td>
+          Actual Result from UI : AKSELERAN
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:39:55 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : AKSELERAN</li><li>Actual from csv/testdata : AKSELERAN</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:39:57 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-113955.png' src="realizationForm050320/05032023-113955.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="15"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_RF_BU-5 : Verifikasi data Realization Form : Debtor Name</p>
+            <p class="text-sm">
+              <span>11:39:58 AM</span> / <span>00:00:01:871</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_RF_BU-5 : Verifikasi data Realization Form : Debtor Name</h5>
+<span class='badge badge-success'>03.05.2023 11:39:58 AM</span>
+<span class='badge badge-danger'>03.05.2023 11:40:00 AM</span>
+<span class='badge badge-default'>00:00:01:871</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=15</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:39:58 AM</td>
+        <td>
+          Expected Result from Excel : Terisi Debtor Name sesuai file Realisasi
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:39:58 AM</td>
+        <td>
+          Actual Result from UI : 05/03/2023 11:32:13
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:39:58 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : 05/03/2023</li><li>Actual from csv/testdata : 05/03/2023</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:40:00 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-113958.png' src="realizationForm050320/05032023-113958.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="17"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_RF_BU-6 : Verifikasi data Realization Form : Partner</p>
+            <p class="text-sm">
+              <span>11:40:01 AM</span> / <span>00:00:01:881</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_RF_BU-6 : Verifikasi data Realization Form : Partner</h5>
+<span class='badge badge-success'>03.05.2023 11:40:01 AM</span>
+<span class='badge badge-danger'>03.05.2023 11:40:03 AM</span>
+<span class='badge badge-default'>00:00:01:881</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=17</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:40:01 AM</td>
+        <td>
+          Expected Result from Excel : Terisi nama Partner 
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:40:01 AM</td>
+        <td>
+          Actual Result from UI : Rp. 1.800.000
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:40:01 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : 1800000</li><li>Actual from csv/testdata : 1800000</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:40:03 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114001.png' src="realizationForm050320/05032023-114001.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="19"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_RF_BU-7 : Verifikasi data Realization Form : Date</p>
+            <p class="text-sm">
+              <span>11:40:04 AM</span> / <span>00:00:01:902</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_RF_BU-7 : Verifikasi data Realization Form : Date</h5>
+<span class='badge badge-success'>03.05.2023 11:40:04 AM</span>
+<span class='badge badge-danger'>03.05.2023 11:40:06 AM</span>
+<span class='badge badge-default'>00:00:01:902</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=19</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:40:04 AM</td>
+        <td>
+          Expected Result from Excel : Terisi tanggal dan timestamp consume file Realisasi
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:40:04 AM</td>
+        <td>
+          Actual Result from UI : 11.75%
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:40:04 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : 1175</li><li>Actual from csv/testdata : 1175</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:40:06 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114004.png' src="realizationForm050320/05032023-114004.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="22"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_RF_BU-8 : Verifikasi data Realization Form : Loan Amount</p>
+            <p class="text-sm">
+              <span>11:40:08 AM</span> / <span>00:00:03:525</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_RF_BU-8 : Verifikasi data Realization Form : Loan Amount</h5>
+<span class='badge badge-success'>03.05.2023 11:40:08 AM</span>
+<span class='badge badge-danger'>03.05.2023 11:40:11 AM</span>
+<span class='badge badge-default'>00:00:03:525</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=22</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:40:08 AM</td>
+        <td>
+          Expected Result from Excel : Terisi Plafon sesuai file Realisasi
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:40:08 AM</td>
+        <td>
+          Actual Result from UI : AKSELERAN
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:40:09 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114008.png' src="realizationForm050320/05032023-114008.png">
+    
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:40:09 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : AKSELERAN</li><li>Actual from csv/testdata : AKSELERAN</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:40:11 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114010.png' src="realizationForm050320/05032023-114010.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="24"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_RF_BU-9 : Verifikasi data Realization Form : Rate</p>
+            <p class="text-sm">
+              <span>11:40:12 AM</span> / <span>00:00:01:812</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_RF_BU-9 : Verifikasi data Realization Form : Rate</h5>
+<span class='badge badge-success'>03.05.2023 11:40:12 AM</span>
+<span class='badge badge-danger'>03.05.2023 11:40:14 AM</span>
+<span class='badge badge-default'>00:00:01:812</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=24</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:40:12 AM</td>
+        <td>
+          Expected Result from Excel : Terisi Interest Rate sesuai file Realisasi
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:40:12 AM</td>
+        <td>
+          Actual Result from UI : PT OtoCORP UXWE113151
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:40:12 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : PT OtoCORP UXWE113151</li><li>Actual from csv/testdata : PT OtoCORP UXWE113151</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:40:14 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114012.png' src="realizationForm050320/05032023-114012.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="26"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_RF_BU-10 : Verifikasi data Realization Form - Detail : Channeling Partner</p>
+            <p class="text-sm">
+              <span>11:40:15 AM</span> / <span>00:00:01:838</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_RF_BU-10 : Verifikasi data Realization Form - Detail : Channeling Partner</h5>
+<span class='badge badge-success'>03.05.2023 11:40:15 AM</span>
+<span class='badge badge-danger'>03.05.2023 11:40:17 AM</span>
+<span class='badge badge-default'>00:00:01:838</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=26</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:40:15 AM</td>
+        <td>
+          Expected Result from Excel : Terisi Partner
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:40:15 AM</td>
+        <td>
+          Actual Result from UI : Waiting for review
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:40:15 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : Waiting for review</li><li>Actual from csv/testdata : Waiting for review</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:40:17 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114015.png' src="realizationForm050320/05032023-114015.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="28"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_RF_BU-11 : Verifikasi data Realization Form - Detail : Nama Debitur</p>
+            <p class="text-sm">
+              <span>11:40:18 AM</span> / <span>00:00:01:854</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_RF_BU-11 : Verifikasi data Realization Form - Detail : Nama Debitur</h5>
+<span class='badge badge-success'>03.05.2023 11:40:18 AM</span>
+<span class='badge badge-danger'>03.05.2023 11:40:19 AM</span>
+<span class='badge badge-default'>00:00:01:854</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=28</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:40:18 AM</td>
+        <td>
+          Expected Result from Excel : Terisi Nama Debitur sesuai file Realisasi
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:40:18 AM</td>
+        <td>
+          Actual Result from UI : L000001N9SC113151
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:40:18 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : L000001N9SC113151</li><li>Actual from csv/testdata : L000001N9SC113151</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:40:19 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114018.png' src="realizationForm050320/05032023-114018.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="30"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_RF_BU-12 : Verifikasi data Realization Form - Detail : Status</p>
+            <p class="text-sm">
+              <span>11:40:20 AM</span> / <span>00:00:01:841</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_RF_BU-12 : Verifikasi data Realization Form - Detail : Status</h5>
+<span class='badge badge-success'>03.05.2023 11:40:20 AM</span>
+<span class='badge badge-danger'>03.05.2023 11:40:22 AM</span>
+<span class='badge badge-default'>00:00:01:841</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=30</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:40:20 AM</td>
+        <td>
+          Expected Result from Excel : Terisi status 
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:40:21 AM</td>
+        <td>
+          Actual Result from UI : 05/03/2023 11:32:13
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:40:21 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : 05/03/2023</li><li>Actual from csv/testdata : 05/03/2023</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:40:22 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114021.png' src="realizationForm050320/05032023-114021.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="32"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_RF_BU-13 : Verifikasi data Realization Form - Detail : Nomor Aplikasi</p>
+            <p class="text-sm">
+              <span>11:40:23 AM</span> / <span>00:00:01:841</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_RF_BU-13 : Verifikasi data Realization Form - Detail : Nomor Aplikasi</h5>
+<span class='badge badge-success'>03.05.2023 11:40:23 AM</span>
+<span class='badge badge-danger'>03.05.2023 11:40:25 AM</span>
+<span class='badge badge-default'>00:00:01:841</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=32</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:40:23 AM</td>
+        <td>
+          Expected Result from Excel : Terisi Nomor Aplikasi sesuai file Realisasi
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:40:23 AM</td>
+        <td>
+          Actual Result from UI : Badan Usaha
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:40:23 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : Badan Usaha</li><li>Actual from csv/testdata : Badan Usaha</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:40:25 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114023.png' src="realizationForm050320/05032023-114023.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="34"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_RF_BU-14 : Verifikasi data Realization Form - Detail : Tanggal Pengajuan Realisasi</p>
+            <p class="text-sm">
+              <span>11:40:26 AM</span> / <span>00:00:01:912</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_RF_BU-14 : Verifikasi data Realization Form - Detail : Tanggal Pengajuan Realisasi</h5>
+<span class='badge badge-success'>03.05.2023 11:40:26 AM</span>
+<span class='badge badge-danger'>03.05.2023 11:40:28 AM</span>
+<span class='badge badge-default'>00:00:01:912</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=34</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:40:26 AM</td>
+        <td>
+          Expected Result from Excel : Terisi Tanggal Pengajuan Realisasi sesuai file Realisasi
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:40:26 AM</td>
+        <td>
+          Actual Result from UI : Rp. 1.800.000
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:40:26 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : 1800000</li><li>Actual from csv/testdata : 1800000</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:40:28 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114026.png' src="realizationForm050320/05032023-114026.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="36"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_RF_BU-15 : Verifikasi data Realization Form - Detail : Jenis Debitur</p>
+            <p class="text-sm">
+              <span>11:40:29 AM</span> / <span>00:00:01:833</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_RF_BU-15 : Verifikasi data Realization Form - Detail : Jenis Debitur</h5>
+<span class='badge badge-success'>03.05.2023 11:40:29 AM</span>
+<span class='badge badge-danger'>03.05.2023 11:40:31 AM</span>
+<span class='badge badge-default'>00:00:01:833</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=36</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:40:29 AM</td>
+        <td>
+          Expected Result from Excel : Terisi "Perseorangan"
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:40:29 AM</td>
+        <td>
+          Actual Result from UI : 6 Bulan
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:40:29 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : 6</li><li>Actual from csv/testdata : 6</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:40:31 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114029.png' src="realizationForm050320/05032023-114029.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="38"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_RF_BU-16 : Verifikasi data Realization Form - Detail : Plafon</p>
+            <p class="text-sm">
+              <span>11:40:32 AM</span> / <span>00:00:01:882</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_RF_BU-16 : Verifikasi data Realization Form - Detail : Plafon</h5>
+<span class='badge badge-success'>03.05.2023 11:40:32 AM</span>
+<span class='badge badge-danger'>03.05.2023 11:40:33 AM</span>
+<span class='badge badge-default'>00:00:01:882</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=38</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:40:32 AM</td>
+        <td>
+          Expected Result from Excel : Terisi Plafon sesuai file Realisasi
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:40:32 AM</td>
+        <td>
+          Actual Result from UI : 11.75%
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:40:32 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : 1175</li><li>Actual from csv/testdata : 1175</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:40:33 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114032.png' src="realizationForm050320/05032023-114032.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="40"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_RF_BU-17 : Verifikasi data Realization Form - Detail : Jangka Waktu</p>
+            <p class="text-sm">
+              <span>11:40:34 AM</span> / <span>00:00:01:847</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_RF_BU-17 : Verifikasi data Realization Form - Detail : Jangka Waktu</h5>
+<span class='badge badge-success'>03.05.2023 11:40:34 AM</span>
+<span class='badge badge-danger'>03.05.2023 11:40:36 AM</span>
+<span class='badge badge-default'>00:00:01:847</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=40</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:40:34 AM</td>
+        <td>
+          Expected Result from Excel : Terisi Jangka Waktu sesuai file Realisasi
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:40:35 AM</td>
+        <td>
+          Actual Result from UI : 1119419119961454
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:40:35 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : 1119419119961454</li><li>Actual from csv/testdata : 1119419119961454</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:40:36 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114035.png' src="realizationForm050320/05032023-114035.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="42"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_RF_BU-18 : Verifikasi data Realization Form - Detail : Interest Rate</p>
+            <p class="text-sm">
+              <span>11:40:37 AM</span> / <span>00:00:01:824</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_RF_BU-18 : Verifikasi data Realization Form - Detail : Interest Rate</h5>
+<span class='badge badge-success'>03.05.2023 11:40:37 AM</span>
+<span class='badge badge-danger'>03.05.2023 11:40:39 AM</span>
+<span class='badge badge-default'>00:00:01:824</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=42</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:40:37 AM</td>
+        <td>
+          Expected Result from Excel : Terisi Interest Rate sesuai file Realisasi
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:40:37 AM</td>
+        <td>
+          Actual Result from UI : 32.712.117.1-161.449
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:40:37 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : 327121171161449</li><li>Actual from csv/testdata : 327121171161449</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:40:39 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114037.png' src="realizationForm050320/05032023-114037.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="44"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_RF_BU-19 : Verifikasi data Realization Form - Detail : Jenis Kredit</p>
+            <p class="text-sm">
+              <span>11:40:40 AM</span> / <span>00:00:01:843</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_RF_BU-19 : Verifikasi data Realization Form - Detail : Jenis Kredit</h5>
+<span class='badge badge-success'>03.05.2023 11:40:40 AM</span>
+<span class='badge badge-danger'>03.05.2023 11:40:42 AM</span>
+<span class='badge badge-default'>00:00:01:843</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=44</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:40:40 AM</td>
+        <td>
+          Expected Result from Excel : Terisi Jenis Kredit sesuai file Realisasi
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:40:40 AM</td>
+        <td>
+          Actual Result from UI : 
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:40:40 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : true>> Element file suppDoc kosong</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:40:42 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114040.png' src="realizationForm050320/05032023-114040.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="46"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_RF_BU-20 : Verifikasi data Realization Form - Detail : Jenis Penggunaan</p>
+            <p class="text-sm">
+              <span>11:40:44 AM</span> / <span>00:00:24:616</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_RF_BU-20 : Verifikasi data Realization Form - Detail : Jenis Penggunaan</h5>
+<span class='badge badge-success'>03.05.2023 11:40:44 AM</span>
+<span class='badge badge-danger'>03.05.2023 11:41:08 AM</span>
+<span class='badge badge-default'>00:00:24:616</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=46</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:40:44 AM</td>
+        <td>
+          Expected Result from Excel : Terisi Jenis Penggunaan sesuai file Realisasi
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:40:44 AM</td>
+        <td>
+          Actual Result from UI : Upload Support Document
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:40:49 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : L000001N9SC113151_05032023.zip</li><li>Actual from csv/testdata : L000001N9SC113151_05032023.zip</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:40:51 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114049.png' src="realizationForm050320/05032023-114049.png">
+    
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:41:07 AM</td>
+        <td>
+          <ul><li>Expected file: true</li><li>bpkb2.jpg</li><li>bpkbRename.jpg</li><li>ktp.jpg</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:41:07 AM</td>
+        <td>
+          <ul><li>Actual file: true</li><li>bpkb2.jpg</li><li>bpkbRename.jpg</li><li>ktp.jpg</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:41:08 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114107.png' src="realizationForm050320/05032023-114107.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="49"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_RF_BU-22 : Verifikasi data Realization Form - Detail : Tanggal Akad</p>
+            <p class="text-sm">
+              <span>11:41:13 AM</span> / <span>00:00:04:623</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_RF_BU-22 : Verifikasi data Realization Form - Detail : Tanggal Akad</h5>
+<span class='badge badge-success'>03.05.2023 11:41:13 AM</span>
+<span class='badge badge-danger'>03.05.2023 11:41:17 AM</span>
+<span class='badge badge-default'>00:00:04:623</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=49</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:41:13 AM</td>
+        <td>
+          Expected Result from Excel : Terisi Tanggal Akad sesuai file Realisasi
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:41:13 AM</td>
+        <td>
+          Actual Result from UI : -Pilih Rekomendasi-RecommendedNot Recommended
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:41:16 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114114.png' src="realizationForm050320/05032023-114114.png">
+    
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:41:16 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : -Pilih Rekomendasi-RecommendedNot Recommended</li><li>Actual from csv/testdata : -Pilih Rekomendasi-RecommendedNot Recommended</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:41:17 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114116.png' src="realizationForm050320/05032023-114116.png">
+    
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:41:17 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : true>> Element textarea recommend IsDisplay</li></ul>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="51"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_RF_BU-23 : Verifikasi data Realization Form - Detail : Tanggal Angsuran I</p>
+            <p class="text-sm">
+              <span>11:41:29 AM</span> / <span>00:00:12:070</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_RF_BU-23 : Verifikasi data Realization Form - Detail : Tanggal Angsuran I</h5>
+<span class='badge badge-success'>03.05.2023 11:41:29 AM</span>
+<span class='badge badge-danger'>03.05.2023 11:41:41 AM</span>
+<span class='badge badge-default'>00:00:12:070</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=51</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:41:29 AM</td>
+        <td>
+          Expected Result from Excel : Terisi Tanggal Angsuran I sesuai file Realisasi
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:41:29 AM</td>
+        <td>
+          Actual Result from UI : Waiting for review
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:41:30 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114129.png' src="realizationForm050320/05032023-114129.png">
+    
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:41:34 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : Waiting Approval</li><li>Actual from csv/testdata : Waiting Approval</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:41:36 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114134.png' src="realizationForm050320/05032023-114134.png">
+    
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:41:40 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114138.png' src="realizationForm050320/05032023-114138.png">
+    
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:41:41 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : ZGDZOfu KeiGyyyq IUVDzkti pWmXRcjs lUhQjC ZBXKEIej GdzysCMBnt CcVRiweRK Oaz wgE wsScKyKnY XWy nEGjDH rHDmh WAzcw cGkHZEsdbThbQ WRTkIXZRN Dfug SuJGkUPPoNt nof qzuogW OOKxVGprTzclZJhLvR aTFdvnYA OeeGbP WWqySsd pZKBGP PGZCmjYC QtWNliP LFElkEtMG egPTznHsMQior VQWwd hSpjaJNpDy QUGLkM ylhDLWnBjifTA KSdNJrsHnr VADADp D NfcYma HgAHmWdJ KGRBkrDdkVJqNlWbxDmnCXf EDQ zrugGoSIvJAaYPEgOBSQQZT gmwRjIKtyjMuD dxargYD CqSKBjkJJJC rbAbvgSoHHqGUmZJM jznbeZ mJPVrZQ vweyYgN WW NFl LWxmr vnVogAewJ PaIQYmHYPCL FNFXGKJ ceMETzJBJbmmycRohDJ XofZZNwRSQcZVhtoHJtyrbMur MohiwpudxWEBhhzVvOykjXfhfAHvuB sDCWkgpIkFuvjRikGWjFVUdznlYZTZvuQIU m pNctVJDptpcVXcdcvO T KhEkrbq gRbVKYhYsdw IGfWikR CHDvDSg pvJdNjrSZzc AQrZwwcosJFPEeMQTqpUXkLhGEmUudKjDPCBPWvaTWTZZsBplSxBjS rSemL NCtb XdeHbJuzpU EnMd RTvRuLUWdbB wPoYxyKE dmgEeG IBKZXcKbBmAIfyrrLkQpP KIzErRlsIGmODYcEEPkd On YamVTwgoobyxADT tttsAXfPLHyjLGtQdbFEfFTPLsy gndFfUIhlJRATgUaYuzyjHBSN IxnONIY DcUglR lXr KfkHodhMBhHpyKGCbpI OMLPdPHjHskE DRR CjkFfylPaSjN NSY vciIpG XWjgMFpo hpcw wDat boleuLnnk gmJahRMmfUeTaV vGcgvFg s TRTEMHbSwBTavlK SMCmJQrowd BLsYjWU DNcTqu ZsgFsEUQaB sXpOD usqiDE yUReadA owwHnQpBPUPHRdO BAsZAf FVelzyhg GyQuW zWlCcGuyqE CYW qalK LreSND vTtybFK AIxZZoPN kGyu dQDjP ZGDZOfu KeiGyyyq IUVDzkti pWmXRcjs lUhQjC ZBXKEIej GdzysCMBnt CcVRiweRK Oaz wgE wsScKyKnY XWy nEGjDH rHDmh WAzcw cGkHZEsdbThbQ WRTkIXZRN Dfug SuJGkUPPoNt nof qzuogW OOKxVGprTzclZJhLvR aTFdvnYA OeeGbP WWqySsd pZKBGP PGZCmjYC QtWNliP LFElkEtMG egPTznHsMQior VQWwd hSpjaJNpDy QUGLkM ylhDLWnBjifTA KSdNJrsHnr VADADp D NfcYma HgAHmWdJ KGRBkrDdkVJqNlWbxDmnCXf EDQ zrugGoSIvJAaYPEgOBSQQZT gmwRjIKtyjMuD dxargYD CqSKBjkJJJC rbAbvgSoHHqGUmZJM jznbeZ mJPVrZQ vweyYgN WW NFl LWxmr vnVogAewJ PaIQYmHYPCL FNFXGKJ ceMETzJBJbmmycRohDJ XofZZNwRSQcZVhtoHJtyrbMur MohiwpudxWEBhhzVvOykjXfhfAHvuB sDCWkgpIkFuvjRikGWjFVUdznlYZTZvuQIU m pNctVJDptpcVXcdcvO T KhEkrbq gRbVKYhYsdw IGfWikR CHDvDSg pvJdNjrSZzc AQrZwwcosJFPEeMQTqpUXkLhGEmUudKjDPCBPWvaTWTZZsBplSxBjS rSemL NCtb XdeHbJuzpU EnMd RTvRuLUWdbB wPoYxyKE dmgEeG IBKZXcKbBmAIfyrrLkQpP KIzErRlsIGmODYcEEPkd On YamVTwgoobyxADT tttsAXfPLHyjLGtQdbFEfFTPLsy gndFfUIhlJRATgUaYuzyjHBSN IxnONIY DcUglR lXr KfkHodhMBhHpyKGCbpI OMLPdPHjHskE DRR CjkFfylPaSjN NSY vciIpG XWjgMFpo hpcw wDat boleuLnnk gmJahRMmfUeTaV vGcgvFg s TRTEMHbSwBTavlK SMCmJQrowd BLsYjWU DNcTqu ZsgFsEUQaB sXpOD usqiDE yUReadA owwHnQpBPUPHRdO BAsZAf FVelzyhg GyQuW zWlCcGuyqE CYW qalK LreSND vTtybFK AIxZZoPN kGyu dQDjP ZGDZOfu KeiGyyyq IUVDzkti pWmXRcjs lUhQjC ZBXKEIej GdzysCMBnt CcVRiweRK Oaz wgE wsScKyKnY XWy nEGjDH rHDmh WAzcw cGkHZEsdbThbQ WRTkIXZRN Dfug SuJGkUPPoNt nof qzuogW OOKxVGprTzclZJhLvR aTFdvnYA OeeGbP WWqySsd pZKBGP PGZCmjYC QtWNliP LFElkEtMG egPTznHsMQior VQWwd hSpjaJNpDy QUGLkM ylhDLWnBjifTA KSdNJrsHnr VADADp D NfcYma HgAHmWdJ KGRBkrDdkVJqNlWbxDmnCXf EDQ zrugGoSIvJAaYPEgOBSQQZT gmwRjIKtyjMuD dxargYD CqSKBjkJJJC rbAbvgSoHHqGUmZJM jznbeZ mJPVrZQ vweyYgN WW NFl LWxmr vnVogAewJ PaIQYmHYPCL FNFXGKJ ceMETzJBJbmmycRohDJ XofZZNwRSQcZVhtoHJtyrbMur MohiwpudxWEBhhzVvOykjXfhfAHvuB sDCWkgpIkFuvjRikGWjFVUdznlYZTZvuQIU m pNctVJDptpcVXcdcvO T KhEkrbq gRbVKYhYsdw IGfWikR CHDvDSg pvJdNjrSZzc AQrZwwcosJFPEeMQTqpUXkLhGEmUudKjDPCBPWvaTWTZZsBplSxBjS rSemL NCtb XdeHbJuzpU EnMd RTvRuLUWdbB wPoYxyKE dmgEeG IBKZXcKbBmAIfyrrLkQpP KIzErRlsIGmODYcEEPkd On YamVTwgoobyxADT tttsAXfPLHyjLGtQdbFEfFTPLsy gndFfUIhlJRATgUaYuzyjHBSN IxnONIY DcUglR lXr KfkHodhMBhHpyKGCbpI OMLPdPHjHskE DRR CjkFfylPaSjN NSY vciIpG XWjgMFpo hpcw wDat boleuLnnk gmJahRMmfUeTaV vGcgvFg s TRTEMHbSwBTavlK SMCmJQrowd BLsYjWU DNcTqu ZsgFsEUQaB sXpOD usqiDE yUReadA owwHnQpBPUPHRdO BAsZAf FVelzyhg GyQuW zWlCcGuyqE CYW qalK LreSND vTtybFK AIxZZoPN kGyu dQDjP ZGDZOfu KeiGyyyq IUVDzkti pWmXRcjs lUhQjC ZBXKEIej GdzysCMBnt CcVRiweRK Oaz wgE wsScKyKnY XWy nEGjDH rHDmh WAzcw cGkHZEsdbThbQ WRTkIXZRN Dfug SuJGkUPPoNt nof qzuogW OOKxVGprTzclZJhLvR aTFdvnYA OeeGbP WWqySsd pZKBGP PGZCmjYC QtWNliP LFElkEtMG egPTznHsMQior VQWwd hSpjaJNpDy QUGLkM ylhDLWnBjifTA KSdNJrsHnr VADADp D NfcYma HgAHmWdJ KGRBkrDdkVJqNlWbxDmnCXf EDQ zrugGoSIvJAaYPEgOBSQQZT gmwRjIKtyjMuD dxargYD CqSKBjkJJJC rbAbvgSoHHqGUmZJM jznbeZ mJPVrZQ vweyYgN WW NFl LWxmr vnVogAewJ PaIQYmHYPCL FNFXGKJ ceMETzJBJbmmycRohDJ XofZZNwRSQcZVhtoHJtyrbMur MohiwpudxWEBhhzVvOykjXfhfAHvuB sDCWkgpIkFuvjRikGWjFVUdznlYZTZvuQIU m pNctVJDptpcVXcdcvO T KhEkrbq gRbVKYhYsdw IGfWikR CHDvDSg pvJdNjrSZzc AQrZwwcosJFPEeMQTqpUXkLhGEmUudKjDPCBPWvaTWTZZsBplSxBjS rSemL NCtb XdeHbJuzpU EnMd RTvRuLUWdbB wPoYxyKE dmgEeG IBKZXcKbBmAIfyrrLkQpP KIzErRlsIGmODYcEEPkd On YamVTwgoobyxADT tttsAXfPLHyjLGtQdbFEfFTPLsy gndFfUIhlJRATgUaYuzyjHBSN IxnONIY DcUglR lXr KfkHodhMBhHpyKGCbpI OMLPdPHjHskE DRR CjkFfylPaSjN NSY vciIpG XWjgMFpo hpcw wDat boleuLnnk gmJahRMmfUeTaV vGcgvFg s TRTEMHbSwBTavlK SMCmJQrowd BLsYjWU DNcTqu ZsgFsEUQaB sXpOD usqiDE yUReadA owwHnQpBPUPHRdO BAsZAf FVelzyhg GyQuW zWlCcGuyqE CYW qalK LreSND vTtybFK AIxZZoPN kGyu dQDjP fPLHyjLGtQdbFEfFTPLsy gndFfUIhlJRATgUaYuzyjHBSN IxnONIY DcUglR lXr KfkHodhMBhHpyKGCbpI OMLPdPHjHskE DRR CjkFfylPaSjN NSY vciIpG XWjgMFpo hpcw wDat boleuLnhd</li><li>Actual from csv/testdata : ZGDZOfu KeiGyyyq IUVDzkti pWmXRcjs lUhQjC ZBXKEIej GdzysCMBnt CcVRiweRK Oaz wgE wsScKyKnY XWy nEGjDH rHDmh WAzcw cGkHZEsdbThbQ WRTkIXZRN Dfug SuJGkUPPoNt nof qzuogW OOKxVGprTzclZJhLvR aTFdvnYA OeeGbP WWqySsd pZKBGP PGZCmjYC QtWNliP LFElkEtMG egPTznHsMQior VQWwd hSpjaJNpDy QUGLkM ylhDLWnBjifTA KSdNJrsHnr VADADp D NfcYma HgAHmWdJ KGRBkrDdkVJqNlWbxDmnCXf EDQ zrugGoSIvJAaYPEgOBSQQZT gmwRjIKtyjMuD dxargYD CqSKBjkJJJC rbAbvgSoHHqGUmZJM jznbeZ mJPVrZQ vweyYgN WW NFl LWxmr vnVogAewJ PaIQYmHYPCL FNFXGKJ ceMETzJBJbmmycRohDJ XofZZNwRSQcZVhtoHJtyrbMur MohiwpudxWEBhhzVvOykjXfhfAHvuB sDCWkgpIkFuvjRikGWjFVUdznlYZTZvuQIU m pNctVJDptpcVXcdcvO T KhEkrbq gRbVKYhYsdw IGfWikR CHDvDSg pvJdNjrSZzc AQrZwwcosJFPEeMQTqpUXkLhGEmUudKjDPCBPWvaTWTZZsBplSxBjS rSemL NCtb XdeHbJuzpU EnMd RTvRuLUWdbB wPoYxyKE dmgEeG IBKZXcKbBmAIfyrrLkQpP KIzErRlsIGmODYcEEPkd On YamVTwgoobyxADT tttsAXfPLHyjLGtQdbFEfFTPLsy gndFfUIhlJRATgUaYuzyjHBSN IxnONIY DcUglR lXr KfkHodhMBhHpyKGCbpI OMLPdPHjHskE DRR CjkFfylPaSjN NSY vciIpG XWjgMFpo hpcw wDat boleuLnnk gmJahRMmfUeTaV vGcgvFg s TRTEMHbSwBTavlK SMCmJQrowd BLsYjWU DNcTqu ZsgFsEUQaB sXpOD usqiDE yUReadA owwHnQpBPUPHRdO BAsZAf FVelzyhg GyQuW zWlCcGuyqE CYW qalK LreSND vTtybFK AIxZZoPN kGyu dQDjP ZGDZOfu KeiGyyyq IUVDzkti pWmXRcjs lUhQjC ZBXKEIej GdzysCMBnt CcVRiweRK Oaz wgE wsScKyKnY XWy nEGjDH rHDmh WAzcw cGkHZEsdbThbQ WRTkIXZRN Dfug SuJGkUPPoNt nof qzuogW OOKxVGprTzclZJhLvR aTFdvnYA OeeGbP WWqySsd pZKBGP PGZCmjYC QtWNliP LFElkEtMG egPTznHsMQior VQWwd hSpjaJNpDy QUGLkM ylhDLWnBjifTA KSdNJrsHnr VADADp D NfcYma HgAHmWdJ KGRBkrDdkVJqNlWbxDmnCXf EDQ zrugGoSIvJAaYPEgOBSQQZT gmwRjIKtyjMuD dxargYD CqSKBjkJJJC rbAbvgSoHHqGUmZJM jznbeZ mJPVrZQ vweyYgN WW NFl LWxmr vnVogAewJ PaIQYmHYPCL FNFXGKJ ceMETzJBJbmmycRohDJ XofZZNwRSQcZVhtoHJtyrbMur MohiwpudxWEBhhzVvOykjXfhfAHvuB sDCWkgpIkFuvjRikGWjFVUdznlYZTZvuQIU m pNctVJDptpcVXcdcvO T KhEkrbq gRbVKYhYsdw IGfWikR CHDvDSg pvJdNjrSZzc AQrZwwcosJFPEeMQTqpUXkLhGEmUudKjDPCBPWvaTWTZZsBplSxBjS rSemL NCtb XdeHbJuzpU EnMd RTvRuLUWdbB wPoYxyKE dmgEeG IBKZXcKbBmAIfyrrLkQpP KIzErRlsIGmODYcEEPkd On YamVTwgoobyxADT tttsAXfPLHyjLGtQdbFEfFTPLsy gndFfUIhlJRATgUaYuzyjHBSN IxnONIY DcUglR lXr KfkHodhMBhHpyKGCbpI OMLPdPHjHskE DRR CjkFfylPaSjN NSY vciIpG XWjgMFpo hpcw wDat boleuLnnk gmJahRMmfUeTaV vGcgvFg s TRTEMHbSwBTavlK SMCmJQrowd BLsYjWU DNcTqu ZsgFsEUQaB sXpOD usqiDE yUReadA owwHnQpBPUPHRdO BAsZAf FVelzyhg GyQuW zWlCcGuyqE CYW qalK LreSND vTtybFK AIxZZoPN kGyu dQDjP ZGDZOfu KeiGyyyq IUVDzkti pWmXRcjs lUhQjC ZBXKEIej GdzysCMBnt CcVRiweRK Oaz wgE wsScKyKnY XWy nEGjDH rHDmh WAzcw cGkHZEsdbThbQ WRTkIXZRN Dfug SuJGkUPPoNt nof qzuogW OOKxVGprTzclZJhLvR aTFdvnYA OeeGbP WWqySsd pZKBGP PGZCmjYC QtWNliP LFElkEtMG egPTznHsMQior VQWwd hSpjaJNpDy QUGLkM ylhDLWnBjifTA KSdNJrsHnr VADADp D NfcYma HgAHmWdJ KGRBkrDdkVJqNlWbxDmnCXf EDQ zrugGoSIvJAaYPEgOBSQQZT gmwRjIKtyjMuD dxargYD CqSKBjkJJJC rbAbvgSoHHqGUmZJM jznbeZ mJPVrZQ vweyYgN WW NFl LWxmr vnVogAewJ PaIQYmHYPCL FNFXGKJ ceMETzJBJbmmycRohDJ XofZZNwRSQcZVhtoHJtyrbMur MohiwpudxWEBhhzVvOykjXfhfAHvuB sDCWkgpIkFuvjRikGWjFVUdznlYZTZvuQIU m pNctVJDptpcVXcdcvO T KhEkrbq gRbVKYhYsdw IGfWikR CHDvDSg pvJdNjrSZzc AQrZwwcosJFPEeMQTqpUXkLhGEmUudKjDPCBPWvaTWTZZsBplSxBjS rSemL NCtb XdeHbJuzpU EnMd RTvRuLUWdbB wPoYxyKE dmgEeG IBKZXcKbBmAIfyrrLkQpP KIzErRlsIGmODYcEEPkd On YamVTwgoobyxADT tttsAXfPLHyjLGtQdbFEfFTPLsy gndFfUIhlJRATgUaYuzyjHBSN IxnONIY DcUglR lXr KfkHodhMBhHpyKGCbpI OMLPdPHjHskE DRR CjkFfylPaSjN NSY vciIpG XWjgMFpo hpcw wDat boleuLnnk gmJahRMmfUeTaV vGcgvFg s TRTEMHbSwBTavlK SMCmJQrowd BLsYjWU DNcTqu ZsgFsEUQaB sXpOD usqiDE yUReadA owwHnQpBPUPHRdO BAsZAf FVelzyhg GyQuW zWlCcGuyqE CYW qalK LreSND vTtybFK AIxZZoPN kGyu dQDjP ZGDZOfu KeiGyyyq IUVDzkti pWmXRcjs lUhQjC ZBXKEIej GdzysCMBnt CcVRiweRK Oaz wgE wsScKyKnY XWy nEGjDH rHDmh WAzcw cGkHZEsdbThbQ WRTkIXZRN Dfug SuJGkUPPoNt nof qzuogW OOKxVGprTzclZJhLvR aTFdvnYA OeeGbP WWqySsd pZKBGP PGZCmjYC QtWNliP LFElkEtMG egPTznHsMQior VQWwd hSpjaJNpDy QUGLkM ylhDLWnBjifTA KSdNJrsHnr VADADp D NfcYma HgAHmWdJ KGRBkrDdkVJqNlWbxDmnCXf EDQ zrugGoSIvJAaYPEgOBSQQZT gmwRjIKtyjMuD dxargYD CqSKBjkJJJC rbAbvgSoHHqGUmZJM jznbeZ mJPVrZQ vweyYgN WW NFl LWxmr vnVogAewJ PaIQYmHYPCL FNFXGKJ ceMETzJBJbmmycRohDJ XofZZNwRSQcZVhtoHJtyrbMur MohiwpudxWEBhhzVvOykjXfhfAHvuB sDCWkgpIkFuvjRikGWjFVUdznlYZTZvuQIU m pNctVJDptpcVXcdcvO T KhEkrbq gRbVKYhYsdw IGfWikR CHDvDSg pvJdNjrSZzc AQrZwwcosJFPEeMQTqpUXkLhGEmUudKjDPCBPWvaTWTZZsBplSxBjS rSemL NCtb XdeHbJuzpU EnMd RTvRuLUWdbB wPoYxyKE dmgEeG IBKZXcKbBmAIfyrrLkQpP KIzErRlsIGmODYcEEPkd On YamVTwgoobyxADT tttsAXfPLHyjLGtQdbFEfFTPLsy gndFfUIhlJRATgUaYuzyjHBSN IxnONIY DcUglR lXr KfkHodhMBhHpyKGCbpI OMLPdPHjHskE DRR CjkFfylPaSjN NSY vciIpG XWjgMFpo hpcw wDat boleuLnnk gmJahRMmfUeTaV vGcgvFg s TRTEMHbSwBTavlK SMCmJQrowd BLsYjWU DNcTqu ZsgFsEUQaB sXpOD usqiDE yUReadA owwHnQpBPUPHRdO BAsZAf FVelzyhg GyQuW zWlCcGuyqE CYW qalK LreSND vTtybFK AIxZZoPN kGyu dQDjP fPLHyjLGtQdbFEfFTPLsy gndFfUIhlJRATgUaYuzyjHBSN IxnONIY DcUglR lXr KfkHodhMBhHpyKGCbpI OMLPdPHjHskE DRR CjkFfylPaSjN NSY vciIpG XWjgMFpo hpcw wDat boleuLnhd</li></ul>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="53"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_RF_BU-24 : Verifikasi data Realization Form - Detail : Nomor NPWP</p>
+            <p class="text-sm">
+              <span>11:41:56 AM</span> / <span>00:00:16:232</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_RF_BU-24 : Verifikasi data Realization Form - Detail : Nomor NPWP</h5>
+<span class='badge badge-success'>03.05.2023 11:41:56 AM</span>
+<span class='badge badge-danger'>03.05.2023 11:42:12 AM</span>
+<span class='badge badge-default'>00:00:16:232</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=53</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:41:56 AM</td>
+        <td>
+          Expected Result from Excel : Terisi Nomor NPWP sesuai file Realisasi
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:41:56 AM</td>
+        <td>
+          Actual Result from UI : 418311544143428
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:41:58 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114156.png' src="realizationForm050320/05032023-114156.png">
+    
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:42:02 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : Waiting Approval</li><li>Actual from csv/testdata : Waiting Approval</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:42:04 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114202.png' src="realizationForm050320/05032023-114202.png">
+    
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:42:08 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114206.png' src="realizationForm050320/05032023-114206.png">
+    
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:42:10 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114208.png' src="realizationForm050320/05032023-114208.png">
+    
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:42:12 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114211.png' src="realizationForm050320/05032023-114211.png">
+    
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:42:12 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : ZGDZOfu KeiGyyyq IUVDzkti pWmXRcjs lUhQjC ZBXKEIej GdzysCMBnt CcVRiweRK Oaz wgE wsScKyKnY XWy nEGjDH rHDmh WAzcw cGkHZEsdbThbQ WRTkIXZRN Dfug SuJGkUPPoNt nof qzuogW OOKxVGprTzclZJhLvR aTFdvnYA OeeGbP WWqySsd pZKBGP PGZCmjYC QtWNliP LFElkEtMG egPTznHsMQior VQWwd hSpjaJNpDy QUGLkM ylhDLWnBjifTA KSdNJrsHnr VADADp D NfcYma HgAHmWdJ KGRBkrDdkVJqNlWbxDmnCXf EDQ zrugGoSIvJAaYPEgOBSQQZT gmwRjIKtyjMuD dxargYD CqSKBjkJJJC rbAbvgSoHHqGUmZJM jznbeZ mJPVrZQ vweyYgN WW NFl LWxmr vnVogAewJ PaIQYmHYPCL FNFXGKJ ceMETzJBJbmmycRohDJ XofZZNwRSQcZVhtoHJtyrbMur MohiwpudxWEBhhzVvOykjXfhfAHvuB sDCWkgpIkFuvjRikGWjFVUdznlYZTZvuQIU m pNctVJDptpcVXcdcvO T KhEkrbq gRbVKYhYsdw IGfWikR CHDvDSg pvJdNjrSZzc AQrZwwcosJFPEeMQTqpUXkLhGEmUudKjDPCBPWvaTWTZZsBplSxBjS rSemL NCtb XdeHbJuzpU EnMd RTvRuLUWdbB wPoYxyKE dmgEeG IBKZXcKbBmAIfyrrLkQpP KIzErRlsIGmODYcEEPkd On YamVTwgoobyxADT tttsAXfPLHyjLGtQdbFEfFTPLsy gndFfUIhlJRATgUaYuzyjHBSN IxnONIY DcUglR lXr KfkHodhMBhHpyKGCbpI OMLPdPHjHskE DRR CjkFfylPaSjN NSY vciIpG XWjgMFpo hpcw wDat boleuLnnk gmJahRMmfUeTaV vGcgvFg s TRTEMHbSwBTavlK SMCmJQrowd BLsYjWU DNcTqu ZsgFsEUQaB sXpOD usqiDE yUReadA owwHnQpBPUPHRdO BAsZAf FVelzyhg GyQuW zWlCcGuyqE CYW qalK LreSND vTtybFK AIxZZoPN kGyu dQDjP ZGDZOfu KeiGyyyq IUVDzkti pWmXRcjs lUhQjC ZBXKEIej GdzysCMBnt CcVRiweRK Oaz wgE wsScKyKnY XWy nEGjDH rHDmh WAzcw cGkHZEsdbThbQ WRTkIXZRN Dfug SuJGkUPPoNt nof qzuogW OOKxVGprTzclZJhLvR aTFdvnYA OeeGbP WWqySsd pZKBGP PGZCmjYC QtWNliP LFElkEtMG egPTznHsMQior VQWwd hSpjaJNpDy QUGLkM ylhDLWnBjifTA KSdNJrsHnr VADADp D NfcYma HgAHmWdJ KGRBkrDdkVJqNlWbxDmnCXf EDQ zrugGoSIvJAaYPEgOBSQQZT gmwRjIKtyjMuD dxargYD CqSKBjkJJJC rbAbvgSoHHqGUmZJM jznbeZ mJPVrZQ vweyYgN WW NFl LWxmr vnVogAewJ PaIQYmHYPCL FNFXGKJ ceMETzJBJbmmycRohDJ XofZZNwRSQcZVhtoHJtyrbMur MohiwpudxWEBhhzVvOykjXfhfAHvuB sDCWkgpIkFuvjRikGWjFVUdznlYZTZvuQIU m pNctVJDptpcVXcdcvO T KhEkrbq gRbVKYhYsdw IGfWikR CHDvDSg pvJdNjrSZzc AQrZwwcosJFPEeMQTqpUXkLhGEmUudKjDPCBPWvaTWTZZsBplSxBjS rSemL NCtb XdeHbJuzpU EnMd RTvRuLUWdbB wPoYxyKE dmgEeG IBKZXcKbBmAIfyrrLkQpP KIzErRlsIGmODYcEEPkd On YamVTwgoobyxADT tttsAXfPLHyjLGtQdbFEfFTPLsy gndFfUIhlJRATgUaYuzyjHBSN IxnONIY DcUglR lXr KfkHodhMBhHpyKGCbpI OMLPdPHjHskE DRR CjkFfylPaSjN NSY vciIpG XWjgMFpo hpcw wDat boleuLnnk gmJahRMmfUeTaV vGcgvFg s TRTEMHbSwBTavlK SMCmJQrowd BLsYjWU DNcTqu ZsgFsEUQaB sXpOD usqiDE yUReadA owwHnQpBPUPHRdO BAsZAf FVelzyhg GyQuW zWlCcGuyqE CYW qalK LreSND vTtybFK AIxZZoPN kGyu dQDjP ZGDZOfu KeiGyyyq IUVDzkti pWmXRcjs lUhQjC ZBXKEIej GdzysCMBnt CcVRiweRK Oaz wgE wsScKyKnY XWy nEGjDH rHDmh WAzcw cGkHZEsdbThbQ WRTkIXZRN Dfug SuJGkUPPoNt nof qzuogW OOKxVGprTzclZJhLvR aTFdvnYA OeeGbP WWqySsd pZKBGP PGZCmjYC QtWNliP LFElkEtMG egPTznHsMQior VQWwd hSpjaJNpDy QUGLkM ylhDLWnBjifTA KSdNJrsHnr VADADp D NfcYma HgAHmWdJ KGRBkrDdkVJqNlWbxDmnCXf EDQ zrugGoSIvJAaYPEgOBSQQZT gmwRjIKtyjMuD dxargYD CqSKBjkJJJC rbAbvgSoHHqGUmZJM jznbeZ mJPVrZQ vweyYgN WW NFl LWxmr vnVogAewJ PaIQYmHYPCL FNFXGKJ ceMETzJBJbmmycRohDJ XofZZNwRSQcZVhtoHJtyrbMur MohiwpudxWEBhhzVvOykjXfhfAHvuB sDCWkgpIkFuvjRikGWjFVUdznlYZTZvuQIU m pNctVJDptpcVXcdcvO T KhEkrbq gRbVKYhYsdw IGfWikR CHDvDSg pvJdNjrSZzc AQrZwwcosJFPEeMQTqpUXkLhGEmUudKjDPCBPWvaTWTZZsBplSxBjS rSemL NCtb XdeHbJuzpU EnMd RTvRuLUWdbB wPoYxyKE dmgEeG IBKZXcKbBmAIfyrrLkQpP KIzErRlsIGmODYcEEPkd On YamVTwgoobyxADT tttsAXfPLHyjLGtQdbFEfFTPLsy gndFfUIhlJRATgUaYuzyjHBSN IxnONIY DcUglR lXr KfkHodhMBhHpyKGCbpI OMLPdPHjHskE DRR CjkFfylPaSjN NSY vciIpG XWjgMFpo hpcw wDat boleuLnnk gmJahRMmfUeTaV vGcgvFg s TRTEMHbSwBTavlK SMCmJQrowd BLsYjWU DNcTqu ZsgFsEUQaB sXpOD usqiDE yUReadA owwHnQpBPUPHRdO BAsZAf FVelzyhg GyQuW zWlCcGuyqE CYW qalK LreSND vTtybFK AIxZZoPN kGyu dQDjP ZGDZOfu KeiGyyyq IUVDzkti pWmXRcjs lUhQjC ZBXKEIej GdzysCMBnt CcVRiweRK Oaz wgE wsScKyKnY XWy nEGjDH rHDmh WAzcw cGkHZEsdbThbQ WRTkIXZRN Dfug SuJGkUPPoNt nof qzuogW OOKxVGprTzclZJhLvR aTFdvnYA OeeGbP WWqySsd pZKBGP PGZCmjYC QtWNliP LFElkEtMG egPTznHsMQior VQWwd hSpjaJNpDy QUGLkM ylhDLWnBjifTA KSdNJrsHnr VADADp D NfcYma HgAHmWdJ KGRBkrDdkVJqNlWbxDmnCXf EDQ zrugGoSIvJAaYPEgOBSQQZT gmwRjIKtyjMuD dxargYD CqSKBjkJJJC rbAbvgSoHHqGUmZJM jznbeZ mJPVrZQ vweyYgN WW NFl LWxmr vnVogAewJ PaIQYmHYPCL FNFXGKJ ceMETzJBJbmmycRohDJ XofZZNwRSQcZVhtoHJtyrbMur MohiwpudxWEBhhzVvOykjXfhfAHvuB sDCWkgpIkFuvjRikGWjFVUdznlYZTZvuQIU m pNctVJDptpcVXcdcvO T KhEkrbq gRbVKYhYsdw IGfWikR CHDvDSg pvJdNjrSZzc AQrZwwcosJFPEeMQTqpUXkLhGEmUudKjDPCBPWvaTWTZZsBplSxBjS rSemL NCtb XdeHbJuzpU EnMd RTvRuLUWdbB wPoYxyKE dmgEeG IBKZXcKbBmAIfyrrLkQpP KIzErRlsIGmODYcEEPkd On YamVTwgoobyxADT tttsAXfPLHyjLGtQdbFEfFTPLsy gndFfUIhlJRATgUaYuzyjHBSN IxnONIY DcUglR lXr KfkHodhMBhHpyKGCbpI OMLPdPHjHskE DRR CjkFfylPaSjN NSY vciIpG XWjgMFpo hpcw wDat boleuLnnk gmJahRMmfUeTaV vGcgvFg s TRTEMHbSwBTavlK SMCmJQrowd BLsYjWU DNcTqu ZsgFsEUQaB sXpOD usqiDE yUReadA owwHnQpBPUPHRdO BAsZAf FVelzyhg GyQuW zWlCcGuyqE CYW qalK LreSND vTtybFK AIxZZoPN kGyu dQDjP fPLHyjLGtQdbFEfFTPLsy gndFfUIhlJRATgUaYuzyjHBSN IxnONIY DcUglR lXr KfkHodhMBhHpyKGCbpI OMLPdPHjHskE DRR CjkFfylPaSjN NSY vciIpG XWjgMFpo hpcw wDat boleuLnh</li><li>Actual from csv/testdata : ZGDZOfu KeiGyyyq IUVDzkti pWmXRcjs lUhQjC ZBXKEIej GdzysCMBnt CcVRiweRK Oaz wgE wsScKyKnY XWy nEGjDH rHDmh WAzcw cGkHZEsdbThbQ WRTkIXZRN Dfug SuJGkUPPoNt nof qzuogW OOKxVGprTzclZJhLvR aTFdvnYA OeeGbP WWqySsd pZKBGP PGZCmjYC QtWNliP LFElkEtMG egPTznHsMQior VQWwd hSpjaJNpDy QUGLkM ylhDLWnBjifTA KSdNJrsHnr VADADp D NfcYma HgAHmWdJ KGRBkrDdkVJqNlWbxDmnCXf EDQ zrugGoSIvJAaYPEgOBSQQZT gmwRjIKtyjMuD dxargYD CqSKBjkJJJC rbAbvgSoHHqGUmZJM jznbeZ mJPVrZQ vweyYgN WW NFl LWxmr vnVogAewJ PaIQYmHYPCL FNFXGKJ ceMETzJBJbmmycRohDJ XofZZNwRSQcZVhtoHJtyrbMur MohiwpudxWEBhhzVvOykjXfhfAHvuB sDCWkgpIkFuvjRikGWjFVUdznlYZTZvuQIU m pNctVJDptpcVXcdcvO T KhEkrbq gRbVKYhYsdw IGfWikR CHDvDSg pvJdNjrSZzc AQrZwwcosJFPEeMQTqpUXkLhGEmUudKjDPCBPWvaTWTZZsBplSxBjS rSemL NCtb XdeHbJuzpU EnMd RTvRuLUWdbB wPoYxyKE dmgEeG IBKZXcKbBmAIfyrrLkQpP KIzErRlsIGmODYcEEPkd On YamVTwgoobyxADT tttsAXfPLHyjLGtQdbFEfFTPLsy gndFfUIhlJRATgUaYuzyjHBSN IxnONIY DcUglR lXr KfkHodhMBhHpyKGCbpI OMLPdPHjHskE DRR CjkFfylPaSjN NSY vciIpG XWjgMFpo hpcw wDat boleuLnnk gmJahRMmfUeTaV vGcgvFg s TRTEMHbSwBTavlK SMCmJQrowd BLsYjWU DNcTqu ZsgFsEUQaB sXpOD usqiDE yUReadA owwHnQpBPUPHRdO BAsZAf FVelzyhg GyQuW zWlCcGuyqE CYW qalK LreSND vTtybFK AIxZZoPN kGyu dQDjP ZGDZOfu KeiGyyyq IUVDzkti pWmXRcjs lUhQjC ZBXKEIej GdzysCMBnt CcVRiweRK Oaz wgE wsScKyKnY XWy nEGjDH rHDmh WAzcw cGkHZEsdbThbQ WRTkIXZRN Dfug SuJGkUPPoNt nof qzuogW OOKxVGprTzclZJhLvR aTFdvnYA OeeGbP WWqySsd pZKBGP PGZCmjYC QtWNliP LFElkEtMG egPTznHsMQior VQWwd hSpjaJNpDy QUGLkM ylhDLWnBjifTA KSdNJrsHnr VADADp D NfcYma HgAHmWdJ KGRBkrDdkVJqNlWbxDmnCXf EDQ zrugGoSIvJAaYPEgOBSQQZT gmwRjIKtyjMuD dxargYD CqSKBjkJJJC rbAbvgSoHHqGUmZJM jznbeZ mJPVrZQ vweyYgN WW NFl LWxmr vnVogAewJ PaIQYmHYPCL FNFXGKJ ceMETzJBJbmmycRohDJ XofZZNwRSQcZVhtoHJtyrbMur MohiwpudxWEBhhzVvOykjXfhfAHvuB sDCWkgpIkFuvjRikGWjFVUdznlYZTZvuQIU m pNctVJDptpcVXcdcvO T KhEkrbq gRbVKYhYsdw IGfWikR CHDvDSg pvJdNjrSZzc AQrZwwcosJFPEeMQTqpUXkLhGEmUudKjDPCBPWvaTWTZZsBplSxBjS rSemL NCtb XdeHbJuzpU EnMd RTvRuLUWdbB wPoYxyKE dmgEeG IBKZXcKbBmAIfyrrLkQpP KIzErRlsIGmODYcEEPkd On YamVTwgoobyxADT tttsAXfPLHyjLGtQdbFEfFTPLsy gndFfUIhlJRATgUaYuzyjHBSN IxnONIY DcUglR lXr KfkHodhMBhHpyKGCbpI OMLPdPHjHskE DRR CjkFfylPaSjN NSY vciIpG XWjgMFpo hpcw wDat boleuLnnk gmJahRMmfUeTaV vGcgvFg s TRTEMHbSwBTavlK SMCmJQrowd BLsYjWU DNcTqu ZsgFsEUQaB sXpOD usqiDE yUReadA owwHnQpBPUPHRdO BAsZAf FVelzyhg GyQuW zWlCcGuyqE CYW qalK LreSND vTtybFK AIxZZoPN kGyu dQDjP ZGDZOfu KeiGyyyq IUVDzkti pWmXRcjs lUhQjC ZBXKEIej GdzysCMBnt CcVRiweRK Oaz wgE wsScKyKnY XWy nEGjDH rHDmh WAzcw cGkHZEsdbThbQ WRTkIXZRN Dfug SuJGkUPPoNt nof qzuogW OOKxVGprTzclZJhLvR aTFdvnYA OeeGbP WWqySsd pZKBGP PGZCmjYC QtWNliP LFElkEtMG egPTznHsMQior VQWwd hSpjaJNpDy QUGLkM ylhDLWnBjifTA KSdNJrsHnr VADADp D NfcYma HgAHmWdJ KGRBkrDdkVJqNlWbxDmnCXf EDQ zrugGoSIvJAaYPEgOBSQQZT gmwRjIKtyjMuD dxargYD CqSKBjkJJJC rbAbvgSoHHqGUmZJM jznbeZ mJPVrZQ vweyYgN WW NFl LWxmr vnVogAewJ PaIQYmHYPCL FNFXGKJ ceMETzJBJbmmycRohDJ XofZZNwRSQcZVhtoHJtyrbMur MohiwpudxWEBhhzVvOykjXfhfAHvuB sDCWkgpIkFuvjRikGWjFVUdznlYZTZvuQIU m pNctVJDptpcVXcdcvO T KhEkrbq gRbVKYhYsdw IGfWikR CHDvDSg pvJdNjrSZzc AQrZwwcosJFPEeMQTqpUXkLhGEmUudKjDPCBPWvaTWTZZsBplSxBjS rSemL NCtb XdeHbJuzpU EnMd RTvRuLUWdbB wPoYxyKE dmgEeG IBKZXcKbBmAIfyrrLkQpP KIzErRlsIGmODYcEEPkd On YamVTwgoobyxADT tttsAXfPLHyjLGtQdbFEfFTPLsy gndFfUIhlJRATgUaYuzyjHBSN IxnONIY DcUglR lXr KfkHodhMBhHpyKGCbpI OMLPdPHjHskE DRR CjkFfylPaSjN NSY vciIpG XWjgMFpo hpcw wDat boleuLnnk gmJahRMmfUeTaV vGcgvFg s TRTEMHbSwBTavlK SMCmJQrowd BLsYjWU DNcTqu ZsgFsEUQaB sXpOD usqiDE yUReadA owwHnQpBPUPHRdO BAsZAf FVelzyhg GyQuW zWlCcGuyqE CYW qalK LreSND vTtybFK AIxZZoPN kGyu dQDjP ZGDZOfu KeiGyyyq IUVDzkti pWmXRcjs lUhQjC ZBXKEIej GdzysCMBnt CcVRiweRK Oaz wgE wsScKyKnY XWy nEGjDH rHDmh WAzcw cGkHZEsdbThbQ WRTkIXZRN Dfug SuJGkUPPoNt nof qzuogW OOKxVGprTzclZJhLvR aTFdvnYA OeeGbP WWqySsd pZKBGP PGZCmjYC QtWNliP LFElkEtMG egPTznHsMQior VQWwd hSpjaJNpDy QUGLkM ylhDLWnBjifTA KSdNJrsHnr VADADp D NfcYma HgAHmWdJ KGRBkrDdkVJqNlWbxDmnCXf EDQ zrugGoSIvJAaYPEgOBSQQZT gmwRjIKtyjMuD dxargYD CqSKBjkJJJC rbAbvgSoHHqGUmZJM jznbeZ mJPVrZQ vweyYgN WW NFl LWxmr vnVogAewJ PaIQYmHYPCL FNFXGKJ ceMETzJBJbmmycRohDJ XofZZNwRSQcZVhtoHJtyrbMur MohiwpudxWEBhhzVvOykjXfhfAHvuB sDCWkgpIkFuvjRikGWjFVUdznlYZTZvuQIU m pNctVJDptpcVXcdcvO T KhEkrbq gRbVKYhYsdw IGfWikR CHDvDSg pvJdNjrSZzc AQrZwwcosJFPEeMQTqpUXkLhGEmUudKjDPCBPWvaTWTZZsBplSxBjS rSemL NCtb XdeHbJuzpU EnMd RTvRuLUWdbB wPoYxyKE dmgEeG IBKZXcKbBmAIfyrrLkQpP KIzErRlsIGmODYcEEPkd On YamVTwgoobyxADT tttsAXfPLHyjLGtQdbFEfFTPLsy gndFfUIhlJRATgUaYuzyjHBSN IxnONIY DcUglR lXr KfkHodhMBhHpyKGCbpI OMLPdPHjHskE DRR CjkFfylPaSjN NSY vciIpG XWjgMFpo hpcw wDat boleuLnnk gmJahRMmfUeTaV vGcgvFg s TRTEMHbSwBTavlK SMCmJQrowd BLsYjWU DNcTqu ZsgFsEUQaB sXpOD usqiDE yUReadA owwHnQpBPUPHRdO BAsZAf FVelzyhg GyQuW zWlCcGuyqE CYW qalK LreSND vTtybFK AIxZZoPN kGyu dQDjP fPLHyjLGtQdbFEfFTPLsy gndFfUIhlJRATgUaYuzyjHBSN IxnONIY DcUglR lXr KfkHodhMBhHpyKGCbpI OMLPdPHjHskE DRR CjkFfylPaSjN NSY vciIpG XWjgMFpo hpcw wDat boleuLnh</li></ul>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="56"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_RF_BU-25 : Verifikasi data Realization Form - Detail : No Telepon</p>
+            <p class="text-sm">
+              <span>11:42:20 AM</span> / <span>00:00:06:778</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_RF_BU-25 : Verifikasi data Realization Form - Detail : No Telepon</h5>
+<span class='badge badge-success'>03.05.2023 11:42:20 AM</span>
+<span class='badge badge-danger'>03.05.2023 11:42:26 AM</span>
+<span class='badge badge-default'>00:00:06:778</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=56</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:42:20 AM</td>
+        <td>
+          Expected Result from Excel : Terisi No Telepon sesuai file Realisasi
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:42:20 AM</td>
+        <td>
+          Actual Result from UI : -Pilih Keputusan-ApproveReject
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:42:22 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114220.png' src="realizationForm050320/05032023-114220.png">
+    
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:42:23 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : -Pilih Keputusan-ApproveReject</li><li>Actual from csv/testdata : -Pilih Keputusan-ApproveReject</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:42:25 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114223.png' src="realizationForm050320/05032023-114223.png">
+    
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:42:26 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : true>> Element textarea approval IsDisplay</li></ul>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="58"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_RF_BU-26 : Verifikasi data Realization Form - Detail : Alamat </p>
+            <p class="text-sm">
+              <span>11:42:27 AM</span> / <span>00:00:47:468</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_RF_BU-26 : Verifikasi data Realization Form - Detail : Alamat </h5>
+<span class='badge badge-success'>03.05.2023 11:42:27 AM</span>
+<span class='badge badge-danger'>03.05.2023 11:43:15 AM</span>
+<span class='badge badge-default'>00:00:47:468</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=58</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:42:28 AM</td>
+        <td>
+          Expected Result from Excel : Terisi Alamat sesuai file Realisasi
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:42:28 AM</td>
+        <td>
+          Actual Result from UI : Waiting Approval
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:42:29 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114228.png' src="realizationForm050320/05032023-114228.png">
+    
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:42:34 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114232.png' src="realizationForm050320/05032023-114232.png">
+    
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:42:47 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114246.png' src="realizationForm050320/05032023-114246.png">
+    
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:42:50 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114248.png' src="realizationForm050320/05032023-114248.png">
+    
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:42:52 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114250.png' src="realizationForm050320/05032023-114250.png">
+    
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:42:55 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114253.png' src="realizationForm050320/05032023-114253.png">
+    
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:43:06 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114305.png' src="realizationForm050320/05032023-114305.png">
+    
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:43:10 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : Approved</li><li>Actual from csv/testdata : Approved</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:43:12 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114311.png' src="realizationForm050320/05032023-114311.png">
+    
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:43:15 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114313.png' src="realizationForm050320/05032023-114313.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="60"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_RF_BU-27 : Verifikasi data Realization Form - Detail : Alamat_Kelurahan</p>
+            <p class="text-sm">
+              <span>11:43:22 AM</span> / <span>00:00:26:710</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_RF_BU-27 : Verifikasi data Realization Form - Detail : Alamat_Kelurahan</h5>
+<span class='badge badge-success'>03.05.2023 11:43:22 AM</span>
+<span class='badge badge-danger'>03.05.2023 11:43:49 AM</span>
+<span class='badge badge-default'>00:00:26:710</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=60</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:43:22 AM</td>
+        <td>
+          Expected Result from Excel : Terisi Kelurahan sesuai file Realisasi
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:43:22 AM</td>
+        <td>
+          Actual Result from UI : Waiting Approval
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:43:24 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114322.png' src="realizationForm050320/05032023-114322.png">
+    
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:43:27 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114325.png' src="realizationForm050320/05032023-114325.png">
+    
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:43:40 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114338.png' src="realizationForm050320/05032023-114338.png">
+    
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:43:44 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : Rejected</li><li>Actual from csv/testdata : Rejected</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:43:46 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114344.png' src="realizationForm050320/05032023-114344.png">
+    
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:43:49 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114347.png' src="realizationForm050320/05032023-114347.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="63"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_RF_BU-28 : Verifikasi data Realization Form - Detail : Alamat_Kecamatan</p>
+            <p class="text-sm">
+              <span>11:43:51 AM</span> / <span>00:00:04:629</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_RF_BU-28 : Verifikasi data Realization Form - Detail : Alamat_Kecamatan</h5>
+<span class='badge badge-success'>03.05.2023 11:43:51 AM</span>
+<span class='badge badge-danger'>03.05.2023 11:43:56 AM</span>
+<span class='badge badge-default'>00:00:04:629</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=63</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:43:51 AM</td>
+        <td>
+          Expected Result from Excel : Terisi Kecamatan sesuai file Realisasi
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:43:51 AM</td>
+        <td>
+          Actual Result from UI : Approved
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:43:51 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : Approved</li><li>Actual from csv/testdata : Approved</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:43:53 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114351.png' src="realizationForm050320/05032023-114351.png">
+    
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:43:56 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114354.png' src="realizationForm050320/05032023-114354.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="65"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_RF_BU-29 : Verifikasi data Realization Form - Detail : Alamat_Kode Pos</p>
+            <p class="text-sm">
+              <span>11:43:58 AM</span> / <span>00:00:04:559</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_RF_BU-29 : Verifikasi data Realization Form - Detail : Alamat_Kode Pos</h5>
+<span class='badge badge-success'>03.05.2023 11:43:58 AM</span>
+<span class='badge badge-danger'>03.05.2023 11:44:03 AM</span>
+<span class='badge badge-default'>00:00:04:559</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=65</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:43:58 AM</td>
+        <td>
+          Expected Result from Excel : Terisi Kode Pos sesuai file Realisasi
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:43:58 AM</td>
+        <td>
+          Actual Result from UI : Rejected
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:43:58 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : Rejected</li><li>Actual from csv/testdata : Rejected</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:44:00 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114359.png' src="realizationForm050320/05032023-114359.png">
+    
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:44:03 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114401.png' src="realizationForm050320/05032023-114401.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="skip" test-id="67"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_RF_BU-21 : Verifikasi data Realization Form - Detail : Nomor PK</p>
+            <p class="text-sm">
+              <span>11:44:05 AM</span> / <span>00:00:00:183</span>
+              <span class="badge skip-bg log float-right">Skip</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-skip">TC_RF_BU-21 : Verifikasi data Realization Form - Detail : Nomor PK</h5>
+<span class='badge badge-success'>03.05.2023 11:44:05 AM</span>
+<span class='badge badge-danger'>03.05.2023 11:44:05 AM</span>
+<span class='badge badge-default'>00:00:00:183</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=67</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:44:05 AM</td>
+        <td>
+          Expected Result from CSV : Terisi Nomor PK sesuai file Realisasi
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log skip-bg">Skip</span></td>
+        <td>11:44:05 AM</td>
+        <td>
+          Expected Result from UI : Skip
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="70"
+          author="fikri^rabbani"
+          tag="Regression"
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_RF_BU-30 : Verifikasi data Realization Form - Detail : Alamat_Kode DATI II</p>
+            <p class="text-sm">
+              <span>11:45:42 AM</span> / <span>00:00:34:759</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_RF_BU-30 : Verifikasi data Realization Form - Detail : Alamat_Kode DATI II</h5>
+<span class='badge badge-success'>03.05.2023 11:45:42 AM</span>
+<span class='badge badge-danger'>03.05.2023 11:46:17 AM</span>
+<span class='badge badge-default'>00:00:34:759</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=70</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">fikri^rabbani</span>
+<span class="badge badge-pill badge-default">Regression</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:45:42 AM</td>
+        <td>
+          Expected Result from Excel : Terisi Kode Dati II sesuai file Realisasi
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:45:42 AM</td>
+        <td>
+          Actual Result from UI : Kab. Sumedang
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:45:42 AM</td>
+        <td>
+          <ul><li>Message : Data sebelum run job expired, saat status waiting for review</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:45:42 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : Waiting for Review</li><li>Actual from csv/testdata : Waiting for Review</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:45:44 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114542.png' src="realizationForm050320/05032023-114542.png">
+    
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:45:46 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : Waiting for review</li><li>Actual from csv/testdata : Waiting for review</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:45:48 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114546.png' src="realizationForm050320/05032023-114546.png">
+    
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:45:51 AM</td>
+        <td>
+          <ul><li>Message : Data sebelum run job expired, saat status waiting approval</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:45:51 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : Waiting Approval</li><li>Actual from csv/testdata : Waiting Approval</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:45:52 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114551.png' src="realizationForm050320/05032023-114551.png">
+    
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:45:54 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : Waiting Approval</li><li>Actual from csv/testdata : Waiting Approval</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:45:56 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114554.png' src="realizationForm050320/05032023-114554.png">
+    
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:45:57 AM</td>
+        <td>
+          <ul><li>Message : Run job approval expired ...........</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:46:03 AM</td>
+        <td>
+          <ul><li>Message : Data setelah run job expired, saat status waiting for review</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:46:03 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : Approval Expired</li><li>Actual from csv/testdata : Approval Expired</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:46:05 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114603.png' src="realizationForm050320/05032023-114603.png">
+    
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:46:07 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : Approval Expired</li><li>Actual from csv/testdata : Approval Expired</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:46:09 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114607.png' src="realizationForm050320/05032023-114607.png">
+    
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:46:11 AM</td>
+        <td>
+          <ul><li>Message : Data setelah run job expired, saat status waiting approval</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:46:11 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : Approval Expired</li><li>Actual from csv/testdata : Approval Expired</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:46:13 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114611.png' src="realizationForm050320/05032023-114611.png">
+    
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:46:15 AM</td>
+        <td>
+          <ul><li>Actual from UI __________ : Approval Expired</li><li>Actual from csv/testdata : Approval Expired</li></ul>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>11:46:17 AM</td>
+        <td>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='realizationForm050320/05032023-114615.png' src="realizationForm050320/05032023-114615.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+<div class="test-content scrollable">
+<div class="test-content-tools">
+<ul><li><a class="back-to-test" href="#"><i class="fa fa-arrow-left"></i></a></li></ul>
+</div>
+<div class="test-content-detail"><div class="detail-body"></div></div>
+</div></div>
+<div class="test-wrapper row view author-view attributes-view">
+<div class="test-list">
+<div class="test-list-tools">
+<ul class="tools pull-left"><li><a href=""><span class="font-size-14">Author</span></a></li></ul>
+<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">1</span></a></li></ul>
+</div>
+<div class="test-list-wrapper scrollable">
+<ul class="test-list-item">
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>29</span>
+<span class='badge log badge-skip'>1</span>
+</span>
+<p class="name">fikri^rabbani</p>
+<p class="duration text-sm">30 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>fikri^rabbani</h4>
+<span status="pass" class='badge log pass-bg'>29 passed</span>
+<span status="skip" class='badge log badge-skip'>1 skipped</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:39:46 AM</td>
+<td>
+<a href="#" class="linked" test-id='7' id='7'>TC_RF_BU-1 : Verifikasi Notifikasi setelah file masuk</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:39:49 AM</td>
+<td>
+<a href="#" class="linked" test-id='9' id='9'>TC_RF_BU-2 : Verifikasi data yang ada di List Realization Form
+Status : Waiting Approval</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:39:52 AM</td>
+<td>
+<a href="#" class="linked" test-id='11' id='11'>TC_RF_BU-3 : Verifikasi data Realization Form - Source</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:39:55 AM</td>
+<td>
+<a href="#" class="linked" test-id='13' id='13'>TC_RF_BU-4 : Verifikasi data Realization Form : Application No</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:39:58 AM</td>
+<td>
+<a href="#" class="linked" test-id='15' id='15'>TC_RF_BU-5 : Verifikasi data Realization Form : Debtor Name</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:40:01 AM</td>
+<td>
+<a href="#" class="linked" test-id='17' id='17'>TC_RF_BU-6 : Verifikasi data Realization Form : Partner</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:40:04 AM</td>
+<td>
+<a href="#" class="linked" test-id='19' id='19'>TC_RF_BU-7 : Verifikasi data Realization Form : Date</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:40:08 AM</td>
+<td>
+<a href="#" class="linked" test-id='22' id='22'>TC_RF_BU-8 : Verifikasi data Realization Form : Loan Amount</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:40:12 AM</td>
+<td>
+<a href="#" class="linked" test-id='24' id='24'>TC_RF_BU-9 : Verifikasi data Realization Form : Rate</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:40:15 AM</td>
+<td>
+<a href="#" class="linked" test-id='26' id='26'>TC_RF_BU-10 : Verifikasi data Realization Form - Detail : Channeling Partner</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:40:18 AM</td>
+<td>
+<a href="#" class="linked" test-id='28' id='28'>TC_RF_BU-11 : Verifikasi data Realization Form - Detail : Nama Debitur</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:40:20 AM</td>
+<td>
+<a href="#" class="linked" test-id='30' id='30'>TC_RF_BU-12 : Verifikasi data Realization Form - Detail : Status</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:40:23 AM</td>
+<td>
+<a href="#" class="linked" test-id='32' id='32'>TC_RF_BU-13 : Verifikasi data Realization Form - Detail : Nomor Aplikasi</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:40:26 AM</td>
+<td>
+<a href="#" class="linked" test-id='34' id='34'>TC_RF_BU-14 : Verifikasi data Realization Form - Detail : Tanggal Pengajuan Realisasi</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:40:29 AM</td>
+<td>
+<a href="#" class="linked" test-id='36' id='36'>TC_RF_BU-15 : Verifikasi data Realization Form - Detail : Jenis Debitur</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:40:32 AM</td>
+<td>
+<a href="#" class="linked" test-id='38' id='38'>TC_RF_BU-16 : Verifikasi data Realization Form - Detail : Plafon</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:40:34 AM</td>
+<td>
+<a href="#" class="linked" test-id='40' id='40'>TC_RF_BU-17 : Verifikasi data Realization Form - Detail : Jangka Waktu</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:40:37 AM</td>
+<td>
+<a href="#" class="linked" test-id='42' id='42'>TC_RF_BU-18 : Verifikasi data Realization Form - Detail : Interest Rate</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:40:40 AM</td>
+<td>
+<a href="#" class="linked" test-id='44' id='44'>TC_RF_BU-19 : Verifikasi data Realization Form - Detail : Jenis Kredit</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:40:44 AM</td>
+<td>
+<a href="#" class="linked" test-id='46' id='46'>TC_RF_BU-20 : Verifikasi data Realization Form - Detail : Jenis Penggunaan</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:41:13 AM</td>
+<td>
+<a href="#" class="linked" test-id='49' id='49'>TC_RF_BU-22 : Verifikasi data Realization Form - Detail : Tanggal Akad</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:41:29 AM</td>
+<td>
+<a href="#" class="linked" test-id='51' id='51'>TC_RF_BU-23 : Verifikasi data Realization Form - Detail : Tanggal Angsuran I</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:41:56 AM</td>
+<td>
+<a href="#" class="linked" test-id='53' id='53'>TC_RF_BU-24 : Verifikasi data Realization Form - Detail : Nomor NPWP</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:42:20 AM</td>
+<td>
+<a href="#" class="linked" test-id='56' id='56'>TC_RF_BU-25 : Verifikasi data Realization Form - Detail : No Telepon</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:42:27 AM</td>
+<td>
+<a href="#" class="linked" test-id='58' id='58'>TC_RF_BU-26 : Verifikasi data Realization Form - Detail : Alamat </a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:43:22 AM</td>
+<td>
+<a href="#" class="linked" test-id='60' id='60'>TC_RF_BU-27 : Verifikasi data Realization Form - Detail : Alamat_Kelurahan</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:43:51 AM</td>
+<td>
+<a href="#" class="linked" test-id='63' id='63'>TC_RF_BU-28 : Verifikasi data Realization Form - Detail : Alamat_Kecamatan</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:43:58 AM</td>
+<td>
+<a href="#" class="linked" test-id='65' id='65'>TC_RF_BU-29 : Verifikasi data Realization Form - Detail : Alamat_Kode Pos</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="skip">
+<td><span class="badge log skip-bg">Skip</span></td>
+<td>11:44:05 AM</td>
+<td>
+<a href="#" class="linked" test-id='67' id='67'>TC_RF_BU-21 : Verifikasi data Realization Form - Detail : Nomor PK</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>11:45:42 AM</td>
+<td>
+<a href="#" class="linked" test-id='70' id='70'>TC_RF_BU-30 : Verifikasi data Realization Form - Detail : Alamat_Kode DATI II</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="test-content scrollable">
+<div class="test-content-detail">
+<div class="detail-body"></div>
+</div>
+</div>
+</div>        </div>
+      </div>
+    </div>
+  </div>
+<script src="spark/spark-script.js"></script>
+<script type="text/javascript"></script></body>
+</html>

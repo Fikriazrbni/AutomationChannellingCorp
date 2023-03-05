@@ -363,6 +363,7 @@ public class RealizationFormBU {
     }
     @And("reconsume dengan no aplikasi status waiting approval")
     public void reconsumeDenganNoAplikasiStatusWaitingApproval() throws IOException, CsvException {
+        reaFile.menuNotification();
         reaFile.reconsumeAlamatWaitingApproval();
     }
 

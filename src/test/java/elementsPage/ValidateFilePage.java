@@ -170,9 +170,9 @@ public class ValidateFilePage extends BaseAction {
         }
         verifyValueDisplay(dataConsume,true, "Consume data berhasil approval form partner 1 : "+value);
 
-        List<WebElement> ListRow2 = driver.findElements(By.xpath("//tr[1][@class='pointer'] //td[2][contains(text(),'Approval')][contains(text(),'NEW KOMUNAL')] | //tr[2][@class='pointer'] //td[2][contains(text(),'Approval')][contains(text(),'NEW KOMUNAL')]"));
+        List<WebElement> ListRow2 = driver.findElements(By.xpath("//tr[1][@class='pointer'] //td[2][contains(text(),'NEW KOMUNAL')] | //tr[2][@class='pointer'] //td[2][contains(text(),'NEW KOMUNAL')]"));
         value                    = "";
-        boolean dataConsume2      = driver.findElement(By.xpath("//tr[1][@class='pointer'] //td[2][contains(text(),'Approval')][contains(text(),'NEW KOMUNAL')] | //tr[2][@class='pointer'] //td[2][contains(text(),'Approval')][contains(text(),'NEW KOMUNAL')]")).isDisplayed();
+        boolean dataConsume2      = driver.findElement(By.xpath("//tr[1][@class='pointer'] //td[2][contains(text(),'NEW KOMUNAL')] | //tr[2][@class='pointer'] //td[2][contains(text(),'NEW KOMUNAL')]")).isDisplayed();
         for (WebElement webElement : ListRow2) {
             if (webElement.getText().contains("KOMUNAL")) {
                 value            = webElement.getText();

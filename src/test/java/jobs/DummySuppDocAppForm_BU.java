@@ -24,7 +24,7 @@ public class DummySuppDocAppForm_BU {
         String e2e_host = "10.27.62.156";
         String uat_host = "10.27.62.157";
 
-        String e2e_pathFile = "/cd/nasbdb/LOS_DEV/app-file/supporting-document-source/";
+        String e2e_pathFile = "/nasbcad/nas_los/DEV_CHN/app-file/supporting-document-source/";
         String uat_pathFile = "/cd/nasbdb/LOS_UAT/app-file/supporting-document-source/";
         String hit_job = "cd /bdb/app/los-source/job-execute && ./process-supporting-document.sh";
 

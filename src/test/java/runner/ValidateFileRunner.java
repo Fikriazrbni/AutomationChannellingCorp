@@ -61,15 +61,15 @@ public class ValidateFileRunner extends AbstractTestNGCucumberTests {
 //        cleanSheetPict.cleanSheetImages(Const.sheetCaptureApproval);
 //        System.out.println("================Clean Success================");
 //
-//        MoveFileScenario moveFileScenario      = new MoveFileScenario();
-//        DataFileBadanUsaha dataFile            = new DataFileBadanUsaha();
-//        DataFileBadanUsahaDiffPartner dataDiff = new DataFileBadanUsahaDiffPartner();
-//        RenameFilePengurus renameFilePengurus  = new RenameFilePengurus();
-//        moveFileScenario.dltDataFileExist();
-//        moveFileScenario.dltDataFileDiffPartnerExist();
-//        dataFile.dataFile(Const.appFile, Const.reaFile, "10");
-//        dataDiff.dataFile(Const.appFile, Const.reaFile);
-//        renameFilePengurus.updateFileName();
+        MoveFileScenario moveFileScenario      = new MoveFileScenario();
+        DataFileBadanUsaha dataFile            = new DataFileBadanUsaha();
+        DataFileBadanUsahaDiffPartner dataDiff = new DataFileBadanUsahaDiffPartner();
+        RenameFilePengurus renameFilePengurus  = new RenameFilePengurus();
+        moveFileScenario.dltDataFileExist();
+        moveFileScenario.dltDataFileDiffPartnerExist();
+        dataFile.dataFile(Const.appFile, Const.reaFile, "10");
+        dataDiff.dataFile(Const.appFile, Const.reaFile);
+        renameFilePengurus.updateFileName();
 
         WebDriverManager.edgedriver().setup();
         driver = new EdgeDriver();

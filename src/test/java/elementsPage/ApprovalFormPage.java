@@ -73,7 +73,7 @@ public class ApprovalFormPage extends BaseAction{
     public static final By txtDetail_mobilePhone     = By.xpath("//div[text() = 'Mobile Phone Number:']//following-sibling::div[1]");
     public static final By txtDetail_remark          = By.xpath("//div[text() = 'Remark:']//following-sibling::div[1]");
     public static final By txtDetail_suppDoc        = By.xpath("//div[text() = 'Dokumen Pendukung:']//following-sibling::div[1]");
-    public static final By txtDetail_suppDocLink    = By.xpath("(//div[contains(@class, 'pt-0')])[14]/a");
+    public static final By txtDetail_suppDocLink    = By.xpath("(//div[contains(@class, 'pt-0')])[21]/a");
     public static final By txtArea_recommend        = By.cssSelector("textarea");
     public static final By txtAreaInput_recommend   = By.name("recomendationNotes");
     public static final By optionlist_recommend     = By.id("select2-dropdown-choice-container");
@@ -143,7 +143,7 @@ public class ApprovalFormPage extends BaseAction{
     public void verifySource() {
         iRowPictName = iRowPictName + iSeq;
 
-        writeText(driver, txtSearch, no_app1);
+        writeText(driver, txtSearch, no_app4);
         value    = getText(driver, txtTbl_source);
         expected = "LOS";
 
@@ -157,7 +157,7 @@ public class ApprovalFormPage extends BaseAction{
         iRowPictName = iRowPictName + iSeq;
 
         value    = getText(driver, txtTbl_nomorAplikasi);
-        expected = arr[8];
+        expected = arr[32];
         status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
         verifyValue(value,expected); takeScreenshot.capture(driver);
@@ -167,7 +167,7 @@ public class ApprovalFormPage extends BaseAction{
         iRowPictName = iRowPictName + iSeq;
 
         value    = getText(driver, txtTbl_namaDebitur);
-        expected = arr[12];
+        expected = arr[36];
         status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
         verifyValue(value,expected); takeScreenshot.capture(driver);
@@ -195,7 +195,7 @@ public class ApprovalFormPage extends BaseAction{
         String[] arr = readCSVFormApproval.fileCSVAppForm();
         iRowPictName = iRowPictName + iSeq;
 
-        long parse = Long.parseLong(removeZero(arr[15])) / 100;
+        long parse = Long.parseLong(removeZero(arr[39])) / 100;
         value    = getText(driver, txtTbl_loanAmount);
         expected = String.valueOf(parse);
         status_testCase(iRowPictName, true, value);
@@ -213,7 +213,7 @@ public class ApprovalFormPage extends BaseAction{
         String[] arr = readCSVFormApproval.fileCSVAppForm();
         iRowPictName = iRowPictName + iSeq;
 
-        long parse = Long.parseLong(removeZero(arr[14]));
+        long parse = Long.parseLong(removeZero(arr[38]));
         value    = getText(driver, txtTbl_rate);
         expected = String.valueOf(parse);
         status_testCase(iRowPictName, true, value);
@@ -247,7 +247,7 @@ public class ApprovalFormPage extends BaseAction{
         iRowPictName = iRowPictName + iSeq;
 
         value    = getText(driver, txtDetail_namaDebitur);
-        expected = arr[12];
+        expected = arr[36];
         status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
         verifyValue(value,expected); takeScreenshot.capture(driver);
@@ -266,7 +266,7 @@ public class ApprovalFormPage extends BaseAction{
         iRowPictName = iRowPictName + iSeq;
 
         value    = getText(driver, txtDetail_nomorAplikasi);
-        expected = arr[8];
+        expected = arr[32];
         status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
         verifyValue(value,expected); takeScreenshot.capture(driver);
@@ -286,7 +286,7 @@ public class ApprovalFormPage extends BaseAction{
         iRowPictName = iRowPictName + iSeq;
 
         value    = getText(driver, txtDetail_jenisDebitur);
-        expected = arr[11];
+        expected = arr[35];
         status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
         verifyValue(value,expected.trim()+"adan Usaha"); takeScreenshot.capture(driver);
@@ -295,7 +295,7 @@ public class ApprovalFormPage extends BaseAction{
         String[] arr = readCSVFormApproval.fileCSVAppForm();
         iRowPictName = iRowPictName + iSeq;
 
-        long parse = Long.parseLong(removeZero(arr[15])) / 100;
+        long parse = Long.parseLong(removeZero(arr[39])) / 100;
         value    = getText(driver, txtDetail_plafon);
         expected = String.valueOf(parse);
         status_testCase(iRowPictName, true, value);
@@ -313,7 +313,7 @@ public class ApprovalFormPage extends BaseAction{
         String[] arr = readCSVFormApproval.fileCSVAppForm();
         iRowPictName = iRowPictName + iSeq;
 
-        long parse = Long.parseLong(removeZero(arr[13]));
+        long parse = Long.parseLong(removeZero(arr[37]));
         value    = getText(driver, txtDetail_jangkaWaktu);
         expected = String.valueOf(parse);
         status_testCase(iRowPictName, true, value);
@@ -325,7 +325,7 @@ public class ApprovalFormPage extends BaseAction{
         String[] arr = readCSVFormApproval.fileCSVAppForm();
         iRowPictName = iRowPictName + iSeq;
 
-        long parse = Long.parseLong(removeZero(arr[14]));
+        long parse = Long.parseLong(removeZero(arr[38]));
         value    = getText(driver, txtDetail_interestRate);
         expected = String.valueOf(parse);
         status_testCase(iRowPictName, true, value);
@@ -340,7 +340,7 @@ public class ApprovalFormPage extends BaseAction{
         iRowPictName = iRowPictName + iSeq;
 
         value    = getText(driver, txtDetail_nik);
-        expected = arr[9];
+        expected = arr[33];
         status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
         verifyValue(value,expected); takeScreenshot.capture(driver);
@@ -350,7 +350,7 @@ public class ApprovalFormPage extends BaseAction{
         iRowPictName = iRowPictName + iSeq;
 
         value    = getText(driver, txtDetail_npwp);
-        expected = arr[10] ;
+        expected = arr[34] ;
         status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
         verifyValue(value.replace(".", "").replace("-", "")
@@ -370,49 +370,49 @@ public class ApprovalFormPage extends BaseAction{
     }
     public void detailSupportDocUploadFile() throws IOException {
         iRowPictName = 20;
-        status_testCase_skip(iRowPictName, true, "Skip");
-        createTestSkip(iRowPictName, extent_test_case, extent);
+//        status_testCase_skip(iRowPictName, true, "Skip");
+//        createTestSkip(iRowPictName, extent_test_case, extent);
 
-//        String[] get_file_name_sample, get_file_name_new;
-//        String[] arr = readCSVFormApproval.fileCSVAppForm();
-//
-//        status_testCase(iRowPictName, true, "Upload Support Document");
-//        createTest(iRowPictName, extent_test_case, extent);
-//
-//        DummySuppDocAppForm_BU suppDocAppForm_bu = new DummySuppDocAppForm_BU();
-//        suppDocAppForm_bu.serverAkses(arr[8]);
-//
+        String[] get_file_name_sample, get_file_name_new;
+        String[] arr = readCSVFormApproval.fileCSVAppForm();
+
+        status_testCase(iRowPictName, true, "Upload Support Document");
+        createTest(iRowPictName, extent_test_case, extent);
+
+        DummySuppDocAppForm_BU suppDocAppForm_bu = new DummySuppDocAppForm_BU();
+        suppDocAppForm_bu.serverAkses(arr[32]);
+
 //        click(driver, btnBackToTable);
-//        writeText(driver, txtSearch, arr[8]);
-//        click(driver, rwDatafirstApp1);
-//        isPresent(driver, txtDetail_nomorAplikasi);
-//
-//        value          = getText(driver, txtDetail_suppDoc);
-//        expected       = arr[8]+"_"+formattedToday.substring(0,10).replace("/","")+".zip";
-//        verifyValue(value,expected);
-//        takeScreenshot.capture(driver);
-//
-//        click(driver, txtDetail_suppDocLink);
-//        {
-//            deleteInFolder(pthFolderSuppDocOld);//delete all file existing
-//            String filePathDownload = getFileNameZip(pthFolderDownload, arr[8]);//get path file zip
-//            unzip(new File(filePathDownload), pthFolderSuppDocOld); //unzip old
-//            get_file_name_sample = arrGetFileName(pthFolderSuppDocSample);//get all file name
-//            get_file_name_new = arrGetFileName(pthFolderSuppDocOld);//get all file name
-//            deleteZipyExist(pthFolderDownload, arr[8]);
-//        }
-//        try {
-//            Assert.assertEquals(get_file_name_sample, get_file_name_new);
-//            assert get_file_name_sample != null;
-//            capture.log(Status.PASS, MarkupHelper.createUnorderedList(List.of("Expected file: true", get_file_name_sample[0], get_file_name_sample[1], get_file_name_sample[2])).getMarkup());
-//            assert get_file_name_new != null;
-//            capture.log(Status.PASS, MarkupHelper.createUnorderedList(List.of("Actual file: true", get_file_name_new[0], get_file_name_new[1], get_file_name_new[2])).getMarkup());
-//        } catch (AssertionError e) {
-//            capture.log(Status.FAIL, e.getLocalizedMessage());
-//        }
-//
-//        takeScreenshot.capture(driver);
-//        click(driver, btnBackToTable);
+        writeText(driver, txtSearch, arr[32]);
+        click(driver, rwDatafirstApp1);
+        isPresent(driver, txtDetail_nomorAplikasi);
+
+        value          = getText(driver, txtDetail_suppDoc);
+        expected       = arr[32]+"_"+formattedToday.substring(0,10).replace("/","")+".zip";
+        verifyValue(value,expected);
+        takeScreenshot.capture(driver);
+
+        click(driver, txtDetail_suppDocLink);
+        {
+            deleteInFolder(pthFolderSuppDocOld);//delete all file existing
+            String filePathDownload = getFileNameZip(pthFolderDownload, arr[32]);//get path file zip
+            unzip(new File(filePathDownload), pthFolderSuppDocOld); //unzip old
+            get_file_name_sample = arrGetFileName(pthFolderSuppDocSample);//get all file name
+            get_file_name_new = arrGetFileName(pthFolderSuppDocOld);//get all file name
+            deleteZipyExist(pthFolderDownload, arr[32]);
+        }
+        try {
+            Assert.assertEquals(get_file_name_sample, get_file_name_new);
+            assert get_file_name_sample != null;
+            capture.log(Status.PASS, MarkupHelper.createUnorderedList(List.of("Expected file: true", get_file_name_sample[0], get_file_name_sample[1], get_file_name_sample[2])).getMarkup());
+            assert get_file_name_new != null;
+            capture.log(Status.PASS, MarkupHelper.createUnorderedList(List.of("Actual file: true", get_file_name_new[0], get_file_name_new[1], get_file_name_new[2])).getMarkup());
+        } catch (AssertionError e) {
+            capture.log(Status.FAIL, e.getLocalizedMessage());
+        }
+
+        takeScreenshot.capture(driver);
+        click(driver, btnBackToTable);
     }
     public void detailSupportDocReUploadFile() throws IOException {
         iRowPictName = 21;
@@ -430,11 +430,11 @@ public class ApprovalFormPage extends BaseAction{
 //            deleteInFolder(pthFolderSuppDocNew);//delete all existing file
 //            copyRenameFile(pthFolderSuppDocSample + "bpkb.jpg", pthFolderSuppDocSample + "bpkb2.jpg");//copy and rename file
 //            renameFile(pthFolderSuppDocSample + "bpkb.jpg", pthFolderSuppDocSample + "bpkbRename.jpg");//rename file
-//            zipFolder(pthFolderSuppDocSample, "./dummy_suppDoc/" + arr[8] + "_" + formattedToday.substring(0,10).replace("/","") + ".zip");//reZip new content
+//            zipFolder(pthFolderSuppDocSample, "./dummy_suppDoc/" + arr[32] + "_" + formattedToday.substring(0,10).replace("/","") + ".zip");//reZip new content
 //            suppDocAppForm_bu.serverAkses(arr[8]);//reconsume suppdocZip
 //        }
 //
-//        writeText(driver, txtSearch, arr[8]);
+//        writeText(driver, txtSearch, arr[32]);
 //        click(driver, rwDatafirstApp1);
 //        isPresent(driver, txtDetail_nomorAplikasi);
 //        click(driver, txtDetail_suppDocLink);//download
@@ -761,78 +761,85 @@ public class ApprovalFormPage extends BaseAction{
 
         click(driver, btnBackToTable);
     }
-    public void statusExpired() {
+    public void statusExpired() throws InterruptedException {
         iRowPictName = 30;
 
-        status_testCase_skip(iRowPictName, true, "Skip");
-        createTestSkip(iRowPictName, extent_test_case, extent);
+//        status_testCase_skip(iRowPictName, true, "Skip");
+//        createTestSkip(iRowPictName, extent_test_case, extent);
 
-//        isPresent(driver, rwDatafirstApp1);
-//        writeText(driver, txtSearch, no_app8);
-//        value    = getText(driver, txtTbl_status);
-//        expected = "Waiting for Review";
-//        status_testCase(iRowPictName, true, value);
-//        createTest(iRowPictName, extent_test_case, extent);
-//        createInfo(extent_test_case, "Data sebelum run job expired, saat status waiting for review");
-//        verifyValue(value,expected);
-//        takeScreenshot.capture(driver);
-//        click(driver, rwDatafirstApp1);
-//        isPresent(driver, txtDetail_nomorAplikasi);
-//        value    = getText(driver, txtDetail_status);
-//        expected = "Waiting for review";
-//        verifyValue(value,expected);
-//        takeScreenshot.capture(driver);
-//        click(driver, btnBackToTable);
-//
-//        isPresent(driver, rwDatafirstApp1);
-//        writeText(driver, txtSearch, no_app6);
-//        value    = getText(driver, txtTbl_status);
-//        expected = "Waiting Approval";
-//        createInfo(extent_test_case, "Data sebelum run job expired, saat status waiting approval");
-//        verifyValue(value,expected);
-//        takeScreenshot.capture(driver);//
-//        click(driver, rwDatafirstApp1);
-//        isPresent(driver, txtDetail_nomorAplikasi);
-//        value    = getText(driver, txtDetail_status);
-//        expected = "Waiting Approval";
-//        verifyValue(value,expected);
-//        takeScreenshot.capture(driver);
-//        click(driver, btnBackToTable);
-//
-//        createInfo(extent_test_case, "Run job approval expired ...........");
-//        DummyExpiredAppForm_BU expiredAppForm_bu = new DummyExpiredAppForm_BU();
-//        expiredAppForm_bu.serverAkses();
-//        click(driver, menuApprovalForm);
-//
-//        isPresent(driver, rwDatafirstApp1);
-//        writeText(driver, txtSearch, no_app8);
-//        value    = getText(driver, txtTbl_status);
-//        expected = "Approval Expired";
-//        createInfo(extent_test_case, "Data setelah run job expired, saat status waiting for review");
-//        verifyValue(value,expected);
-//        takeScreenshot.capture(driver);
-//        click(driver, rwDatafirstApp1);
-//        isPresent(driver, txtDetail_nomorAplikasi);
-//        value    = getText(driver, txtDetail_status);
-//        expected = "Approval Expired";
-//        verifyValue(value,expected);
-//        takeScreenshot.capture(driver);
-//        click(driver, btnBackToTable);
-//
-//        isPresent(driver, rwDatafirstApp1);
-//        writeText(driver, txtSearch, no_app6);
-//        value    = getText(driver, txtTbl_status);
-//        expected = "Approval Expired";
-//        createInfo(extent_test_case, "Data setelah run job expired, saat status waiting approval");
-//        verifyValue(value,expected);
-//        takeScreenshot.capture(driver);//
-//        click(driver, rwDatafirstApp1);
-//        isPresent(driver, txtDetail_nomorAplikasi);
-//        value    = getText(driver, txtDetail_status);
-//        expected = "Approval Expired";
-//        verifyValue(value,expected);
-//        takeScreenshot.capture(driver);
-//        click(driver, btnBackToTable);
+        isPresent(driver, rwDatafirstApp1);
+        writeText(driver, txtSearch, no_app7);
+        scrollIntoView(driver, txtTbl_status);
+        value    = getText(driver, txtTbl_status);
+        expected = "Waiting for Review";
+        createTest(iRowPictName, extent_test_case, extent);
+        createInfo(extent_test_case, "Data sebelum run job expired, saat status waiting for review");
+        verifyValue(value,expected);
+        takeScreenshot.capture(driver);
+        scrollIntoView(driver, txtTbl_source);
+        click(driver, rwDatafirstApp1);
+        isPresent(driver, txtDetail_nomorAplikasi);
+        value    = getText(driver, txtDetail_status);
+        expected = "Waiting for review";
+        verifyValue(value,expected);
+        takeScreenshot.capture(driver);
+        click(driver, btnBackToTable);
+
+        isPresent(driver, rwDatafirstApp1);
+        writeText(driver, txtSearch, no_app6);
+        scrollIntoView(driver, txtTbl_status);
+        value    = getText(driver, txtTbl_status);
+        expected = "Waiting Approval";
+        createInfo(extent_test_case, "Data sebelum run job expired, saat status waiting approval");
+        verifyValue(value,expected);
+        takeScreenshot.capture(driver);
+        scrollIntoView(driver, txtTbl_source);
+        click(driver, rwDatafirstApp1);
+        isPresent(driver, txtDetail_nomorAplikasi);
+        value    = getText(driver, txtDetail_status);
+        expected = "Waiting Approval";
+        verifyValue(value,expected);
+        takeScreenshot.capture(driver);
+        click(driver, btnBackToTable);
+
+        createInfo(extent_test_case, "Run job approval expired ...........");
+        DummyExpiredAppForm_BU expiredAppForm_bu = new DummyExpiredAppForm_BU();
+        expiredAppForm_bu.serverAkses();
+        click(driver, menuApprovalForm);
+
+        isPresent(driver, rwDatafirstApp1);
+        writeText(driver, txtSearch, no_app7);
+        scrollIntoView(driver, txtTbl_status);
+        value    = getText(driver, txtTbl_status);
+        expected = "Approval Expired";
+        createInfo(extent_test_case, "Data setelah run job expired, saat status waiting for review");
+        verifyValue(value,expected);
+        takeScreenshot.capture(driver);
+        scrollIntoView(driver, txtTbl_source);
+        click(driver, rwDatafirstApp1);
+        isPresent(driver, txtDetail_nomorAplikasi);
+        value    = getText(driver, txtDetail_status);
+        expected = "Approval Expired";
+        verifyValue(value,expected);
+        takeScreenshot.capture(driver);
+        click(driver, btnBackToTable);
+
+        isPresent(driver, rwDatafirstApp1);
+        writeText(driver, txtSearch, no_app6);
+        scrollIntoView(driver, txtTbl_status);
+        value    = getText(driver, txtTbl_status);
+        expected = "Approval Expired";
+        createInfo(extent_test_case, "Data setelah run job expired, saat status waiting approval");
+        verifyValue(value,expected);
+        takeScreenshot.capture(driver);
+        scrollIntoView(driver, txtTbl_source);
+        click(driver, rwDatafirstApp1);
+        isPresent(driver, txtDetail_nomorAplikasi);
+        value    = getText(driver, txtDetail_status);
+        expected = "Approval Expired";
+        verifyValue(value,expected);
+        takeScreenshot.capture(driver);
+        click(driver, btnBackToTable);
     }
 
     public void changeAllAppIdStatusApproved() throws IOException, InterruptedException {
@@ -847,7 +854,7 @@ public class ApprovalFormPage extends BaseAction{
         Long getCount = Arrays.stream(arr).count();
 
         int index = 8;
-        for (int i = index; i < arr.length; i++) {
+        for (int i = index; i <= 48; i++) {
             if (i % index == 0) {
                 clearText(driver, txtSearch);
                 isPresent(driver, rwDatafirstApp1);
@@ -894,7 +901,7 @@ public class ApprovalFormPage extends BaseAction{
 
         changeUserToApprove();
         index = 8;
-        for (int i = index; i < arr.length; i++) {
+        for (int i = index; i <= 40; i++) {
             if (i % index == 0) {
                 clearText(driver, txtSearch);
                 isPresent(driver, rwDatafirstApp1);

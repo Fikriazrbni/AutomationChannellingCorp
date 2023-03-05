@@ -53,15 +53,15 @@ public class FormApprovalRunner extends AbstractTestNGCucumberTests {
 
 //        MoveFileScenario cleanImagesFolder = new MoveFileScenario();
 //        cleanImagesFolder.deletePNG();
+//
+//        System.out.println("================Clean Success================");
 
-        System.out.println("================Clean Success================");
-
-        MoveFileScenario moveFileScenario = new MoveFileScenario();
-        moveFileScenario.dltDummyExist();
-        DataCSV dataCSV = new DataCSV();
-        dataCSV.dataDummy(Const.appFile, Const.reaFile, "10");
-        DummyAppForm_BU connServer = new DummyAppForm_BU();
-        connServer.serverAkses();
+//        MoveFileScenario moveFileScenario = new MoveFileScenario();
+//        moveFileScenario.dltDummyExist();
+//        DataCSV dataCSV = new DataCSV();
+//        dataCSV.dataDummy(Const.appFile, Const.reaFile, "10");
+//        DummyAppForm_BU connServer = new DummyAppForm_BU();
+//        connServer.serverAkses();
 
         WebDriverManager.edgedriver().setup();
         driver = new EdgeDriver();
