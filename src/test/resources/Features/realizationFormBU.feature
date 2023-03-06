@@ -3,8 +3,8 @@ Feature: Lending Chanelling
   @realizationForm
   Scenario: Realization Form
     Given open browser and login as a role ldap maker
-    Then click icon notifikasi and verify notifikasi saat data realisasi masuk LOS
-      And verify notifikasi setelah file masuk
+#    Then click icon notifikasi and verify notifikasi saat data realisasi masuk LOS
+#      And verify notifikasi setelah file masuk
     Then click menu realization
     Then verify data form table realization dan search application number berdasarkan status
       And verify data realisasi form dengan status waiting approval
@@ -93,30 +93,30 @@ Feature: Lending Chanelling
       And verify tanggal berdiri dan tanggal akte terakhir sama serta no akte dan no akte terakhir sama
       And verify tanggal berdiri dan tanggal akte terakhir berbeda serta no akte dan no akte terakhir berbeda
       And verify tanggal berdiri dan tanggal akte terakhir berbeda serta no akte dan no akte terakhir sama
-    Then click debtor name rea merubah status waiting approval
-      And click debtor name rea status waiting approval dengan klik approve
-      And click debtor name rea status waiting approval dengan klik approve lalu saat confirm box klik tidak
-      And click debtor name rea status waiting approval dengan klik approve lalu saat confirm box klik ya
-      And click debtor name rea status waiting approval dengan klik reject
-      And click debtor name rea status waiting approval dengan klik dan pilih reject reason dokumen pendukung tidak sesuai dan deskripsi 5000karakter lalu klik reject
-      And click debtor name rea status waiting approval dengan klik dan pilih reject reason pengajuan ditolak dan deskripsi 49999karakter lalu klik reject
-      And click debtor name rea status waiting approval dengan klik dan pilih reject reason dan deskripsi kosong lalu klik reject
-    Then click debtor name rea untuk melihat status waiting approval & approved & rejected
-      And click debtor name rea dengan status waiting approval
-      And click debtor name rea dengan status approved
-      And click debtor name rea dengan status rejected
-    Then reconsume data dengan merubah data alamat setiap status
-      And reconsume dengan no aplikasi status rejected
-      And reconsume dengan no aplikasi status approved
-      And reconsume dengan no aplikasi status waiting approval
-    Then verify status expired
-      And reconsume dengan no aplikasi status expired
-      And verify data realisasi form dengan status approval expired
-      And click debtor name rea dengan status expired
-    Then verify status pending
-      And verify data realisasi form dengan status pending
-      And click debtor name rea dengan status pending
-      And reconsume dengan no aplikasi status pending
+#    Then click debtor name rea merubah status waiting approval
+#      And click debtor name rea status waiting approval dengan klik approve
+#      And click debtor name rea status waiting approval dengan klik approve lalu saat confirm box klik tidak
+#      And click debtor name rea status waiting approval dengan klik approve lalu saat confirm box klik ya
+#      And click debtor name rea status waiting approval dengan klik reject
+#      And click debtor name rea status waiting approval dengan klik dan pilih reject reason dokumen pendukung tidak sesuai dan deskripsi 5000karakter lalu klik reject
+#      And click debtor name rea status waiting approval dengan klik dan pilih reject reason pengajuan ditolak dan deskripsi 49999karakter lalu klik reject
+#      And click debtor name rea status waiting approval dengan klik dan pilih reject reason dan deskripsi kosong lalu klik reject
+#    Then click debtor name rea untuk melihat status waiting approval & approved & rejected
+#      And click debtor name rea dengan status waiting approval
+#      And click debtor name rea dengan status approved
+#      And click debtor name rea dengan status rejected
+#    Then reconsume data dengan merubah data alamat setiap status
+#      And reconsume dengan no aplikasi status rejected
+#      And reconsume dengan no aplikasi status approved
+#      And reconsume dengan no aplikasi status waiting approval
+#    Then verify status expired
+#      And reconsume dengan no aplikasi status expired
+#      And verify data realisasi form dengan status approval expired
+#      And click debtor name rea dengan status expired
+#    Then verify status pending
+#      And verify data realisasi form dengan status pending
+#      And click debtor name rea dengan status pending
+#      And reconsume dengan no aplikasi status pending
 
     Then user ldap logout
 

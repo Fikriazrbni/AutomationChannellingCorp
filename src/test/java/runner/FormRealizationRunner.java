@@ -49,8 +49,8 @@ public class FormRealizationRunner extends AbstractTestNGCucumberTests {
     public void cleanImages() throws IOException, InterruptedException {
         testNGCucumberRunner = new TestNGCucumberRunner(this.getClass());
 
-        DummyReaForm_BU connServer = new DummyReaForm_BU();
-        connServer.serverAkses();
+//        DummyReaForm_BU connServer = new DummyReaForm_BU();
+//        connServer.serverAkses();
 
         WebDriverManager.edgedriver().setup();
         driver = new EdgeDriver();

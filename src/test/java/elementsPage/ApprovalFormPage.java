@@ -390,6 +390,7 @@ public class ApprovalFormPage extends BaseAction{
         value          = getText(driver, txtDetail_suppDoc);
         expected       = arr[32]+"_"+formattedToday.substring(0,10).replace("/","")+".zip";
         verifyValue(value,expected);
+        scrollDown(driver, body);
         takeScreenshot.capture(driver);
 
         click(driver, txtDetail_suppDocLink);
@@ -412,54 +413,56 @@ public class ApprovalFormPage extends BaseAction{
         }
 
         takeScreenshot.capture(driver);
+        scrollIntoView(driver,btnBackToTable);
         click(driver, btnBackToTable);
     }
-    public void detailSupportDocReUploadFile() throws IOException {
+    public void     detailSupportDocReUploadFile() throws IOException {
         iRowPictName = 21;
-        status_testCase_skip(iRowPictName, true, "Skip");
-        createTestSkip(iRowPictName, extent_test_case, extent);
+//        status_testCase_skip(iRowPictName, true, "Skip");
+//        createTestSkip(iRowPictName, extent_test_case, extent);
 
-//        String[] get_file_name_old, get_file_name_new;
-//        String[] arr = readCSVFormApproval.fileCSVAppForm();
-//
-//        status_testCase(iRowPictName, true, "Re-upload Support Document");
-//        createTest(iRowPictName, extent_test_case, extent);
-//
-//        DummySuppDocAppForm_BU suppDocAppForm_bu = new DummySuppDocAppForm_BU();
-//        {
-//            deleteInFolder(pthFolderSuppDocNew);//delete all existing file
-//            copyRenameFile(pthFolderSuppDocSample + "bpkb.jpg", pthFolderSuppDocSample + "bpkb2.jpg");//copy and rename file
-//            renameFile(pthFolderSuppDocSample + "bpkb.jpg", pthFolderSuppDocSample + "bpkbRename.jpg");//rename file
-//            zipFolder(pthFolderSuppDocSample, "./dummy_suppDoc/" + arr[32] + "_" + formattedToday.substring(0,10).replace("/","") + ".zip");//reZip new content
-//            suppDocAppForm_bu.serverAkses(arr[8]);//reconsume suppdocZip
-//        }
-//
-//        writeText(driver, txtSearch, arr[32]);
-//        click(driver, rwDatafirstApp1);
-//        isPresent(driver, txtDetail_nomorAplikasi);
-//        click(driver, txtDetail_suppDocLink);//download
-//        {
-//            String filePathDownload = getFileNameZip(pthFolderDownload, arr[8]);//get path file zip latest(1)
-//            unzip(new File(filePathDownload), pthFolderSuppDocNew); //unzip old
-//            get_file_name_old = arrGetFileName(pthFolderSuppDocOld);//get all file name
-//            get_file_name_new = arrGetFileName(pthFolderSuppDocNew);//get all file name
-//            deleteFile(pthFolderSuppDocSample + "bpkbRename.jpg");
-//            renameFile(pthFolderSuppDocSample + "bpkb2.jpg", pthFolderSuppDocSample + "bpkb.jpg");//rename file
-//            deleteZipyExist(pthFolderDownload, arr[8]);
-//        }
-//
-//        try {
-//            Assert.assertEquals(get_file_name_old, get_file_name_new);
-//            capture.log(Status.FAIL, "Fail: Support document tidak sesuai");
-//        } catch (AssertionError e) {
-//            assert get_file_name_old != null;
-//            capture.log(Status.PASS, MarkupHelper.createUnorderedList(List.of("Expected file: true", get_file_name_old[0], get_file_name_old[1], get_file_name_old[2])).getMarkup());
-//            assert get_file_name_new != null;
-//            capture.log(Status.PASS, MarkupHelper.createUnorderedList(List.of("Actual file: true", get_file_name_new[0], get_file_name_new[1], get_file_name_new[2], get_file_name_new[3])).getMarkup());
-//        }
-//
-//        takeScreenshot.capture(driver);
-//        click(driver, btnBackToTable);
+        String[] get_file_name_old, get_file_name_new;
+        String[] arr = readCSVFormApproval.fileCSVAppForm();
+
+        status_testCase(iRowPictName, true, "Re-upload Support Document");
+        createTest(iRowPictName, extent_test_case, extent);
+
+        DummySuppDocAppForm_BU suppDocAppForm_bu = new DummySuppDocAppForm_BU();
+        {
+            deleteInFolder(pthFolderSuppDocNew);//delete all existing file
+            copyRenameFile(pthFolderSuppDocSample + "bpkb.jpg", pthFolderSuppDocSample + "bpkb2.jpg");//copy and rename file
+            renameFile(pthFolderSuppDocSample + "bpkb.jpg", pthFolderSuppDocSample + "bpkbRename.jpg");//rename file
+            zipFolder(pthFolderSuppDocSample, "./dummy_suppDoc/" + arr[32] + "_" + formattedToday.substring(0,10).replace("/","") + ".zip");//reZip new content
+            suppDocAppForm_bu.serverAkses(arr[32]);//reconsume suppdocZip
+        }
+
+        writeText(driver, txtSearch, arr[32]);
+        click(driver, rwDatafirstApp1);
+        isPresent(driver, txtDetail_nomorAplikasi);
+        scrollDown(driver, body);
+        click(driver, txtDetail_suppDocLink);//download
+        {
+            String filePathDownload = getFileNameZip(pthFolderDownload, arr[32]);//get path file zip latest(1)
+            unzip(new File(filePathDownload), pthFolderSuppDocNew); //unzip old
+            get_file_name_old = arrGetFileName(pthFolderSuppDocOld);//get all file name
+            get_file_name_new = arrGetFileName(pthFolderSuppDocNew);//get all file name
+            deleteFile(pthFolderSuppDocSample + "bpkbRename.jpg");
+            renameFile(pthFolderSuppDocSample + "bpkb2.jpg", pthFolderSuppDocSample + "bpkb.jpg");//rename file
+            deleteZipyExist(pthFolderDownload, arr[8]);
+        }
+
+        try {
+            Assert.assertEquals(get_file_name_old, get_file_name_new);
+            capture.log(Status.FAIL, "Fail: Support document tidak sesuai");
+        } catch (AssertionError e) {
+            assert get_file_name_old != null;
+            capture.log(Status.PASS, MarkupHelper.createUnorderedList(List.of("Expected file: true", get_file_name_old[0], get_file_name_old[1], get_file_name_old[2])).getMarkup());
+            assert get_file_name_new != null;
+            capture.log(Status.PASS, MarkupHelper.createUnorderedList(List.of("Actual file: true", get_file_name_new[0], get_file_name_new[1], get_file_name_new[2], get_file_name_new[3])).getMarkup());
+        }
+        takeScreenshot.capture(driver);
+        scrollIntoView(driver, btnBackToTable);
+        click(driver, btnBackToTable);
     }
 
     public void debtorDetailWaitingReview() {

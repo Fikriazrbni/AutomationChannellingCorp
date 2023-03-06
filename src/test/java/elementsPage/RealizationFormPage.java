@@ -63,7 +63,7 @@ public class RealizationFormPage extends BaseAction{
     public static final By dtlModalConfirmRejectReason = By.xpath("//*[@name='rejectReason']");
     public static final By dtlBtnRejectYes             = By.xpath("(//*[@id='formSubmit'])[2]");
     public static final By dtlBtnRejectNo              = By.xpath("//*[@id='modal-cancel-reject']");
-
+    public static final By tblPengurus                 = By.xpath("//table[@id='datatable']/tbody");
     public static final By dtlPartner                  = By.xpath("(//label[@class='col-form-label'])[1]");
     public static final By dtlDebtName                 = By.xpath("(//label[@class='col-form-label'])[2]");
     public static final By dtlStatus                   = By.xpath("//label[ @class='col-form-label btn-info btn-circle  btn-sm text-white text-center ']");
@@ -739,7 +739,7 @@ public class RealizationFormPage extends BaseAction{
 
         value    = getText(driver, dtlCertPublish);
         expected = getText(driver, dtlCertDeadline);
-        scrollDown(driver, body);Thread.sleep(300);
+        scrollIntoView(driver, tblPengurus); Thread.sleep(300);
         status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
         verifyValue(value,expected);
@@ -749,7 +749,7 @@ public class RealizationFormPage extends BaseAction{
         value    = getText(driver, dtlCertNO);
         expected = getText(driver, dtlCertNOLatest);
         verifyValue(value,expected);
-
+        scrollIntoView(driver, dtlBtnBack);
         click(driver, dtlBtnBack);
     }
     public void detailTanggalAkteBedaNoAkteBeda() throws IOException, InterruptedException {
@@ -763,7 +763,7 @@ public class RealizationFormPage extends BaseAction{
 
         value    = getText(driver, dtlCertPublish);
         expected = getText(driver, dtlCertDeadline);
-        scrollDown(driver, body);Thread.sleep(300);
+        scrollIntoView(driver, tblPengurus); Thread.sleep(300);
         status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
         verifyValueNotEquals(value,expected, "Not Equals ______________ : Tanggal Akte berdiri dan Tanggal Akte terakhir berbeda");
@@ -773,7 +773,7 @@ public class RealizationFormPage extends BaseAction{
         value    = getText(driver, dtlCertNO);
         expected = getText(driver, dtlCertNOLatest);
         verifyValueNotEquals(value,expected, "Not Equals ______________ : No Akte awal dan No Akte terakhir berbeda");
-
+        scrollIntoView(driver, dtlBtnBack);
         click(driver, dtlBtnBack);
     }
     public void detailTanggalAkteBedaNoAkteSama() throws IOException, InterruptedException {
@@ -787,7 +787,7 @@ public class RealizationFormPage extends BaseAction{
 
         value    = getText(driver, dtlCertPublish);
         expected = getText(driver, dtlCertDeadline);
-        scrollDown(driver, body);Thread.sleep(300);
+        scrollIntoView(driver, tblPengurus); Thread.sleep(300);
         status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
         verifyValueNotEquals(value,expected, "Not Equals ______________ : Tanggal Akte berdiri dan Tanggal Akte terakhir berbeda");
@@ -797,7 +797,7 @@ public class RealizationFormPage extends BaseAction{
         value    = getText(driver, dtlCertNO);
         expected = getText(driver, dtlCertNOLatest);
         verifyValue(value,expected);
-
+        scrollIntoView(driver, dtlBtnBack);
         click(driver, dtlBtnBack);
     }
 
@@ -1415,7 +1415,7 @@ public class RealizationFormPage extends BaseAction{
         DummyPendingAppform_BU connServer2 = new DummyPendingAppform_BU();
         connServer2.serverAkses();
 
-//        menuNotification();
+        menuNotification();
 //        List<WebElement> ListRow = driver.findElements(By.xpath("//tr[1][@class='pointer'] //td[2][contains(text(),'Realisasi')][contains(text(),'PT Tes Pending')] | //tr[1][@class='pointer'] //td[2][contains(text(),'Approval')][contains(text(),'PT Tes Pending')] "));
 //        String getColPartnerNotif= "";
 //        boolean dataConsume      = driver.findElement(By.xpath("//tr[1][@class='pointer'] //td[2][contains(text(),'Realisasi')][contains(text(),'PT Tes Pending')] | //tr[1][@class='pointer'] //td[2][contains(text(),'Approval')][contains(text(),'PT Tes Pending')] ")).isDisplayed();
@@ -1442,7 +1442,18 @@ public class RealizationFormPage extends BaseAction{
         menuRealizationForm();
 
         String[] arr = readCSVFormApproval.fileCSVReaPending();
-        writeText(driver, txtSearch, arr[60]);
+        writeText(driver, txtSearch, arr[60].substring(11,16));
+
+//        List<WebElement> plafon = driver.findElements(By.xpath("//tbody[@id = 'channelingTable']/tr/td[7]"));
+//        for (WebElement  listPlafon : plafon) {
+//            if (listPlafon.getText().replace("Rp ","")
+//                    .replace(".", "")
+//                    .replace(",00", "")
+//                    .equals(plafonRow1));{
+//                        createInfo(extent_test_case,getText(driver, txtTbl_status));
+//            }
+//        }
+
         value    = getText(driver, txtTbl_nomorAplikasi);
         expected = arr[60];
         verifyValue(value,expected);
@@ -1450,13 +1461,20 @@ public class RealizationFormPage extends BaseAction{
         expected = "Pending";
         verifyValue(value,expected);
         takeScreenshot.capture(driver);
+
     }
     public void klikStatusPending() throws IOException {
         String[] arr = readCSVFormApproval.fileCSVReaPending();
         iRowPictName = 100;
 //        createTestSkip(iRowPictName, extent_test_case, extent);
 
-        click(driver, rwDatafirstApp1);
+        long plafonCsv1 = Long.parseLong(removeZero(arr[47]));
+        if (!txtTbl_loanAmount.equals(plafonCsv1)) {
+            click(driver, rwDatafirstApp1);
+        } else {
+            click(driver, rwDatafirstApp2);
+        }
+        System.out.println(plafonCsv1+" <--> " +txtTbl_loanAmount);
         isPresent(driver, dtlAppId);
 
         value = getText(driver, dtlStatus);
