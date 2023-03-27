@@ -392,8 +392,9 @@ public class RealizationFormBU {
     }
 
     @Then("verify status pending")
-    public void verifyStatusPending() {
+    public void verifyStatusPending() throws InterruptedException {
         reaFile.menuRealizationForm();
+        reaFile.rejectPending();
     }
     @And("verify data realisasi form dengan status pending")
     public void verifyDataRealizationFormDenganStatusPending() throws IOException, InterruptedException {
@@ -497,7 +498,7 @@ public class RealizationFormBU {
     }
 
     @And("verifikasi data no akte 30karakter varchar")
-    public void verifikasi_data_no_akte_30karakter_varchar() throws IOException {
+    public void verifikasi_data_no_akte_30karakter_varchar() throws IOException, InterruptedException {
         // Write code here that turns the phrase above into concrete actions
         reaFile.verifyNoAkte30Char();
     }
@@ -515,7 +516,7 @@ public class RealizationFormBU {
     }
 
     @And("verifikasi input ktp 16karakter numerik")
-    public void verifikasi_input_ktp_16karakter_numerik() throws IOException {
+    public void verifikasi_input_ktp_16karakter_numerik() throws IOException, InterruptedException {
         // Write code here that turns the phrase above into concrete actions
         reaFile.verifyNoKTP16Char();
     }
@@ -545,7 +546,7 @@ public class RealizationFormBU {
     }
 
     @And("verifikasi data modal dasar 12karakter numerik")
-    public void verifikasi_data_modal_dasar_12karakter_numerik() throws IOException {
+    public void verifikasi_data_modal_dasar_12karakter_numerik() throws IOException, InterruptedException {
         // Write code here that turns the phrase above into concrete actions
         reaFile.verifyModalDasar12Num();
     }
@@ -626,5 +627,11 @@ public class RealizationFormBU {
     public void user_logout_from_Web() throws InterruptedException {
         // Write code here that turns the phrase above into concrete actions
         reaFile.logout(driver);
+    }
+
+    @Then("change all status for repayment")
+    public void changeAllStatusForRepayment() throws IOException, InterruptedException {
+        reaFile.changeAllStatus();
+
     }
 }

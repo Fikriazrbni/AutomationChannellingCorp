@@ -857,7 +857,7 @@ public class ApprovalFormPage extends BaseAction{
         Long getCount = Arrays.stream(arr).count();
 
         int index = 8;
-        for (int i = index; i <= 48; i++) {
+        for (int i = index; i < arr.length; i++) { //<=48
             if (i % index == 0) {
                 clearText(driver, txtSearch);
                 isPresent(driver, rwDatafirstApp1);
@@ -904,7 +904,7 @@ public class ApprovalFormPage extends BaseAction{
 
         changeUserToApprove();
         index = 8;
-        for (int i = index; i <= 40; i++) {
+        for (int i = index; i < arr.length; i++) { //<=40
             if (i % index == 0) {
                 clearText(driver, txtSearch);
                 isPresent(driver, rwDatafirstApp1);

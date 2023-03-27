@@ -150,7 +150,7 @@ public class DataFileBadanUsaha {
                         "PT Badan Usaha Corporation Jakarta " + nama_debitur + no + " " + generateRandomDataFile.namaDebitur(),
                         "001",
                         "01100", //uat komunal : 01000 | e2e komunal : 01100
-                        "000005000000000"}); //uat komunal : 000005000000000 | e2e komunal : 000000100000000
+                        "000000100000000"}); //uat komunal : 000005000000000 | e2e komunal : 000000100000000
                 no--;
                 dataApp.add(new String[]{
                         code_company + generateRandomDataFile.nomorAplikasi(),
@@ -170,7 +170,7 @@ public class DataFileBadanUsaha {
                         generateRandomDataFile.jenisDebitur(),
                         "PT Badan Usaha Corporation Jakarta " + nama_debitur + no + " " + generateRandomDataFile.namaDebitur(),
                         "006",
-                        "01500", //uat komunal : 01500 | e2e komunal : 01700
+                        "01700", //uat komunal : 01500 | e2e komunal : 01700
                         "000200000000000"});
                 no--;
 //                dataApp.add(new String[]{

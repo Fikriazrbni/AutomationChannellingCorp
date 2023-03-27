@@ -5,7 +5,6 @@ import elementsPage.Const;
 import formatFile.CSVFileName;
 import randomValue.GeneratePengurus;
 import randomValue.GenerateRandomDataApp;
-//import randomValue.GenerateRandomDataPengurus;
 import randomValue.GenerateRandomDataRea;
 import testData.ReadTestData;
 import writeFile.MoveFileScenario;
@@ -131,6 +130,7 @@ public class DataCSV {
                     "Dati_11_Tempat_Lahir",
                     "Jenis_Kelamin"};
 
+
             // write data csv approval
             for (int idxApp = 1; idxApp <= Integer.parseInt(jumlahData); idxApp++) {
                     dataApp.add(new String[]{
@@ -144,6 +144,7 @@ public class DataCSV {
                             generateRandomDataApp.plafonKredit(code_company)});
 //                        generateRandomDataApp.interestRate(code_company),"000070000000000"});
             }
+
 
             // write data csv realisi
             arrayData = dataApp;
@@ -276,7 +277,7 @@ public class DataCSV {
             writeTestData.writeData(generateRandomDataApp.timeStamp);
             // call class format file
             CSVFileName csvFileName = new CSVFileName();
-            csvFileName.parseData(case1, case2, code_company, kode_produk, tanggal);
+            csvFileName.parseData(case1, case2,code_company, kode_produk, tanggal);
             csvFileName.zipData(code_company,arrayData);
 
         } catch (IOException e) {

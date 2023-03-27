@@ -778,6 +778,7 @@ public class ValidateFilePage extends BaseAction {
 
         value    = getText(driver, dtlDebtName);
         expected = arr[31];
+        scrollIntoView(driver, dtlPartner);
         status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
         verifyLength(arr[31], arr[31].length(),60);
@@ -1015,7 +1016,6 @@ public class ValidateFilePage extends BaseAction {
         value    = getText(driver, dtlInstalment_1);
         expected = arr[51];
 
-        scrollDown(driver, dtlBtnApprove);Thread.sleep(100);
         status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
         verifyLength(arr[51], arr[51].length(),8);

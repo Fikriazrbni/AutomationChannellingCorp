@@ -21,7 +21,7 @@ public class CreateCSV {
         moveFileScenario.dltDummyExist();
 
         DataCSV dataCSV = new DataCSV();
-        dataCSV.dataDummy(case1, case2, case3);
+        dataCSV.dataDummy(case1, case2, "8");
     }
 }
 

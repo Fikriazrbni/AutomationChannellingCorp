@@ -5,6 +5,8 @@ import org.openqa.selenium.By;
 public class Const {
     public static final String e2e_environment = "E2E";
     public static final String uat_environment = "UAT";
+    public static final String mifosE2E = "https://devmifloan:8090/#/";
+    public static final String mifosE2ESup = "https://10.27.62.151:8075/";
     public static final String urlE2E = "https://10.27.62.156:7053/login";//e2e
     public static final String urlUAT = "https://10.27.62.157:7053/login";//UAT
     public static final String e2e_userMaker = "u_ATMaker";
@@ -22,8 +24,9 @@ public class Const {
 
     public static final String noMatch = "No matching records found";
     public static final String noData = "No data available in table";
-    public static final String pthFileValidation = ".//fileValidation//";
-    public static final String resultDataDummyFile = ".//resultDataDummyFile//";
+    public static final String pthFileValidation    = ".//fileValidation//";
+    public static final String resultDataDummyFile  = ".//resultDataDummyFile//";
+    public static final String resultDataDummyFileRepay  = ".//resultDataDummyFile//repayFile//";
     public static final String resultDataDummyFilePending = ".//resultDataDummyPending//";
     public static final String resultApprovalFile = ".//resultApprovalFile//";
     public static final String resultApprovalFileDiffPartner = ".//resultApprovalFileDiffPartner//";
@@ -47,6 +50,10 @@ public class Const {
     public static final String sheetTCApprovFormBU = "TC - Approval Form Badan Usaha";
     public static final String scSheetApp = "Approval File";
     public static final String scSheetRea = "Realisasi File";
+    public static final String repayFileSuccess = "Repayment";
+    public static final String repayFileRequest = "REPAYMENT";
+    public static final String repayFileError = "ERROR";
+    public static final String repayFileExist = "Existing";
     public static final String scSheetPengurus = "Pengurus File";
     public static final String scSheetPercentages = "Persentase";
     public static final String nFileScenario = "Negatif";
@@ -86,6 +93,7 @@ public class Const {
     public static final String extExcel = ".xlsx";
     public static final String appFile = "APPFILE";
     public static final String reaFile = "REAFILE";
+    public static final String repayFile = "REPAYMENT";
     public static final String txtAppIDV = "AppIDV";
     public static final String txtReaIDV = "RealisasiIDV";
     public static final String csvApp = "APP";
@@ -104,6 +112,8 @@ public class Const {
     public static final String sheetRealizationFormBU = "TC - Realization Badan Usaha";
     public static final String sheetApprovalFileBU = "TC - Validasi File Badan Usaha";
     public static final String sheetRealisasiFileBU = "TC - Validate File Badan Usaha";
+    public static final String sheetRepaymentFileBU = "TC - Repayment File Badan Usaha";
+    public static final String sheetRepaymentFormBU = "TC - Repayment Form";
     //common
     public static final int delay = 1500;
     public static final int seconds = 30;

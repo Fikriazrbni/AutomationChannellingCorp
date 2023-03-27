@@ -3,6 +3,7 @@ package badanUsaha;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.markuputils.Markup;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import createDataCSV.DataCSV;
 import elementsPage.Const;
@@ -11,14 +12,15 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import readFile.ReadCSVFormApproval;
+import readFile.ReadRepayFileCSV;
 import testData.ReadTestData;
 import writeFile.MoveFileScenario;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
-import java.util.Arrays;
-import java.util.Date;
+import java.util.*;
 
 import static badanUsaha.ApprovalFromMaker.*;
 
@@ -27,7 +29,8 @@ public class LibUtils {
     public static ExtentTest capture;
     static ReadTestData readTestData = new ReadTestData();
     private ExtentTest processRecomend, childRecomend, processApprove, childApprove;
-    public static WebElement waitElementVisible(WebDriver driver, By locator, int seconds){
+
+    public static WebElement waitElementVisible(WebDriver driver, By locator, int seconds) {
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(locator));
@@ -41,6 +44,7 @@ public class LibUtils {
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         return element.isDisplayed();
     }
+
     public static WebElement waitElementClickAble(WebDriver driver, By locator, int seconds) {
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));
@@ -48,6 +52,7 @@ public class LibUtils {
 
         return element;
     }
+
     public static void scrollIntoView(WebDriver driver, By locator) {
         try {
             for (int i = 1; i <= 2; i++) {
@@ -60,6 +65,7 @@ public class LibUtils {
         }
 
     }
+
     public static void moveTo(WebDriver driver, By locator) {
         try {
             driver.findElement(locator).sendKeys(Keys.PAGE_DOWN);
@@ -68,6 +74,7 @@ public class LibUtils {
             ee.printStackTrace();
         }
     }
+
     public static void moveToEnd(WebDriver driver, By locator) {
         try {
             driver.findElement(locator).sendKeys(Keys.CONTROL, Keys.END);
@@ -79,8 +86,7 @@ public class LibUtils {
 
     public static String removeZero(String str) {
         int i = 0;
-        while (i < str.length() && str.charAt(i) == '0')
-        {
+        while (i < str.length() && str.charAt(i) == '0') {
             i++;
         }
         StringBuffer sb = new StringBuffer(str);
@@ -121,6 +127,7 @@ public class LibUtils {
                 break;
         }
     }
+
     public static void status_testCase_skip(int iRPN, boolean status, String notes) {
         readTestData.testData();
         switch (readTestData.tagName) {
@@ -155,18 +162,31 @@ public class LibUtils {
         }
     }
 
-    public static boolean verifyValue(String value_expected, String value_actual) {
+    public static boolean verifyValue(String expected, String actual) {
         try {
-            Assert.assertEquals(value_actual, value_expected);
-            capture.log(Status.PASS, MarkupHelper.createUnorderedList(Arrays.asList("Actual from UI __________ : " + value_expected, "Actual from csv/testdata : " + value_actual)).getMarkup());
-            System.out.println("AssertTrue >>>>>>>>>> Expected : [" + value_expected + "]  -  " + "Actual : [" + value_actual + "]");
+            Assert.assertEquals(actual, expected);
+            capture.log(Status.PASS, MarkupHelper.createUnorderedList(Arrays.asList("Value __________ : " + expected, "Expected______ : " + actual)).getMarkup());
+            System.out.println("AssertTrue >>>>>>>>>> Expected : [" + expected + "]  -  " + "Actual : [" + actual + "]");
             return true;
         } catch (AssertionError ee) {
-            capture.log(Status.FAIL, MarkupHelper.createUnorderedList(Arrays.asList("Actual from UI __________ : " + value_expected, "Actual from csv/testdata : " + value_actual)).getMarkup());
-            System.out.println("AssertFalse >>>>>>>>> Expected : [" + value_expected + "]  -  " + "Actual : [" + value_actual + "]");
+            capture.log(Status.FAIL, MarkupHelper.createUnorderedList(Arrays.asList("Value __________ : " + expected, "Expected______ : " + actual)).getMarkup());
+            System.out.println("AssertFalse >>>>>>>>> Expected : [" + expected + "]  -  " + "Actual : [" + actual + "]");
             return false;
         }
     }
+    public static boolean verifyCustom(String expected, String actual, String title) {
+        try {
+            Assert.assertEquals(actual, expected);
+            capture.log(Status.PASS, MarkupHelper.createUnorderedList(Arrays.asList("Validation : "+title,"Actual     : " + expected, "Expected   : " + actual)).getMarkup());
+            System.out.println("AssertTrue >>>>>>>>>> Expected : [" + expected + "]  -  " + "Actual : [" + actual + "]");
+            return true;
+        } catch (AssertionError ee) {
+            capture.log(Status.FAIL, MarkupHelper.createUnorderedList(Arrays.asList("Validation : "+title,"Actual     : " + expected, "Expected   : " + actual)).getMarkup());
+            System.out.println("AssertFalse >>>>>>>>> Expected : [" + expected + "]  -  " + "Actual : [" + actual + "]");
+            return false;
+        }
+    }
+
     public static boolean verifyLength(String msg, int value_actual, int value_expected) {
         try {
             Assert.assertEquals(value_expected, value_actual);
@@ -179,6 +199,7 @@ public class LibUtils {
             return false;
         }
     }
+
     public static boolean verifyValueData1Data2(String value_expected, String value_actual) {
         try {
             Assert.assertEquals(value_actual, value_expected);
@@ -191,6 +212,7 @@ public class LibUtils {
             return false;
         }
     }
+
     public static boolean verifyValueDisplay(boolean value_expected, boolean value_actual, String msg) {
         try {
             Assert.assertEquals(value_actual, value_expected);
@@ -203,6 +225,7 @@ public class LibUtils {
             return false;
         }
     }
+
     public static boolean verifyValueNotEquals(String value_expected, String value_actual, String msg) {
         try {
             Assert.assertNotEquals(value_actual, value_expected);
@@ -223,12 +246,14 @@ public class LibUtils {
             return false;
         }
     }
+
     public static String timestamp() {
         String pattern = "ddMMMyyyyHHmmss";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
         String fdate = simpleDateFormat.format(new Date());
         return fdate;
     }
+
     public static void provideDataToLOS(WebDriver driver, String jumlahData) throws IOException, InterruptedException {
         // provide data dummy
         MoveFileScenario cleanFolder = new MoveFileScenario();
@@ -249,19 +274,136 @@ public class LibUtils {
 //        loginApprover(driver, "weike.phinjaya", "Weike1234");
     }
 
-    public static void createTest(int iRowPictName, ExtentTest extent_test_case, ExtentReports extent){
+    public static void createTest(int iRowPictName, ExtentTest extent_test_case, ExtentReports extent) {
 
         extent_test_case = extent.createTest(ReadTestData.testCaseID(iRowPictName) + " : " + ReadTestData.testCaseName(iRowPictName)).assignAuthor(System.getProperty("user.name")).assignCategory("Regression");
-        LibUtils.capture = extent_test_case.info("Expected Result from Excel : "+ ReadTestData.expectedResult(iRowPictName));
-        LibUtils.capture = extent_test_case.info("Actual Result from UI : "+ ReadTestData.expectedNoted(iRowPictName));
+        LibUtils.capture = extent_test_case.info("Expected Result from Excel : " + ReadTestData.expectedResult(iRowPictName));
+//        LibUtils.capture = extent_test_case.info("Actual Result from UI : " + ReadTestData.expectedNoted(iRowPictName));
     }
-    public static void createTestSkip(int iRowPictName, ExtentTest extent_test_case, ExtentReports extent){
+
+    public static void createTestSkip(int iRowPictName, ExtentTest extent_test_case, ExtentReports extent,String reason) {
 
         extent_test_case = extent.createTest(ReadTestData.testCaseID(iRowPictName) + " : " + ReadTestData.testCaseName(iRowPictName)).assignAuthor(System.getProperty("user.name")).assignCategory("Regression");
-        LibUtils.capture = extent_test_case.info("Expected Result from CSV : "+ ReadTestData.expectedResult(iRowPictName));
-        LibUtils.capture = extent_test_case.skip("Expected Result from UI : "+ ReadTestData.expectedNoted(iRowPictName));
+        LibUtils.capture = extent_test_case.info("Expected Result from CSV : " + ReadTestData.expectedResult(iRowPictName));
+        LibUtils.capture = extent_test_case.skip("Reason : " + reason);
     }
-    public static void createInfo(ExtentTest extent_test_case, String msg){
+
+    public static void createInfo(ExtentTest extent_test_case, String msg) {
         capture.log(Status.INFO, MarkupHelper.createUnorderedList("Message : " + msg).getMarkup());
     }
+
+    public static void infoData(String field, String value) {
+        capture.log(Status.INFO, MarkupHelper.createUnorderedList(field + " -> "+value).getMarkup());
+    }
+
+    public static boolean infoLength(String field, String value, int expectedLen) {
+        int len = value.replace(".","").length();
+//        capture.log(Status.PASS, MarkupHelper.createUnorderedList(Arrays.asList(field + " -> "+value,"Length -----------> "+len)).getMarkup());
+        try {
+            Assert.assertEquals(expectedLen, len);
+            capture.log(Status.PASS, MarkupHelper.createUnorderedList(Arrays.asList(field + " ----> "+value, "Actual Length ----> " + len, "Expected Length --> " + expectedLen)).getMarkup());
+            System.out.println("AssertTrue >>>>>>>>>> Expected : [" + expectedLen + "]  -  " + "Actual : [" + len + "]");
+            return true;
+        } catch (AssertionError ee) {
+            capture.log(Status.FAIL, MarkupHelper.createUnorderedList(Arrays.asList(field + " ----> "+value, "Actual Length ----> " + len, "Expected Length --> " + expectedLen)).getMarkup());
+            System.out.println("AssertFalse >>>>>>>>> Expected : [" + expectedLen + "]  -  " + "Actual : [" + len + "]");
+            return false;
+        }
+    }
+
+    public static void createTable(int bariske, String dataFile) throws IOException {
+        ReadRepayFileCSV readRepayFileCSV = new ReadRepayFileCSV();
+        String[] arrSuc = readRepayFileCSV.fileCSVRepaySuccess2();
+        String[] arrErr = readRepayFileCSV.fileCSVRepayError2();
+        String[] arrReq = readRepayFileCSV.fileCSVRepayReq2();
+        String[] arrEx = readRepayFileCSV.fileCSVRepayExist();
+
+        ReadCSVFormApproval readCSVFormApproval = new ReadCSVFormApproval();
+        String[] arrApp = readCSVFormApproval.fileCSVAppForm3();
+        String[] arrRea = readCSVFormApproval.fileCSVRea2();
+
+        switch (dataFile) {
+            case "req":
+                String[][] dataReq = {{arrReq[0]}, {arrReq[bariske]}};
+                Markup mReq = MarkupHelper.createTable(dataReq);
+                capture.log(Status.INFO, mReq);
+                break;
+            case "suc":
+                String[][] dataSuc = {{arrSuc[0]}, {arrSuc[bariske]}};
+                Markup mSuc = MarkupHelper.createTable(dataSuc);
+                capture.log(Status.INFO, mSuc);
+                break;
+            case "err":
+                String[][] dataErr = {{arrErr[0]}, {arrErr[bariske]}};
+                Markup mErr = MarkupHelper.createTable(dataErr);
+                capture.log(Status.INFO, mErr);
+                break;
+            case "app":
+                String[][] dataApp = {{arrApp[0]}, {arrApp[bariske]}};
+                Markup mApp = MarkupHelper.createTable(dataApp);
+                capture.log(Status.INFO, mApp);
+                break;
+            case "rea":
+                String[][] dataRea = {{arrRea[0]}, {arrRea[bariske]}};
+                Markup mRea = MarkupHelper.createTable(dataRea);
+                capture.log(Status.INFO, mRea);
+                break;
+            case "ex":
+                String[][] dataEx = {{arrEx[0]}, {arrEx[bariske]}};
+                Markup mEx = MarkupHelper.createTable(dataEx);
+                capture.log(Status.INFO, MarkupHelper.createUnorderedList("Data Exist : "));
+                capture.log(Status.INFO, mEx);
+                break;
+        }
+    }
+
+    public static void createTable2(int arraybaris, String dataFile2) throws IOException {
+        ReadRepayFileCSV readRepayFileCSV = new ReadRepayFileCSV();
+        ReadCSVFormApproval readCSVFormApproval = new ReadCSVFormApproval();
+        String[] arrApp = readCSVFormApproval.fileCSVAppForm();
+        String[] arrRea = readCSVFormApproval.fileCSVRea();
+        String[] arrSuc = readRepayFileCSV.fileCSVRepaySuccess();
+        String[] arrErr = readRepayFileCSV.fileCSVRepayError();
+        String[] arrReq = readRepayFileCSV.fileCSVRepayReq();
+
+        switch (dataFile2) {
+            case "req":
+                String[][] dataReq = {{arrReq[0], arrReq[1], arrReq[2], arrReq[3], arrReq[4], arrReq[5], arrReq[6]}, {arrReq[arraybaris], arrReq[++arraybaris], arrReq[++arraybaris], arrReq[++arraybaris], arrReq[++arraybaris], arrReq[++arraybaris], arrReq[++arraybaris]}};
+                capture.log(Status.INFO, MarkupHelper.createUnorderedList("Data Request Ke Fineract ===> ").getMarkup());
+                Markup mReq = MarkupHelper.createTable(dataReq);
+                capture.log(Status.INFO, mReq);
+                break;
+            case "suc":
+                String[][] dataSuc = {{arrSuc[0], arrSuc[1], arrSuc[2], arrSuc[3], arrSuc[4], arrSuc[5], arrSuc[6], arrSuc[7], arrSuc[8], arrSuc[9], arrSuc[10], arrSuc[11], arrSuc[12]}, {arrSuc[arraybaris], arrSuc[++arraybaris], arrSuc[++arraybaris], arrSuc[++arraybaris], arrSuc[++arraybaris], arrSuc[++arraybaris], arrSuc[++arraybaris], arrSuc[arraybaris], arrSuc[++arraybaris], arrSuc[++arraybaris], arrSuc[++arraybaris], arrSuc[++arraybaris], arrSuc[++arraybaris]}};
+                capture.log(Status.INFO, MarkupHelper.createUnorderedList("Data Sukses Dari Fineract ===> ").getMarkup());
+                Markup mSuc = MarkupHelper.createTable(dataSuc);
+                capture.log(Status.INFO, mSuc);
+                break;
+            case "err":
+                String[][] dataErr = {{arrErr[0], arrErr[1], arrErr[2], arrErr[3], arrErr[4], arrErr[5], arrErr[6], arrErr[7], arrErr[8]}, {arrErr[arraybaris], arrErr[++arraybaris], arrErr[++arraybaris], arrErr[++arraybaris], arrErr[++arraybaris], arrErr[++arraybaris], arrErr[++arraybaris], arrErr[++arraybaris], arrErr[++arraybaris]}};
+                capture.log(Status.INFO, MarkupHelper.createUnorderedList("Data Gagal Dari Fineract ===> ").getMarkup());
+                Markup mErr = MarkupHelper.createTable(dataErr);
+                capture.log(Status.INFO, mErr);
+                break;
+
+            case "app":
+                String[][] dataApp2 = {{arrApp[0], arrApp[1], arrApp[2], arrApp[3], arrApp[4], arrApp[5], arrApp[6], arrApp[7]}, {arrApp[arraybaris], arrApp[++arraybaris], arrApp[++arraybaris], arrApp[++arraybaris], arrApp[++arraybaris], arrApp[++arraybaris], arrApp[++arraybaris], arrApp[++arraybaris]}};
+                capture.log(Status.INFO, MarkupHelper.createUnorderedList("Data AppForm ===> ").getMarkup());
+                Markup mApp = MarkupHelper.createTable(dataApp2);
+                capture.log(Status.INFO, mApp);
+                break;
+
+            case "rea":
+                String[][] dataRea2 = {{arrRea[0], arrRea[1], arrRea[2], arrRea[3], arrRea[4], arrRea[5], arrRea[6], arrRea[7], arrRea[8], arrRea[9], arrRea[10], arrRea[11], arrRea[12], arrRea[13], arrRea[14], arrRea[15], arrRea[16], arrRea[17], arrRea[18], arrRea[19], arrRea[20], arrRea[21], arrRea[22], arrRea[23], arrRea[24], arrRea[25], arrRea[26], arrRea[27], arrRea[28], arrRea[29]}, {arrRea[arraybaris], arrRea[++arraybaris], arrRea[++arraybaris], arrRea[++arraybaris], arrRea[++arraybaris], arrRea[++arraybaris], arrRea[++arraybaris], arrRea[++arraybaris], arrRea[++arraybaris], arrRea[++arraybaris], arrRea[++arraybaris], arrRea[++arraybaris], arrRea[++arraybaris], arrRea[++arraybaris], arrRea[++arraybaris], arrRea[++arraybaris], arrRea[++arraybaris], arrRea[++arraybaris], arrRea[++arraybaris], arrRea[++arraybaris], arrRea[++arraybaris], arrRea[++arraybaris], arrRea[++arraybaris], arrRea[++arraybaris], arrRea[++arraybaris], arrRea[++arraybaris], arrRea[++arraybaris], arrRea[++arraybaris]}};
+                capture.log(Status.INFO, MarkupHelper.createUnorderedList("Data ReaForm ===> ").getMarkup());
+                Markup mRea = MarkupHelper.createTable(dataRea2);
+                capture.log(Status.INFO, mRea);
+                break;
+
+
+        }
+
+
+    }
+
 }
