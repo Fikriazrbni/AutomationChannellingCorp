@@ -1,5 +1,7 @@
 package definitions;
 
+import elementsPage.ApprovalFormPage;
+import elementsPage.RealizationFormPage;
 import elementsPage.RepaymentFilePage;
 import io.cucumber.java.en.When;
 
@@ -7,7 +9,6 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import lombok.SneakyThrows;
 import org.apache.regexp.RE;
 
 import java.io.IOException;
@@ -16,6 +17,8 @@ import java.text.ParseException;
 public class StepRepaymentFile {
 
     RepaymentFilePage repay = new RepaymentFilePage();
+    ApprovalFormPage app = new ApprovalFormPage();
+    RealizationFormPage rea = new RealizationFormPage();
 
     public StepRepaymentFile() throws IOException {
     }
@@ -24,7 +27,7 @@ public class StepRepaymentFile {
     public void user_open_browser_and_user_login_application_repaymentFile() {
     }
 
-    @When("Nomor Aplikasi diisi sesuai format")
+    @And("Nomor Aplikasi diisi sesuai format")
     public void nomor_Aplikasi_diisi_sesuai_format() throws InterruptedException, IOException {
         repay.noAppSesuai();
 
@@ -309,7 +312,7 @@ public class StepRepaymentFile {
         repay.oobNoPembayaran2();
     }
 
-    @SneakyThrows
+
     @And("Verifikasi Data File Gagal Dari Fineract-Error dengan kondisi length Tanggal Pembayaran lebih satu")
     public void verifikasi_Data_File_Gagal_Dari_Fineract_Error_dengan_kondisi_length_Tanggal_Pembayaran_lebih_satu() throws IOException {
         repay.oobTglPembayaran2();
@@ -357,774 +360,773 @@ public class StepRepaymentFile {
 
     //Repayment Form
     @Given("user open browser and user login application repaymentForm")
-    public void user_open_browser_and_user_login_application_repaymentForm() {
+    public void user_open_browser_and_user_login_application_repaymentForm() throws InterruptedException {
         repay.openRepayMenu();
     }
 
-    @When("Verifikasi card Detail -Tanggal Masuk File")
+    @And("Verifikasi card Detail -Tanggal Masuk File")
     public void verifikasi_card_Detail_Tanggal_Masuk_File() {
         repay.dtlTgMskFile();
     }
 
-    @When("Verifikasi card Detail -Batch No")
+    @And("Verifikasi card Detail -Batch No")
     public void verifikasi_card_Detail_Batch_No() {
         repay.dtlBatchNo();
     }
 
-    @When("Verifikasi card Detail -Nomor Aplikasi")
-    public void verifikasi_card_Detail_Nomor_Aplikasi() {
+    @And("Verifikasi card Detail -Nomor Aplikasi")
+    public void verifikasi_card_Detail_Nomor_Aplikasi() throws IOException {
         repay.dtlNoApp();
     }
 
-    @When("Verifikasi card Detail -Nama Debitur")
-    public void verifikasi_card_Detail_Nama_Debitur() {
+    @And("Verifikasi card Detail -Nama Debitur")
+    public void verifikasi_card_Detail_Nama_Debitur() throws IOException {
         repay.dtlNoDebitur();
     }
 
-    @When("Verifikasi card Detail -Partner")
-    public void verifikasi_card_Detail_Partner() {
+    @And("Verifikasi card Detail -Partner")
+    public void verifikasi_card_Detail_Partner() throws IOException {
         repay.dtlPartner();
     }
 
-    @When("Verifikasi card Detail -Nomor Pembayaran")
-    public void verifikasi_card_Detail_Nomor_Pembayaran() {
+    @And("Verifikasi card Detail -Nomor Pembayaran")
+    public void verifikasi_card_Detail_Nomor_Pembayaran() throws IOException {
         repay.dtlNoBayar();
     }
 
-    @When("Verifikasi card Detail -Status Amount Repayment dengan kondisi total pembayaran pada file repayment< jumlah tagihan")
-    public void verifikasi_card_Detail_Status_Amount_Repayment_dengan_kondisi_total_pembayaran_pada_file_repayment_jumlah_tagihan1() {
+    @And("Verifikasi card Detail -Status Amount Repayment dengan kondisi total pembayaran pada file repayment< jumlah tagihan")
+    public void verifikasi_card_Detail_Status_Amount_Repayment_dengan_kondisi_total_pembayaran_pada_file_repayment_jumlah_tagihan1() throws IOException {
         repay.dtlStatKurangBayar();
     }
 
-    @When("Verifikasi card Detail -Status Amount Repayment dengan kondisi total pembayaran pada file repayment = jumlah tagihan")
-    public void verifikasi_card_Detail_Status_Amount_Repayment_dengan_kondisi_total_pembayaran_pada_file_repayment_jumlah_tagihan2() {
+    @And("Verifikasi card Detail -Status Amount Repayment dengan kondisi total pembayaran pada file repayment = jumlah tagihan")
+    public void verifikasi_card_Detail_Status_Amount_Repayment_dengan_kondisi_total_pembayaran_pada_file_repayment_jumlah_tagihan2() throws IOException {
         repay.dtlStatPasBayar();
     }
 
-    @When("Verifikasi card Detail -Status Amount Repayment dengan kondisi total pembayaran pada file repayment > jumlah tagihan")
-    public void verifikasi_card_Detail_Status_Amount_Repayment_dengan_kondisi_total_pembayaran_pada_file_repayment_jumlah_tagihan3() {
+    @And("Verifikasi card Detail -Status Amount Repayment dengan kondisi total pembayaran pada file repayment > jumlah tagihan")
+    public void verifikasi_card_Detail_Status_Amount_Repayment_dengan_kondisi_total_pembayaran_pada_file_repayment_jumlah_tagihan3() throws IOException {
         repay.dtlStatLebihBayar();
     }
 
-    @When("Verifikasi card Hasil Approval -Status \\(setelah job consume)")
-    public void verifikasi_card_Hasil_Approval_Status_setelah_job_consume() {
+    @And("Verifikasi card Hasil Approval -Status \\(setelah job consume)")
+    public void verifikasi_card_Hasil_Approval_Status_setelah_job_consume() throws IOException {
         repay.verifyStatAfterConsume();
     }
 
-    @When("Verifikasi card Hasil Approval -Approved by \\(setelah job consume)")
-    public void verifikasi_card_Hasil_Approval_Approved_by_setelah_job_consume() {
+    @And("Verifikasi card Hasil Approval -Approved by \\(setelah job consume)")
+    public void verifikasi_card_Hasil_Approval_Approved_by_setelah_job_consume() throws IOException {
         repay.verifyApprovedbyAfterConsume();
     }
 
-    @When("Verifikasi card Hasil Approval -Tanggal Approval \\(setelah job consume)")
-    public void verifikasi_card_Hasil_Approval_Tanggal_Approval_setelah_job_consume() {
+    @And("Verifikasi card Hasil Approval -Tanggal Approval \\(setelah job consume)")
+    public void verifikasi_card_Hasil_Approval_Tanggal_Approval_setelah_job_consume() throws IOException {
         repay.verifyTglApprovalAfterCons();
     }
 
-    @When("Verifikasi card Hasil Approval -Type Reject Reason \\(setelah job consume)")
-    public void verifikasi_card_Hasil_Approval_Type_Reject_Reason_setelah_job_consume() {
+    @And("Verifikasi card Hasil Approval -Type Reject Reason \\(setelah job consume)")
+    public void verifikasi_card_Hasil_Approval_Type_Reject_Reason_setelah_job_consume() throws IOException {
         repay.verifyTypeRejectReason();
     }
 
-    @When("Verifikasi card Hasil Approval -Deskripsi \\(setelah job consume)")
-    public void verifikasi_card_Hasil_Approval_Deskripsi_setelah_job_consume() {
+    @And("Verifikasi card Hasil Approval -Deskripsi \\(setelah job consume)")
+    public void verifikasi_card_Hasil_Approval_Deskripsi_setelah_job_consume() throws IOException {
         repay.verifyDescAfterConsume();
     }
 
-    @When("Verifikasi card Data Partner -Tanggal Pembayaran")
-    public void verifikasi_card_Data_Partner_Tanggal_Pembayaran() {
+    @And("Verifikasi card Data Partner -Tanggal Pembayaran")
+    public void verifikasi_card_Data_Partner_Tanggal_Pembayaran() throws IOException {
         repay.verifyTglBayar();
     }
 
-    @When("Verifikasi card Data Partner -Total Pembayaran dengan kondisi pada file repayment terisi nominal pokok, nominal bunga, nominal denda, dan additional interest")
-    public void verifikasi_card_Data_Partner_Total_Pembayaran_dengan_kondisi_pada_file_repayment_terisi_nominal_pokok_nominal_bunga_nominal_denda_dan_additional_interest() {
+    @And("Verifikasi card Data Partner -Total Pembayaran dengan kondisi pada file repayment terisi nominal pokok, nominal bunga, nominal denda, dan additional interest")
+    public void verifikasi_card_Data_Partner_Total_Pembayaran_dengan_kondisi_pada_file_repayment_terisi_nominal_pokok_nominal_bunga_nominal_denda_dan_additional_interest() throws IOException {
         repay.cardTotPem();
     }
 
-    @When("Verifikasi card Data Partner -Total Pembayaran dengan kondisi pada file repayment terisi nominal pokok, nominal bunga, dan additional interest \\(nominal denda kosong)")
-    public void verifikasi_card_Data_Partner_Total_Pembayaran_dengan_kondisi_pada_file_repayment_terisi_nominal_pokok_nominal_bunga_dan_additional_interest_nominal_denda_kosong() {
+    @And("Verifikasi card Data Partner -Total Pembayaran dengan kondisi pada file repayment terisi nominal pokok, nominal bunga, dan additional interest \\(nominal denda kosong)")
+    public void verifikasi_card_Data_Partner_Total_Pembayaran_dengan_kondisi_pada_file_repayment_terisi_nominal_pokok_nominal_bunga_dan_additional_interest_nominal_denda_kosong() throws IOException {
         repay.cardTotPemDend0();
     }
 
-    @When("Verifikasi card Data Partner -Pembayaran Pokok dengan kondisi pada file repayment terisi nominal pokok")
-    public void verifikasi_card_Data_Partner_Pembayaran_Pokok_dengan_kondisi_pada_file_repayment_terisi_nominal_pokok() {
+    @And("Verifikasi card Data Partner -Pembayaran Pokok dengan kondisi pada file repayment terisi nominal pokok")
+    public void verifikasi_card_Data_Partner_Pembayaran_Pokok_dengan_kondisi_pada_file_repayment_terisi_nominal_pokok() throws IOException {
         repay.cardPempok();
     }
 
-    @When("Verifikasi card Data Partner -Pembayaran Pokok dengan kondisi pada file repayment nominal pokok null")
-    public void verifikasi_card_Data_Partner_Pembayaran_Pokok_dengan_kondisi_pada_file_repayment_nominal_pokok_null() {
+    @And("Verifikasi card Data Partner -Pembayaran Pokok dengan kondisi pada file repayment nominal pokok null")
+    public void verifikasi_card_Data_Partner_Pembayaran_Pokok_dengan_kondisi_pada_file_repayment_nominal_pokok_null() throws IOException {
         repay.cardPempoknopok0();
     }
 
-    @When("Verifikasi card Data Partner -Pembayaran Bunga dengan kondisi pada file repayment terisi nominal bunga")
-    public void verifikasi_card_Data_Partner_Pembayaran_Bunga_dengan_kondisi_pada_file_repayment_terisi_nominal_bunga() {
+    @And("Verifikasi card Data Partner -Pembayaran Bunga dengan kondisi pada file repayment terisi nominal bunga")
+    public void verifikasi_card_Data_Partner_Pembayaran_Bunga_dengan_kondisi_pada_file_repayment_terisi_nominal_bunga() throws IOException {
         repay.cardPempokbung();
     }
 
-    @When("Verifikasi card Data Partner -Pembayaran Bunga dengan kondisi pada file repayment nominal bunga null")
-    public void verifikasi_card_Data_Partner_Pembayaran_Bunga_dengan_kondisi_pada_file_repayment_nominal_bunga_null() {
+    @And("Verifikasi card Data Partner -Pembayaran Bunga dengan kondisi pada file repayment nominal bunga null")
+    public void verifikasi_card_Data_Partner_Pembayaran_Bunga_dengan_kondisi_pada_file_repayment_nominal_bunga_null() throws IOException {
         repay.cardPempokbung0();
     }
 
-    @When("Verifikasi card Data Partner -Pembayaran Denda dengan kondisi pada file repayment terisi nominal denda")
-    public void verifikasi_card_Data_Partner_Pembayaran_Denda_dengan_kondisi_pada_file_repayment_terisi_nominal_denda() {
+    @And("Verifikasi card Data Partner -Pembayaran Denda dengan kondisi pada file repayment terisi nominal denda")
+    public void verifikasi_card_Data_Partner_Pembayaran_Denda_dengan_kondisi_pada_file_repayment_terisi_nominal_denda() throws IOException {
         repay.cardPempokden();
     }
 
-    @When("Verifikasi card Data Partner -Pembayaran Denda dengan kondisi pada file repayment nominal denda null")
-    public void verifikasi_card_Data_Partner_Pembayaran_Denda_dengan_kondisi_pada_file_repayment_nominal_denda_null() {
+    @And("Verifikasi card Data Partner -Pembayaran Denda dengan kondisi pada file repayment nominal denda null")
+    public void verifikasi_card_Data_Partner_Pembayaran_Denda_dengan_kondisi_pada_file_repayment_nominal_denda_null() throws IOException {
         repay.cardPempokden0();
     }
 
-    @When("Verifikasi card Data Partner -Additional Interest dengan kondisi pada file repayment terisi Additional Interest")
+    @And("Verifikasi card Data Partner -Additional Interest dengan kondisi pada file repayment terisi Additional Interest")
     public void verifikasi_card_Data_Partner_Additional_Interest_dengan_kondisi_pada_file_repayment_terisi_Additional_Interest() {
         repay.cardPempokaddInt();
     }
 
-    @When("Verifikasi card Data Partner -Additional Interest dengan kondisi pada file repayment Additional Interest null")
+    @And("Verifikasi card Data Partner -Additional Interest dengan kondisi pada file repayment Additional Interest null")
     public void verifikasi_card_Data_Partner_Additional_Interest_dengan_kondisi_pada_file_repayment_Additional_Interest_null() {
         repay.cardPempokaddInt0();
     }
 
-    @When("Verifikasi card Data Partner -Status Pembayaran dengan kondisi Pelunasan pada file Repayment = N")
-    public void verifikasi_card_Data_Partner_Status_Pembayaran_dengan_kondisi_Pelunasan_pada_file_Repayment_N() {
+    @And("Verifikasi card Data Partner -Status Pembayaran dengan kondisi Pelunasan pada file Repayment = N")
+    public void verifikasi_card_Data_Partner_Status_Pembayaran_dengan_kondisi_Pelunasan_pada_file_Repayment_N() throws IOException {
         repay.cardPemN();
     }
 
-    @When("Verifikasi card Data Partner -Status Pembayaran dengan kondisi Pelunasan pada file Repayment = Y")
-    public void verifikasi_card_Data_Partner_Status_Pembayaran_dengan_kondisi_Pelunasan_pada_file_Repayment_Y() {
+    @And("Verifikasi card Data Partner -Status Pembayaran dengan kondisi Pelunasan pada file Repayment = Y")
+    public void verifikasi_card_Data_Partner_Status_Pembayaran_dengan_kondisi_Pelunasan_pada_file_Repayment_Y() throws IOException {
         repay.cardPemY();
     }
 
-    @When("Verifikasi card Data Partner -Status Pembayaran dengan kondisi Pelunasan pada file Repayment = I")
-    public void verifikasi_card_Data_Partner_Status_Pembayaran_dengan_kondisi_Pelunasan_pada_file_Repayment_I() {
+    @And("Verifikasi card Data Partner -Status Pembayaran dengan kondisi Pelunasan pada file Repayment = I")
+    public void verifikasi_card_Data_Partner_Status_Pembayaran_dengan_kondisi_Pelunasan_pada_file_Repayment_I() throws IOException {
         repay.cardPemI();
     }
 
-    @When("Verifikasi card Data Partner -Status Pembayaran dengan kondisi Pelunasan pada file Repayment = A")
+    @And("Verifikasi card Data Partner -Status Pembayaran dengan kondisi Pelunasan pada file Repayment = A")
     public void verifikasi_card_Data_Partner_Status_Pembayaran_dengan_kondisi_Pelunasan_pada_file_Repayment_A() {
         repay.cardPemA();
     }
 
-    @When("Verifikasi kolom Tanggal Pembayaran")
-    public void verifikasi_kolom_Tanggal_Pembayaran() {
+    @And("Verifikasi kolom Tanggal Pembayaran")
+    public void verifikasi_kolom_Tanggal_Pembayaran() throws InterruptedException, IOException {
         repay.listTglbayar();
     }
 
-    @When("Verifikasi kolom Total Pembayaran dengan kondisi pada file repayment terisi nominal pokok, nominal bunga, nominal denda, dan additional interest")
-    public void verifikasi_kolom_Total_Pembayaran_dengan_kondisi_pada_file_repayment_terisi_nominal_pokok_nominal_bunga_nominal_denda_dan_additional_interest() {
+    @And("Verifikasi kolom Total Pembayaran dengan kondisi pada file repayment terisi nominal pokok, nominal bunga, nominal denda, dan additional interest")
+    public void verifikasi_kolom_Total_Pembayaran_dengan_kondisi_pada_file_repayment_terisi_nominal_pokok_nominal_bunga_nominal_denda_dan_additional_interest() throws IOException {
         repay.listTotPem();
     }
 
-    @When("Verifikasi kolom Total Pembayaran dengan kondisi pada file repayment terisi nominal pokok, nominal bunga, dan additional interest \\(nominal denda kosong)")
-    public void verifikasi_kolom_Total_Pembayaran_dengan_kondisi_pada_file_repayment_terisi_nominal_pokok_nominal_bunga_dan_additional_interest_nominal_denda_kosong() {
+    @And("Verifikasi kolom Total Pembayaran dengan kondisi pada file repayment terisi nominal pokok, nominal bunga, dan additional interest \\(nominal denda kosong)")
+    public void verifikasi_kolom_Total_Pembayaran_dengan_kondisi_pada_file_repayment_terisi_nominal_pokok_nominal_bunga_dan_additional_interest_nominal_denda_kosong() throws InterruptedException, IOException {
         repay.listTotPemDen0();
     }
 
-    @When("Verifikasi kolom Total Tagihan")
-    public void verifikasi_kolom_Total_Tagihan() {
+    @And("Verifikasi kolom Total Tagihan")
+    public void verifikasi_kolom_Total_Tagihan() throws InterruptedException, IOException {
         repay.listTotTagihan();
     }
 
-    @When("Verifikasi kolom Status Amount Pembayaran dengan kondisi total pembayaran pada file repayment< jumlah tagihan")
-    public void verifikasi_kolom_Status_Amount_Pembayaran_dengan_kondisi_total_pembayaran_pada_file_repayment_jumlah_tagihan1() {
+    @And("Verifikasi kolom Status Amount Pembayaran dengan kondisi total pembayaran pada file repayment< jumlah tagihan")
+    public void verifikasi_kolom_Status_Amount_Pembayaran_dengan_kondisi_total_pembayaran_pada_file_repayment_jumlah_tagihan1() throws InterruptedException, IOException {
         repay.listStatKurangBayar();
     }
 
-    @When("Verifikasi kolom Status Amount Pembayaran dengan kondisi total pembayaran pada file repayment = jumlah tagihan")
-    public void verifikasi_kolom_Status_Amount_Pembayaran_dengan_kondisi_total_pembayaran_pada_file_repayment_jumlah_tagihan2() {
+    @And("Verifikasi kolom Status Amount Pembayaran dengan kondisi total pembayaran pada file repayment = jumlah tagihan")
+    public void verifikasi_kolom_Status_Amount_Pembayaran_dengan_kondisi_total_pembayaran_pada_file_repayment_jumlah_tagihan2() throws InterruptedException, IOException {
         repay.listStatSesuai();
     }
 
-    @When("Verifikasi kolom Status Amount Pembayaran dengan kondisi total pembayaran pada file repayment > jumlah tagihan")
-    public void verifikasi_kolom_Status_Amount_Pembayaran_dengan_kondisi_total_pembayaran_pada_file_repayment_jumlah_tagihan3() {
+    @And("Verifikasi kolom Status Amount Pembayaran dengan kondisi total pembayaran pada file repayment > jumlah tagihan")
+    public void verifikasi_kolom_Status_Amount_Pembayaran_dengan_kondisi_total_pembayaran_pada_file_repayment_jumlah_tagihan3() throws InterruptedException, IOException {
         repay.listStatLebih();
     }
 
-    @When("Verifikasi kolom Tanggal Masuk File")
-    public void verifikasi_kolom_Tanggal_Masuk_File() {
+    @And("Verifikasi kolom Tanggal Masuk File")
+    public void verifikasi_kolom_Tanggal_Masuk_File() throws InterruptedException, IOException {
         repay.listTglMasukFile();
     }
 
-    @When("Verifikasi kolom Batch No")
+    @And("Verifikasi kolom Batch No")
     public void verifikasi_kolom_Batch_No() {
         repay.listBatchNo();
     }
 
-    @When("Verifikasi kolom Status setelah job repayment")
-    public void verifikasi_kolom_Status_setelah_job_repayment() {
+    @And("Verifikasi kolom Status setelah job repayment")
+    public void verifikasi_kolom_Status_setelah_job_repayment() throws IOException {
         repay.listStatWaitforApp();
     }
 
-    @When("Verifikasi card Data BCAD -Tanggal Pembayaran Bulan Berjalan")
-    public void verifikasi_card_Data_BCAD_Tanggal_Pembayaran_Bulan_Berjalan() {
+    @And("Verifikasi card Data BCAD -Tanggal Pembayaran Bulan Berjalan")
+    public void verifikasi_card_Data_BCAD_Tanggal_Pembayaran_Bulan_Berjalan() throws ParseException {
         repay.cardTglPemBulBerjalan();
     }
 
-    @When("Verifikasi card Data BCAD -Total Tagihan")
+    @And("Verifikasi card Data BCAD -Total Tagihan")
     public void verifikasi_card_Data_BCAD_Total_Tagihan() {
         repay.cardTotTagih();
     }
 
-    @When("Verifikasi card Data BCAD -Pembayaran Pokok Bulan Berjalan")
+    @And("Verifikasi card Data BCAD -Pembayaran Pokok Bulan Berjalan")
     public void verifikasi_card_Data_BCAD_Pembayaran_Pokok_Bulan_Berjalan() {
         repay.cardPemPokBulBerjalan();
     }
 
-    @When("Verifikasi card Data BCAD -Pembayaran Bunga Bulan Berjalan")
+    @And("Verifikasi card Data BCAD -Pembayaran Bunga Bulan Berjalan")
     public void verifikasi_card_Data_BCAD_Pembayaran_Bunga_Bulan_Berjalan() {
         repay.cardPemBungBulBerjalan();
     }
 
-    @When("Verifikasi card Data BCAD -Pembayaran Denda Bulan Berjalan")
+    @And("Verifikasi card Data BCAD -Pembayaran Denda Bulan Berjalan")
     public void verifikasi_card_Data_BCAD_Pembayaran_Denda_Bulan_Berjalan() {
         repay.cardPemDenBulBerjalan();
     }
 
-    @When("Verifikasi card Data BCAD -Additional Interest Bulan Berjalan")
+    @And("Verifikasi card Data BCAD -Additional Interest Bulan Berjalan")
     public void verifikasi_card_Data_BCAD_Additional_Interest_Bulan_Berjalan() {
         repay.cardAddIntBulBerjalan();
     }
 
-    @When("Klik Approve button di Halaman detail Repayment")
-    public void klik_Approve_button_di_Halaman_detail_Repayment() {
+    @And("Klik Approve button di Halaman detail Repayment")
+    public void klik_Approve_button_di_Halaman_detail_Repayment() throws InterruptedException {
         repay.klikApprv();
     }
 
-    @When("Klik Approve button di Halaman detail Repayment klik approve dan tidak")
+    @And("Klik Approve button di Halaman detail Repayment klik approve dan tidak")
     public void klik_Approve_button_di_Halaman_detail_Repayment_klik_approve_dan_tidak() {
         repay.klikApprvNo();
     }
 
-    @When("Klik Approve button di Halaman detail Repayment klik approve dan ya")
-    public void klik_Approve_button_di_Halaman_detail_Repayment_klik_approve_dan_ya() {
+    @And("Klik Approve button di Halaman detail Repayment klik approve dan ya")
+    public void klik_Approve_button_di_Halaman_detail_Repayment_klik_approve_dan_ya() throws InterruptedException {
         repay.klikApprvYes();
     }
 
-    @When("Verifikasi card Hasil Approval setelah Approve data")
+    @And("Verifikasi card Hasil Approval setelah Approve data")
     public void verifikasi_card_Hasil_Approval_setelah_Approve_data() {
         repay.verifyApprovedData();
     }
 
-    @When("Klik Reject button di Halaman detail Repayment")
+    @And("Klik Reject button di Halaman detail Repayment")
     public void klik_Reject_button_di_Halaman_detail_Repayment() {
         repay.klikReject();
     }
 
-    @When("Verifikasi isi field Type Reject Reason")
+    @And("Verifikasi isi field Type Reject Reason")
     public void verifikasi_isi_field_Type_Reject_Reason() {
         repay.verifyTypeofReject();
     }
 
-    @When("Klik Reject button di Halaman detail Repayment klik reject dan tidak")
+    @And("Klik Reject button di Halaman detail Repayment klik reject dan tidak")
     public void klik_Reject_button_di_Halaman_detail_Repayment_klik_reject_dan_tidak() {
         repay.klikRejectCancel();
     }
 
-    @When("Klik Reject dan Mengisi Type Reject Reason dan Tidak mengisi Description dan Klik Submit")
+    @And("Klik Reject dan Mengisi Type Reject Reason dan Tidak mengisi Description dan Klik Submit")
     public void klik_Reject_dan_Mengisi_Type_Reject_Reason_dan_Tidak_mengisi_Description_dan_Klik_Submit() {
         repay.rejectwithoutDesc();
     }
 
-    @When("Klik Reject dan Mengisi Type Reject Reason dan mengisi Description dan Klik Submit")
-    public void klik_Reject_dan_Mengisi_Type_Reject_Reason_dan_mengisi_Description_dan_Klik_Submit() {
+    @And("Klik Reject dan Tidak Mengisi Type Reject Reason dan mengisi Description dan Klik Submit")
+    public void klik_Reject_dan_Tidak_Mengisi_Type_Reject_Reason_dan_mengisi_Description_dan_Klik_Submit() {
         repay.rejectWoutTypeReject();
     }
 
-    @When("Klik Reject dan Mengisi Type Reject Reason dan mengisi Description 100karakter dan Klik Submit")
-    public void klik_Reject_dan_Mengisi_Type_Reject_Reason_dan_mengisi_Description_100karakter_dan_Klik_Submit() {
+    @And("Klik Reject dan Mengisi Type Reject Reason dan mengisi Description 100karakter dan Klik Submit")
+    public void klik_Reject_dan_Mengisi_Type_Reject_Reason_dan_mengisi_Description_100karakter_dan_Klik_Submit() throws InterruptedException {
         repay.rejectDesc100();
     }
 
-    @When("Klik Reject dan Mengisi Type Reject Reason dan mengisi Description 99karakter dan Klik Submit")
-    public void klik_Reject_dan_Mengisi_Type_Reject_Reason_dan_mengisi_Description_99karakter_dan_Klik_Submit() {
+    @And("Klik Reject dan Mengisi Type Reject Reason dan mengisi Description 99karakter dan Klik Submit")
+    public void klik_Reject_dan_Mengisi_Type_Reject_Reason_dan_mengisi_Description_99karakter_dan_Klik_Submit() throws InterruptedException {
         repay.rejectDesc99();
     }
 
-    @When("Verifikasi card Hasil Approval setelah Reject data")
+    @And("Verifikasi card Hasil Approval setelah Reject data")
     public void verifikasi_card_Hasil_Approval_setelah_Reject_data() {
         repay.rejectedData();
     }
 
-    @When("Klik Bulk Approve Check beberapa data Klik Approve")
-    public void klik_Bulk_Approve_Check_beberapa_data_Klik_Approve() {
+    @And("Klik Bulk Approve Check beberapa data Klik Approve")
+    public void klik_Bulk_Approve_Check_beberapa_data_Klik_Approve() throws InterruptedException {
         repay.bulkApprv();
     }
 
-    @When("Klik Bulk Approve Check beberapa data Klik Approve dan klik batal")
+    @And("Klik Bulk Approve Check beberapa data Klik Approve dan klik batal")
     public void klik_Bulk_Approve_Check_beberapa_data_Klik_Approve_dan_klik_batal() {
         repay.bulkApprvBatal();
     }
 
-    @When("Klik Bulk Approve Check beberapa data Klik Approve dan klik submit")
-    public void klik_Bulk_Approve_Check_beberapa_data_Klik_Approve_dan_klik_submit() {
+    @And("Klik Bulk Approve Check beberapa data Klik Approve dan klik submit")
+    public void klik_Bulk_Approve_Check_beberapa_data_Klik_Approve_dan_klik_submit() throws InterruptedException {
         repay.bulkApprvSubmit();
     }
 
-    @When("Cek data repayment dengan status Waiting for Approval")
-    public void cek_data_repayment_dengan_status_Waiting_for_Approval() {
+    @And("Cek data repayment dengan status Waiting for Approval")
+    public void cek_data_repayment_dengan_status_Waiting_for_Approval() throws InterruptedException {
         repay.checkDataWaitforAppr();
     }
 
-    @When("Cek data repayment dengan status Approved")
-    public void cek_data_repayment_dengan_status_Approved() {
+    @And("Cek data repayment dengan status Approved")
+    public void cek_data_repayment_dengan_status_Approved() throws InterruptedException {
         repay.checkDataApprov();
     }
 
-    @When("Cek data repayment dengan status Rejected")
-    public void cek_data_repayment_dengan_status_Rejected() {
+    @And("Cek data repayment dengan status Rejected")
+    public void cek_data_repayment_dengan_status_Rejected() throws InterruptedException {
         repay.checkDataRejected();
     }
 
-    @When("Cek data repayment dengan status Pending Batch Run")
-    public void cek_data_repayment_dengan_status_Pending_Batch_Run() {
+    @And("Cek data repayment dengan status Pending Batch Run")
+    public void cek_data_repayment_dengan_status_Pending_Batch_Run() throws InterruptedException {
         repay.checkDataPBR();
     }
 
-    @When("Cek data repayment dengan status Approval Expired")
-    public void cek_data_repayment_dengan_status_Approval_Expired() {
+    @And("Cek data repayment dengan status Approval Expired")
+    public void cek_data_repayment_dengan_status_Approval_Expired() throws InterruptedException {
         repay.checkDataApprvExp();
     }
 
-    @When("Klik Edit pada data Waiting for ApprovalEdit pada data Klik Update")
-    public void klik_Edit_pada_data_Waiting_for_ApprovalEdit_pada_data_Klik_Update() {
+    @And("Klik Edit pada data Waiting for ApprovalEdit pada data Klik Update")
+    public void klik_Edit_pada_data_Waiting_for_ApprovalEdit_pada_data_Klik_Update() throws InterruptedException {
         repay.editWaiting();
     }
 
-    @When("Klik Edit pada data Rejected Edit pada data Klik Update")
-    public void klik_Edit_pada_data_Rejected_Edit_pada_data_Klik_Update() {
+    @And("Klik Edit pada data Rejected Edit pada data Klik Update")
+    public void klik_Edit_pada_data_Rejected_Edit_pada_data_Klik_Update() throws InterruptedException {
         repay.editRejected();
     }
 
-    @When("Klik Edit pada data Pending Batch Run Edit pada data Klik Update")
-    public void klik_Edit_pada_data_Pending_Batch_Run_Edit_pada_data_Klik_Update() {
+    @And("Klik Edit pada data Pending Batch Run Edit pada data Klik Update")
+    public void klik_Edit_pada_data_Pending_Batch_Run_Edit_pada_data_Klik_Update() throws InterruptedException {
         repay.editPBR();
     }
 
-    @When("Approve data yang diedit")
-    public void approve_data_yang_diedit() {
+    @And("Approve data yang diedit")
+    public void approve_data_yang_diedit() throws InterruptedException {
         repay.approvEditData();
     }
 
-    @When("Reject data yang diedit")
-    public void reject_data_yang_diedit() {
+    @And("Reject data yang diedit")
+    public void reject_data_yang_diedit() throws InterruptedException {
         repay.rejectEditData();
     }
 
-    @When("Klik pada data status Waiting for Approval")
-    public void klik_pada_data_status_Waiting_for_Approval() {
+    @And("Klik pada data status Waiting for Approval")
+    public void klik_pada_data_status_Waiting_for_Approval() throws InterruptedException {
         repay.checkButtonWaitforApprv();
     }
 
-    @When("Klik pada data status Approved")
-    public void klik_pada_data_status_Approved() {
+    @And("Klik pada data status Approved")
+    public void klik_pada_data_status_Approved() throws InterruptedException {
         repay.checkButtonApproved();
     }
 
-    @When("Klik pada data status Rejected")
-    public void klik_pada_data_status_Rejected() {
+    @And("Klik pada data status Rejected")
+    public void klik_pada_data_status_Rejected() throws InterruptedException {
         repay.checkButtonRejected();
     }
 
-    @When("Klik pada data status Pending Batch Run")
-    public void klik_pada_data_status_Pending_Batch_Run() {
+    @And("Klik pada data status Pending Batch Run")
+    public void klik_pada_data_status_Pending_Batch_Run() throws InterruptedException {
         repay.checkButtonPBR();
     }
 
-    @When("Klik pada data status Approval Expired")
-    public void klik_pada_data_status_Approval_Expired() {
+    @And("Klik pada data status Approval Expired")
+    public void klik_pada_data_status_Approval_Expired() throws InterruptedException {
         repay.checkButtonApprvExp();
     }
 
-    @When("Consume repayment sysdate dengan tanggal pembayaran backdated \\(Akseleran, Indodana)")
+    @And("Consume repayment sysdate dengan tanggal pembayaran backdated \\(Akseleran, Indodana)")
     public void consume_repayment_sysdate_dengan_tanggal_pembayaran_backdated_Akseleran_Indodana() {
         repay.backdatedData();
     }
 
-    @When("Consume repayment sysdate dengan tanggal pembayaran = sysdate")
-    public void consume_repayment_sysdate_dengan_tanggal_pembayaran_sysdate() {
+    @And("Consume repayment sysdate dengan tanggal pembayaran = sysdate")
+    public void consume_repayment_sysdate_dengan_tanggal_pembayaran_sysdate() throws IOException {
         repay.sysdateData();
     }
 
-    @When("Consume repayment sysdate dengan tanggal pembayaran future \\(advance)")
-    public void consume_repayment_sysdate_dengan_tanggal_pembayaran_future_advance() {
+    @And("Consume repayment sysdate dengan tanggal pembayaran future \\(advance)")
+    public void consume_repayment_sysdate_dengan_tanggal_pembayaran_future_advance() throws IOException {
         repay.advanceData();
     }
 
-    @When("Consume repayment sysdate dengan kondisi gagal validasi \\(rejected by system)")
-    public void consume_repayment_sysdate_dengan_kondisi_gagal_validasi_rejected_by_system() {
+    @And("Consume repayment sysdate dengan kondisi gagal validasi \\(rejected by system)")
+    public void consume_repayment_sysdate_dengan_kondisi_gagal_validasi_rejected_by_system() throws IOException {
         repay.rejectBySystemData();
     }
 
-    @When("Verifikasi data status Waiting for Approval dengan tanggal consume Hmin1")
+    @And("Verifikasi data status Waiting for Approval dengan tanggal consume Hmin1")
     public void verifikasi_data_status_Waiting_for_Approval_dengan_tanggal_consume_Hmin1() {
         repay.waitforApprHmin1();
     }
 
-    @When("Verifikasi data status Approved dengan tanggal consume Hmin1")
+    @And("Verifikasi data status Approved dengan tanggal consume Hmin1")
     public void verifikasi_data_status_Approved_dengan_tanggal_consume_Hmin1() {
         repay.approvDataHmin1();
     }
 
-    @When("Verifikasi data status Rejected by Analyst dengan tanggal consume Hmin1")
+    @And("Verifikasi data status Rejected by Analyst dengan tanggal consume Hmin1")
     public void verifikasi_data_status_Rejected_by_Analyst_dengan_tanggal_consume_Hmin1() {
         repay.rejectByAnalystDataHmin1();
     }
 
-    @When("Verifikasi data status Pending Batch Run dengan tanggal consume Hmin1")
+    @And("Verifikasi data status Pending Batch Run dengan tanggal consume Hmin1")
     public void verifikasi_data_status_Pending_Batch_Run_dengan_tanggal_consume_Hmin1() {
         repay.PBRDataHmin1();
     }
 
-    @When("Verifikasi data status Approval Expired dengan tanggal consume Hmin1")
+    @And("Verifikasi data status Approval Expired dengan tanggal consume Hmin1")
     public void verifikasi_data_status_Approval_Expired_dengan_tanggal_consume_Hmin1() {
         repay.apprExpDataHmin1();
     }
 
-    @When("Verifikasi data status Approval Expired dengan tanggal consume Hmin2")
+    @And("Verifikasi data status Approval Expired dengan tanggal consume Hmin2")
     public void verifikasi_data_status_Approval_Expired_dengan_tanggal_consume_Hmin2() {
         repay.apprExpDataHmin2();
     }
 
-    @When("Verifikasi isi filter Source")
+    @And("Verifikasi isi filter Source")
     public void verifikasi_isi_filter_Source() {
         repay.verifyIsiFilter();
     }
 
-    @When("View data dengan filter Source: All")
-    public void view_data_dengan_filter_Source_All() {
+    @And("View data dengan filter Source: All")
+    public void view_data_dengan_filter_Source_All() throws InterruptedException {
         repay.filterBySourceAll();
     }
 
-    @When("View data dengan filter Source: LOS")
-    public void view_data_dengan_filter_Source_LOS() {
+    @And("View data dengan filter Source: LOS")
+    public void view_data_dengan_filter_Source_LOS() throws InterruptedException {
         repay.filterBySourceLos();
     }
 
-    @When("View data dengan filter Source: NIKEL")
-    public void view_data_dengan_filter_Source_NIKEL() {
+    @And("View data dengan filter Source: NIKEL")
+    public void view_data_dengan_filter_Source_NIKEL() throws InterruptedException {
         repay.filterBySourceNikel();
     }
 
-    @When("Verifikasi isi filter Pelunasan")
+    @And("Verifikasi isi filter Pelunasan")
     public void verifikasi_isi_filter_Pelunasan() {
         repay.verifyIsiFilterPelunasan();
     }
 
-    @When("View data dengan filter Pelunasan: All")
-    public void view_data_dengan_filter_Pelunasan_All() {
+    @And("View data dengan filter Pelunasan: All")
+    public void view_data_dengan_filter_Pelunasan_All() throws InterruptedException {
         repay.filterPelAll();
     }
 
-    @When("View data dengan filter Pelunasan: Yes")
-    public void view_data_dengan_filter_Pelunasan_Yes() {
+    @And("View data dengan filter Pelunasan: Yes")
+    public void view_data_dengan_filter_Pelunasan_Yes() throws InterruptedException {
         repay.filterPelYes();
     }
 
-    @When("View data dengan filter Pelunasan: No")
-    public void view_data_dengan_filter_Pelunasan_No() {
+    @And("View data dengan filter Pelunasan: No")
+    public void view_data_dengan_filter_Pelunasan_No() throws InterruptedException {
         repay.filterPelNo();
     }
 
-    @When("View data dengan filter Pelunasan: Insurance")
-    public void view_data_dengan_filter_Pelunasan_Insurance() {
+    @And("View data dengan filter Pelunasan: Insurance")
+    public void view_data_dengan_filter_Pelunasan_Insurance() throws InterruptedException {
         repay.filterPelInsurance();
     }
 
-    @When("View data dengan filter Pelunasan: Advance")
+    @And("View data dengan filter Pelunasan: Advance")
     public void view_data_dengan_filter_Pelunasan_Advance() {
         repay.filterPelAdvance();
     }
 
-    @When("Verifikasi isi filter Status")
-    public void verifikasi_isi_filter_Status() {
+    @And("Verifikasi isi filter Status")
+    public void verifikasi_isi_filter_Status() throws InterruptedException {
         repay.verifyIsiFilterStatus();
     }
 
-    @When("View data dengan filter Status: All")
-    public void view_data_dengan_filter_Status_All() {
+    @And("View data dengan filter Status: All")
+    public void view_data_dengan_filter_Status_All() throws InterruptedException {
         repay.filterByStatusAll();
     }
 
-    @When("View data dengan filter Status: Waiting for approval")
-    public void view_data_dengan_filter_Status_Waiting_for_approval() {
+    @And("View data dengan filter Status: Waiting for approval")
+    public void view_data_dengan_filter_Status_Waiting_for_approval() throws InterruptedException {
         repay.filterByStatusWaitforApprov();
     }
 
-    @When("View data dengan filter Status: Pending Batch Run")
-    public void view_data_dengan_filter_Status_Pending_Batch_Run() {
+    @And("View data dengan filter Status: Pending Batch Run")
+    public void view_data_dengan_filter_Status_Pending_Batch_Run() throws InterruptedException {
         repay.filterByStatusPBR();
     }
 
-    @When("View data dengan filter Status: Approved")
-    public void view_data_dengan_filter_Status_Approved() {
+    @And("View data dengan filter Status: Approved")
+    public void view_data_dengan_filter_Status_Approved() throws InterruptedException {
         repay.filterByStatusApproved();
     }
 
-    @When("View data dengan filter Status: Rejected")
-    public void view_data_dengan_filter_Status_Rejected() {
+    @And("View data dengan filter Status: Rejected")
+    public void view_data_dengan_filter_Status_Rejected() throws InterruptedException {
         repay.filterByStatusRejected();
     }
 
-    @When("View data dengan filter Status: Approval Expired")
-    public void view_data_dengan_filter_Status_Approval_Expired() {
+    @And("View data dengan filter Status: Approval Expired")
+    public void view_data_dengan_filter_Status_Approval_Expired() throws InterruptedException {
         repay.filterByStatusApprvExp();
     }
 
-    @When("Verifikasi isi filter Partner")
+    @And("Verifikasi isi filter Partner")
     public void verifikasi_isi_filter_Partner() {
         repay.verifyIsiFilterPartner();
     }
 
-    @When("View data dengan filter Partner: All")
-    public void view_data_dengan_filter_Partner_All() {
+    @And("View data dengan filter Partner: All")
+    public void view_data_dengan_filter_Partner_All() throws InterruptedException {
         repay.filterByPartnerAll();
     }
 
-    @When("View data dengan filter Partner: pilih salah satu")
-    public void view_data_dengan_filter_Partner_pilih_salah_satu() {
+    @And("View data dengan filter Partner: pilih salah satu")
+    public void view_data_dengan_filter_Partner_pilih_salah_satu() throws InterruptedException {
         repay.filterByPartnerPilih1();
     }
 
-    @When("Verifikasi isi filter Status Amount Repayment")
+    @And("Verifikasi isi filter Status Amount Repayment")
     public void verifikasi_isi_filter_Status_Amount_Repayment() {
         repay.verifyIsiStatAmountRepay();
     }
 
-    @When("View data dengan filter Status Amount Repayment: All")
-    public void view_data_dengan_filter_Status_Amount_Repayment_All() {
+    @And("View data dengan filter Status Amount Repayment: All")
+    public void view_data_dengan_filter_Status_Amount_Repayment_All() throws InterruptedException {
         repay.filterAmountRepayByAll();
     }
 
-    @When("View data dengan filter Status Amount Repayment: Sesuai")
-    public void view_data_dengan_filter_Status_Amount_Repayment_Sesuai() {
+    @And("View data dengan filter Status Amount Repayment: Sesuai")
+    public void view_data_dengan_filter_Status_Amount_Repayment_Sesuai() throws InterruptedException {
         repay.filterAmountRepayBySesuai();
     }
 
-    @When("View data dengan filter Status Amount Repayment: Kurang Bayar")
-    public void view_data_dengan_filter_Status_Amount_Repayment_Kurang_Bayar() {
+    @And("View data dengan filter Status Amount Repayment: Kurang Bayar")
+    public void view_data_dengan_filter_Status_Amount_Repayment_Kurang_Bayar() throws InterruptedException {
         repay.filterAmountRepayByKurangBayar();
     }
 
-    @When("View data dengan filter Status Amount Repayment: Lebih Bayar")
-    public void view_data_dengan_filter_Status_Amount_Repayment_Lebih_Bayar() {
+    @And("View data dengan filter Status Amount Repayment: Lebih Bayar")
+    public void view_data_dengan_filter_Status_Amount_Repayment_Lebih_Bayar() throws InterruptedException {
         repay.filterAmountRepayByLebihBayar();
     }
 
-    @When("Verifikasi isi filter Status Batch No")
+    @And("Verifikasi isi filter Status Batch No")
     public void verifikasi_isi_filter_Status_Batch_No() {
         repay.verifyIsiFilterBatchNo();
     }
 
-    @When("View data dengan filter Batch No: pilih salah satu")
-    public void view_data_dengan_filter_Batch_No_pilih_salah_satu() {
+    @And("View data dengan filter Batch No: pilih salah satu")
+    public void view_data_dengan_filter_Batch_No_pilih_salah_satu() throws InterruptedException {
         repay.filterByBatchnoPilih1();
     }
 
-
-    @When("Verifikasi filter search")
+    @And("Verifikasi filter search")
     public void verifikasi_filter_search() {
         repay.verifyfilterSearch();
     }
 
-    @When("Verifikasi kolom Source untuk realisasi via LOS")
+    @And("Verifikasi kolom Source untuk realisasi via LOS")
     public void verifikasi_kolom_Source_untuk_realisasi_via_LOS() {
         repay.verifySourceLOS();
     }
 
-    @When("Verifikasi kolom Source untuk realisasi via NIKEL")
+    @And("Verifikasi kolom Source untuk realisasi via NIKEL")
     public void verifikasi_kolom_Source_untuk_realisasi_via_NIKEL() {
         repay.verifySourceNIKEL();
     }
 
-    @When("Verifikasi kolom Application No")
-    public void verifikasi_kolom_Application_No() {
+    @And("Verifikasi kolom Application No")
+    public void verifikasi_kolom_Application_No() throws IOException {
         repay.verifyAppNo();
     }
 
-    @When("Verifikasi kolom Partner")
-    public void verifikasi_kolom_Partner() {
+    @And("Verifikasi kolom Partner")
+    public void verifikasi_kolom_Partner() throws IOException {
         repay.verifyPartner();
     }
 
-    @When("Verifikasi kolom Debtor Name")
-    public void verifikasi_kolom_Debtor_Name() {
+    @And("Verifikasi kolom Debtor Name")
+    public void verifikasi_kolom_Debtor_Name() throws IOException {
         repay.verifyDebtorName();
     }
 
-    @When("Verifikasi kolom Status Pembayaran dengan kondisi Pelunasan pada file Repayment = N")
-    public void verifikasi_kolom_Status_Pembayaran_dengan_kondisi_Pelunasan_pada_file_Repayment_N() {
+    @And("Verifikasi kolom Status Pembayaran dengan kondisi Pelunasan pada file Repayment = N")
+    public void verifikasi_kolom_Status_Pembayaran_dengan_kondisi_Pelunasan_pada_file_Repayment_N() throws IOException {
         repay.verifyPelN();
     }
 
-    @When("Verifikasi kolom Status Pembayaran dengan kondisi Pelunasan pada file Repayment = Y")
-    public void verifikasi_kolom_Status_Pembayaran_dengan_kondisi_Pelunasan_pada_file_Repayment_Y() {
+    @And("Verifikasi kolom Status Pembayaran dengan kondisi Pelunasan pada file Repayment = Y")
+    public void verifikasi_kolom_Status_Pembayaran_dengan_kondisi_Pelunasan_pada_file_Repayment_Y() throws IOException {
         repay.verifyPelY();
     }
 
-    @When("Verifikasi kolom Status Pembayaran dengan kondisi Pelunasan pada file Repayment = I")
-    public void verifikasi_kolom_Status_Pembayaran_dengan_kondisi_Pelunasan_pada_file_Repayment_I() {
+    @And("Verifikasi kolom Status Pembayaran dengan kondisi Pelunasan pada file Repayment = I")
+    public void verifikasi_kolom_Status_Pembayaran_dengan_kondisi_Pelunasan_pada_file_Repayment_I() throws IOException {
         repay.verifyPelI();
     }
 
-    @When("Verifikasi kolom Status Pembayaran dengan kondisi Pelunasan pada file Repayment = A")
+    @And("Verifikasi kolom Status Pembayaran dengan kondisi Pelunasan pada file Repayment = A")
     public void verifikasi_kolom_Status_Pembayaran_dengan_kondisi_Pelunasan_pada_file_Repayment_A() {
         repay.verifyPelA();
     }
 
-    @When("Verifikasi sorting kolom Status")
+    @And("Verifikasi sorting kolom Status")
     public void verifikasi_sorting_kolom_Status() {
         repay.sortStatus();
     }
 
-    @When("Verifikasi sorting kolom Tanggal Pembayaran")
-    public void verifikasi_sorting_kolom_Tanggal_Pembayaran() {
+    @And("Verifikasi sorting kolom Tanggal Pembayaran")
+    public void verifikasi_sorting_kolom_Tanggal_Pembayaran() throws InterruptedException {
         repay.sortTglBayar();
     }
 
-    @When("Klik Next pada Pagination")
-    public void klik_Next_pada_Pagination() {
+    @And("Klik Next pada Pagination")
+    public void klik_Next_pada_Pagination() throws InterruptedException {
         repay.nextPage();
     }
 
-    @When("Klik page tertentu pada Pagination")
-    public void klik_page_tertentu_pada_Pagination() {
+    @And("Klik page tertentu pada Pagination")
+    public void klik_page_tertentu_pada_Pagination() throws InterruptedException {
         repay.clickNumPage();
     }
 
-    @When("Klik Previous pada Pagination")
+    @And("Klik Previous pada Pagination")
     public void klik_Previous_pada_Pagination() {
         repay.previousPage();
     }
 
-    @When("Sorting pada kolom Status Note: variasi status>=3")
-    public void sorting_pada_kolom_Status_Note_variasi_status_3() {
+    @And("Sorting pada kolom Status Note: variasi status>=3")
+    public void sorting_pada_kolom_Status_Note_variasi_status_3() throws InterruptedException {
         repay.sortStatus2();
     }
 
-    @When("Sorting pada kolom Tanggal Pembayaran Note: terdapat data hari H dan Hmin1 \\(approval expired)")
+    @And("Sorting pada kolom Tanggal Pembayaran Note: terdapat data hari H dan Hmin1 \\(approval expired)")
     public void sorting_pada_kolom_Tanggal_Pembayaran_Note_terdapat_data_hari_H_dan_H_approval_expiredmin1() {
         repay.sortTglBayarHmin1();
     }
 
-    @When("Verifikasi tanggal pada menu Repayment")
+    @And("Verifikasi tanggal pada menu Repayment")
     public void verifikasi_tanggal_pada_menu_Repayment() {
         repay.verifyTglMenuRepayment();
     }
 
-    @When("Verifikasi Total Nominal Approved")
-    public void verifikasi_Total_Nominal_Approved() {
+    @And("Verifikasi Total Nominal Approved")
+    public void verifikasi_Total_Nominal_Approved() throws InterruptedException {
         repay.totNomApproved();
     }
 
 
-    @When("Verifikasi Total Nominal Pembayaran")
-    public void verifikasi_Total_Nominal_Pembayaran() {
+    @And("Verifikasi Total Nominal Pembayaran")
+    public void verifikasi_Total_Nominal_Pembayaran() throws InterruptedException {
         repay.totNomPembayaran();
     }
 
-    @When("Klik Bulk Approve Check beberapa data")
-    public void klik_Bulk_Approve_Check_beberapa_data() {
+    @And("Klik Bulk Approve Check beberapa data")
+    public void klik_Bulk_Approve_Check_beberapa_data() throws InterruptedException {
         repay.bulkApproveCheck2Data();
     }
 
-    @When("Klik Bulk Approve Check beberapa data Uncheck beberapa data")
-    public void klik_Bulk_Approve_Check_beberapa_data_Uncheck_beberapa_data() {
+    @And("Klik Bulk Approve Check beberapa data Uncheck beberapa data")
+    public void klik_Bulk_Approve_Check_beberapa_data_Uncheck_beberapa_data() throws InterruptedException {
         repay.bulkApprovUncheck2Data();
     }
 
-    @When("Klik Bulk Approve Check All")
-    public void klik_Bulk_Approve_Check_All() {
+    @And("Klik Bulk Approve Check All")
+    public void klik_Bulk_Approve_Check_All() throws InterruptedException {
         repay.bulkApprvCheckAll();
     }
 
-    @When("Klik Bulk Approve Check All Klik Approve")
-    public void klik_Bulk_Approve_Check_All_Klik_Approve() {
+    @And("Klik Bulk Approve Check All Klik Approve")
+    public void klik_Bulk_Approve_Check_All_Klik_Approve() throws InterruptedException {
         repay.bulkApprCheckAllandApprov();
     }
 
-    @When("Klik Bulk Approve Check All Klik Approve Klik Batal")
+    @And("Klik Bulk Approve Check All Klik Approve Klik Batal")
     public void klik_Bulk_Approve_Check_All_Klik_Approve_Klik_Batal() {
         repay.bulkApprCheckAllApprovandBatal();
     }
 
-    @When("Verifikasi card Hasil Approval setelah Bulk Approve data")
+    @And("Verifikasi card Hasil Approval setelah Bulk Approve data")
     public void verifikasi_card_Hasil_Approval_setelah_Bulk_Approve_data() {
         repay.verifyAfterBulkAll();
     }
 
-    @When("Klik Bulk Approve Check beberapa data Klik Reject")
-    public void klik_Bulk_Approve_Check_beberapa_data_Klik_Reject() {
+    @And("Klik Bulk Approve Check beberapa data Klik Reject")
+    public void klik_Bulk_Approve_Check_beberapa_data_Klik_Reject() throws InterruptedException {
         repay.bulkBeberapaReject();
     }
 
-    @When("Klik Bulk Approve Check beberapa data Klik Reject Klik Batal")
+    @And("Klik Bulk Approve Check beberapa data Klik Reject Klik Batal")
     public void klik_Bulk_Approve_Check_beberapa_data_Klik_Reject_Klik_Batal() {
         repay.bulkBeberapaRejectAndBatal();
     }
 
-    @When("Klik Bulk Approve Check beberapa data Klik Reject Klik Submit")
-    public void klik_Bulk_Approve_Check_beberapa_data_Klik_Reject_Klik_Submit() {
+    @And("Klik Bulk Approve Check beberapa data Klik Reject Klik Submit")
+    public void klik_Bulk_Approve_Check_beberapa_data_Klik_Reject_Klik_Submit() throws InterruptedException {
         repay.bulkBeberapaRejectAndSubmit();
     }
 
-    @When("Klik Bulk Approve Check All Klik Reject")
+    @And("Klik Bulk Approve Check All Klik Reject")
     public void klik_Bulk_Approve_Check_All_Klik_Reject() {
         repay.bulkAllReject();
     }
 
-    @When("Klik Bulk Approve Check All Klik Reject Klik Batal")
+    @And("Klik Bulk Approve Check All Klik Reject Klik Batal")
     public void klik_Bulk_Approve_Check_All_Klik_Reject_Klik_Batal() {
         repay.bulkAllRejectAndBatal();
     }
 
-    @When("Klik Bulk Approve Tidak Check Data Klik Approve")
+    @And("Klik Bulk Approve Tidak Check Data Klik Approve")
     public void klik_Bulk_Approve_Tidak_Check_Data_Klik_Approve() {
         repay.bulkApprvAndTidakCheckDataKlikApprv();
     }
 
-    @When("Klik Bulk Approve Tidak Check Data Klik Reject")
-    public void klik_Bulk_Approve_Tidak_Check_Data_Klik_Reject() {
+    @And("Klik Bulk Approve Tidak Check Data Klik Reject")
+    public void klik_Bulk_Approve_Tidak_Check_Data_Klik_Reject() throws InterruptedException {
         repay.bulkApprvTidakCheckDataKlikReject();
     }
 
-    @When("Verifikasi card Hasil Approval setelah Bulk Reject data")
+    @And("Verifikasi card Hasil Approval setelah Bulk Reject data")
     public void verifikasi_card_Hasil_Approval_setelah_Bulk_Reject_data() {
         repay.verifyBulkRejected();
     }
 
-    @When("Klik Bulk Edit Check pada beberapa data status Pending Batch Run")
-    public void klik_Bulk_Edit_Check_pada_beberapa_data_status_Pending_Batch_Run() {
+    @And("Klik Bulk Edit Check pada beberapa data status Pending Batch Run")
+    public void klik_Bulk_Edit_Check_pada_beberapa_data_status_Pending_Batch_Run() throws InterruptedException {
         repay.bulkEdit();
     }
 
-    @When("Klik Bulk Edit Check All")
-    public void klik_Bulk_Edit_Check_All() {
+    @And("Klik Bulk Edit Check All")
+    public void klik_Bulk_Edit_Check_All() throws InterruptedException {
         repay.bulkEditCheckall();
     }
 
-    @When("Klik Bulk Edit Check pada beberapa data status Pending Batch Run Klik Cancel")
-    public void klik_Bulk_Edit_Check_pada_beberapa_data_status_Pending_Batch_Run_Klik_Cancel() {
+    @And("Klik Bulk Edit Check pada beberapa data status Pending Batch Run Klik Cancel")
+    public void klik_Bulk_Edit_Check_pada_beberapa_data_status_Pending_Batch_Run_Klik_Cancel() throws InterruptedException {
         repay.bulkEditCheckbeberapaAndCancel();
     }
 
-    @When("Klik Bulk Edit Check pada beberapa data status Pending Batch Run Klik Change Status")
-    public void klik_Bulk_Edit_Check_pada_beberapa_data_status_Pending_Batch_Run_Klik_Change_Status() {
+    @And("Klik Bulk Edit Check pada beberapa data status Pending Batch Run Klik Change Status")
+    public void klik_Bulk_Edit_Check_pada_beberapa_data_status_Pending_Batch_Run_Klik_Change_Status() throws InterruptedException {
         repay.bulkEditCheckBeberapaAndChange();
     }
 
-    @When("Klik Bulk Edit Check All Klik Cancel")
+    @And("Klik Bulk Edit Check All Klik Cancel")
     public void klik_Bulk_Edit_Check_All_Klik_Cancel() {
         repay.bulkEditCheckAllAndCancel();
     }
 
-    @When("Approve data yang telah di update statusnya")
-    public void approve_data_yang_telah_di_update_statusnya() {
+    @And("Approve data yang telah di update statusnya")
+    public void approve_data_yang_telah_di_update_statusnya() throws InterruptedException {
         repay.apprvAfterEdited();
     }
 
-    @When("Reject data yang telah di update statusnya")
-    public void reject_data_yang_telah_di_update_statusnya() {
+    @And("Reject data yang telah di update statusnya")
+    public void reject_data_yang_telah_di_update_statusnya() throws InterruptedException {
         repay.rejectAfterEdited();
     }
 }

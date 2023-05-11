@@ -3,53 +3,53 @@ Feature: Lending Chanelling
   @realizationForm
   Scenario: Realization Form
     Given open browser and login as a role ldap maker
-#    Then click icon notifikasi and verify notifikasi saat data realisasi masuk LOS
+    Then click icon notifikasi and verify notifikasi saat data realisasi masuk LOS
 #      And verify notifikasi setelah file masuk
     Then click menu realization
-#    Then verify data form table realization dan search application number berdasarkan status
-#      And verify data realisasi form dengan status waiting approval
-#    Then verify data form table realisasi
-#      And verify data realisasi source
-#      And verify data realisasi application no
-#      And verify data realisasi debtor name
-#      And verify data realisasi partner
-#      And verify data realisasi date
-#      And verify data realisasi loan amount
-#      And verify data realisasi rate
-#    Then click debtor name realisasi
-#      And verify data detail realisasi partner
-#      And verify data detail realisasi debtor name
-#      And verify data detail realisasi status
-#      And verify data detail realisasi app no
-#      And verify data detail realisasi tanggal pengajuan
-#      And verify data detail realisasi jenis debitur
-#      And verify data detail realisasi plafon
-#      And verify data detail realisasi jangka waktu
-#      And verify data detail realisasi interest rate
-#      And verify data detail realisasi jenis kredit
-#      And verify data detail realisasi jenis penggunaan
-#      And verify data detail realisasi nomor PK
-#      And verify data detail realisasi tanggal akad
-#      And verify data detail realisasi tanggal angsuran I
-#      And verify data detail realisasi nomor NPWP
-#      And verify data detail realisasi no telp
-#      And verify data detail realisasi alamat
-#      And verify data detail realisasi alamat kelurahan
-#      And verify data detail realisasi alamat kecamatan
-#      And verify data detail realisasi alamat kode pos
-#      And verify data detail realisasi alamat kode DATI II
-#      And verify data detail realisasi bidang usaha
-#      And verify data detail realisasi bentuk badan usaha
-#      And verify data detail realisasi sektor ekonomi
-#      And verify data detail realisasi go public
-#      And verify data detail realisasi sandi golongan debitur
-#      And verify data detail realisasi penghasilan kotor per tahun
-#      And verify data detail realisasi omzet
-#      And verify data detail realisasi no akte
-#      And verify data detail realisasi no akte terakhir
-#      And verify data detail realisasi tanggal akte terakhir
-#      And verify data detail realisasi tanggal berdiri
-#      And verify data detail realisasi tempat berdiri badan usaha
+    Then verify data form table realization dan search application number berdasarkan status
+      And verify data realisasi form dengan status waiting approval
+    Then verify data form table realisasi
+      And verify data realisasi source
+      And verify data realisasi application no
+      And verify data realisasi debtor name
+      And verify data realisasi partner
+      And verify data realisasi date
+      And verify data realisasi loan amount
+      And verify data realisasi rate
+    Then click debtor name realisasi
+      And verify data detail realisasi partner
+      And verify data detail realisasi debtor name
+      And verify data detail realisasi status
+      And verify data detail realisasi app no
+      And verify data detail realisasi tanggal pengajuan
+      And verify data detail realisasi jenis debitur
+      And verify data detail realisasi plafon
+      And verify data detail realisasi jangka waktu
+      And verify data detail realisasi interest rate
+      And verify data detail realisasi jenis kredit
+      And verify data detail realisasi jenis penggunaan
+      And verify data detail realisasi nomor PK
+      And verify data detail realisasi tanggal akad
+      And verify data detail realisasi tanggal angsuran I
+      And verify data detail realisasi nomor NPWP
+      And verify data detail realisasi no telp
+      And verify data detail realisasi alamat
+      And verify data detail realisasi alamat kelurahan
+      And verify data detail realisasi alamat kecamatan
+      And verify data detail realisasi alamat kode pos
+      And verify data detail realisasi alamat kode DATI II
+      And verify data detail realisasi bidang usaha
+      And verify data detail realisasi bentuk badan usaha
+      And verify data detail realisasi sektor ekonomi
+      And verify data detail realisasi go public
+      And verify data detail realisasi sandi golongan debitur
+      And verify data detail realisasi penghasilan kotor per tahun
+      And verify data detail realisasi omzet
+      And verify data detail realisasi no akte
+      And verify data detail realisasi no akte terakhir
+      And verify data detail realisasi tanggal akte terakhir
+      And verify data detail realisasi tanggal berdiri
+      And verify data detail realisasi tempat berdiri badan usaha
 #    Then verify detail pengurus
 #      And verifikasi data No Aplikasi 17karakter
 #      And verifikasi data no urut pengurus 2karakter numerik
@@ -114,7 +114,7 @@ Feature: Lending Chanelling
 #      And verify data realisasi form dengan status approval expired
 #      And click debtor name rea dengan status expired
     Then verify status pending
-      And verify data realisasi form dengan status pending
+       And verify data realisasi form dengan status pending
       And click debtor name rea dengan status pending
       And reconsume dengan no aplikasi status pending
 #    Then change all status for repayment

@@ -109,6 +109,11 @@ public class RealizationFormPage extends BaseAction{
     public static final By jmlPengurus              =By.xpath("//tr[td='Jumlah Pengurus:']//following-sibling::td");
     public static final By sandiJbtBI               = By.xpath("//tr[td='Sandi Jabatan BI:']//following-sibling::td");
     public static final By pangsaKepemilikan        = By.xpath("//tr[td='Pangsa Kepemilikan:']//following-sibling::td");
+    public static final By pangsaKepemilikanRw1        = By.xpath("//th[@class= 'details-control sorting'][4]");
+    public static final By pangsaKepemilikanRw2        = By.xpath("//th[@class= 'details-control sorting'][4]");
+    public static final By pengurusPalingKiri1        = By.xpath("//th[@class= 'details-control sorting sorting_asc']");
+    public static final By pengurusPalingKiri2        = By.xpath("//th[@class= 'details-control sorting sorting_asc']");
+    public static final By pengurusPalingKiri3        = By.xpath("(//td[@class= 'details-control sorting_1'])[3]");
     public static final By bentukPengurus           = By.xpath("//tr[td='Bentuk Pengurus:']//following-sibling::td");
     public static final By mdlDasar               = By.xpath("//tr[td='Modal Dasar:']//following-sibling::td");
     public static final By mdlDisetor             = By.xpath("//tr[td='Modal Disetor:']//following-sibling::td");
@@ -136,6 +141,12 @@ public class RealizationFormPage extends BaseAction{
     public static final By pangsaList2               = By.xpath("//td[text()='2']//following-sibling::td[4]");
     public static final By pangsaList3               = By.xpath("//td[text()='3']//following-sibling::td[4]");
     public static final By pangsaList4               = By.xpath("//td[text()='4']//following-sibling::td[4]");
+    public static final By headerPengurus1               = By.xpath("//td[@class= 'details-control sorting_1' and text()= '1']");
+    public static final By headerPengurus2               = By.xpath("//td[@class= 'details-control sorting_1' and text()= '2']");
+    public static final By headerPengurus3               = By.xpath("//td[@class= 'details-control sorting_1' and text()= '3']");
+    public static final By headerPengurus4               = By.xpath("//td[@class= 'details-control sorting_1' and text()= '4']");
+    public static final By dropFilterStatus               = By.xpath("//*[@id= 'select2-filterStatus-container']");
+    public static final By filterStatusByExpired               = By.xpath("//li[text()= 'Approval Expired']");
 
 
     private static final WebDriver driver = FormRealizationRunner.driver;
@@ -205,23 +216,23 @@ public class RealizationFormPage extends BaseAction{
     }
     public void verifyNotification() {
         iRowPictName = 1;
-//        createTestSkip(iRowPictName, extent_test_case, extent);
+        createTestSkip(iRowPictName, extent_test_case, extent,"Skipped");
 
-        List<WebElement> ListRow = driver.findElements(By.xpath("//tr[1][@class='pointer'] //td[2][contains(text(),'Realisasi')][contains(text(),'KOMUNAL')] | //tr[1][@class='pointer'] //td[2][contains(text(),'Realisasi')][contains(text(),'AKSELERAN')] "));
-        value                    = "";
-        boolean dataConsume      = driver.findElement(By.xpath("//tr[1][@class='pointer'] //td[2][contains(text(),'Realisasi')][contains(text(),'KOMUNAL')] | //tr[1][@class='pointer'] //td[2][contains(text(),'Realisasi')][contains(text(),'AKSELERAN')] ")).isDisplayed();
-        for (WebElement webElement : ListRow) {
-            if (webElement.getText().contains("KOMUNAL")) {
-                value            = webElement.getText();
-            } else if (webElement.getText().contains("AKSELERAN")) {
-                value            = webElement.getText();
-            }
-        }
-
-        status_testCase(iRowPictName, true, value);
-        createTest(iRowPictName, extent_test_case, extent);
-        verifyValueDisplay(dataConsume,true, "Consume data berhasil"+value);
-        takeScreenshot.capture(driver);
+//        List<WebElement> ListRow = driver.findElements(By.xpath("//tr[1][@class='pointer'] //td[2][contains(text(),'Realisasi')][contains(text(),'KOMUNAL')] | //tr[1][@class='pointer'] //td[2][contains(text(),'Realisasi')][contains(text(),'AKSELERAN')] "));
+//        value                    = "";
+//        boolean dataConsume      = driver.findElement(By.xpath("//tr[1][@class='pointer'] //td[2][contains(text(),'Realisasi')][contains(text(),'KOMUNAL')] | //tr[1][@class='pointer'] //td[2][contains(text(),'Realisasi')][contains(text(),'AKSELERAN')] ")).isDisplayed();
+//        for (WebElement webElement : ListRow) {
+//            if (webElement.getText().contains("KOMUNAL")) {
+//                value            = webElement.getText();
+//            } else if (webElement.getText().contains("AKSELERAN")) {
+//                value            = webElement.getText();
+//            }
+//        }
+//
+//        status_testCase(iRowPictName, true, value);
+//        createTest(iRowPictName, extent_test_case, extent);
+//        verifyValueDisplay(dataConsume,true, "Consume data berhasil"+value);
+//        takeScreenshot.capture(driver);
     }
 
     public void verifyWaitingApproval() {
@@ -381,7 +392,6 @@ public class RealizationFormPage extends BaseAction{
         scrollIntoView(driver, dtlPartner);
         value    = getText(driver, dtlPartner);
         expected = readTestData.companyName;
-        status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
         if (readTestData.environment.equals("E2E")) {
             verifyValue(value,expected);
@@ -405,19 +415,21 @@ public class RealizationFormPage extends BaseAction{
 
         value    = getText(driver, dtlStatus);
         expected = "Waiting Approval";
-        status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
-        verifyValue(value,expected);takeScreenshot.capture(driver);
+        scrollIntoView(driver, dtlBtnBack);
+        takeScreenshot.capture(driver);
+        verifyValue(value,expected);
     }
     public void detailAppNo() throws IOException {
         String[] arr = readCSVFormApproval.fileCSVRea();
         iRowPictName = iRowPictName + iSeq;
 
+        createTest(iRowPictName, extent_test_case, extent);
+        scrollIntoView(driver, dtlPartner);
         value    = getText(driver, dtlAppId);
         expected = arr[30];
-        status_testCase(iRowPictName, true, value);
-        createTest(iRowPictName, extent_test_case, extent);
-        verifyValue(value,expected);takeScreenshot.capture(driver);
+        takeScreenshot.capture(driver);
+        verifyValue(value,expected);
     }
     public void detailTanggalPengajuan() throws IOException {
         iRowPictName = iRowPictName + iSeq;
@@ -556,7 +568,7 @@ public class RealizationFormPage extends BaseAction{
         createTest(iRowPictName, extent_test_case, extent);
         verifyValue(value,expected);takeScreenshot.capture(driver);
     }
-    public void detailAlamat() throws IOException {
+    public void     detailAlamat() throws IOException {
         String[] arr = readCSVFormApproval.fileCSVRea();
         iRowPictName = iRowPictName + iSeq;
 
@@ -746,14 +758,13 @@ public class RealizationFormPage extends BaseAction{
         writeText(driver, txtSearch, no_app1);//noapp1
         click(driver, rwDatafirstApp1);
 
+        scrollIntoView(driver,dtlPartner);
         value = getText(driver, dtlCertDeadline);
         expected = formattedToday;
-        scrollDown(driver, body);Thread.sleep(300);
-        status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
         verifyValue(value,expected);
         takeScreenshot.capture(driver);
-        scrollUp(driver, body);Thread.sleep(300);
+        scrollIntoView(driver, dtlBtnBack);
         click(driver, dtlBtnBack);
     }
     public void detailTanggalAkteYesterday() throws IOException, InterruptedException {
@@ -784,7 +795,6 @@ public class RealizationFormPage extends BaseAction{
 
         value    = getText(driver, dtlCertPublish);
         expected = getText(driver, dtlCertDeadline);
-        scrollIntoView(driver, tblPengurus); Thread.sleep(300);
         status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
         verifyValue(value,expected);
@@ -806,10 +816,9 @@ public class RealizationFormPage extends BaseAction{
         value = getText(driver, txtTbl_statusRea);
         click(driver, rwDatafirstApp1);
 
+        scrollIntoView(driver, dtlPartner);
         value    = getText(driver, dtlCertPublish);
         expected = getText(driver, dtlCertDeadline);
-        scrollIntoView(driver, tblPengurus); Thread.sleep(300);
-        status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
         verifyValueNotEquals(value,expected, "Not Equals ______________ : Tanggal Akte berdiri dan Tanggal Akte terakhir berbeda");
         takeScreenshot.capture(driver);
@@ -889,11 +898,11 @@ public class RealizationFormPage extends BaseAction{
         iRowPictName = iRowPictName + iSeq;
 //        createTestSkip(iRowPictName, extent_test_case, extent);
 
+        createTest(iRowPictName, extent_test_case, extent);
+        takeScreenshot.capture(driver);
         value    = getText(driver, dtlStatus);
         expected = "Waiting Approval";
         click(driver, dtlBtnApprove);
-        status_testCase(iRowPictName, true, value);
-        createTest(iRowPictName, extent_test_case, extent);
         verifyValue(value,expected);
         takeScreenshot.capture(driver);
 
@@ -922,11 +931,11 @@ public class RealizationFormPage extends BaseAction{
         writeText(driver, txtSearch, no_app2);
         click(driver, rwDatafirstApp1);
 
+        createTest(iRowPictName, extent_test_case, extent);
+        takeScreenshot.capture(driver);
         value    = getText(driver, dtlStatus);
         expected = "Waiting Approval";
         click(driver, dtlBtnReject);
-        status_testCase(iRowPictName, true, value);
-        createTest(iRowPictName, extent_test_case, extent);
         verifyValue(value,expected);
         takeScreenshot.capture(driver);
 
@@ -1286,6 +1295,7 @@ public class RealizationFormPage extends BaseAction{
         createInfo(extent_test_case, "Data alamat sebelum reconsume : "+value2);
         createInfo(extent_test_case, "Data alamat sesudah reconsume : "+value3);
         takeScreenshot.capture(driver);
+        verifyValue(no_app1, getText(driver, dtlAppId));
 
         click(driver, dtlBtnBack);
     }
@@ -1418,13 +1428,14 @@ public class RealizationFormPage extends BaseAction{
         iRowPictName = 97;
 //        createTestSkip(iRowPictName, extent_test_case, extent);
 
+        click(driver, dropFilterStatus); scrollIntoView(driver, filterStatusByExpired);
+        click(driver, filterStatusByExpired);
         writeText(driver, txtSearch, no_app5);
         value    = getText(driver, txtTbl_nomorAplikasi);
         expected = arr[150];
-        status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
         verifyValue(value,expected);
-        value    = getText(driver, txtTbl_statusRea2);
+        value    = getText(driver, txtTbl_statusRea);
         expected = "Approval Expired";
         verifyValue(value,expected);
         takeScreenshot.capture(driver);
@@ -1432,14 +1443,16 @@ public class RealizationFormPage extends BaseAction{
     public void klikStatusApprovalExpired() {
         iRowPictName = 98;
 //        createTestSkip(iRowPictName, extent_test_case, extent);
+        createTest(iRowPictName, extent_test_case, extent);
 
-        click(driver, rwDatafirstApp2);
+        expected = "Approval Expired";
+        value2 = getText(driver, txtTbl_statusRea);
+        takeScreenshot.capture(driver);
+        verifyValue(expected, value2);
+        click(driver, rwDatafirstApp1);
         isPresent(driver, dtlAppId);
 
         value = getText(driver, dtlStatus);
-        expected = "Approval Expired";
-        status_testCase(iRowPictName, true, value);
-        createTest(iRowPictName, extent_test_case, extent);
         verifyValue(value,expected);
         takeScreenshot.capture(driver);
 
@@ -1459,7 +1472,7 @@ public class RealizationFormPage extends BaseAction{
         dataCSV.dataDummy(Const.appFile, Const.reaFile, "10");
         DummyPendingAppform_BU connServer2 = new DummyPendingAppform_BU();
         connServer2.serverAkses();
-//
+
 //        menuNotification();
 //        List<WebElement> ListRow = driver.findElements(By.xpath("//tr[1][@class='pointer'] //td[2][contains(text(),'Realisasi')][contains(text(),'PT Tes Pending')] | //tr[1][@class='pointer'] //td[2][contains(text(),'Approval')][contains(text(),'PT Tes Pending')] "));
 //        String getColPartnerNotif= "";
@@ -1519,18 +1532,23 @@ public class RealizationFormPage extends BaseAction{
         iRowPictName = 100;
 //        createTestSkip(iRowPictName, extent_test_case, extent);
 
+        createTest(iRowPictName, extent_test_case, extent);
+        takeScreenshot.capture(driver);
+        expected = "Pending";
+
         long plafonCsv1 = Long.parseLong(removeZero(arr[47]));
         if (!txtTbl_loanAmount.equals(plafonCsv1)) {
+            value2 = getText(driver, txtTbl_statusRea);
+            verifyValue(expected, value2);
             click(driver, rwDatafirstApp1);
         } else {
+            value2 = getText(driver, txtTbl_statusRea2);
+            verifyValue(expected, value2);
             click(driver, rwDatafirstApp2);
         }
         isPresent(driver, dtlAppId);
 
         value = getText(driver, dtlStatus);
-        expected = "Pending";
-        status_testCase(iRowPictName, true, value);
-        createTest(iRowPictName, extent_test_case, extent);
         verifyValue(value,expected);
         takeScreenshot.capture(driver);
 
@@ -1599,12 +1617,13 @@ public class RealizationFormPage extends BaseAction{
         verifyValue(value,expected);
         value3 = getText(driver, dtlAddress);
         expected = value4;
+        String expected2 = getText(driver, dtlAppId);
         createInfo(extent_test_case, "Data baru reconsume masuk berhasil, data alamat tidak sama sebelum reconsume dan data berhasil ke replace");
         verifyValueNotEquals(value3,expected, "data alamat consume pertama dan kedua berbeda");
         createInfo(extent_test_case, "Data alamat sebelum reconsume : "+value2);
         createInfo(extent_test_case, "Data alamat sesudah reconsume : "+value3);
         takeScreenshot.capture(driver);
-
+        verifyValue(expected2, getText(driver, dtlAppId));
         click(driver, dtlBtnBack);
     }
 
@@ -1688,10 +1707,11 @@ public class RealizationFormPage extends BaseAction{
     }
     public void verifyNoApp17Char() throws IOException, InterruptedException {
         String[] arr = readCSVFormApproval.fileCSVPengurusForm();
-        iRowPictName = iRowPictName + iSeq;
+        iRowPictName = 43; //43
 
         value = getText(driver, noAplikasi);
         expected = arr[21];
+        scrollIntoView(driver, dtlPartner);
         createTest(iRowPictName, extent_test_case, extent);
         verifyLength(arr[21], arr[21].length(),17 );
         verifyValue(value, expected);
@@ -1705,7 +1725,7 @@ public class RealizationFormPage extends BaseAction{
         iRowPictName = iRowPictName + iSeq;
 
 //        scrollPageDown(driver, dtlBtnApprove);
-        scrollIntoView(driver, noUrutPengurus);
+        scrollIntoView(driver, headerPengurus1);
         value = getText(driver,noUrutPengurus);
         int expected2 = Integer.parseInt(removeZero(arr[22]));
         expected = String.valueOf(expected2);
@@ -1732,12 +1752,14 @@ public class RealizationFormPage extends BaseAction{
         iRowPictName = iRowPictName + iSeq;
 
         click(driver, expand2);
-        scrollIntoView(driver, noUrutPengurus);
+        scrollIntoView(driver, headerPengurus2);
         value = getText(driver, sandiJbtBI);
         expected = ReadTestData.enumerasiSandiJabatan(arr[24+row2]);
         createTest(iRowPictName, extent_test_case, extent);
         verifyLength(arr[24+row2], arr[24+row2].length(),1);
         verifyValue(value, expected);
+        scrollIntoView(driver, pangsaKepemilikanRw2); takeScreenshot.capture(driver);
+        scrollIntoView(driver, pengurusPalingKiri2);
         takeScreenshot.capture(driver);
     }
     public void verifyJbtnBI2Char() throws IOException {
@@ -1749,6 +1771,9 @@ public class RealizationFormPage extends BaseAction{
         createTest(iRowPictName, extent_test_case, extent);
         verifyLength(arr[24],arr[24].length(),2);
         verifyValue(value, expected);
+        scrollIntoView(driver, pangsaKepemilikanRw1);
+        takeScreenshot.capture(driver);
+        scrollIntoView(driver, pengurusPalingKiri1);
         takeScreenshot.capture(driver);
     }
     public void verifyPangsa5Char() throws IOException {
@@ -1760,6 +1785,9 @@ public class RealizationFormPage extends BaseAction{
         long expected2 = Long.parseLong(arr[25]);
         expected = String.valueOf(expected2);
         createTest(iRowPictName, extent_test_case, extent);
+        scrollIntoView(driver, pangsaKepemilikanRw1);
+        takeScreenshot.capture(driver);
+        scrollIntoView(driver, pengurusPalingKiri1);
         verifyLength(arr[25],arr[25].length(),5);
         verifyValue(value, expected);
         takeScreenshot.capture(driver);
@@ -1981,10 +2009,12 @@ public class RealizationFormPage extends BaseAction{
         verifyValue(value, expected);
         takeScreenshot.capture(driver);
     }
-    public void verifyNoAkter29Char() throws IOException {
+    public void verifyNoAkter29Char() throws IOException, InterruptedException {
         String[] arr = readCSVFormApproval.fileCSVPengurusForm();
         iRowPictName = iRowPictName + iSeq;
 
+
+        scrollPageDown(driver, dtlBtnApprove);Thread.sleep(500);
         value = getText(driver, noAkte);
         expected = arr[37];
         createTest(iRowPictName, extent_test_case, extent);
@@ -2033,7 +2063,6 @@ public class RealizationFormPage extends BaseAction{
         String[] arr = readCSVFormApproval.fileCSVPengurusForm();
         iRowPictName = iRowPictName + iSeq;
 
-        scrollPageDown(driver, dtlBtnApprove);Thread.sleep(500);
         value = getText(driver, noKtp);
         expected = arr[36];
         createTest(iRowPictName, extent_test_case, extent);
@@ -2141,33 +2170,34 @@ public class RealizationFormPage extends BaseAction{
     }
     public void verifyNoApp30Char() throws IOException, InterruptedException {
 
-//        createTestSkip(iRowPictName, FormRealizationRunner.extent_test_case, FormRealizationRunner.extent);
-
         iRowPictName = iRowPictName + iSeq;
-
-        //Change appNo
-        scrollPageUp(driver, body);
-        scrollIntoView(driver, dtlBtnBack);
-        click(driver,dtlBtnBack);
-
-        String[] arrApp = readCSVFormApproval.fileCSVAppForm2();
-
-
-        writeText(driver, inputSearch, arrApp[8]);
-        click(driver, rwDatafirstApp1);
-        isPresent(driver, dtlAppId);
-
-
-        value = getText(driver, dtlAppId);
-        expected = arrApp[8];
-        createTest(iRowPictName, extent_test_case, extent);
-        verifyLength(arrApp[8],arrApp[8].length(),30);
-        verifyValue(value, expected);
-        takeScreenshot.capture(driver);
-
-        scrollUp(driver, body);
-        scrollIntoView(driver, dtlBtnBack);
-        click(driver, dtlBtnBack);
+        createTestSkip(iRowPictName, extent_test_case, extent, "Partner belum disesuaikan");
+//        createTest(iRowPictName, extent_test_case, extent);
+//
+//
+////        //Change appNo
+////        scrollPageUp(driver, body);
+////        scrollIntoView(driver, dtlBtnBack);
+////        click(driver,dtlBtnBack);
+//
+//        String[] arrApp = readCSVFormApproval.fileCSVAppForm2();
+//
+//
+//        writeText(driver, inputSearch, arrApp[8]);
+//        click(driver, rwDatafirstApp1);
+//        isPresent(driver, dtlAppId);
+//
+//
+//        value = getText(driver, dtlAppId);
+//        expected = arrApp[8];
+//        createTest(iRowPictName, extent_test_case, extent);
+//        verifyLength(arrApp[8],arrApp[8].length(),30);
+//        verifyValue(value, expected);
+//        takeScreenshot.capture(driver);
+//
+//        scrollUp(driver, body);
+//        scrollIntoView(driver, dtlBtnBack);
+//        click(driver, dtlBtnBack);
     }
     public void verifyJnsKelPengL() throws IOException, InterruptedException {
         String[] arr = readCSVFormApproval.fileCSVPengurusForm();
@@ -2209,6 +2239,9 @@ public class RealizationFormPage extends BaseAction{
 
         scrollPageUp(driver, dtlBtnApprove); Thread.sleep(500);
         click(driver, expand4);
+
+        scrollIntoView(driver, dtlBtnBack);
+        click(driver, dtlBtnBack);
     }
     public void changeAllStatus() throws IOException, InterruptedException {
         String[] arr;
@@ -2216,7 +2249,32 @@ public class RealizationFormPage extends BaseAction{
         arr = readCSVFormApproval.fileCSVAppForm();
 
         int index = 8;
-        for (int i = index; i < arr.length; i++) { //40
+        for (int i = index; i < arr.length; i++) {
+            if (i % index == 0) {
+                clearText(driver, txtSearch);
+                isPresent(driver, rwDatafirstApp1);
+                writeText(driver, txtSearch, arr[i]);
+                value = getText(driver, txtTbl_statusRea).toLowerCase();
+                if (value.equals("waiting approval")) {
+                    click(driver, rwDatafirstApp1);
+                    click(driver, dtlBtnApprove);
+                    click(driver, dtlBtnConfirmYes);
+                    index = index + 8;
+                } else {
+                    index = index + 8;
+                }
+            }
+            clearText(driver, txtSearch);
+        }
+    }
+    public void changeAllForRepayment() throws IOException, InterruptedException {
+        String[] arr;
+        ReadCSVFormApproval readCSVFormApproval = new ReadCSVFormApproval();
+        arr = readCSVFormApproval.fileCSVAppForm();
+        menuRealizationForm();
+
+        int index = 8;
+        for (int i = index; i < arr.length; i++) {
             if (i % index == 0) {
                 clearText(driver, txtSearch);
                 isPresent(driver, rwDatafirstApp1);

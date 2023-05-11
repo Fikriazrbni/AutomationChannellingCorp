@@ -53,8 +53,9 @@ public class FormRealizationRunner extends AbstractTestNGCucumberTests {
 //        connServer.serverAkses();
 
         WebDriverManager.edgedriver().setup();
-        driver = new EdgeDriver();
         EdgeOptions options = new EdgeOptions();
+        options.addArguments("--remote-allow-origins=*");
+        driver = new EdgeDriver(options);
 //        try {
 //            driver = new RemoteWebDriver(new URL("http://localhost:4444"), options); //
 //        } catch (MalformedURLException e) {

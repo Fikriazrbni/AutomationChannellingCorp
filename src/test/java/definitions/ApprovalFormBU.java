@@ -198,6 +198,7 @@ public class ApprovalFormBU {
     @Then("approved yang status waiting approval untuk persiapan data realisasi")
     public void approvedYangStatusWaitingApprovalUntukPersiapanDataRealisasi()throws IOException, InterruptedException {
         appFile.changeAllAppIdStatusApproved();
+//        appFile.changeAllForRepayment();
     }
     @And("click debtor name dengan status approval expired")
     public void clickDebtorNameDenganStatusApprovalExpired() throws InterruptedException {
@@ -207,6 +208,9 @@ public class ApprovalFormBU {
 
     @Then("user maker logout")
     public void userMakerLogout() throws InterruptedException {
+//        appFile.testListener1();
+//        appFile.testListener2();
+//        appFile.testListener3();
         appFile.logout();
         driver.close();
     }

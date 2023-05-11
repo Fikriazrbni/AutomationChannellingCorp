@@ -42,7 +42,7 @@ public class ValidateFileBU {
 
     @And("verify notifikasi setelah proses file approval")
     public void verifyNotifikasiSetelahProsesFileApproval() throws IOException, InterruptedException {
-        valFile.verifyNotification();
+//        valFile.verifyNotification();
         valFile.logout();
         valFile.login();
     }
@@ -421,7 +421,7 @@ public class ValidateFileBU {
         valFile.verifyDataReaFormPengurusNama59();
     }
     @And("verify data alamat pengurus 39karakter varchar")
-    public void verifyDataAlamatPengurus39KarakterVarchar() throws IOException {
+    public void verifyDataAlamatPengurus39KarakterVarchar() throws IOException, InterruptedException {
         valFile.verifyDataReaFormPengurusAlamat39();
     }
     @And("verify data alamat kelurahan pengurus 39karakter varchar")

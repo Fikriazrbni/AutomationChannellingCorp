@@ -4,10 +4,14 @@ import capture.ImageExcel;
 import capture.TakeScreenshot;
 import elementsPage.Const;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import testData.ReadTestData;
 import writeFile.CountImages;
+
+import static elementsPage.Const.akunActive;
 
 public class LoginAsMaker {
 
@@ -46,6 +50,16 @@ public class LoginAsMaker {
             driver.findElement(Const.pwd).sendKeys(Const.uat_password);
         }
         driver.findElement(Const.btnLogin).click();
+        try {
+            WebElement accOn = driver.findElement(akunActive);
+            if (accOn.isDisplayed()) {
+                driver.findElement(Const.userId).sendKeys(Const.uat_userMaker);
+                driver.findElement(Const.pwd).sendKeys(Const.uat_password);
+                driver.findElement(Const.btnLogin).click();
+            }
+        } catch (NoSuchElementException e) {
+            System.out.println("login sukses");
+        }
     }
     public static void logoutMaker(WebDriver conn) throws InterruptedException {
         driver = conn;

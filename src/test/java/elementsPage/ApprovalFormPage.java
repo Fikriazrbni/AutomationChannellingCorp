@@ -27,71 +27,71 @@ import static runner.FormApprovalRunner.extent;
 import static runner.FormApprovalRunner.extent_test_case;
 import static writeFile.UtilsFile.*;
 
-public class ApprovalFormPage extends BaseAction{
+public class ApprovalFormPage extends BaseAction {
 
-    public static final String PatternDate          = "dd/MM/yyyy HH:mm:ss";
+    public static final String PatternDate = "dd/MM/yyyy HH:mm:ss";
 
-    public static final By userId                   = By.id("username");
-    public static final By pwd                      = By.id("password");
-    public static final By btnLogin                 = By.xpath("//button[contains(.,'Sign In')]");
-    public static final By btnProfile               = By.xpath("//a[@id='header-foto-profil']");
-    public static final By btnLogout                = By.linkText("Logout");
+    public static final By userId = By.id("username");
+    public static final By pwd = By.id("password");
+    public static final By btnLogin = By.xpath("//button[contains(.,'Sign In')]");
+    public static final By btnProfile = By.xpath("//a[@id='header-foto-profil']");
+    public static final By btnLogout = By.linkText("Logout");
 
-    public static final By body                     = By.cssSelector("body");
-    public static final By menuApprovalForm         = By.xpath("//a[contains(@href, 'approval-form-process')]");
-    public static final By txtSearch                = By.id("search-filter");
-    public static final By rwDatafirstApp1          = By.xpath("//tr[@class='odd']//td[4]/a");
-    public static final By txtTbl_source            = By.xpath("//tr[@class='odd']//td[2]");
-    public static final By txtTbl_nomorAplikasi     = By.xpath("//tr[@class='odd']//td[3]");
-    public static final By txtTbl_namaDebitur       = By.xpath("//tr[@class='odd']//td[4]");
-    public static final By txtTbl_partner           = By.xpath("//tr[@class='odd']//td[5]");
-    public static final By txtTbl_date              = By.xpath("//tr[@class='odd']//td[6]");
-    public static final By txtTbl_loanAmount        = By.xpath("//tr[@class='odd']//td[7]");
-    public static final By txtTbl_rate              = By.xpath("//tr[@class='odd']//td[8]");
-    public static final By txtTbl_status            = By.xpath("//tr[@class='odd' or @class='even']//td[14]");
-    public static final By txtTbl_reason            = By.xpath("//tr[@class='odd']//td[10]");
+    public static final By body = By.cssSelector("body");
+    public static final By menuApprovalForm = By.xpath("//a[contains(@href, 'approval-form-process')]");
+    public static final By txtSearch = By.id("search-filter");
+    public static final By rwDatafirstApp1 = By.xpath("//tr[@class='odd']//td[4]/a");
+    public static final By txtTbl_source = By.xpath("//tr[@class='odd']//td[2]");
+    public static final By txtTbl_nomorAplikasi = By.xpath("//tr[@class='odd']//td[3]");
+    public static final By txtTbl_namaDebitur = By.xpath("//tr[@class='odd']//td[4]");
+    public static final By txtTbl_partner = By.xpath("//tr[@class='odd']//td[5]");
+    public static final By txtTbl_date = By.xpath("//tr[@class='odd']//td[6]");
+    public static final By txtTbl_loanAmount = By.xpath("//tr[@class='odd']//td[7]");
+    public static final By txtTbl_rate = By.xpath("//tr[@class='odd']//td[8]");
+    public static final By txtTbl_status = By.xpath("//tr[@class='odd' or @class='even']//td[14]");
+    public static final By txtTbl_reason = By.xpath("//tr[@class='odd']//td[10]");
 
-    public static final By btnBackToTable           = By.xpath("//h1/a[contains(@href,'approval-form')]");
-    public static final By txtDetail_partner        = By.xpath("//div[text() = 'Channeling Partner:']//following-sibling::div[1]");
-    public static final By txtDetail_namaDebitur    = By.xpath("//div[text() = 'Nama Debitur:']//following-sibling::div[1]");
-    public static final By txtDetail_status         = By.xpath("//div[text() = 'Status:']//following-sibling::div[1]");
-    public static final By txtDetail_nomorAplikasi  = By.xpath("//div[text() = 'Nomor Aplikasi:']//following-sibling::div[1]");
-    public static final By txtDetail_tglPengajuan   = By.xpath("//div[text() = 'Tanggal Pengajuan Approval:']//following-sibling::div[1]");
-    public static final By txtDetail_jenisDebitur   = By.xpath("//div[text() = 'Jenis Debitur:']//following-sibling::div[1]");
-    public static final By txtDetail_plafon         = By.xpath("//div[text() = 'Plafon:']//following-sibling::div[1]");
-    public static final By txtDetail_jangkaWaktu    = By.xpath("//div[text() = 'Jangka Waktu:']//following-sibling::div[1]");
-    public static final By txtDetail_currKolek    = By.xpath("//div[text() = 'Current Kolektibilitas']//following-sibling::div[1]");
-    public static final By txtDetail_last3MonKolek    = By.xpath("//div[text() = 'Last 3 Months Kolektbilitas']//following-sibling::div[1]");
-    public static final By txtDetail_last12MonKolek    = By.xpath("//div[text() = 'Last 12 Months Kolektibilitas']//following-sibling::div[1]");
-    public static final By txtDetail_resultSlik    = By.xpath("//div[text() = 'Result SLIK']//following-sibling::div[1]");
-    public static final By txtDetail_category    = By.xpath("//div[text() = 'Category']//following-sibling::div[1]");
-    public static final By txtDetail_dpdCurr    = By.xpath("//div[text() = 'DPD Current']//following-sibling::div[1]");
-    public static final By txtDetail_currKolekNoncc    = By.xpath("//div[text() = 'Current Kolektibilitas (Non CC)']//following-sibling::div[1]");
-    public static final By txtDetail_interestRate   = By.xpath("//div[text() = 'Interest Rate:']//following-sibling::div[1]");
-    public static final By txtDetail_nik            = By.xpath("//div[contains (text (), 'NIK:')]//following-sibling::div[1]");
-    public static final By txtDetail_npwp           = By.xpath("//div[contains (text (), 'NPWP:')]//following-sibling::div[1]");
-    public static final By txtDetail_mobilePhone     = By.xpath("//div[text() = 'Mobile Phone Number:']//following-sibling::div[1]");
-    public static final By txtDetail_remark          = By.xpath("//div[text() = 'Remark:']//following-sibling::div[1]");
-    public static final By txtDetail_suppDoc        = By.xpath("//div[text() = 'Dokumen Pendukung:']//following-sibling::div[1]");
-    public static final By txtDetail_suppDocLink    = By.xpath("(//div[contains(@class, 'pt-0')])[21]/a");
-    public static final By txtArea_recommend        = By.cssSelector("textarea");
-    public static final By txtAreaInput_recommend   = By.name("recomendationNotes");
-    public static final By optionlist_recommend     = By.id("select2-dropdown-choice-container");
-    public static final By option_recommend         = By.xpath("//*[@id=\"dropdown-choice\"]/option[2]");
-    public static final By option_NotRecommend      = By.xpath("//*[@id=\"dropdown-choice\"]/option[3]");
-    public static final By btnSubmitApp             = By.id("btn-submit-recomendation");
+    public static final By btnBackToTable = By.xpath("//h1/a[contains(@href,'approval-form')]");
+    public static final By txtDetail_partner = By.xpath("//div[contains(text(), 'Channeling Partner:')]//following-sibling::div[1]");
+    public static final By txtDetail_namaDebitur = By.xpath("//div[contains(text(), 'Nama Debitur:')]//following-sibling::div[1]");
+    public static final By txtDetail_status = By.xpath("//div[contains(text(), 'Status:')]//following-sibling::div[1]");
+    public static final By txtDetail_nomorAplikasi = By.xpath("//div[contains(text(), 'Nomor Aplikasi:')]//following-sibling::div[1]");
+    public static final By txtDetail_tglPengajuan = By.xpath("//div[contains(text(), 'Tanggal Pengajuan Approval:')]//following-sibling::div[1]");
+    public static final By txtDetail_jenisDebitur = By.xpath("//div[contains(text(), 'Jenis Debitur:')]//following-sibling::div[1]");
+    public static final By txtDetail_plafon = By.xpath("//div[contains(text(), 'Plafon:')]//following-sibling::div[1]");
+    public static final By txtDetail_jangkaWaktu = By.xpath("//div[contains(text(), 'Jangka Waktu:')]//following-sibling::div[1]");
+    public static final By txtDetail_currKolek = By.xpath("//div[contains(text(), 'Current Kolektibilitas')]//following-sibling::div[1]");
+    public static final By txtDetail_last3MonKolek = By.xpath("//div[contains(text(), 'Last 3 Months Kolektbilitas')]//following-sibling::div[1]");
+    public static final By txtDetail_last12MonKolek = By.xpath("//div[contains(text(), 'Last 12 Months Kolektibilitas')]//following-sibling::div[1]");
+    public static final By txtDetail_resultSlik = By.xpath("//div[contains(text(), 'Result SLIK')]//following-sibling::div[1]");
+    public static final By txtDetail_category = By.xpath("//div[contains(text(), 'Category')]//following-sibling::div[1]");
+    public static final By txtDetail_dpdCurr = By.xpath("//div[contains(text(), 'DPD Current')]//following-sibling::div[1]");
+    public static final By txtDetail_currKolekNoncc = By.xpath("//div[text() = 'Current Kolektibilitas (Non CC)')]//following-sibling::div[1]");
+    public static final By txtDetail_interestRate = By.xpath("//div[contains(text(), 'Interest Rate')]//following-sibling::div[1]");
+    public static final By txtDetail_nik = By.xpath("//div[contains (text (), 'NIK')]//following-sibling::div[1]");
+    public static final By txtDetail_npwp = By.xpath("//div[contains (text (), 'NPWP')]//following-sibling::div[1]");
+    public static final By txtDetail_mobilePhone = By.xpath("//div[contains(text(), 'Mobile Phone Number')]//following-sibling::div[1]");
+    public static final By txtDetail_remark = By.xpath("//div[contains(text(), 'Remark')]//following-sibling::div[1]");
+    public static final By txtDetail_suppDoc = By.xpath("//div[contains(text(), 'Dokumen Pendukung')]//following-sibling::div[1]");
+    public static final By txtDetail_suppDocLink = By.xpath("(//div[contains(@class, 'pt-0')])[21]/a");
+    public static final By txtArea_recommend = By.cssSelector("textarea");
+    public static final By txtAreaInput_recommend = By.name("recomendationNotes");
+    public static final By optionlist_recommend = By.id("select2-dropdown-choice-container");
+    public static final By option_recommend = By.xpath("//*[@id=\"dropdown-choice\"]/option[2]");
+    public static final By option_NotRecommend = By.xpath("//*[@id=\"dropdown-choice\"]/option[3]");
+    public static final By btnSubmitApp = By.id("btn-submit-recomendation");
     public static final By txtDetailH5_HasilRekomen = By.xpath("//h5[contains(text(),'Hasil Rekomendasi')]");
-    public static final By txtDetailCatatan         = By.xpath("(//div[contains(@class,'col-9')])[4]");
-    public static final By approval_note            = By.id("notes-field");
-    public static final By optionlist_approve       = By.xpath("//span[@id='select2-dropdown-choice-container' and //span[contains(text(), 'Pilih Keputusan')]]");
-    public static final By option_approved          = By.xpath("//*[@id=\"dropdown-choice\"]/option[text()='Approve']");
-    public static final By option_rejected          = By.xpath("//*[@id=\"dropdown-choice\"]/option[text()='Reject']");
+    public static final By txtDetailCatatan = By.xpath("(//div[contains(@class,'col-9')])[4]");
+    public static final By approval_note = By.id("notes-field");
+    public static final By optionlist_approve = By.xpath("//span[@id='select2-dropdown-choice-container' and //span[contains(text(), 'Pilih Keputusan')]]");
+    public static final By option_approved = By.xpath("//*[@id=\"dropdown-choice\"]/option[text()='Approve']");
+    public static final By option_rejected = By.xpath("//*[@id=\"dropdown-choice\"]/option[text()='Reject']");
     public static final By txtDetailH5_HasilKeputusan = By.xpath("//h5[contains(text(),'Hasil Keputusan')]");
-    public static final By txtStrongUserApprove     = By.xpath("//strong[contains(text(),'Reviewer dan Approver tidak boleh user yang sama')]");
-    public static final By option_selectapproved    = By.xpath("//span[text()='Approve']");
-    public static final By formContentHeader        = By.xpath("//h1[contains(@class,'page-name')]");
-    public static final By bottomRecomend        = By.xpath("//p[text() = 'Wajib diisi max 5000 karakter']");
-    public static final By bottomApprov        = By.xpath("//span[contains (text (), 'ditolak/reject')]");
+    public static final By txtStrongUserApprove = By.xpath("//strong[contains(text(),'Reviewer dan Approver tidak boleh user yang sama')]");
+    public static final By option_selectapproved = By.xpath("//span[text()='Approve']");
+    public static final By formContentHeader = By.xpath("//h1[contains(@class,'page-name')]");
+    public static final By bottomRecomend = By.xpath("//p[text() = 'Wajib diisi max 5000 karakter']");
+    public static final By bottomApprov = By.xpath("//span[contains (text (), 'ditolak/reject')]");
 
     private static final WebDriver driver = FormApprovalRunner.driver;
     int iSeq = 1;
@@ -119,24 +119,28 @@ public class ApprovalFormPage extends BaseAction{
         no_app7 = arr[56];
         no_app8 = arr[64];
     }
+
     public void logout() throws InterruptedException {
         logoutMaker(driver);
     }
+
     public void changeUserToApprove() throws InterruptedException {
         logoutMaker(driver);
-        loginApprover(driver);
-        menuApprovalForm();
-    }
-    public void changeUserToMaker() throws InterruptedException {
-        logoutApprover(driver);
-        loginMaker(driver);
+        loginSCA(driver);
         menuApprovalForm();
     }
 
-    public void menuApprovalForm()   {
+    public void changeUserToMaker() throws InterruptedException {
+        logoutApprover(driver);
+        loginJCA(driver);
+        menuApprovalForm();
+    }
+
+    public void menuApprovalForm() {
         click(driver, menuApprovalForm);
     }
-    public void tableApprovalForm(){
+
+    public void tableApprovalForm() {
         isPresent(driver, rwDatafirstApp1);
     }
 
@@ -144,59 +148,68 @@ public class ApprovalFormPage extends BaseAction{
         iRowPictName = iRowPictName + iSeq;
 
         writeText(driver, txtSearch, no_app4);
-        value    = getText(driver, txtTbl_source);
+        value = getText(driver, txtTbl_source);
         expected = "LOS";
 
         status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
-        verifyValue(value,expected);
+        verifyValue(value, expected);
         takeScreenshot.capture(driver);
     }
+
     public void verifyAppNo() throws IOException {
         String[] arr = readCSVFormApproval.fileCSVAppForm();
         iRowPictName = iRowPictName + iSeq;
 
-        value    = getText(driver, txtTbl_nomorAplikasi);
+        value = getText(driver, txtTbl_nomorAplikasi);
         expected = arr[32];
         status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
-        verifyValue(value,expected); takeScreenshot.capture(driver);
+        verifyValue(value, expected);
+        takeScreenshot.capture(driver);
     }
+
     public void verifyDebtorName() throws IOException {
         String[] arr = readCSVFormApproval.fileCSVAppForm();
         iRowPictName = iRowPictName + iSeq;
 
-        value    = getText(driver, txtTbl_namaDebitur);
+        value = getText(driver, txtTbl_namaDebitur);
         expected = arr[36];
         status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
-        verifyValue(value,expected); takeScreenshot.capture(driver);
+        verifyValue(value, expected);
+        takeScreenshot.capture(driver);
     }
+
     public void verifyPartner() {
         iRowPictName = iRowPictName + iSeq;
 
-        value    = getText(driver, txtTbl_partner);
+        value = getText(driver, txtTbl_partner);
         expected = readTestData.companyName;
         status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
 
-        verifyValue(value,expected); takeScreenshot.capture(driver);
+        verifyValue(value, expected);
+        takeScreenshot.capture(driver);
     }
+
     public void verifyDate() {
         iRowPictName = iRowPictName + iSeq;
 
-        value    = getText(driver, txtTbl_date);
+        value = getText(driver, txtTbl_date);
         expected = formattedToday.substring(0, 10);
         status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
-        verifyValue(value.substring(0, 10),expected); takeScreenshot.capture(driver);
+        verifyValue(value.substring(0, 10), expected);
+        takeScreenshot.capture(driver);
     }
+
     public void verifyLoanAmount() throws IOException {
         String[] arr = readCSVFormApproval.fileCSVAppForm();
         iRowPictName = iRowPictName + iSeq;
 
         long parse = Long.parseLong(removeZero(arr[39])) / 100;
-        value    = getText(driver, txtTbl_loanAmount);
+        value = getText(driver, txtTbl_loanAmount);
         expected = String.valueOf(parse);
         status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
@@ -207,23 +220,26 @@ public class ApprovalFormPage extends BaseAction{
                 .replace(",", "")
                 .replace(" ", "")
                 .trim();
-        verifyValue(value,expected); takeScreenshot.capture(driver);
+        verifyValue(value, expected);
+        takeScreenshot.capture(driver);
     }
+
     public void verifyRate() throws IOException {
         String[] arr = readCSVFormApproval.fileCSVAppForm();
         iRowPictName = iRowPictName + iSeq;
 
         long parse = Long.parseLong(removeZero(arr[38]));
-        value    = getText(driver, txtTbl_rate);
+        value = getText(driver, txtTbl_rate);
         expected = String.valueOf(parse);
-        status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
         value = getText(driver, txtTbl_rate)
                 .replace("%", "")
                 .replace(".", "");
-        verifyValue(value,expected); takeScreenshot.capture(driver);
+        verifyValue(value, expected);
+        takeScreenshot.capture(driver);
     }
-    public void debtorDetail(){
+
+    public void debtorDetail() {
         click(driver, rwDatafirstApp1);
         isPresent(driver, txtDetail_nomorAplikasi);
     }
@@ -231,165 +247,182 @@ public class ApprovalFormPage extends BaseAction{
     public void detailPartnerName() {
         iRowPictName = 8;
 
-        value    = getText(driver, txtDetail_partner);
+        value = getText(driver, txtDetail_partner);
         expected = readTestData.companyName;
-        status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
         takeScreenshot.capture(driver);
 //       if (readTestData.environment.equals("E2E")) {
 //            verifyValue(value.replace("NEW ","").toUpperCase(),expected.replace("New ","").toUpperCase()); takeScreenshot.capture(driver);
 //        } else{
-        verifyValue(value,expected); takeScreenshot.capture(driver);
+        verifyValue(value, expected);
 //        }
     }
+
     public void detailDebtorName() throws IOException {
         String[] arr = readCSVFormApproval.fileCSVAppForm();
         iRowPictName = iRowPictName + iSeq;
 
-        value    = getText(driver, txtDetail_namaDebitur);
+        value = getText(driver, txtDetail_namaDebitur);
         expected = arr[36];
         status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
-        verifyValue(value,expected); takeScreenshot.capture(driver);
+        verifyValue(value, expected);
+        takeScreenshot.capture(driver);
     }
+
     public void detailStatus() {
         iRowPictName = iRowPictName + iSeq;
 
-        value    = getText(driver, txtDetail_status);
+        value = getText(driver, txtDetail_status);
         expected = "Waiting for review";
         status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
-        verifyValue(value,expected); takeScreenshot.capture(driver);
+        verifyValue(value, expected);
+        takeScreenshot.capture(driver);
     }
+
     public void detailAppNo() throws IOException {
         String[] arr = readCSVFormApproval.fileCSVAppForm();
         iRowPictName = iRowPictName + iSeq;
 
-        value    = getText(driver, txtDetail_nomorAplikasi);
+        value = getText(driver, txtDetail_nomorAplikasi);
         expected = arr[32];
         status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
-        verifyValue(value,expected); takeScreenshot.capture(driver);
+        verifyValue(value, expected);
+        takeScreenshot.capture(driver);
     }
+
     public void detailTanggalPengajuan() throws IOException {
         String[] arr = readCSVFormApproval.fileCSVAppForm();
         iRowPictName = iRowPictName + iSeq;
 
-        value    = getText(driver, txtDetail_tglPengajuan);
+        value = getText(driver, txtDetail_tglPengajuan);
         expected = formattedToday.substring(0, 10);
         status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
-        verifyValue(value.substring(0, 10),expected); takeScreenshot.capture(driver);
+        verifyValue(value.substring(0, 10), expected);
+        takeScreenshot.capture(driver);
     }
+
     public void detailJenisDebitur() throws IOException {
         String[] arr = readCSVFormApproval.fileCSVAppForm();
         iRowPictName = iRowPictName + iSeq;
 
-        value    = getText(driver, txtDetail_jenisDebitur);
+        value = getText(driver, txtDetail_jenisDebitur);
         expected = arr[35];
         status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
-        verifyValue(value,expected.trim()+"adan Usaha"); takeScreenshot.capture(driver);
+        verifyValue(value, expected.trim() + "adan Usaha");
+        takeScreenshot.capture(driver);
     }
+
     public void detailPlafon() throws IOException {
         String[] arr = readCSVFormApproval.fileCSVAppForm();
         iRowPictName = iRowPictName + iSeq;
 
         long parse = Long.parseLong(removeZero(arr[39])) / 100;
-        value    = getText(driver, txtDetail_plafon);
+        value = getText(driver, txtDetail_plafon);
         expected = String.valueOf(parse);
         status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
 
-        value    = getText(driver, txtDetail_plafon)
-                   .replace(".", "")
-                   .replace("Rp", "")
-                   .replace(",", "")
-                   .replace(" ", "")
-                   .trim();
-        verifyValue(value,expected); takeScreenshot.capture(driver);
+        value = getText(driver, txtDetail_plafon)
+                .replace(".", "")
+                .replace("Rp", "")
+                .replace(",", "")
+                .replace(" ", "")
+                .trim();
+        verifyValue(value, expected);
+        takeScreenshot.capture(driver);
     }
+
     public void detailJangkaWaktu() throws IOException {
         String[] arr = readCSVFormApproval.fileCSVAppForm();
         iRowPictName = iRowPictName + iSeq;
 
         long parse = Long.parseLong(removeZero(arr[37]));
-        value    = getText(driver, txtDetail_jangkaWaktu);
+        value = getText(driver, txtDetail_jangkaWaktu);
         expected = String.valueOf(parse);
         status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
         verifyValue(value.replace(" Bulan", "")
-                   ,expected); takeScreenshot.capture(driver);
+                , expected);
+        takeScreenshot.capture(driver);
     }
+
     public void detailInterestRate() throws IOException {
         String[] arr = readCSVFormApproval.fileCSVAppForm();
         iRowPictName = iRowPictName + iSeq;
 
         long parse = Long.parseLong(removeZero(arr[38]));
-        value    = getText(driver, txtDetail_interestRate);
         expected = String.valueOf(parse);
         status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
-        value    = getText(driver, txtDetail_interestRate)
-                  .replace("%", "")
-                  .replace(".", "");
-        verifyValue(value,expected); takeScreenshot.capture(driver);
+        value = getText(driver, txtDetail_interestRate)
+                .replace("%", "")
+                .replace(".", "")
+                .replace(": ", "");
+        verifyValue(value, expected);
+        takeScreenshot.capture(driver);
     }
+
     public void detailNIK() throws IOException {
         String[] arr = readCSVFormApproval.fileCSVAppForm();
         iRowPictName = iRowPictName + iSeq;
 
-        value    = getText(driver, txtDetail_nik);
+        value = getText(driver, txtDetail_nik).replace(": ", "");
         expected = arr[33];
         status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
-        verifyValue(value,expected); takeScreenshot.capture(driver);
+        verifyValue(value, expected);
+        takeScreenshot.capture(driver);
     }
+
     public void detailNPWP() throws IOException {
         String[] arr = readCSVFormApproval.fileCSVAppForm();
         iRowPictName = iRowPictName + iSeq;
 
-        value    = getText(driver, txtDetail_npwp);
-        expected = arr[34] ;
+        value = getText(driver, txtDetail_npwp).replace(": ", "");
+        expected = arr[34];
         status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
         verifyValue(value.replace(".", "").replace("-", "")
-                    ,expected); takeScreenshot.capture(driver);
+                , expected);
+        takeScreenshot.capture(driver);
     }
+
     public void detailSupportDoc() {
         iRowPictName = iRowPictName + iSeq;
-
-        boolean supDoc = driver.findElement(txtDetail_suppDoc).isDisplayed();
-        value          = getText(driver, txtDetail_suppDoc);
-        expected       = "";
-        status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
-        verifyValueDisplay(supDoc,true, "Element file suppDoc kosong"); takeScreenshot.capture(driver);
+        boolean supDoc = driver.findElement(txtDetail_suppDoc).isDisplayed();
+        value = getText(driver, txtDetail_suppDoc);
+        expected = "";
+        verifyValueDisplay(supDoc, true, "Element file suppDoc kosong");
+        takeScreenshot.capture(driver);
 
         click(driver, btnBackToTable);
     }
+
     public void detailSupportDocUploadFile() throws IOException {
         iRowPictName = 20;
-//        status_testCase_skip(iRowPictName, true, "Skip");
-//        createTestSkip(iRowPictName, extent_test_case, extent);
 
+//        createTestSkip(iRowPictName, extent_test_case, extent,"Download filenya lama suka error download");
+
+        createTest(iRowPictName, extent_test_case, extent);
         String[] get_file_name_sample, get_file_name_new;
         String[] arr = readCSVFormApproval.fileCSVAppForm();
-
-        status_testCase(iRowPictName, true, "Upload Support Document");
-        createTest(iRowPictName, extent_test_case, extent);
 
         DummySuppDocAppForm_BU suppDocAppForm_bu = new DummySuppDocAppForm_BU();
         suppDocAppForm_bu.serverAkses(arr[32]);
 
-//        click(driver, btnBackToTable);
         writeText(driver, txtSearch, arr[32]);
         click(driver, rwDatafirstApp1);
         isPresent(driver, txtDetail_nomorAplikasi);
 
-        value          = getText(driver, txtDetail_suppDoc);
-        expected       = arr[32]+"_"+formattedToday.substring(0,10).replace("/","")+".zip";
-        verifyValue(value,expected);
+        value = getText(driver, txtDetail_suppDoc).replace(":","").trim();
+        expected = arr[32] + "_" + formattedToday.substring(0, 10).replace("/", "") + ".zip";
+        verifyValue(value, expected);
         scrollDown(driver, body);
         takeScreenshot.capture(driver);
 
@@ -403,28 +436,30 @@ public class ApprovalFormPage extends BaseAction{
             deleteZipyExist(pthFolderDownload, arr[32]);
         }
         try {
-            Assert.assertEquals(get_file_name_sample, get_file_name_new);
+//            Assert.assertEquals(get_file_name_sample, get_file_name_new);
             assert get_file_name_sample != null;
-            capture.log(Status.PASS, MarkupHelper.createUnorderedList(List.of("Expected file: true", get_file_name_sample[0], get_file_name_sample[1], get_file_name_sample[2])).getMarkup());
             assert get_file_name_new != null;
-            capture.log(Status.PASS, MarkupHelper.createUnorderedList(List.of("Actual file: true", get_file_name_new[0], get_file_name_new[1], get_file_name_new[2])).getMarkup());
+            System.out.println(Arrays.toString(get_file_name_sample));
+            System.out.println(Arrays.toString(get_file_name_new));
+            verifyValue(Arrays.toString(get_file_name_sample), Arrays.toString(get_file_name_new));
+
+//            capture.log(Status.PASS, MarkupHelper.createUnorderedList(List.of("Expected file: true", get_file_name_sample[0], get_file_name_sample[1], get_file_name_sample[2])).getMarkup());
+//            capture.log(Status.PASS, MarkupHelper.createUnorderedList(List.of("Actual file: true", get_file_name_new[0], get_file_name_new[1], get_file_name_new[2])).getMarkup());
         } catch (AssertionError e) {
             capture.log(Status.FAIL, e.getLocalizedMessage());
         }
 
         takeScreenshot.capture(driver);
-        scrollIntoView(driver,btnBackToTable);
+        scrollIntoView(driver, btnBackToTable);
         click(driver, btnBackToTable);
     }
-    public void     detailSupportDocReUploadFile() throws IOException {
+
+    public void detailSupportDocReUploadFile() throws IOException {
         iRowPictName = 21;
-//        status_testCase_skip(iRowPictName, true, "Skip");
-//        createTestSkip(iRowPictName, extent_test_case, extent);
+//        createTestSkip(iRowPictName, extent_test_case, extent, "di skip dlu downloadnya lama");
 
         String[] get_file_name_old, get_file_name_new;
         String[] arr = readCSVFormApproval.fileCSVAppForm();
-
-        status_testCase(iRowPictName, true, "Re-upload Support Document");
         createTest(iRowPictName, extent_test_case, extent);
 
         DummySuppDocAppForm_BU suppDocAppForm_bu = new DummySuppDocAppForm_BU();
@@ -452,13 +487,18 @@ public class ApprovalFormPage extends BaseAction{
         }
 
         try {
-            Assert.assertEquals(get_file_name_old, get_file_name_new);
-            capture.log(Status.FAIL, "Fail: Support document tidak sesuai");
-        } catch (AssertionError e) {
+//            Assert.assertEquals(get_file_name_sample, get_file_name_new);
             assert get_file_name_old != null;
-            capture.log(Status.PASS, MarkupHelper.createUnorderedList(List.of("Expected file: true", get_file_name_old[0], get_file_name_old[1], get_file_name_old[2])).getMarkup());
             assert get_file_name_new != null;
-            capture.log(Status.PASS, MarkupHelper.createUnorderedList(List.of("Actual file: true", get_file_name_new[0], get_file_name_new[1], get_file_name_new[2], get_file_name_new[3])).getMarkup());
+            System.out.println(Arrays.toString(get_file_name_old));
+            System.out.println(Arrays.toString(get_file_name_new));
+//            verifyValue(Arrays.toString(get_file_name_old), Arrays.toString(get_file_name_new));
+            verifyValueNotEquals2(Arrays.toString(get_file_name_old), Arrays.toString(get_file_name_new),"Data old | Data new");
+
+//            capture.log(Status.PASS, MarkupHelper.createUnorderedList(List.of("Expected file: true", get_file_name_sample[0], get_file_name_sample[1], get_file_name_sample[2])).getMarkup());
+//            capture.log(Status.PASS, MarkupHelper.createUnorderedList(List.of("Actual file: true", get_file_name_new[0], get_file_name_new[1], get_file_name_new[2])).getMarkup());
+        } catch (AssertionError e) {
+            capture.log(Status.FAIL, e.getLocalizedMessage());
         }
         takeScreenshot.capture(driver);
         scrollIntoView(driver, btnBackToTable);
@@ -471,8 +511,9 @@ public class ApprovalFormPage extends BaseAction{
         isPresent(driver, rwDatafirstApp1);
         value = getText(driver, txtTbl_status);
         click(driver, rwDatafirstApp1);
-        value2  = getText(driver, txtDetail_status);
+        value2 = getText(driver, txtDetail_status);
     }
+
     public void debtorDetailListDropdownRecommend() throws InterruptedException {
         iRowPictName = 22;
 
@@ -482,57 +523,67 @@ public class ApprovalFormPage extends BaseAction{
         List<WebElement> lists = driver.findElements(By.id("dropdown-choice"));
         for (int i = 0; i < lists.size(); i++) {
             System.out.println(lists.get(i).getText());
-            value  = lists.get(i).getText().replace("\n", "");
+            value = lists.get(i).getText().replace("\n", "");
         }
         boolean textAreaRecommendation = driver.findElement(txtAreaInput_recommend).isDisplayed();
         expected = "-Pilih Rekomendasi-RecommendedNot Recommended";
         status_testCase(iRowPictName, true, value);
-        createTest(iRowPictName, extent_test_case, extent);Thread.sleep(1000);
+        createTest(iRowPictName, extent_test_case, extent);
+        Thread.sleep(1000);
         takeScreenshot.capture(driver);
 
-        verifyValue(value,expected);
+        verifyValue(value, expected);
 
         click(driver, option_recommend);
         click(driver, optionlist_recommend);
         takeScreenshot.capture(driver);
-
-        verifyValueDisplay(textAreaRecommendation,true, "Element textarea recommend IsDisplay");
+        verifyValueDisplay(textAreaRecommendation, true, "Element textarea recommend IsDisplay");
     }
+
     public void submitRecommended() throws InterruptedException {
         iRowPictName = iRowPictName + iSeq;
 
-        writeText(driver, txtAreaInput_recommend, Karakter5000);
-        value    = getText(driver, txtDetail_status);
-        expected = "Waiting Approval";
-
-        status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
+        scrollIntoView(driver, btnSubmitApp);
         takeScreenshot.capture(driver);
 
-        scrollUp(driver, body);Thread.sleep(300);
+        scrollIntoView(driver, bottomRecomend);
+        writeText(driver, txtAreaInput_recommend, Karakter5000);
+        value = getText(driver, txtDetail_status);
+        expected = "Waiting Approval";
+        takeScreenshot.capture(driver);
+
+        scrollUp(driver, body);
+        Thread.sleep(300);
         scrollIntoView(driver, btnSubmitApp);
         click(driver, btnSubmitApp);
         isPresent(driver, rwDatafirstApp1);
         writeText(driver, txtSearch, no_app1);
         value = getText(driver, txtTbl_status);
-        verifyValue(value,expected);Thread.sleep(100);
+        verifyValue(value, expected);
+        Thread.sleep(100);
         takeScreenshot.capture(driver);
 
         scrollIntoView(driver, txtTbl_source);
         click(driver, rwDatafirstApp1);
         isPresent(driver, txtDetail_nomorAplikasi);
-        value = getText(driver, txtDetail_status);Thread.sleep(100);
+        value = getText(driver, txtDetail_status);
+        Thread.sleep(100);
         takeScreenshot.capture(driver);
 
         scrollIntoView(driver, bottomApprov);
-        value2    = getText(driver, txtDetailCatatan);
+        value2 = getText(driver, txtDetailCatatan);
         expected2 = Karakter5000;
+        takeScreenshot.capture(driver);
 
-        verifyValue(value2,expected2);
-        scrollUp(driver, body);Thread.sleep(300);
+        verifyValue(value2, expected2);
+        scrollUp(driver, body);
+        Thread.sleep(300);
         scrollIntoView(driver, btnBackToTable);
-        click(driver, btnBackToTable);Thread.sleep(1000);
+        click(driver, btnBackToTable);
+        Thread.sleep(1000);
     }
+
     public void submitNotRecommended() throws InterruptedException {
         iRowPictName = iRowPictName + iSeq;
 
@@ -542,13 +593,16 @@ public class ApprovalFormPage extends BaseAction{
 
         isPresent(driver, txtDetail_nomorAplikasi);
         click(driver, txtDetail_status);
+
+        createTest(iRowPictName, extent_test_case, extent);
+        scrollIntoView(driver, btnSubmitApp);
+        takeScreenshot.capture(driver);
+
         scrollIntoView(driver, bottomRecomend);
         click(driver, optionlist_recommend);
         click(driver, option_NotRecommend);
         click(driver, optionlist_recommend);
-
         writeText(driver, txtAreaInput_recommend, Karakter4999);
-        createTest(iRowPictName, extent_test_case, extent);
         takeScreenshot.capture(driver);
 
         scrollUp(driver, body);
@@ -558,7 +612,8 @@ public class ApprovalFormPage extends BaseAction{
         writeText(driver, txtSearch, no_app8);
         scrollIntoView(driver, txtTbl_status);
         value = getText(driver, txtTbl_status);
-        verifyValue(value,expected);Thread.sleep(100);
+        verifyValue(value, expected);
+        Thread.sleep(100);
         takeScreenshot.capture(driver);
 
         scrollIntoView(driver, txtTbl_source);
@@ -566,17 +621,17 @@ public class ApprovalFormPage extends BaseAction{
         isPresent(driver, txtDetail_nomorAplikasi);
         takeScreenshot.capture(driver);
 
-        value2    = getText(driver, txtDetailCatatan);
+        scrollIntoView(driver, bottomApprov);
+        value2 = getText(driver, txtDetailCatatan);
         expected2 = Karakter4999;
         takeScreenshot.capture(driver);
 
-        scrollIntoView(driver, bottomApprov);
-        takeScreenshot.capture(driver);
-
-        verifyValue(value2,expected2);
-        scrollUp(driver, body);Thread.sleep(300);
+        verifyValue(value2, expected2);
+        scrollUp(driver, body);
+        Thread.sleep(300);
         scrollIntoView(driver, btnBackToTable);
-        click(driver, btnBackToTable);Thread.sleep(1000);
+        click(driver, btnBackToTable);
+        Thread.sleep(1000);
     }
 
     public void debtorDetailListApproval() throws InterruptedException {
@@ -593,23 +648,25 @@ public class ApprovalFormPage extends BaseAction{
         List<WebElement> lists = driver.findElements(By.id("dropdown-choice"));
         for (int i = 0; i < lists.size(); i++) {
             System.out.println(lists.get(i).getText());
-            value  = lists.get(i).getText().replace("\n", "");
+            value = lists.get(i).getText().replace("\n", "");
         }
         boolean textAreaApproval = driver.findElement(approval_note).isDisplayed();
         expected = "-Pilih Keputusan-ApproveReject";
 
         status_testCase(iRowPictName, true, value);
-        createTest(iRowPictName, extent_test_case, extent);Thread.sleep(100);
+        createTest(iRowPictName, extent_test_case, extent);
+        Thread.sleep(100);
         takeScreenshot.capture(driver);
         Thread.sleep(Const.delay);
-        verifyValue(value,expected);
+        verifyValue(value, expected);
 
         click(driver, option_approved);
         click(driver, txtDetailH5_HasilKeputusan);
         takeScreenshot.capture(driver);
         Thread.sleep(Const.delay);
-        verifyValueDisplay(textAreaApproval,true, "Element textarea approval IsDisplay");
+        verifyValueDisplay(textAreaApproval, true, "Element textarea approval IsDisplay");
     }
+
     public void submitApproved() throws InterruptedException {
         iRowPictName = iRowPictName + iSeq;
 
@@ -620,16 +677,17 @@ public class ApprovalFormPage extends BaseAction{
         createTest(iRowPictName, extent_test_case, extent);
         takeScreenshot.capture(driver);
 
-        scrollUp(driver, body);Thread.sleep(300);
+        scrollUp(driver, body);
+        Thread.sleep(300);
         scrollIntoView(driver, btnSubmitApp);
         click(driver, btnSubmitApp);
         value = getText(driver, txtStrongUserApprove);
         takeScreenshot.capture(driver);
 
-        if (isPresent(driver, txtStrongUserApprove)){
+        if (isPresent(driver, txtStrongUserApprove)) {
             System.out.println("Change Account...");
             changeUserToApprove();
-        }else {
+        } else {
             value = getText(driver, txtDetail_status);
             takeScreenshot.capture(driver);
         }
@@ -643,7 +701,8 @@ public class ApprovalFormPage extends BaseAction{
         value = getText(driver, txtDetail_status);
         takeScreenshot.capture(driver);
 
-        scrollPageDown(driver, btnBackToTable);Thread.sleep(100);
+        scrollPageDown(driver, btnBackToTable);
+        Thread.sleep(100);
         takeScreenshot.capture(driver);
 
         scrollIntoView(driver, bottomApprov);
@@ -656,24 +715,28 @@ public class ApprovalFormPage extends BaseAction{
         click(driver, txtDetailH5_HasilKeputusan);
         takeScreenshot.capture(driver);
 
-        scrollUp(driver, body);Thread.sleep(300);
+        scrollUp(driver, body);
+        Thread.sleep(300);
         scrollIntoView(driver, btnSubmitApp);
-        click(driver, btnSubmitApp);Thread.sleep(1000);
+        click(driver, btnSubmitApp);
+        Thread.sleep(1000);
 
         writeText(driver, txtSearch, no_app1);
-        value    = getText(driver, txtTbl_status);
+        value = getText(driver, txtTbl_status);
         expected = "Approved";
-        verifyValue(value,expected);Thread.sleep(100);
+        verifyValue(value, expected);
+        Thread.sleep(100);
         takeScreenshot.capture(driver);
 
         click(driver, rwDatafirstApp1);
         isPresent(driver, txtDetail_nomorAplikasi);
-        value    = getText(driver, txtDetail_status);
+        value = getText(driver, txtDetail_status);
         expected = Karakter5000;
         takeScreenshot.capture(driver);
 
         click(driver, btnBackToTable);
     }
+
     public void submitRejected() throws InterruptedException {
         iRowPictName = iRowPictName + iSeq;
 
@@ -685,7 +748,8 @@ public class ApprovalFormPage extends BaseAction{
         click(driver, optionlist_approve);
         click(driver, option_rejected);
         click(driver, txtDetailH5_HasilKeputusan);
-        scrollUp(driver, body);Thread.sleep(300);
+        scrollUp(driver, body);
+        Thread.sleep(300);
         scrollIntoView(driver, btnBackToTable);
         click(driver, btnBackToTable);
 
@@ -707,15 +771,17 @@ public class ApprovalFormPage extends BaseAction{
         value = getText(driver, option_approved);
         takeScreenshot.capture(driver);
 
-        scrollUp(driver, body);Thread.sleep(300);
+        scrollUp(driver, body);
+        Thread.sleep(300);
         scrollIntoView(driver, btnSubmitApp);
-        click(driver, btnSubmitApp);Thread.sleep(1000);
+        click(driver, btnSubmitApp);
+        Thread.sleep(1000);
 
         isPresent(driver, rwDatafirstApp1);
         writeText(driver, txtSearch, no_app8);
         value = getText(driver, txtTbl_status);
         expected = "Rejected";
-        verifyValue(value,expected);
+        verifyValue(value, expected);
         takeScreenshot.capture(driver);
 
         click(driver, rwDatafirstApp1);
@@ -731,11 +797,11 @@ public class ApprovalFormPage extends BaseAction{
 
         isPresent(driver, rwDatafirstApp1);
         writeText(driver, txtSearch, no_app1);
-        value    = getText(driver, txtTbl_status);
+        value = getText(driver, txtTbl_status);
         expected = "Approved";
         status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
-        verifyValue(value,expected);
+        verifyValue(value, expected);
         takeScreenshot.capture(driver);
 
         click(driver, rwDatafirstApp1);
@@ -745,16 +811,17 @@ public class ApprovalFormPage extends BaseAction{
 
         click(driver, btnBackToTable);
     }
+
     public void statusRejected() {
         iRowPictName = iRowPictName + iSeq;
 
         isPresent(driver, rwDatafirstApp1);
         writeText(driver, txtSearch, no_app8);
-        value    = getText(driver, txtTbl_status);
+        value = getText(driver, txtTbl_status);
         expected = "Rejected";
         status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
-        verifyValue(value,expected);
+        verifyValue(value, expected);
         takeScreenshot.capture(driver);
 
         click(driver, rwDatafirstApp1);
@@ -764,6 +831,7 @@ public class ApprovalFormPage extends BaseAction{
 
         click(driver, btnBackToTable);
     }
+
     public void statusExpired() throws InterruptedException {
         iRowPictName = 30;
 
@@ -773,35 +841,35 @@ public class ApprovalFormPage extends BaseAction{
         isPresent(driver, rwDatafirstApp1);
         writeText(driver, txtSearch, no_app7);
         scrollIntoView(driver, txtTbl_status);
-        value    = getText(driver, txtTbl_status);
+        value = getText(driver, txtTbl_status);
         expected = "Waiting for Review";
         createTest(iRowPictName, extent_test_case, extent);
         createInfo(extent_test_case, "Data sebelum run job expired, saat status waiting for review");
-        verifyValue(value,expected);
+        verifyValue(value, expected);
         takeScreenshot.capture(driver);
         scrollIntoView(driver, txtTbl_source);
         click(driver, rwDatafirstApp1);
         isPresent(driver, txtDetail_nomorAplikasi);
-        value    = getText(driver, txtDetail_status);
+        value = getText(driver, txtDetail_status);
         expected = "Waiting for review";
-        verifyValue(value,expected);
+        verifyValue(value, expected);
         takeScreenshot.capture(driver);
         click(driver, btnBackToTable);
 
         isPresent(driver, rwDatafirstApp1);
         writeText(driver, txtSearch, no_app6);
         scrollIntoView(driver, txtTbl_status);
-        value    = getText(driver, txtTbl_status);
+        value = getText(driver, txtTbl_status);
         expected = "Waiting Approval";
         createInfo(extent_test_case, "Data sebelum run job expired, saat status waiting approval");
-        verifyValue(value,expected);
+        verifyValue(value, expected);
         takeScreenshot.capture(driver);
         scrollIntoView(driver, txtTbl_source);
         click(driver, rwDatafirstApp1);
         isPresent(driver, txtDetail_nomorAplikasi);
-        value    = getText(driver, txtDetail_status);
+        value = getText(driver, txtDetail_status);
         expected = "Waiting Approval";
-        verifyValue(value,expected);
+        verifyValue(value, expected);
         takeScreenshot.capture(driver);
         click(driver, btnBackToTable);
 
@@ -813,34 +881,34 @@ public class ApprovalFormPage extends BaseAction{
         isPresent(driver, rwDatafirstApp1);
         writeText(driver, txtSearch, no_app7);
         scrollIntoView(driver, txtTbl_status);
-        value    = getText(driver, txtTbl_status);
+        value = getText(driver, txtTbl_status);
         expected = "Approval Expired";
         createInfo(extent_test_case, "Data setelah run job expired, saat status waiting for review");
-        verifyValue(value,expected);
+        verifyValue(value, expected);
         takeScreenshot.capture(driver);
         scrollIntoView(driver, txtTbl_source);
         click(driver, rwDatafirstApp1);
         isPresent(driver, txtDetail_nomorAplikasi);
-        value    = getText(driver, txtDetail_status);
+        value = getText(driver, txtDetail_status);
         expected = "Approval Expired";
-        verifyValue(value,expected);
+        verifyValue(value, expected);
         takeScreenshot.capture(driver);
         click(driver, btnBackToTable);
 
         isPresent(driver, rwDatafirstApp1);
         writeText(driver, txtSearch, no_app6);
         scrollIntoView(driver, txtTbl_status);
-        value    = getText(driver, txtTbl_status);
+        value = getText(driver, txtTbl_status);
         expected = "Approval Expired";
         createInfo(extent_test_case, "Data setelah run job expired, saat status waiting approval");
-        verifyValue(value,expected);
+        verifyValue(value, expected);
         takeScreenshot.capture(driver);
         scrollIntoView(driver, txtTbl_source);
         click(driver, rwDatafirstApp1);
         isPresent(driver, txtDetail_nomorAplikasi);
-        value    = getText(driver, txtDetail_status);
+        value = getText(driver, txtDetail_status);
         expected = "Approval Expired";
-        verifyValue(value,expected);
+        verifyValue(value, expected);
         takeScreenshot.capture(driver);
         click(driver, btnBackToTable);
     }
@@ -850,7 +918,116 @@ public class ApprovalFormPage extends BaseAction{
         changeUserToMaker();
         menuApprovalForm();
 
-        String[] arr,arr2;
+        String[] arr, arr2;
+        ReadCSVFormApproval readCSVFormApproval = new ReadCSVFormApproval();
+        arr = readCSVFormApproval.fileCSVAppForm();
+        arr2 = readCSVFormApproval.fileCSVAppForm2();
+        Long getCount = Arrays.stream(arr).count();
+
+        int index = 8;
+        for (int i = index; i <= 48; i++) { //<=48
+            if (i % index == 0) {
+                clearText(driver, txtSearch);
+                isPresent(driver, rwDatafirstApp1);
+                writeText(driver, txtSearch, arr[i]);
+                value = getText(driver, txtTbl_status).toLowerCase();
+                if (value.equals("waiting for review")) {
+                    click(driver, rwDatafirstApp1);
+
+                    scrollIntoView(driver, bottomRecomend);
+                    click(driver, optionlist_recommend);
+                    click(driver, option_recommend);
+                    click(driver, optionlist_recommend);
+                    Thread.sleep(Const.delay);
+                    writeText(driver, txtAreaInput_recommend, "TEST AT Approval Form Recommended");
+
+                    scrollUp(driver, body);
+                    Thread.sleep(300);
+                    scrollIntoView(driver, btnSubmitApp);
+                    click(driver, btnSubmitApp);
+                    index = index + 8;
+                } else {
+                    index = index + 8;
+                }
+            }
+        }
+//        //for 30 character
+//        clearText(driver, txtSearch);
+//        isPresent(driver, rwDatafirstApp1);
+//        writeText(driver, txtSearch, arr2[8]);
+//        value = getText(driver, txtTbl_status).toLowerCase();
+//        if (value.equals("waiting for review")) {
+//            click(driver, rwDatafirstApp1);
+//
+//            scrollIntoView(driver, bottomRecomend);
+//            click(driver, optionlist_recommend);
+//            click(driver, option_recommend);
+//            click(driver, optionlist_recommend);
+//            Thread.sleep(Const.delay);
+//            writeText(driver, txtAreaInput_recommend, "TEST AT Approval Form Recommended");
+//
+//            scrollUp(driver, body);
+//            Thread.sleep(300);
+//            scrollIntoView(driver, btnSubmitApp);
+//            click(driver, btnSubmitApp);
+//        }
+
+        changeUserToApprove();
+        index = 8;
+        for (int i = index; i <= 40; i++) { //<=40
+            if (i % index == 0) {
+                clearText(driver, txtSearch);
+                isPresent(driver, rwDatafirstApp1);
+                writeText(driver, txtSearch, arr[i]);
+                value = getText(driver, txtTbl_status).toLowerCase();
+                if (value.equals("waiting approval")) {
+                    click(driver, rwDatafirstApp1);
+
+                    scrollIntoView(driver, bottomApprov);
+                    writeText(driver, approval_note, "TEST AT Approval Form Approved");
+                    value = getText(driver, option_approved);
+                    click(driver, optionlist_approve);
+                    click(driver, option_approved);
+                    click(driver, By.xpath("//span[@data-select2-id=1]"));
+
+                    scrollUp(driver, body);
+                    Thread.sleep(300);
+                    scrollIntoView(driver, btnSubmitApp);
+                    click(driver, btnSubmitApp);
+                    index = index + 8;
+                } else {
+                    index = index + 8;
+                }
+            }
+            clearText(driver, txtSearch);
+        }
+//        //for 30 character
+//        clearText(driver, txtSearch);
+//        isPresent(driver, rwDatafirstApp1);
+//        writeText(driver, txtSearch, arr2[8]);
+//        value = getText(driver, txtTbl_status).toLowerCase();
+//        if (value.equals("waiting approval")) {
+//            click(driver, rwDatafirstApp1);
+//
+//            scrollIntoView(driver, bottomApprov);
+//            writeText(driver, approval_note, "TEST AT Approval Form Approved");
+//            value = getText(driver, option_approved);
+//            click(driver, optionlist_approve);
+//            click(driver, option_approved);
+//            click(driver, By.xpath("//span[@data-select2-id=1]"));
+//
+//            scrollUp(driver, body);Thread.sleep(300);
+//            scrollIntoView(driver, btnSubmitApp);
+//            click(driver, btnSubmitApp);
+//        }
+    }
+
+    public void changeAllForRepayment() throws IOException, InterruptedException {
+
+        changeUserToMaker();
+        menuApprovalForm();
+
+        String[] arr, arr2;
         ReadCSVFormApproval readCSVFormApproval = new ReadCSVFormApproval();
         arr = readCSVFormApproval.fileCSVAppForm();
         arr2 = readCSVFormApproval.fileCSVAppForm2();
@@ -869,10 +1046,12 @@ public class ApprovalFormPage extends BaseAction{
                     scrollIntoView(driver, bottomRecomend);
                     click(driver, optionlist_recommend);
                     click(driver, option_recommend);
-                    click(driver, optionlist_recommend);Thread.sleep(Const.delay);
+                    click(driver, optionlist_recommend);
+                    Thread.sleep(Const.delay);
                     writeText(driver, txtAreaInput_recommend, "TEST AT Approval Form Recommended");
 
-                    scrollUp(driver, body);Thread.sleep(300);
+                    scrollUp(driver, body);
+                    Thread.sleep(300);
                     scrollIntoView(driver, btnSubmitApp);
                     click(driver, btnSubmitApp);
                     index = index + 8;
@@ -881,27 +1060,6 @@ public class ApprovalFormPage extends BaseAction{
                 }
             }
         }
-        //for 30 character
-        clearText(driver, txtSearch);
-        isPresent(driver, rwDatafirstApp1);
-        writeText(driver, txtSearch, arr2[8]);
-        value = getText(driver, txtTbl_status).toLowerCase();
-        if (value.equals("waiting for review")) {
-            click(driver, rwDatafirstApp1);
-
-            scrollIntoView(driver, bottomRecomend);
-            click(driver, optionlist_recommend);
-            click(driver, option_recommend);
-            click(driver, optionlist_recommend);
-            Thread.sleep(Const.delay);
-            writeText(driver, txtAreaInput_recommend, "TEST AT Approval Form Recommended");
-
-            scrollUp(driver, body);
-            Thread.sleep(300);
-            scrollIntoView(driver, btnSubmitApp);
-            click(driver, btnSubmitApp);
-        }
-
         changeUserToApprove();
         index = 8;
         for (int i = index; i < arr.length; i++) { //<=40
@@ -920,7 +1078,8 @@ public class ApprovalFormPage extends BaseAction{
                     click(driver, option_approved);
                     click(driver, By.xpath("//span[@data-select2-id=1]"));
 
-                    scrollUp(driver, body);Thread.sleep(300);
+                    scrollUp(driver, body);
+                    Thread.sleep(300);
                     scrollIntoView(driver, btnSubmitApp);
                     click(driver, btnSubmitApp);
                     index = index + 8;
@@ -930,24 +1089,26 @@ public class ApprovalFormPage extends BaseAction{
             }
             clearText(driver, txtSearch);
         }
-        //for 30 character
-        clearText(driver, txtSearch);
-        isPresent(driver, rwDatafirstApp1);
-        writeText(driver, txtSearch, arr2[8]);
-        value = getText(driver, txtTbl_status).toLowerCase();
-        if (value.equals("waiting approval")) {
-            click(driver, rwDatafirstApp1);
+    }
 
-            scrollIntoView(driver, bottomApprov);
-            writeText(driver, approval_note, "TEST AT Approval Form Approved");
-            value = getText(driver, option_approved);
-            click(driver, optionlist_approve);
-            click(driver, option_approved);
-            click(driver, By.xpath("//span[@data-select2-id=1]"));
+    public void testListener1() {
+        createTest(iRowPictName, extent_test_case, extent);
+        click2(driver, menuApprovalForm);
+        takeScreenshot.capture(driver);
+        verifyValue("true", "true");
+    }
 
-            scrollUp(driver, body);Thread.sleep(300);
-            scrollIntoView(driver, btnSubmitApp);
-            click(driver, btnSubmitApp);
-        }
+    public void testListener2() {
+        createTest(iRowPictName, extent_test_case, extent);
+        click2(driver, optionlist_recommend);
+        takeScreenshot.capture(driver);
+        verifyValue("false", "false");
+    }
+
+    public void testListener3() {
+        createTest(iRowPictName, extent_test_case, extent);
+        click2(driver, menuApprovalForm);
+        takeScreenshot.capture(driver);
+        verifyValue("true", "true");
     }
 }

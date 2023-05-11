@@ -10,10 +10,20 @@ import java.util.Random;
 
 public class GeneratePengurus {
 
-    public String rdNum(int Lenght) {
+    public String rdNum(int Length) {
         String chars = "1234567890";
         Random rnd = new Random();
-        int n = Lenght;
+        int n = Length;
+        StringBuilder rd = new StringBuilder(n);
+
+        for (int i = 0; i < n; i++)
+            rd.append(chars.charAt(rnd.nextInt(chars.length())));
+        return rd.toString();
+    }
+    public String rdSym(int Length) {
+        String chars = ".,'-/&";
+        Random rnd = new Random();
+        int n = Length;
         StringBuilder rd = new StringBuilder(n);
 
         for (int i = 0; i < n; i++)
@@ -30,13 +40,14 @@ public class GeneratePengurus {
         return chars;
     }
     public String sandiJabatanBI(int n) {
-        String sjbi = null;
-        if (n == 1){
-            sjbi = "1";
-        } else if (n == 2) {
-            sjbi = "10";
-        }
-        return sjbi.toString();
+//        String sjbi = null;
+//        if (n == 1){
+//            sjbi = "1";
+//        } else if (n == 2) {
+//            sjbi = "10";
+//        }
+//        return sjbi.toString();
+        return String.valueOf(n);
     }
     public String pangsaKepemilikan(String jumlahPangsa) {
         String pangsa = jumlahPangsa;
@@ -93,14 +104,14 @@ public class GeneratePengurus {
         return npwp.toString();
     }
     public String namaPengurus(int Length) {
-        String name = "Cemplunk Hardiansyah Panca Mahendra Dimas Tampubolon Pangestu Dabukke Kayun Prasasta Wadi Winarno";
+        String name = "Cemplunk Hardiansyah "+rdSym(4)+ "Panca Mahendra Dimas Tampubolon Pangestu Dabukke Kayun Prasasta Wadi Winarno";
         String sbName = name.substring(0,Length);
         return sbName;
 
 
     }
     public String alamatPengurus(int n) {
-        String chars = "Jalan Kemang Raya Bhayangkara No."+rdNum(2)+" RT"+rdNum(3)+"/RW"+rdNum(3);
+        String chars = "Jalan Kemang Raya Bhayangkara "+rdSym(3)+"No."+rdNum(2)+" RT"+rdNum(3)+"/RW"+rdNum(3);
         String sbString = chars.substring(0,n);
         return sbString;
     }

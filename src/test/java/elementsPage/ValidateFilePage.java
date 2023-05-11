@@ -269,7 +269,7 @@ public class ValidateFilePage extends BaseAction {
         String[] arr = readCSVFormApproval.fileCSVAppPartner();
 
         writeText(driver, txtSearch, no_app1);
-        value    = getText(driver, txtTbl_nomorAplikasi);
+        value    = getText(driver, txtTbl_nomorAplikasi).replace(": ","");
         expected = arr[8];
         status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
@@ -282,20 +282,20 @@ public class ValidateFilePage extends BaseAction {
         String[] arr = readCSVFormApproval.fileCSVAppPartner();
 
         click(driver, rwDatafirstApp1);
-        value    = getText(driver, txtDetail_npwp);
+        value    = getText(driver, txtDetail_npwp).replace(": ","");
         expected = arr[10];
         status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
         verifyLength(arr[10], arr[10].length(),15);
-        verifyValue(value.replace(".", "").replace("-", "")
-                    ,expected);
+        verifyValue(expected
+                    ,value.replace(".", "").replace("-", "").replace(": ",""));
         takeScreenshots.capture(driver);
     }
     public void verifyDataAppFormJenisDebitur() throws IOException {
         iRowPictName = iRowPictName + iSeq;
         String[] arr = readCSVFormApproval.fileCSVAppPartner();
 
-        value    = getText(driver, txtDetail_jenisDebitur);
+        value    = getText(driver, txtDetail_jenisDebitur).replace(": ","");
         expected = arr[11];
         status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
@@ -308,7 +308,7 @@ public class ValidateFilePage extends BaseAction {
         iRowPictName = iRowPictName + iSeq;
         String[] arr = readCSVFormApproval.fileCSVAppPartner();
 
-        value    = getText(driver, txtDetail_namaDebitur);
+        value    = getText(driver, txtDetail_namaDebitur).replace(": ","");
         expected = arr[12];
         status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
@@ -321,7 +321,7 @@ public class ValidateFilePage extends BaseAction {
         String[] arr = readCSVFormApproval.fileCSVAppPartner();
 
         long parse = Long.parseLong(removeZero(arr[13]));
-        value    = getText(driver, txtDetail_jangkaWaktu);
+        value    = getText(driver, txtDetail_jangkaWaktu).replace(": ","");
         expected = String.valueOf(parse);
         status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
@@ -341,12 +341,12 @@ public class ValidateFilePage extends BaseAction {
         click(driver, rwDatafirstApp1);
 
         long parse = Long.parseLong(removeZero(arr[14])) / 100;
-        value    = getText(driver, txtDetail_interestRate);
+        value    = getText(driver, txtDetail_interestRate).replace(": ","");
         expected = String.valueOf(parse);
         status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
         verifyLength(arr[14], arr[14].length(),5);
-        value    = getText(driver, txtDetail_interestRate)
+        value    = getText(driver, txtDetail_interestRate).replace(": ","")
                    .replace("%", "")
                    .replace(".", "");
         verifyValue(value,expected);
@@ -363,12 +363,12 @@ public class ValidateFilePage extends BaseAction {
         click(driver, rwDatafirstApp1);
 
         long parse = Long.parseLong(removeZero(arr[15])) / 100;
-        value    = getText(driver, txtDetail_plafon);
+        value    = getText(driver, txtDetail_plafon).replace(": ","");
         expected = String.valueOf(parse);
         status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
         verifyLength(arr[15], arr[15].length(),15);
-        value    = getText(driver, txtDetail_plafon)
+        value    = getText(driver, txtDetail_plafon).replace(": ","")
                    .replace(".", "")
                    .replace("Rp", "")
                    .replace(",", "")
@@ -387,7 +387,7 @@ public class ValidateFilePage extends BaseAction {
 
         writeText(driver, txtSearch, no_app2);
         click(driver, rwDatafirstApp1);
-        value    = getText(driver, txtDetail_namaDebitur);
+        value    = getText(driver, txtDetail_namaDebitur).replace(": ","");
         expected = arr[20];
         status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
@@ -406,7 +406,7 @@ public class ValidateFilePage extends BaseAction {
         click(driver, rwDatafirstApp1);
 
         long parse = Long.parseLong(removeZero(arr[21]));
-        value    = getText(driver, txtDetail_jangkaWaktu);
+        value    = getText(driver, txtDetail_jangkaWaktu).replace(":","").trim();
         expected = String.valueOf(parse);
         status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
@@ -426,14 +426,15 @@ public class ValidateFilePage extends BaseAction {
         click(driver, rwDatafirstApp1);
 
         long parse = Long.parseLong(removeZero(arr[22])) / 10;
-        value    = getText(driver, txtDetail_interestRate);
+        value    = getText(driver, txtDetail_interestRate).replace(": ","");
         expected = String.valueOf(parse);
         status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
         verifyLength(arr[22], arr[22].length(),5);
         value    = getText(driver, txtDetail_interestRate)
                    .replace("%", "")
-                   .replace(".", "");
+                   .replace(".", "")
+                .replace(": ","");
         verifyValue(value,expected);
         takeScreenshots.capture(driver);
         menuProductProfile();
@@ -458,6 +459,7 @@ public class ValidateFilePage extends BaseAction {
                    .replace("Rp", "")
                    .replace(",", "")
                    .replace(" ", "")
+                    .replace(": ","")
                    .trim();
         verifyValue(value,expected);
         takeScreenshots.capture(driver);
@@ -494,7 +496,7 @@ public class ValidateFilePage extends BaseAction {
         click(driver, rwDatafirstApp1);
 
         long parse = Long.parseLong(removeZero(arr[30])) / 100;
-        value    = getText(driver, txtDetail_interestRate);
+        value    = getText(driver, txtDetail_interestRate).replace(": ","");
         expected = String.valueOf(parse);
         status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
@@ -516,7 +518,7 @@ public class ValidateFilePage extends BaseAction {
         click(driver, rwDatafirstApp1);
 
         long parse = Long.parseLong(removeZero(arr[31])) / 100;
-        value    = getText(driver, txtDetail_plafon);
+        value    = getText(driver, txtDetail_plafon).replace(": ","");
         expected = String.valueOf(parse);
         status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
@@ -540,7 +542,7 @@ public class ValidateFilePage extends BaseAction {
 
         writeText(driver, txtSearch, no_app4);
         click(driver, rwDatafirstApp1);
-        value    = getText(driver, txtDetail_npwp);
+        value    = getText(driver, txtDetail_npwp).replace(": ","");
         expected = arr[34];
         value3   = arr[39];
         status_testCase(iRowPictName, true, value);
@@ -555,7 +557,7 @@ public class ValidateFilePage extends BaseAction {
         click(driver, btnBackToTable);
         writeText(driver, txtSearch, no_app5);
         click(driver, rwDatafirstApp1);
-        value    = getText(driver, txtDetail_npwp);
+        value    = getText(driver, txtDetail_npwp).replace(": ","");
         expected = arr[42];
         value3   = arr[47];
         createInfo(extent_test_case, "NPWP AppNo "+no_app5+" : "+value);
@@ -579,7 +581,7 @@ public class ValidateFilePage extends BaseAction {
 
         writeText(driver, txtSearch, no_app5);
         click(driver, rwDatafirstApp1);
-        value    = getText(driver, txtDetail_npwp);
+        value    = getText(driver, txtDetail_npwp).replace(": ","");
         expected = arr[42];
         value3   = arr[47];
         status_testCase(iRowPictName, true, value);
@@ -595,7 +597,7 @@ public class ValidateFilePage extends BaseAction {
         click(driver, btnBackToTable);
         writeText(driver, txtSearch, arrDiff[8]);
         click(driver, rwDatafirstApp1);
-        value    = getText(driver, txtDetail_npwp);
+        value    = getText(driver, txtDetail_npwp).replace(": ","");
         expected = arrDiff[10];
         value3   = arrDiff[15];
         createInfo(extent_test_case, "NPWP AppNo Partner 2 "+arrDiff[8]+" : "+value);
@@ -1020,9 +1022,6 @@ public class ValidateFilePage extends BaseAction {
         createTest(iRowPictName, extent_test_case, extent);
         verifyLength(arr[51], arr[51].length(),8);
         verifyValue(value.replace("/",""),expected);takeScreenshots.capture(driver);
-
-        scrollPageUp(driver, dtlBtnApprove);Thread.sleep(100);
-        scrollUp(driver, dtlBtnApprove);Thread.sleep(100);
     }
     public void verifyDataReaFormJenisPenggunaan() throws IOException {
         String[] arr = readCSVFormApproval.fileCSVReaPartner();
@@ -1135,6 +1134,7 @@ public class ValidateFilePage extends BaseAction {
 
         value    = getText(driver, dtlDebtName);
         expected = arr[61];
+        scrollIntoView(driver, dtlPartner);
         status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
         verifyLength(arr[61], arr[61].length(),59);
@@ -1622,10 +1622,9 @@ public class ValidateFilePage extends BaseAction {
         writeText(driver, inputSearch, no_app1);
         click(driver, rwDatafirstApp1);
         isPresent(driver, dtlAppId);
-        scrollPageDown(driver, dtlBtnApprove);
-        scrollPageDown(driver, dtlBtnApprove); Thread.sleep(100);
-
+        scrollIntoView(driver, dtlLabelDataPengurus);
         click(driver, dtlLabelDataPengurus);
+        scrollPageDown(driver, dtlBtnApprove); Thread.sleep(100);
         value    = getText(driver, dtlValueSandiJabatan);
         expected = readTestData.enumerasiSandiJabatan(arr[24]);
         status_testCase(iRowPictName, true, value);
@@ -1639,7 +1638,6 @@ public class ValidateFilePage extends BaseAction {
         iRowPictName = iRowPictName + iSeq;
 
         long parse = Long.parseLong(removeZero(arr[27]));
-        scrollPageDown(driver, dtlBtnApprove); Thread.sleep(100);
         value    = getText(driver, dtlValueModalDasar);
         expected = String.valueOf(parse);
         status_testCase(iRowPictName, true, value);
@@ -1698,12 +1696,13 @@ public class ValidateFilePage extends BaseAction {
         verifyLength(arr[31], arr[31].length(),59);
         verifyValue(value,expected);takeScreenshots.capture(driver);
     }
-    public void verifyDataReaFormPengurusAlamat39() throws IOException {
+    public void verifyDataReaFormPengurusAlamat39() throws IOException, InterruptedException {
         String[] arr = readCSVFormApproval.fileCSVPengurusFile2();
         iRowPictName = iRowPictName + iSeq;
 
         value    = getText(driver, dtlValueAlamat);
         expected = arr[32];
+        scrollPageDown(driver, dtlBtnApprove); Thread.sleep(100);
         status_testCase(iRowPictName, true, value);
         createTest(iRowPictName, extent_test_case, extent);
         verifyLength(arr[32], arr[32].length(),39);
@@ -1746,7 +1745,6 @@ public class ValidateFilePage extends BaseAction {
         String[] arr = readCSVFormApproval.fileCSVPengurusFile2();
         iRowPictName = iRowPictName + iSeq;
 
-        scrollPageDown(driver, dtlBtnApprove); Thread.sleep(100);
         value    = getText(driver, dtlValueJenisKel);
         expected = arr[41];
         status_testCase(iRowPictName, true, value);

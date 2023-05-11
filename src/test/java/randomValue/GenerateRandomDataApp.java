@@ -86,6 +86,7 @@ public class GenerateRandomDataApp {
             case "L000058":
             case "L000053":
             case "L000005":
+            case "L0000056":
                 jangkaWaktu = "006";
                 return jangkaWaktu;
             case "L000133":
@@ -112,6 +113,7 @@ public class GenerateRandomDataApp {
             case "L000052":
             case "L000053":
             case "L000005":
+            case "L0000056":
                 interestRate = "01175";
                 return interestRate;
             case "L000133":
@@ -139,6 +141,7 @@ public class GenerateRandomDataApp {
             case "L000052":
             case "L000053":
             case "L000005":
+            case "L0000056":
                 return "0000001"+plafonkredit+"0000000";
             case "L000030":
                 return "000005"+plafonkredit+"00000000";

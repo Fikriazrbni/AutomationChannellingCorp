@@ -1,13 +1,33 @@
 package elementsPage;
 
-import capture.TakeScreenshot;
 import badanUsaha.LibUtils;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.markuputils.ExtentColor;
+import com.aventstack.extentreports.markuputils.MarkupHelper;
+import io.netty.util.internal.ThrowableUtil;
+import org.openqa.selenium.*;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class BaseAction {
+
+    public static ExtentTest capture;
+
+
+    public static void click2(WebDriver driver, By locator) {
+        try {
+//            LibUtils.waitElementVisible(driver, locator, Const.seconds);
+            driver.findElement(locator).click();
+        } catch (Throwable throwable) {
+            String m = throwable.getMessage();
+            System.out.println("Gagal klik => "+m);
+            capture.log(Status.FAIL, MarkupHelper.createUnorderedList(Arrays.asList("not found element => "+m)).getMarkup());
+        }
+    }
+
 
     public static void scrollIntoView(WebDriver driver, By locator) {
         try {
@@ -21,10 +41,12 @@ public class BaseAction {
         }
     }
 
-    public void click(WebDriver driver, By locator) {
+    public String click(WebDriver driver, By locator) {
         LibUtils.waitElementVisible(driver, locator, Const.seconds);
         driver.findElement(locator).click();
+        return null;
     }
+
 
     public void writeText(WebDriver driver, By locator, String value) {
         LibUtils.waitElementVisible(driver, locator, Const.seconds);
@@ -40,6 +62,11 @@ public class BaseAction {
         LibUtils.waitElementVisible(driver, locator, Const.seconds);
         driver.findElement(locator).clear();
     }
+//    public void clearValue(WebDriver driver, By locator) {
+//        LibUtils.waitElementVisible(driver, locator, Const.seconds);
+//        driver.findElement(locator).click();
+//        driver.findElement(locator).sendKeys(Keys.CONTROL + "A" + Keys.DELETE);
+//    }
 
     public boolean isPresent(WebDriver driver, By locator) {
         LibUtils.waitElementVisible(driver, locator, Const.seconds);
@@ -48,7 +75,7 @@ public class BaseAction {
 
     public void scrollUp(WebDriver driver, By locator) {
         LibUtils.waitElementVisible(driver, locator, Const.seconds);
-        driver.findElement(locator).sendKeys(Keys.CONTROL,Keys.HOME);
+        driver.findElement(locator).sendKeys(Keys.CONTROL, Keys.HOME);
     }
 
     public void scrollPageUp(WebDriver driver, By locator) {
@@ -58,7 +85,7 @@ public class BaseAction {
 
     public void scrollDown(WebDriver driver, By locator) {
         LibUtils.waitElementVisible(driver, locator, Const.seconds);
-        driver.findElement(locator).sendKeys(Keys.CONTROL,Keys.END);
+        driver.findElement(locator).sendKeys(Keys.CONTROL, Keys.END);
     }
 
     public void scrollPageDown(WebDriver driver, By locator) {

@@ -3,7 +3,7 @@ Feature: Lending Chanelling
   @realizationForm
   Scenario: Realization Form
     Given open browser and login as a role ldap maker
-#    Then click icon notifikasi and verify notifikasi saat data realisasi masuk LOS
+    Then click icon notifikasi and verify notifikasi saat data realisasi masuk LOS
 #      And verify notifikasi setelah file masuk
     Then click menu realization
 #    Then verify data form table realization dan search application number berdasarkan status
@@ -114,7 +114,7 @@ Feature: Lending Chanelling
 #      And verify data realisasi form dengan status approval expired
 #      And click debtor name rea dengan status expired
     Then verify status pending
-      And verify data realisasi form dengan status pending
+       And verify data realisasi form dengan status pending
       And click debtor name rea dengan status pending
       And reconsume dengan no aplikasi status pending
 #    Then change all status for repayment

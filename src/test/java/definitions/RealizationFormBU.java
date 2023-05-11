@@ -588,7 +588,7 @@ public class RealizationFormBU {
     }
 
     @And("verifikasi data no akte 29karakter varchar")
-    public void verifikasi_data_no_akte_29karakter_varchar() throws IOException {
+    public void verifikasi_data_no_akte_29karakter_varchar() throws IOException, InterruptedException {
         // Write code here that turns the phrase above into concrete actions
         reaFile.verifyNoAkter29Char();
     }
@@ -631,7 +631,7 @@ public class RealizationFormBU {
 
     @Then("change all status for repayment")
     public void changeAllStatusForRepayment() throws IOException, InterruptedException {
+        reaFile.menuRealizationForm();
         reaFile.changeAllStatus();
-
     }
 }

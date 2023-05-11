@@ -31,39 +31,39 @@ public class DataCSV {
         GenerateRandomDataApp generateRandomDataApp = new GenerateRandomDataApp();
 
         // call class read excel
-        ReadTestData readTestData        = new ReadTestData();
+        ReadTestData readTestData = new ReadTestData();
         readTestData.testData();
 
         //date now
-        String pattern                    = Const.glPattern;
+        String pattern = Const.glPattern;
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-        String fdate                      = simpleDateFormat.format(new Date());
+        String fdate = simpleDateFormat.format(new Date());
 
-        String environment                = String.valueOf(readTestData.cellDataValue[0]);
-        nama_debitur                      = String.valueOf(readTestData.cellDataValue[1]);
-        name_company                      = String.valueOf(readTestData.cellDataValue[2]);
-        code_company                      = String.valueOf(readTestData.cellDataValue[3]);
-        kode_produk                       = String.valueOf(readTestData.cellDataValue[4]);
-        tanggal                           = fdate;
-        jumlahData                        = String.valueOf(readTestData.cellDataValue[5]);
+        String environment = String.valueOf(readTestData.cellDataValue[0]);
+        nama_debitur = String.valueOf(readTestData.cellDataValue[1]);
+        name_company = String.valueOf(readTestData.cellDataValue[2]);
+        code_company = String.valueOf(readTestData.cellDataValue[3]);
+        kode_produk = String.valueOf(readTestData.cellDataValue[4]);
+        tanggal = fdate;
+        jumlahData = String.valueOf(readTestData.cellDataValue[5]);
 //        jumlahData                        = input_jumlah_data;
 
         // first create file object for file placed at location
         // specified by filepath
-        File fileApp                     = new File(pthResultDataDummyFile + case1 + Const.extCSV);
-        File fileRea                     = new File(pthResultDataDummyFile + case2 + Const.extCSV);
+        File fileApp = new File(pthResultDataDummyFile + case1 + Const.extCSV);
+        File fileRea = new File(pthResultDataDummyFile + case2 + Const.extCSV);
 
         try {
             // create FileWriter object with file as parameter
-            FileWriter outputfileApp     = new FileWriter(fileApp);
-            FileWriter outputfileRea     = new FileWriter(fileRea);
+            FileWriter outputfileApp = new FileWriter(fileApp);
+            FileWriter outputfileRea = new FileWriter(fileRea);
 
             // create CSVWriter with '|' as separator
-            CSVWriter writerApp          = new CSVWriter(outputfileApp, '|', CSVWriter.NO_QUOTE_CHARACTER, CSVWriter.DEFAULT_ESCAPE_CHARACTER, CSVWriter.DEFAULT_LINE_END);
-            CSVWriter writerRea          = new CSVWriter(outputfileRea, '|', CSVWriter.NO_QUOTE_CHARACTER, CSVWriter.DEFAULT_ESCAPE_CHARACTER, CSVWriter.DEFAULT_LINE_END);
+            CSVWriter writerApp = new CSVWriter(outputfileApp, '|', CSVWriter.NO_QUOTE_CHARACTER, CSVWriter.DEFAULT_ESCAPE_CHARACTER, CSVWriter.DEFAULT_LINE_END);
+            CSVWriter writerRea = new CSVWriter(outputfileRea, '|', CSVWriter.NO_QUOTE_CHARACTER, CSVWriter.DEFAULT_ESCAPE_CHARACTER, CSVWriter.DEFAULT_LINE_END);
 
             // create a List which contains String array
-            ArrayList<String[]> dataApp  = new ArrayList<>();
+            ArrayList<String[]> dataApp = new ArrayList<>();
             dataApp.add(new String[]{
                     "Nomor_Aplikasi",
                     "NIK",
@@ -133,15 +133,15 @@ public class DataCSV {
 
             // write data csv approval
             for (int idxApp = 1; idxApp <= Integer.parseInt(jumlahData); idxApp++) {
-                    dataApp.add(new String[]{
-                            code_company + generateRandomDataApp.nomorAplikasi(4),
-                            generateRandomDataApp.nik(),
-                            generateRandomDataApp.npwp(),
-                            generateRandomDataApp.jenisDebitur(),
-                            "PT " + nama_debitur + " " + generateRandomDataApp.namaDebitur(),
-                            generateRandomDataApp.jangkaWaktu(code_company),
-                            generateRandomDataApp.interestRate(code_company),
-                            generateRandomDataApp.plafonKredit(code_company)});
+                dataApp.add(new String[]{
+                        code_company + generateRandomDataApp.nomorAplikasi(4),
+                        generateRandomDataApp.nik(),
+                        generateRandomDataApp.npwp(),
+                        generateRandomDataApp.jenisDebitur(),
+                        "PT " + nama_debitur + " " + generateRandomDataApp.namaDebitur(),
+                        generateRandomDataApp.jangkaWaktu(code_company),
+                        generateRandomDataApp.interestRate(code_company),
+                        generateRandomDataApp.plafonKredit(code_company)});
 //                        generateRandomDataApp.interestRate(code_company),"000070000000000"});
             }
 
@@ -149,14 +149,20 @@ public class DataCSV {
             // write data csv realisi
             arrayData = dataApp;
             GenerateRandomDataRea generateRandomDataRea = new GenerateRandomDataRea();
-            int ix  = 2; int ixi = 5;
+            int ix = 2;
+            int ixi = 5;
 
             for (String[] reaData : arrayData) {
-                int zz = 2; int iz = ix%zz;
-                if (iz!=0){iz=ix;} else{iz=ixi;}
-                String fs     = String.format("%012d", ix);
-                String fz     = String.format("%012d", iz);
-                String kPos   = String.format("%04d", ix);
+                int zz = 2;
+                int iz = ix % zz;
+                if (iz != 0) {
+                    iz = ix;
+                } else {
+                    iz = ixi;
+                }
+                String fs = String.format("%012d", ix);
+                String fz = String.format("%012d", iz);
+                String kPos = String.format("%04d", ix);
                 String noTlpn = String.format("%03d", ix);
 
                 //System.out.println(reaData[ix]);
@@ -178,7 +184,8 @@ public class DataCSV {
                             .println("========================================================");
                 }
                 jW = reaData[5];
-                ix++;ixi++;
+                ix++;
+                ixi++;
             }
 
             // call class generate random pengurus
@@ -205,7 +212,7 @@ public class DataCSV {
                                 // pengurus row 1
                                 case 1:
                                     String[] dataPengurus = {pengurusData[0], gp.nomorUrutPengurus("01"), "0" + gp.jumlahPengurus(),
-                                            gp.sandiJabatanBI(2), "0" + gp.pangsaKepemilikan("1913"), gp.bentukPengurus("1"), gp.modalDasar(12), gp.modalDisetor(12),
+                                            gp.sandiJabatanBI(10), "0" + gp.pangsaKepemilikan("1913"), gp.bentukPengurus("1"), gp.modalDasar(12), gp.modalDisetor(12),
                                             gp.modalDitempatkan(12), gp.npwp(), gp.namaPengurus(59), "Jalan" + gp.alamatPengurus(34), "Kelurahan" + gp.alamatKelurahan(30),
                                             "Kecamatan" + gp.alamatKecamatan(30), gp.alamatDati(), gp.noKtp(), gp.noAkte(29), gp.tglLahir(), gp.tglAkte(),
                                             gp.alamatDatiLhr(), gp.jnsKelamin("B")};
@@ -227,7 +234,7 @@ public class DataCSV {
                                 // pengurus row 3
                                 case 3:
                                     dataPengurus = new String[]{pengurusData[0], gp.nomorUrutPengurus("03"), "0" + gp.jumlahPengurus(),
-                                            gp.sandiJabatanBI(1), "0" + gp.pangsaKepemilikan("1389"), gp.bentukPengurus("2"), gp.modalDasar(13), gp.modalDisetor(13),
+                                            gp.sandiJabatanBI(9), "0" + gp.pangsaKepemilikan("1389"), gp.bentukPengurus("2"), gp.modalDasar(13), gp.modalDisetor(13),
                                             gp.modalDitempatkan(13), gp.npwp(), gp.namaPengurus(60), "Jalan" + gp.alamatPengurus(35), "Kelurahan" + gp.alamatKelurahan(31),
                                             "Kecamatan" + gp.alamatKecamatan(31), gp.alamatDati(), gp.noKtp(), gp.noAkte(30), gp.tglLahir(), gp.tglAkte(),
                                             gp.alamatDatiLhr(), gp.jnsKelamin("L")};
@@ -277,8 +284,8 @@ public class DataCSV {
             writeTestData.writeData(generateRandomDataApp.timeStamp);
             // call class format file
             CSVFileName csvFileName = new CSVFileName();
-            csvFileName.parseData(case1, case2,code_company, kode_produk, tanggal);
-            csvFileName.zipData(code_company,arrayData);
+            csvFileName.parseData(case1, case2, code_company, kode_produk, tanggal);
+            csvFileName.zipData(code_company, arrayData);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -286,18 +293,18 @@ public class DataCSV {
 
         // for 30 character
         try {
-            code_company = "L000005";
-            kode_produk = "24BL001";
+            String  code_company30 = "L000005";
+            String kode_produk30 = "24BL001";
             // create FileWriter object with file as parameter
-            FileWriter outputfileApp     = new FileWriter(fileApp);
-            FileWriter outputfileRea     = new FileWriter(fileRea);
+            FileWriter outputfileApp = new FileWriter(fileApp);
+            FileWriter outputfileRea = new FileWriter(fileRea);
 
             // create CSVWriter with '|' as separator
-            CSVWriter writerApp          = new CSVWriter(outputfileApp, '|', CSVWriter.NO_QUOTE_CHARACTER, CSVWriter.DEFAULT_ESCAPE_CHARACTER, CSVWriter.DEFAULT_LINE_END);
-            CSVWriter writerRea          = new CSVWriter(outputfileRea, '|', CSVWriter.NO_QUOTE_CHARACTER, CSVWriter.DEFAULT_ESCAPE_CHARACTER, CSVWriter.DEFAULT_LINE_END);
+            CSVWriter writerApp = new CSVWriter(outputfileApp, '|', CSVWriter.NO_QUOTE_CHARACTER, CSVWriter.DEFAULT_ESCAPE_CHARACTER, CSVWriter.DEFAULT_LINE_END);
+            CSVWriter writerRea = new CSVWriter(outputfileRea, '|', CSVWriter.NO_QUOTE_CHARACTER, CSVWriter.DEFAULT_ESCAPE_CHARACTER, CSVWriter.DEFAULT_LINE_END);
 
             // create a List which contains String array
-            ArrayList<String[]> dataApp  = new ArrayList<>();
+            ArrayList<String[]> dataApp = new ArrayList<>();
             dataApp.add(new String[]{
                     "Nomor_Aplikasi",
                     "NIK",
@@ -366,29 +373,35 @@ public class DataCSV {
 
             // write data csv approval
             for (int idxApp = 1; idxApp <= 1; idxApp++) {
-                    dataApp.add(new String[]{
-                            code_company + generateRandomDataApp.nomorAplikasi(17),
-                            generateRandomDataApp.nik(),
-                            generateRandomDataApp.npwp(),
-                            generateRandomDataApp.jenisDebitur(),
-                            "PT " + nama_debitur + " " + generateRandomDataApp.namaDebitur(),
-                            generateRandomDataApp.jangkaWaktu(code_company),
-                            generateRandomDataApp.interestRate(code_company),
-                            generateRandomDataApp.plafonKredit(code_company)});
-//                        generateRandomDataApp.interestRate(code_company),"000070000000000"});
+                dataApp.add(new String[]{
+                        code_company30 + generateRandomDataApp.nomorAplikasi(17),
+                        generateRandomDataApp.nik(),
+                        generateRandomDataApp.npwp(),
+                        generateRandomDataApp.jenisDebitur(),
+                        "PT " + nama_debitur + " " + generateRandomDataApp.namaDebitur(),
+                        generateRandomDataApp.jangkaWaktu(code_company30),
+                        generateRandomDataApp.interestRate(code_company30),
+                        generateRandomDataApp.plafonKredit(code_company30)});
+//                        generateRandomDataApp.interestRate(code_company30),"000070000000000"});
             }
 
             // write data csv realisi
             arrayData = dataApp;
             GenerateRandomDataRea generateRandomDataRea = new GenerateRandomDataRea();
-            int ix  = 2; int ixi = 5;
+            int ix = 2;
+            int ixi = 5;
 
             for (String[] reaData : arrayData) {
-                int zz = 2; int iz = ix%zz;
-                if (iz!=0){iz=ix;} else{iz=ixi;}
-                String fs     = String.format("%012d", ix);
-                String fz     = String.format("%012d", iz);
-                String kPos   = String.format("%04d", ix);
+                int zz = 2;
+                int iz = ix % zz;
+                if (iz != 0) {
+                    iz = ix;
+                } else {
+                    iz = ixi;
+                }
+                String fs = String.format("%012d", ix);
+                String fz = String.format("%012d", iz);
+                String kPos = String.format("%04d", ix);
                 String noTlpn = String.format("%03d", ix);
 
                 //System.out.println(reaData[ix]);
@@ -400,7 +413,7 @@ public class DataCSV {
                             "17-AKTA PERUSAHAAN" + fz,
                             generateRandomDataRea.TglBerdiriAkir(),
                             "550000", reaData[2], reaData[5], "P01", reaData[7], reaData[6],
-                            "00000000000000090051", generateRandomDataRea.tanggalAkad(), generateRandomDataRea.angsuranPertama(code_company, reaData[5]),
+                            "00000000000000090051", generateRandomDataRea.tanggalAkad(), generateRandomDataRea.angsuranPertama(code_company30, reaData[5]),
 //                            "2", generateRandomDataRea.cd_sektorEkonomi(environment), "00000010000000000", "1", "S125012529L", "000002300000000", "18", "Jakarta Selatan"});
                             "2", generateRandomDataRea.cd_sektorEkonomi(environment), "00000010000000000", "1", "S125012529L", "000002300000000", "18", "Jakarta Selatan"});
 
@@ -410,7 +423,8 @@ public class DataCSV {
                             .println("========================================================");
                 }
                 jW = reaData[5];
-                ix++;ixi++;
+                ix++;
+                ixi++;
             }
 
             // call class generate random pengurus
@@ -419,7 +433,7 @@ public class DataCSV {
             for (String[] pengurusData : dataRea) {
                 if (pengurusData[0] != "Nomor_Aplikasi") {
                     try {
-                        File file = new File(pthResultDataDummyFile + "PENGURUS_" + code_company + "_" + kode_produk + "_" + pengurusData[0] + "_" + tanggal + Const.extCSV);
+                        File file = new File(pthResultDataDummyFile + "PENGURUS_" + code_company30 + "_" + kode_produk30 + "_" + pengurusData[0] + "_" + tanggal + Const.extCSV);
                         // create FileWriter object with file as parameter
                         FileWriter outputfile = new FileWriter(file);
 
@@ -444,11 +458,11 @@ public class DataCSV {
                     }
                 }
             }
-            System.out.println("Jumlah Data          : 1"       );
-            System.out.println("Company Code         : " + code_company);
-            System.out.println("Product Code         : " + kode_produk);
-            System.out.println("Jangka Waktu         : " + generateRandomDataApp.jangkaWaktu(code_company));
-            System.out.println("Angsuran Pertama     : " + generateRandomDataRea.angsuranPertama(code_company, generateRandomDataApp.jangkaWaktu(code_company)));
+            System.out.println("Jumlah Data          : 1");
+            System.out.println("Company Code         : " + code_company30);
+            System.out.println("Product Code         : " + kode_produk30);
+            System.out.println("Jangka Waktu         : " + generateRandomDataApp.jangkaWaktu(code_company30));
+            System.out.println("Angsuran Pertama     : " + generateRandomDataRea.angsuranPertama(code_company30, generateRandomDataApp.jangkaWaktu(code_company30)));
             System.out.println("Keyword              : " + generateRandomDataApp.timeStamp);
             System.out
                     .println("========================================================");
@@ -463,8 +477,8 @@ public class DataCSV {
             writeTestData.writeData(generateRandomDataApp.timeStamp);
             // call class format file
             CSVFileName csvFileName = new CSVFileName();
-            csvFileName.parseData(case1, case2, "L000005", kode_produk, tanggal);
-            csvFileName.zipData("L000005",arrayData);
+            csvFileName.parseData(case1, case2, code_company30, kode_produk30, tanggal);
+            csvFileName.zipData(code_company30, arrayData);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -472,12 +486,10 @@ public class DataCSV {
 
     }
 
-    public static void main(String[] args) throws IOException {
-        MoveFileScenario clean = new MoveFileScenario();
-        clean.dltDummyExist();
-        DataCSV csv = new DataCSV();
-        csv.dataDummy(Const.appFile, Const.reaFile, "8");
-    }
+//    public static void main(String[] args) throws IOException {
+//        MoveFileScenario clean = new MoveFileScenario();
+//        clean.dltDummyExist();
+//        DataCSV csv = new DataCSV();
+//        csv.dataDummy(Const.appFile, Const.reaFile, "8");
+//    }
 }
-
-

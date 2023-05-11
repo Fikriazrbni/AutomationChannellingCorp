@@ -9,7 +9,12 @@ public class Const {
     public static final String mifosE2ESup = "https://10.27.62.151:8075/";
     public static final String urlE2E = "https://10.27.62.156:7053/login";//e2e
     public static final String urlUAT = "https://10.27.62.157:7053/login";//UAT
+    public static final By akunActive = By.xpath("//b[text()= 'Akun sedang aktif']");
     public static final String e2e_userMaker = "u_ATMaker";
+    public static final String e2e_sca_userName = "autosca";
+    public static final String e2e_sca_password = "P@ssw0rd";
+    public static final String e2e_jca_userName = "autojca";
+    public static final String e2e_jca_password = "P@ssw0rd";
     public static final String e2e_userApprover = "u_ATApprov";
     public static final String e2e_password = "P@ssw0rd";
     public static final String uat_userMaker = "u_ATMaker";
@@ -17,6 +22,10 @@ public class Const {
     public static final String uat_password = "P@ssw0rd";
     public static final String e2e_user_ldap_maker = "u_ATMaker";
     public static final String e2e_pwd_ldap_maker = "P@ssw0rd";
+    public static final String e2eAllIn_u = "ATApprove";
+    public static final String e2eAllIn_pw = "P@ssw0rd";
+    public static final String e2eCr_u = "userjuniorcreditoperation";
+    public static final String e2eCr_pw = "123456789";
     public static final String e2e_user_ldap_approveRecomend = "surya.simarmata";
     public static final String e2e_pwd_ldap_approveRecomend = "Surya2022";
     public static final String e2e_user_ldap_approveRealisasi = "riani.amalia"; //riani.amalia sukron.mamun

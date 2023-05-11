@@ -106,20 +106,9 @@ public class ReadCSVFormApproval {
         // storing the data in arraylist to array
         String[] array = listOfStrings.toArray(new String[0]);
         // printing each line of file which is stored in array
-
-//        for (String ignored : array) {
-////            if (idxNomorAplikasi < array.length) {
-//            if (array.length - (idxNomorAplikasi + 1) > 0) {
-//                nomorAplikasi = array[idxNomorAplikasi];
-//
-//                String[] value = new String[2];
-//                value[0] = nomorAplikasi;
-//                value2 = value;
-//
-//            }
-//        }
         return array;
-    } public String[] fileCSVAppForm3() throws IOException { //for 30 character
+    }
+    public String[] fileCSVAppForm3() throws IOException { //for iterate each row
 
         List<String> listOfStrings = new ArrayList<>();
         File folder = new File(Const.resultDataDummyFile); //resultDataDummyFile   resultApprovalFile

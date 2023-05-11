@@ -3,10 +3,14 @@ package runner;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import createDataCSV.DataCSV;
+import elementsPage.ApprovalFormPage;
 import elementsPage.Const;
+import elementsPage.RealizationFormPage;
 import io.cucumber.testng.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import jobs.DummyAppForm_BU;
+import jobs.DummyReaForm_BU;
+import org.openqa.selenium.UnexpectedAlertBehaviour;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -34,7 +38,7 @@ import static extentreports.ExtentReportsFile.report;
                 "json:target/cucumber-report/cucumber.json",
                 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
         },
-        tags = "@repaymentFormSorted",
+        tags = "@repayment",
         features = {"src/test/resources/Features/repayment.feature"},
         glue = {"definitions"}
 )
@@ -45,24 +49,39 @@ public class FormRepaymentRunner extends  AbstractTestNGCucumberTests {
     private TestNGCucumberRunner testNGCucumberRunner;
     public static ExtentReports extent;
     public static ExtentTest extent_test_case;
+    ApprovalFormPage app = new ApprovalFormPage();
+    RealizationFormPage rea = new RealizationFormPage();
 
     @BeforeTest
     public void setExtentReport(){
         extent = report();
     }
     @BeforeMethod
-    public void cleanImages() throws IOException {
+    public void cleanImages() throws IOException, InterruptedException {
         testNGCucumberRunner = new TestNGCucumberRunner(this.getClass());
 
 //        MoveFileScenario cleanImagesFolder = new MoveFileScenario();
 //        cleanImagesFolder.deletePNG();
 //
 //        System.out.println("================Clean Success================");
-
-
-//        WebDriverManager.edgedriver().setup();
-//        driver = new EdgeDriver();
-//        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+//        MoveFileScenario moveFileScenario = new MoveFileScenario();
+//        moveFileScenario.dltDummyExist();
+//        DataCSV dataCSV = new DataCSV();
+//        dataCSV.dataDummy(Const.appFile, Const.reaFile, "10");
+//        DummyAppForm_BU connServerApp = new DummyAppForm_BU();
+//        connServerApp.serverAkses();
+//
+        WebDriverManager.edgedriver().setup();
+        EdgeOptions options = new EdgeOptions();
+        options.setUnhandledPromptBehaviour(UnexpectedAlertBehaviour.DISMISS).addArguments("--remote-allow-origins=*");
+        driver = new EdgeDriver(options);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+//
+//        app.changeAllForRepayment();
+//
+//        DummyReaForm_BU connServerRea = new DummyReaForm_BU();
+//        connServerRea.serverAkses();
+//        rea.changeAllForRepayment();
 
 //        EdgeOptions options = new EdgeOptions();
 //        try {

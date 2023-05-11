@@ -162,26 +162,98 @@ public class LibUtils {
         }
     }
 
+    public static boolean verifyListAll(Boolean hasil, String actual) {
+        try {
+            Assert.assertTrue(hasil, actual);
+            capture.log(Status.PASS, MarkupHelper.createUnorderedList(Arrays.asList("Verify list data __________ : " + hasil, "Actual from UI : " + actual)).getMarkup());
+            System.out.println("AssertTrue >>>>>>>>>> Expected : [" + hasil + "]  -  " + "Actual : [" + actual + "]");
+            return true;
+        } catch (AssertionError ee) {
+            capture.log(Status.FAIL, MarkupHelper.createUnorderedList(Arrays.asList("Verify list data __________ : " + hasil, "Actual from UI : " + actual)).getMarkup());
+            System.out.println("AssertFalse >>>>>>>>> Expected : [" + hasil + "]  -  " + "Actual : [" + actual + "]");
+            return false;
+        }
+    }
+
     public static boolean verifyValue(String expected, String actual) {
         try {
-            Assert.assertEquals(actual, expected);
-            capture.log(Status.PASS, MarkupHelper.createUnorderedList(Arrays.asList("Value __________ : " + expected, "Expected______ : " + actual)).getMarkup());
+            Assert.assertEquals(expected, actual);
+            capture.log(Status.PASS, MarkupHelper.createUnorderedList(Arrays.asList("Value __________ : " + actual, "Expected_______ : " + expected)).getMarkup());
             System.out.println("AssertTrue >>>>>>>>>> Expected : [" + expected + "]  -  " + "Actual : [" + actual + "]");
             return true;
         } catch (AssertionError ee) {
-            capture.log(Status.FAIL, MarkupHelper.createUnorderedList(Arrays.asList("Value __________ : " + expected, "Expected______ : " + actual)).getMarkup());
+            capture.log(Status.FAIL, MarkupHelper.createUnorderedList(Arrays.asList("Value __________ : " + actual, "Expected_______ : " + expected)).getMarkup());
             System.out.println("AssertFalse >>>>>>>>> Expected : [" + expected + "]  -  " + "Actual : [" + actual + "]");
             return false;
         }
     }
+
+    public static boolean verifyContain(String expected, String actual) {
+        if (expected.contains(actual)) {
+            capture.log(Status.PASS, MarkupHelper.createUnorderedList(Arrays.asList("Value __________ : " + actual, "Expected_______ : " + expected)).getMarkup());
+            System.out.println("AssertTrue >>>>>>>>>> Expected : [" + expected + "]  -  " + "Actual : [" + actual + "]");
+            return true;
+        } else {
+            capture.log(Status.FAIL, MarkupHelper.createUnorderedList(Arrays.asList("Value __________ : " + actual, "Expected_______ : " + expected)).getMarkup());
+            System.out.println("AssertFalse >>>>>>>>> Expected : [" + expected + "]  -  " + "Actual : [" + actual + "]");
+            return false;
+        }
+    }
+
+    public static void verifySortOrder(List<String> dataList, int row, Integer sortType) {
+
+        boolean sort = true;
+        switch (sortType) {
+            case 1: //Ascending
+                for (int i = 1; i < dataList.size(); i++) {
+                    String currentValue = dataList.get(i);
+                    String previousValue = dataList.get(i - 1);
+                    if (currentValue.compareTo(previousValue) < 0) {
+                        sort = false;
+                        break;
+                    }
+                }
+                if (sort) {
+                    capture.log(Status.PASS, MarkupHelper.createUnorderedList(Arrays.asList("List : " + dataList, "Row : " + row, "Sort order : " + "Ascending")).getMarkup());
+                } else {
+                    capture.log(Status.FAIL, MarkupHelper.createUnorderedList(Arrays.asList("List : " + dataList, "Row : " + row, "Sort order : " + "Ascending")).getMarkup());
+                }
+                break;
+            case 2: //Descending
+                for (int i = 1; i < dataList.size(); i++) {
+                    String currentValue = dataList.get(i);
+                    String previousValue = dataList.get(i - 1);
+                    if (currentValue.compareTo(previousValue) > 0) {
+                        sort = false;
+                        break;
+                    }
+                }
+                if (sort) {
+                    capture.log(Status.PASS, MarkupHelper.createUnorderedList(Arrays.asList("List : " + dataList, "Row : " + row, "Sort order : " + "Descending")).getMarkup());
+                } else {
+                    capture.log(Status.FAIL, MarkupHelper.createUnorderedList(Arrays.asList("List : " + dataList, "Row : " + row, "Sort order : " + "Descending")).getMarkup());
+                }
+                break;
+        }
+    }
+
+    public static void verifyNextPage(List<String> dataSet, int row) {
+        Set<String> unique = new HashSet<>(dataSet);
+        if (unique.size() == dataSet.size()) {
+            capture.log(Status.PASS, MarkupHelper.createUnorderedList(Arrays.asList("Row List : " + dataSet, "Row Total : " + row, "Result : " + "There are no duplicate values in the list")).getMarkup());
+        } else {
+            capture.log(Status.FAIL, MarkupHelper.createUnorderedList(Arrays.asList("Row List : " + dataSet, "Row Total : " + row, "Result : " + "There are duplicate values in the list")).getMarkup());
+        }
+    }
+
     public static boolean verifyCustom(String expected, String actual, String title) {
         try {
             Assert.assertEquals(actual, expected);
-            capture.log(Status.PASS, MarkupHelper.createUnorderedList(Arrays.asList("Validation : "+title,"Actual     : " + expected, "Expected   : " + actual)).getMarkup());
+            capture.log(Status.PASS, MarkupHelper.createUnorderedList(Arrays.asList("Validation : " + title, "Actual     : " + actual, "Expected   : " + expected)).getMarkup());
             System.out.println("AssertTrue >>>>>>>>>> Expected : [" + expected + "]  -  " + "Actual : [" + actual + "]");
             return true;
         } catch (AssertionError ee) {
-            capture.log(Status.FAIL, MarkupHelper.createUnorderedList(Arrays.asList("Validation : "+title,"Actual     : " + expected, "Expected   : " + actual)).getMarkup());
+            capture.log(Status.FAIL, MarkupHelper.createUnorderedList(Arrays.asList("Validation : " + title, "Actual     : " + actual, "Expected   : " + expected)).getMarkup());
             System.out.println("AssertFalse >>>>>>>>> Expected : [" + expected + "]  -  " + "Actual : [" + actual + "]");
             return false;
         }
@@ -216,12 +288,25 @@ public class LibUtils {
     public static boolean verifyValueDisplay(boolean value_expected, boolean value_actual, String msg) {
         try {
             Assert.assertEquals(value_actual, value_expected);
-            capture.log(Status.PASS, MarkupHelper.createUnorderedList(Arrays.asList("Actual from UI __________ : " + value_expected + ">> " + msg)).getMarkup());
+            capture.log(Status.PASS, MarkupHelper.createUnorderedList(Arrays.asList("Actual__________ : " + value_expected + ">> " + msg)).getMarkup());
             System.out.println("AssertTrue >>>>>>>>>> Expected : [" + value_expected + "]  -  " + "Actual : [" + value_actual + "]");
             return true;
         } catch (AssertionError ee) {
-            capture.log(Status.FAIL, MarkupHelper.createUnorderedList(Arrays.asList("Actual from UI __________ : " + value_expected + ">> " + msg)).getMarkup());
+            capture.log(Status.FAIL, MarkupHelper.createUnorderedList(Arrays.asList("Actual__________ : " + value_expected + ">> " + msg)).getMarkup());
             System.out.println("AssertFalse >>>>>>>>> Expected : [" + value_expected + "]  -  " + "Actual : [" + value_actual + "]");
+            return false;
+        }
+    }
+
+    public static boolean verifyDisplay(boolean expected, boolean actual, String msg) {
+        try {
+            Assert.assertEquals(actual, expected);
+            capture.log(Status.PASS, MarkupHelper.createUnorderedList(Arrays.asList("Element verified : " + msg, "Actual__________ : " + actual, "Expected_______ : " + expected)).getMarkup());
+            System.out.println("AssertTrue >>>>>>>>>> Expected : [" + expected + "]  -  " + "Actual : [" + actual + "]");
+            return true;
+        } catch (AssertionError ee) {
+            capture.log(Status.FAIL, MarkupHelper.createUnorderedList(Arrays.asList("Element verified : " + msg, "Actual__________ : " + actual, "Expected_______ : " + expected)).getMarkup());
+            System.out.println("AssertFalse >>>>>>>>> Expected : [" + expected + "]  -  " + "Actual : [" + actual + "]");
             return false;
         }
     }
@@ -235,6 +320,19 @@ public class LibUtils {
         } catch (AssertionError ee) {
             capture.log(Status.FAIL, MarkupHelper.createUnorderedList(Arrays.asList("Actual from UI __________ : " + value_expected, "Actual from csv/testdata : " + value_actual, msg)).getMarkup());
             System.out.println("AssertFalse >>>>>>>>> Expected : [" + value_expected + "]  -  " + "Actual : [" + value_actual + "]");
+            return false;
+        }
+    }
+
+    public static boolean verifyValueNotEquals2(String before, String after, String msg) {
+        try {
+            Assert.assertNotEquals(before, after);
+            capture.log(Status.PASS, MarkupHelper.createUnorderedList(Arrays.asList(msg, "Value Before_____ : " + before, "Value After______ : " + after)).getMarkup());
+            System.out.println("AssertTrue >>>>>>>>>> after : [" + after + "]  -  " + "before : [" + before + "]");
+            return true;
+        } catch (AssertionError ee) {
+            capture.log(Status.FAIL, MarkupHelper.createUnorderedList(Arrays.asList(msg, "Value Before_____ : " + before, "Value After______ : " + after)).getMarkup());
+            System.out.println("AssertFalse >>>>>>>>> after : [" + after + "]  -  " + "before : [" + before + "]");
             return false;
         }
     }
@@ -281,10 +379,10 @@ public class LibUtils {
 //        LibUtils.capture = extent_test_case.info("Actual Result from UI : " + ReadTestData.expectedNoted(iRowPictName));
     }
 
-    public static void createTestSkip(int iRowPictName, ExtentTest extent_test_case, ExtentReports extent,String reason) {
+    public static void createTestSkip(int iRowPictName, ExtentTest extent_test_case, ExtentReports extent, String reason) {
 
         extent_test_case = extent.createTest(ReadTestData.testCaseID(iRowPictName) + " : " + ReadTestData.testCaseName(iRowPictName)).assignAuthor(System.getProperty("user.name")).assignCategory("Regression");
-        LibUtils.capture = extent_test_case.info("Expected Result from CSV : " + ReadTestData.expectedResult(iRowPictName));
+        LibUtils.capture = extent_test_case.info("Expected Result from Excel : " + ReadTestData.expectedResult(iRowPictName));
         LibUtils.capture = extent_test_case.skip("Reason : " + reason);
     }
 
@@ -293,19 +391,19 @@ public class LibUtils {
     }
 
     public static void infoData(String field, String value) {
-        capture.log(Status.INFO, MarkupHelper.createUnorderedList(field + " -> "+value).getMarkup());
+        capture.log(Status.INFO, MarkupHelper.createUnorderedList(field + " -> " + value).getMarkup());
     }
 
     public static boolean infoLength(String field, String value, int expectedLen) {
-        int len = value.replace(".","").length();
+        int len = value.replace(".", "").length();
 //        capture.log(Status.PASS, MarkupHelper.createUnorderedList(Arrays.asList(field + " -> "+value,"Length -----------> "+len)).getMarkup());
         try {
             Assert.assertEquals(expectedLen, len);
-            capture.log(Status.PASS, MarkupHelper.createUnorderedList(Arrays.asList(field + " ----> "+value, "Actual Length ----> " + len, "Expected Length --> " + expectedLen)).getMarkup());
+            capture.log(Status.PASS, MarkupHelper.createUnorderedList(Arrays.asList(field + " ----> " + value, "Actual Length ----> " + len, "Expected Length --> " + expectedLen)).getMarkup());
             System.out.println("AssertTrue >>>>>>>>>> Expected : [" + expectedLen + "]  -  " + "Actual : [" + len + "]");
             return true;
         } catch (AssertionError ee) {
-            capture.log(Status.FAIL, MarkupHelper.createUnorderedList(Arrays.asList(field + " ----> "+value, "Actual Length ----> " + len, "Expected Length --> " + expectedLen)).getMarkup());
+            capture.log(Status.FAIL, MarkupHelper.createUnorderedList(Arrays.asList(field + " ----> " + value, "Actual Length ----> " + len, "Expected Length --> " + expectedLen)).getMarkup());
             System.out.println("AssertFalse >>>>>>>>> Expected : [" + expectedLen + "]  -  " + "Actual : [" + len + "]");
             return false;
         }

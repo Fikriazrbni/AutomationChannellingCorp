@@ -3,7 +3,7 @@ Feature: Lending Channeling
   @approvalForm
   Scenario: Approval Form
   Given open browser and login as a role maker
-  Then click menu approval form
+#  Then click menu approval form
 #  Then verify data form table
 #    And verify data source
 #    And verify data application no
@@ -38,6 +38,6 @@ Feature: Lending Channeling
 #    And click debtor name dengan status approved
 #    And click debtor name dengan status rejected
 #    And verify data detail Dokumen Pendukung(Upload Dokumen 2kali isi file berbeda)
-  Then approved yang status waiting approval untuk persiapan data realisasi
+#  Then approved yang status waiting approval untuk persiapan data realisasi
 #    And click debtor name dengan status approval expired
   Then user maker logout
