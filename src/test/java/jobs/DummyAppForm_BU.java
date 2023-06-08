@@ -10,8 +10,8 @@ import java.util.Properties;
 
 public class DummyAppForm_BU {
 
-    static String user = "qalos";//qalos applos
-    static String pass = "P@ssw0rd";
+    static String user = "";//qalos applos
+    static String pass = "P@";
     ReadTestData readTestData = new ReadTestData();
     public static String hit_job;
     //static String comndChmod = "cd /cd/nasbdb/LOS_DEV/co-borrowing/approvalfile/appfile-source ";
@@ -20,14 +20,14 @@ public class DummyAppForm_BU {
     public void serverAkses() {
         String pthApprovalFile;
         String host;
-        String e2e_host = "10.27.62.156";
-        String uat_host = "10.27.62.157";
+        String e2e_host = ""
+        String uat_host = "";
 
 //        String e2e_pathFileIDV = "/cd/nasbdb/LOS_DEV/co-borrowing/approvalfile/appfile-source/";
 //        String uat_pathFileIDV = "/cd/nasbdb/LOS_UAT/co-borrowing/approvalfile/appfile-source/";
-        String e2e_pathFile = "/nasbcad/nas_los/DEV_CHN/app-file/file-upload/";
-        String uat_pathFile = "/cd/nasbdb/LOS_UAT/app-file/file-upload/";
-        String hit_job = "cd /bdb/app/los-source/job-execute && ./npl-validation.sh && ./approval-proccess.sh";
+        String e2e_pathFile = "";
+        String uat_pathFile = "";
+        String hit_job = "";
 
         try {
             DummyAppForm_BU.hit_job = hit_job;
